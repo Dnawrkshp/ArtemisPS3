@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\codes.c" />
+    <ClCompile Include="src\common.c" />
+    <ClCompile Include="src\lv2_utils.c" />
+    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\mamba_prx_loader.c" />
+    <ClCompile Include="src\menu_about.c" />
+    <ClCompile Include="src\menu_cheats.c" />
+    <ClCompile Include="src\menu_options.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\codes.h" />
+    <ClInclude Include="include\common.h" />
+    <ClInclude Include="include\lv2_utils.h" />
+    <ClInclude Include="include\mamba_prx_loader.h" />
+    <ClInclude Include="include\menu_about.h" />
+    <ClInclude Include="include\menu_cheats.h" />
+    <ClInclude Include="include\menu_options.h" />
+    <ClInclude Include="include\ps3mapi_ps3_lib.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\background.png" />
+    <Image Include="data\desc_about.jpg" />
+    <Image Include="data\desc_about.png" />
+    <Image Include="data\desc_cheats.png" />
+    <Image Include="data\desc_options.png" />
+    <Image Include="data\desc_start.jpg" />
+    <Image Include="data\desc_start.png" />
+    <Image Include="data\icon_about.png" />
+    <Image Include="data\icon_cheats.png" />
+    <Image Include="data\icon_onlinecheats.png" />
+    <Image Include="data\icon_options.png" />
+    <Image Include="data\icon_start.png" />
+    <Image Include="data\icon_usercheats.png" />
+    <Image Include="data\logo.png" />
+    <Image Include="data\logo_ghost.png" />
+    <Image Include="data\menu_bar.png" />
+    <Image Include="data\project.png" />
+    <Image Include="data\sel_bar1.png" />
+    <Image Include="data\sel_bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\background_music_mp3.bin" />
+    <None Include="data\cousinereg_ttf.bin" />
+    <None Include="data\electromagnetic_lungs_ttf.bin" />
+    <None Include="data\neuropol_ttf.bin" />
+    <None Include="data\spu_soundmodule.bin" />
+    <None Include="data\ubuntumono_ttf.bin" />
+    <None Include="data\ubuntureg_ttf.bin" />
+    <None Include="makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="sfo.xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{81D6DAFA-1476-45DA-943F-CEB5269B5A9E}</ProjectGuid>
+    <RootNamespace>ArtemisPS3GUI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <PSL1GHTSDKPath>Z:\PSDK3v2</PSL1GHTSDKPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.self</TargetExt>
+    <IncludePath>$(PSL1GHTSDKPath)\psl1ght\spu\include;$(PSL1GHTSDKPath)\MinGW\include;$(PSL1GHTSDKPath)\psl1ght\ppu\include;$(ProjectDir)\libfont\include;$(ProjectDir)\include;$(ProjectDir)\obj;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+    <LibraryPath>$(PSL1GHTSDKPath)\psl1ght\spu\lib;$(PSL1GHTSDKPath)\psl1ght\ppu\lib;$(PSL1GHTSDKPath)\MinGW\lib;$(LibraryPath)</LibraryPath>
+    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean
+"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) make</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
+    <NMakeIncludeSearchPath>$(PSL1GHTSDKPath)\MinGW\;$(PSL1GHTSDKPath)\MinGW\include;$(PSL1GHTSDKPath)\psl1ght\ppu\include;$(ProjectDir)\include;$(ProjectDir)\libfont\include;$(ProjectDir)\obj;$(PSL1GHTSDKPath)\ps3dev\portlibs\ppu\include</NMakeIncludeSearchPath>
+    <NMakeOutput>
+    </NMakeOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(PSL1GHTSDKPath)\psl1ght\spu\include;$(PSL1GHTSDKPath)\MinGW\include;$(PSL1GHTSDKPath)\psl1ght\ppu\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PSL1GHTSDKPath)\psl1ght\spu\lib;$(PSL1GHTSDKPath)\psl1ght\ppu\lib;$(PSL1GHTSDKPath)\MinGW\lib;$(LibraryPath)</LibraryPath>
+    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) package</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean
+"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) package</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
+    <NMakeIncludeSearchPath>$(PSL1GHTSDKPath)\MinGW\;$(PSL1GHTSDKPath)\MinGW\include;$(PSL1GHTSDKPath)\psl1ght\ppu\include;$(ProjectDir)\include;$(ProjectDir)\libfont\include;$(ProjectDir)\obj;$(PSL1GHTSDKPath)\ps3dev\portlibs\ppu\include</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <CustomBuildStep>
+      <Command>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(MSBuildProjectName).self</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

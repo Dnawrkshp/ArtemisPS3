@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BF1BFBD9-6BBE-4159-82A1-29B0B980EDB9}</ProjectGuid>
+    <RootNamespace>ArtemisPS3PRX</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SCE_PS3_ROOT)/target/ppu/lib;$(SCE_PS3_ROOT)/target/spu/lib;$(LibraryPath)</LibraryPath>
+    <NMakeIncludeSearchPath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean
+"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean
+"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
+    <NMakeIncludeSearchPath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include</NMakeIncludeSearchPath>
+    <IncludePath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SCE_PS3_ROOT)/target/ppu/lib;$(SCE_PS3_ROOT)/target/spu/lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="asmcode.s" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libc.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="printf.c" />
+    <ClCompile Include="ps3mapi_ps3_lib.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="assembly.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="printf.h" />
+    <ClInclude Include="ps3mapi_ps3_lib.h" />
+    <ClInclude Include="types.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

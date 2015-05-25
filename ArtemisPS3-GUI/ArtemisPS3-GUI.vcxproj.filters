@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\codes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\common.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lv2_utils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mamba_prx_loader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu_about.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu_cheats.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu_options.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\codes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\lv2_utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mamba_prx_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\menu_about.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\menu_cheats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\menu_options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ps3mapi_ps3_lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_about.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_about.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_cheats.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_options.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_start.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\desc_start.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_about.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_cheats.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_onlinecheats.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_options.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_start.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\icon_usercheats.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\logo_ghost.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\menu_bar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\project.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\sel_bar1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\sel_bar2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\background_music_mp3.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\cousinereg_ttf.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\electromagnetic_lungs_ttf.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\neuropol_ttf.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\spu_soundmodule.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\ubuntumono_ttf.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="data\ubuntureg_ttf.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="sfo.xml" />
+  </ItemGroup>
+</Project>

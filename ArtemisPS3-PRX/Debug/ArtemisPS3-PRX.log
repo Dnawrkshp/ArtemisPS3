@@ -1,0 +1,35 @@
+﻿  cd "C:\Users\Dan\Documents\VisualStudio2013\Projects\ArtemisPS3\ArtemisPS3-PR
+  X"
+  make
+  /c/usr/local/cell/host-win32/ppu/bin/ppu-lv2-gcc -c -g -O2  -std=c99 -W -Wall -Wuninitialized -Wcomment -Wchar-subscripts -Wdeprecated-declarations -Wendif-labels -Wformat=2 -Wformat-extra-args -Wimplicit -Wimport -Winline -Wmissing-braces -Wparentheses -Wpointer-arith -Wredundant-decls -Wreturn-type -Wshadow -Wsign-compare -Wswitch -Wunknown-pragmas -Wunused -Wwrite-strings -Wmain -Wbad-function-cast -Wmissing-declarations -Wnested-externs -Wstrict-prototypes -Wmissing-prototypes    -DCELL_DATA_DIR=\"/c/usr/local/cell/sample_data\" -Os -ffunction-sections -fdata-sections -fno-builtin-printf -nodefaultlibs -std=gnu99 -Wno-shadow -Wno-unused-parameter -Wp,-MMD,obj/main.ppu.d,-MT,obj/main.ppu.o -o obj/main.ppu.o main.c
+  main.c: In function 'show_msg':
+  main.c:141: warning: cast from function call of type 'void *' to non-matching type 'int'
+main.c(141,1): warning : cast from function call of type 'void *' to non-matching type 'int'
+  main.c: In function '_free':
+main.c(171,1): warning : cast from function call of type 'void *' to non-matching type 'int'
+  main.c:171: warning: cast from function call of type 'void *' to non-matching type 'int'
+  /c/usr/local/cell/host-win32/ppu/bin/ppu-lv2-g++ -mprx  obj/printf.ppu.o  obj/libc.ppu.o  obj/main.ppu.o  obj/ps3mapi_ps3_lib.ppu.o            -zgenprx -zgenstub -L ../lib -Wl,--strip-unused-data -lfs_stub -lnet_stub -lrtc_stub -lio_stub -o artemis_ps3.sym
+  /bin/cp artemis_ps3.sym artemis_ps3.prx
+  /c/usr/local/cell/host-win32/bin/make_fself artemis_ps3.prx artemis_ps3.sprx
+  make obj/printf.ppu.o obj/libc.ppu.o obj/main.ppu.o obj/ps3mapi_ps3_lib.ppu.o
+  make[1]: Entering directory `/c/Users/Dan/Documents/VisualStudio2013/Projects/ArtemisPS3/ArtemisPS3-PRX'
+  make[1]: `obj/printf.ppu.o' is up to date.
+  make[1]: `obj/libc.ppu.o' is up to date.
+  make[1]: `obj/main.ppu.o' is up to date.
+  make[1]: `obj/ps3mapi_ps3_lib.ppu.o' is up to date.
+  make[1]: Leaving directory `/c/Users/Dan/Documents/VisualStudio2013/Projects/ArtemisPS3/ArtemisPS3-PRX'
+  /c/usr/local/cell/host-win32/bin/ppu-lv2-prx-strip --strip-debug --strip-section-header artemis_ps3.prx
+  #make_self_wc2 a -c -k04 -034100 -a1070000052000001 -s3.40.0 -x40 -z02 -o/d/mm/multiman/release/sec_pad.bin -p/d/mm/multiman/release/cap_flag.bin artemis_ps3.prx artemis_ps3.sprx
+  scetool -0 SELF -1 TRUE -s FALSE -2 04 -3 1070000052000001 -4 01000002 -5 APP -6 0003004000000000 -A 0001000000000000 -e artemis_ps3.prx artemis_ps3.sprx
+  scetool 0.2.9 <public build> (C) 2011-2012 by naehrwert
+  NP local license handling (C) 2012 by flatz
+  
+  [*] SELF built.
+  [*] Data compressed.
+  [*] Data encrypted.
+  [*] artemis_ps3.sprx written.
+  exit
+  logout
+  
+  Errors/warnings detected!
+  Press any key to exit...
