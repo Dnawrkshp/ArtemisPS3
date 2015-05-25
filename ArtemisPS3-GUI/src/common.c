@@ -4,6 +4,7 @@
 #include <sys/systime.h>
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <dirent.h> 
 
 #include "common.h"
 
@@ -105,16 +106,35 @@ sysFSStat stat1;
 
 int file_exists(const char *path)
 {
+	/*
     int ret = sysLv2FsStat(path, &stat1);
     if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return FAILED;
     return ret;
+	*/
+
+	FILE *f = fopen(path, "rb");
+	if (f == NULL)
+		return 0;
+
+	fclose(f);
+	return 1;
 }
 
 int dir_exists(const char *path)
 {
+	/*
     int ret = sysLv2FsStat(path, &stat1);
     if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return SUCCESS;
     return FAILED;
+	*/
+	DIR *d;
+	d = opendir(path);
+
+	if (d <= 0)
+		return 0;
+
+	closedir(d);
+	return 1;
 }
 
 int unlink_secure(void *path)

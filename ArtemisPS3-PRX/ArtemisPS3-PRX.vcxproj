@@ -48,9 +48,11 @@
     <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build
+copy "$(ProjectDir)\artemis_ps3.sprx" "..\ArtemisPS3-GUI\pkgfiles\USRDIR"</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean
-"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build</NMakeReBuildCommandLine>
+"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) build
+copy "$(ProjectDir)\artemis_ps3.sprx" "..\ArtemisPS3-GUI\pkgfiles\USRDIR"</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>"$(ProjectDir)\PSL1GHTBuilder.exe" $(PSL1GHTSDKPath) clean</NMakeCleanCommandLine>
     <NMakeIncludeSearchPath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include</NMakeIncludeSearchPath>
     <IncludePath>$(SCE_PS3_ROOT)/target/ppu/include;$(SCE_PS3_ROOT)/target/common/include;$(SCE_PS3_ROOT)/target/spu/include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
