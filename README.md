@@ -3,7 +3,7 @@ An Open Source Playstation 3 Hacking System created under the Project Artemis in
 
 How To Use
 ----------
-Please refer to [Installation.md](https://github.com/Dnawrkshp/ArtemisPS3/tree/master/Installation.md) for installation and use instructions.
+Please refer to the [Installation](https://github.com/Dnawrkshp/ArtemisPS3/tree/master/INSTALLATION.md) file for installation and use instructions.
 
 Status
 -------
