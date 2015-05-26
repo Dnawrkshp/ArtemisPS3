@@ -114,10 +114,10 @@ int file_exists(const char *path)
 
 	FILE *f = fopen(path, "rb");
 	if (f == NULL)
-		return 0;
+		return FAILED;
 
 	fclose(f);
-	return 1;
+	return SUCCESS;
 }
 
 int dir_exists(const char *path)
@@ -131,10 +131,10 @@ int dir_exists(const char *path)
 	d = opendir(path);
 
 	if (d <= 0)
-		return 0;
+		return FAILED;
 
 	closedir(d);
-	return 1;
+	return SUCCESS;
 }
 
 int unlink_secure(void *path)
@@ -143,6 +143,7 @@ int unlink_secure(void *path)
     {
         sysLv2FsChmod(path, FS_S_IFMT | 0777);
         return sysLv2FsUnlink(path);
+		//return remove(path);
     }
     return FAILED;
 }

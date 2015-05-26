@@ -17,4 +17,3 @@ u64 lv2poke(u64 addr, u64 value)
     lv2syscall2(7, (u64) addr, (u64) value); 
     return_to_user_prog(u64);
 }
-

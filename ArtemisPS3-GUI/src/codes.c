@@ -60,8 +60,8 @@ char * stripExt(const char * filename)
  */
 int isExist(const char* path)
 {
-    int isf = file_exists(path);
-    int isd = dir_exists(path);
+    int isf = file_exists(path) == SUCCESS;
+    int isd = dir_exists(path) == SUCCESS;
     
     return isf | isd;
 }
@@ -142,7 +142,7 @@ long getDirListSize(const char * path)
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
                 sprintf(fullPath, "%s%s", path, dir->d_name);
-                if (file_exists(fullPath) && EndsWith(dir->d_name, ".ncl"))
+                if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
                     count++;
                 }
@@ -878,7 +878,7 @@ void BubbleSortGameList(struct game_entry * games, int count)
 struct game_entry * ReadUserList(int * gmc)
 {
     char * userPath;
-    if (dir_exists(USERLIST_PATH))
+    if (dir_exists(USERLIST_PATH) == SUCCESS)
         userPath = (char*)USERLIST_PATH;
     else
         userPath = (char*)USERLIST_PATH2;
@@ -904,7 +904,7 @@ struct game_entry * ReadUserList(int * gmc)
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
                 sprintf(fullPath, "%s%s", userPath, dir->d_name);
-                if (file_exists(fullPath) && EndsWith(dir->d_name, ".ncl"))
+                if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
                     int ccnt[1];
                     

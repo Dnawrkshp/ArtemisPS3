@@ -1229,7 +1229,7 @@ void drawScene()
                                 {
                                     //printf ("MAMBA but not artemis is loaded\n");
                                     if (mamba_prx_loader(1, 0) == SUCCESS)
-                                    {   
+                                    {
                                         lv2syscall3(392, 0x1004, 0x4, 0x6); //1 Beep
                                     }
                                 }
