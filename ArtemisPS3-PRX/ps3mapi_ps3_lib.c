@@ -129,21 +129,18 @@ int ccapi_set_process_mem(process_id_t pid, uint64_t addr, char *buf, int size )
 
 int ps3mapi_get_process_mem(process_id_t pid, uint64_t addr, char *buf, int size)
 {
-	if ((unsigned int)size > (64*KB)) return -1;
 	system_call_6(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_PROC_MEM, (uint64_t)pid, (uint64_t)addr, (uint64_t)((uint32_t)buf), (uint64_t)size);
 	return_to_user_prog(int);						
 }
 	
 int dex_get_process_mem(process_id_t pid, uint64_t addr, char *buf, int size)
 {
-	if ((unsigned int)size > (64*KB)) return -1;
 	system_call_4(904, (uint64_t)pid, (uint64_t)addr, (uint64_t)size, (uint64_t)((uint32_t)buf));
 	return_to_user_prog(int);
 }
 
 int ccapi_get_process_mem(process_id_t pid, uint64_t addr, char *buf, int size)
 {
-	if ((unsigned int)size > (64*KB)) return -1;
 	system_call_4(200, (uint64_t)pid, (uint64_t)addr, (uint64_t)size, (uint64_t)((uint32_t)buf));
 	return_to_user_prog(int);
 }
@@ -182,6 +179,18 @@ int ps3mapi_unload_process_modules(process_id_t pid, sys_prx_id_t prx_id)
 	return_to_user_prog(int);						
 }
 
+int ps3mapi_unload_vsh_plugin(char *name)
+{
+	system_call_3(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_UNLOAD_VSH_PLUGIN, (uint64_t)name);
+	return_to_user_prog(int);						
+}
+
+int ps3mapi_get_vsh_plugin_info(unsigned int slot, char *name, char *filename);
+{
+	system_call_5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, (uint64_t)slot, (uint64_t)name, (uint64_t)filename);
+	return_to_user_prog(int);						
+}
+
 //-----------------------------------------------
 //CLEAN SYSCALL
 //-----------------------------------------------
@@ -204,11 +213,41 @@ int ps3mapi_pdisable_syscall8(int mode)
 	return_to_user_prog(int);						
 }
 
-int ps3mapi_pcheck_syscall8(void)
+int ps3mapi_pcheck_syscall8()
 {
 	system_call_2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_PCHECK_SYSCALL8);
 	return_to_user_prog(int);						
 }
+
+
+//-----------------------------------------------
+//PSID/IDPS
+//-----------------------------------------------
+
+int ps3mapi_get_idps(uint64_t *idps);
+{
+	system_call_3(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_IDPS, (uint64_t)idps);
+	return_to_user_prog(int);						
+}
+
+int ps3mapi_set_idps(uint64_t part1, uint64_t part2);
+{
+	system_call_4(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_SET_IDPS, (uint64_t)part1, (uint64_t)part2);
+	return_to_user_prog(int);						
+}
+
+int ps3mapi_get_psid(uint64_t *psid);
+{
+	system_call_3(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_PSID, (uint64_t)psid);
+	return_to_user_prog(int);						
+}
+
+int ps3mapi_set_psid(uint64_t part1, uint64_t part2);
+{
+	system_call_4(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_SET_PSID, (uint64_t)part1, (uint64_t)part2);
+	return_to_user_prog(int);						
+}
+
 //-----------------------------------------------
 //DISABLE COBRA/MAMBA
 //-----------------------------------------------
