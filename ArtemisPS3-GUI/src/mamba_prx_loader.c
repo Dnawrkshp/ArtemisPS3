@@ -763,6 +763,19 @@ int get_firmware_info()
             FIRMWARE = 0x470D;
             return SUCCESS;
         break;
+		case 0x800000000034FBB0ULL:
+			HV_START_OFFSET = HV_START_OFFSET_475;
+			SYSCALL_TABLE = SYSCALL_TABLE_475;
+			OFFSET_2_FIX = OFFSET_2_FIX_475;
+			OFFSET_FIX = OFFSET_FIX_475;
+			OFFSET_FIX_2B17 = OFFSET_FIX_2B17_475;
+			OFFSET_FIX_LIC = OFFSET_FIX_LIC_475;
+			OFFSET_FIX_3C = OFFSET_FIX_3C_475;
+			OFFSET_FIX_17 = OFFSET_FIX_17_475;
+			OFFSET_FIX_2B = OFFSET_FIX_2B_475;
+			FIRMWARE = 0x475C;
+			return SUCCESS;
+		break;
         default:
             return FAILED;
         break;
