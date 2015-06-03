@@ -1173,10 +1173,11 @@ void SetMenu(int id)
     menu_sel = menu_old_sel[menu_id];
 }
 
+//COBRA/MAMBA+PS3MAPI+LOADPLUGIN
 
 #define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
 
-int cobra_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
+int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
 {
     lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
     return_to_user_prog(int);
@@ -1193,6 +1194,7 @@ int has_ps3mapi(void)
     if (ps3mapi_get_core_version() >= PS3MAPI_CORE_MINVERSION) return SUCCESS;
     return FAILED;
 }
+
 
 
 // Resets new frame
@@ -1228,7 +1230,7 @@ void drawScene()
                 {
                     switch (menu_sel)
                     {
-                        case 0: //start (install MAMBA, load artemis_ps3.sprx, write cheats to /dev_hdd0/tmp/art.txt)
+                        case 0: //start (install MAMBA if needed, load artemis_ps3.sprx, write cheats to /dev_hdd0/tmp/art.txt)
                             userc = ParseActivatedGameList(user_game_list, user_game_count);
                             onlinec = ParseActivatedGameList(online_game_list, online_game_count);
                             
@@ -1237,31 +1239,36 @@ void drawScene()
                             free (userc);
                             free (onlinec);
                             
-                            
+							//
+							char plugin_name[30];
+							char plugin_filename[256];
+							memset(plugin_name, 0, sizeof(plugin_name));
+							memset(plugin_filename, 0, sizeof(plugin_filename));
                             //Check if COBRA+PS3MAPI is installed
                             if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
 							{
-                                //printf("COBRA: Artemis is loaded!\n");
-								cobra_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
-                                { lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
+                                //printf ("COBRA+PS3MAPI Detected\n");
+								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
+								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
+								{
+                                    //printf ("COBRA: Artemis is not loaded yet\n");
+									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
+                                }
+                                //printf ("COBRA: Artemis running\n");
+                                {lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
 							}
                             //Check if MAMBA+PS3MAPI is installed
                             else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
                             {
-                                if (isArtemisLoaded())
-                                {
-                                    //printf("MAMBA: Artemis is loaded!\n");
-                                   { lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
-                                    //exit(0);
+                                //printf ("MAMBA + PS3MAPI Detected\n");
+								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
+								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
+								{
+                                    //printf ("MAMBA: Artemis is not loaded yet\n");
+									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
                                 }
-                                else
-                                {
-                                    //printf ("MAMBA but not artemis is loaded\n");
-                                    if (mamba_prx_loader(1, 0) == SUCCESS)
-                                    {
-                                        {lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
-                                    }
-                                }
+                                //printf ("MAMBA: Artemis running\n");
+                                {lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
                             }
                             else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
                             {   

@@ -16,7 +16,7 @@
 
 #define PS3MAPI_PS3_LIB_VERSION					0x0120
 
-#define PS3MAPI_CORE_MINVERSION					0x0111
+#define PS3MAPI_CORE_MINVERSION					0x0120
 
 //-----------------------------------------------
 //CORE
