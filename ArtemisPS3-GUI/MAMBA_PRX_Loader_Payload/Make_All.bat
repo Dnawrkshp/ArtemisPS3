@@ -1,14 +1,14 @@
-#echo off
+@echo off
 
 set PS3DEV=./ps3dev
-set PS3SDK=/z/PSDK3v2
-set WIN_PS3SDK=Z:/PSDK3v2
-#set PATH=%WIN_PS3SDK%/mingw/msys/1.0/bin;%WIN_PS3SDK%/mingw/bin;%PS3DEV%/ppu/bin;
+set PS3SDK=/c/PSDK3v2
+set WIN_PS3SDK=C:/PSDK3v2
+set PATH=%WIN_PS3SDK%/mingw/msys/1.0/bin;%WIN_PS3SDK%/mingw/bin;%PS3DEV%/ppu/bin;
 
-#rem %PATH%;
+rem %PATH%;
 
-#if exist payloads del payloads\*.bin>nul
-#if exist payloads rmdir payloads
+if exist payloads del payloads\*.bin>nul
+if exist payloads rmdir payloads
 
 del *.bin>nul
 
@@ -43,6 +43,7 @@ if exist payload_4_66.bin     move  payload_4_66.bin     payloads\mpl_payload_46
 if exist payload_4_66DEX.bin  move  payload_4_66DEX.bin  payloads\mpl_payload_466D.bin>nul
 if exist payload_4_70.bin     move  payload_4_70.bin     payloads\mpl_payload_470C.bin>nul
 if exist payload_4_70DEX.bin  move  payload_4_70DEX.bin  payloads\mpl_payload_470D.bin>nul
+if exist payload_4_75.bin     move  payload_4_75.bin     payloads\mpl_payload_475C.bin>nul
 
 :copy *.bin ..\datas\*
 

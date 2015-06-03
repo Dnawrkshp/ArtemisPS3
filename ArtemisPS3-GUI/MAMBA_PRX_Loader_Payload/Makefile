@@ -51,4 +51,6 @@ all:
 	make -f Makefile_4.70 --no-print-directory
 	make -f Makefile_4.70D clean --no-print-directory
 	make -f Makefile_4.70D --no-print-directory
+	make -f Makefile_4.75 clean --no-print-directory
+	make -f Makefile_4.75 --no-print-directory
 	rm -f *.o *.elf *.map source/*.o lv2/src/*.o
