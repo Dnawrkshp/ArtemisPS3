@@ -255,12 +255,6 @@ int load_mamba_prx_loader_payload()
     }       
 }
 
-int ps3mapi_get_core_version(void)
-{
-    lv2syscall2(8, 0x7777, 0x0011);
-    return_to_user_prog(int);
-}
-
 int unload_mamba_prx_loader_payload()
 {
     //Remove syscall

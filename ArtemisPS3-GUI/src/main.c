@@ -1184,7 +1184,7 @@ int cobra_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32
 
 int ps3mapi_get_core_version(void)
 {
-	system_call_2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
+	lv2syscall2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
 	return_to_user_prog(int);						
 }
 
