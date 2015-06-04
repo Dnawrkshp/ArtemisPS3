@@ -1139,6 +1139,8 @@ static void art_thread(uint64_t arg)
 		}
 		else if (attachedPID == 0)
 		{
+			if (GetGameProcess() != 0 && cellPadGetData(0, &data) != CELL_PAD_OK)
+				hasDisplayed = 0;
 			sys_timer_sleep(2);
 		}
 		
