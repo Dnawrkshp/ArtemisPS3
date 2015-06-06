@@ -1,0 +1,16 @@
+ACE Power 99999999
+0
+0 018EF400 05F5E0FF
+#
+Max A.C.E. Points On Gain
+0
+0 007E8B9C 7D695B78
+#
+Max A.C.E. Points On Use
+0
+0 00807730 7D605B78
+#
+Max Skill Points Gain + Use
+0
+0 007A3FBC 90C70008
+#

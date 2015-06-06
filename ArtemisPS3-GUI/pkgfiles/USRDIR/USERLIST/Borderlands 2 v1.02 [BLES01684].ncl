@@ -1,0 +1,28 @@
+Max + Infinite Money + Black Market Money on Buy
+0
+0 00677FA4 3D607FFF
+0 00677FA8 91690014
+#
+Max + Infinite Money + Black Market Money on Sale
+0
+0 00677F74 3C007FFF  
+0 00677F78 90090014
+#
+Max + Infinite Skill Points + Badass Token
+0
+0 0002D7D8 380000FF
+0 0002D7DC 900B0000
+#
+Instant Level Max (No Kill + Exp Required)
+0
+0 0067B06C 7BCB0020
+0 0067B070 7B690020
+0 0067B074 7B9F0020
+0 0067B078 7FE3FB78
+0 0067B07C 38000001
+#
+Infinite Ammo & Grenades
+0
+0 00493CCC 60000000
+0 00493CD0 D00B0070
+#

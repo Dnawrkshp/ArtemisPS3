@@ -1,0 +1,42 @@
+Neptune EXP Max
+0
+0 0138A638 3B9AC9FF
+#
+Infinite HP
+0
+0 00284250 38C90000
+#
+Instant Death
+0
+0 00284250 7CC94850
+#
+Infinite Hammer Attack Gauge
+0
+0 001BD274 C1A10070
+0 001BD278 D1BF001C
+#
+Infinite Treasure Search
+0
+0 001BD33C D1BF0030
+0 001BD39C D1BF0020
+#
+No Encounters
+0
+0 00174B68 38E80000
+#
+Exp Mod (2x)
+0
+0 002A1C44 1C840002
+#
+Exp Mod (10000x)
+0
+0 002A1C44 1C842710
+#
+Gold Multiplier (2x)
+0
+0 002A1C74 1C840002
+#
+Gold Multiplier (10000x)
+0
+0 002A1C74 1C842710
+#

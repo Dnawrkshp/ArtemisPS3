@@ -1,0 +1,13 @@
+Infinite HP
+0
+0 00B0A738 70000000
+0 00B0A740 70000000
+#
+Infinite Money
+0
+0 00B24BE4 05F5E0FF
+#
+180 challenges completed
+0
+0 00B2DDA0 000000B4
+#

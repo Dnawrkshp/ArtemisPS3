@@ -1,0 +1,16 @@
+No Enemy Mode
+0
+0 005B60B0 408001FC
+#
+Rapid Fire
+0
+0 007DC644 39000000
+#
+Alert Disable
+0
+0 00535AAC 4080E5B0
+#
+Invincible Mode
+0
+0 007E46E0 38C00000
+#

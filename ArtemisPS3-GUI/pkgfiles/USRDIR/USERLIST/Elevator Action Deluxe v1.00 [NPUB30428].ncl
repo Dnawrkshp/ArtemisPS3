@@ -1,0 +1,16 @@
+Infinite Health
+0
+0 010897A3 03
+#
+Lots of Time
+0
+0 0129C3B8 03
+#
+Time Used
+0
+0 0005DFCC 60000000
+#
+Death
+0
+0 00013BBC 60000000
+#

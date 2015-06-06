@@ -1,0 +1,16 @@
+Infinite Health
+0
+0 00C04F68 00000000
+#
+Invincibility
+0
+0 00C04FF0 408221D0
+#
+Attack Power (100X)
+0
+0 00BE6C3C 42C80000
+#
+Attack Power (1000X)
+0
+0 00BE6C3C 447A0000
+#

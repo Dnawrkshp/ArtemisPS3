@@ -1,0 +1,8 @@
+Game Speed (2X)
+0
+0 01DD855C 40000000
+#
+Game Speed (4X)
+0
+0 01DD855C 40400000
+#

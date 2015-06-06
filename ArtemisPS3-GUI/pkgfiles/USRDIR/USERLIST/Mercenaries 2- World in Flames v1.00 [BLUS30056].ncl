@@ -1,0 +1,12 @@
+Infinite Ammo
+0
+0 0041EC58 39290001
+#
+Infinite Grenade
+0
+0 0042141C 38090001
+#
+Infinite Money
+0
+0 01801D6C 05F5E0FF
+#

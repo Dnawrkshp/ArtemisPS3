@@ -1,0 +1,8 @@
+Infinite Ammo
+0
+0 004CCCE0 38A003E7
+#
+Infinite Energy
+0
+0 002C67E8 EC21F02A
+#

@@ -1,0 +1,9 @@
+Infinite DP Points On Gain
+0
+0 00AC41DC C05E0004
+#
+Take No Damage
+0
+0 0061AF2C 7F17B000
+0 0061AF38 409A000C
+#

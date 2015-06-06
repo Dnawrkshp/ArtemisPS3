@@ -457,6 +457,9 @@ float DrawStringMono(float x, float y, char *str)
 	else if (font_datas.align == 2) {
 		x -= WidthFromStrMono((u8 *) str);
 	}
+	else if (font_datas.align == 3) {
+		x -= WidthFromStrMono((u8 *) str)/2;
+	}
 
     while (*str) {
         
@@ -495,6 +498,9 @@ float DrawString(float x, float y, char *str)
 	else if (font_datas.align == 2) {
 		x -= WidthFromStr((u8 *) str);
 	}
+	else if (font_datas.align == 3) {
+		x -= WidthFromStr((u8 *) str)/2;
+	}
 
     while (*str) {
         
@@ -511,7 +517,16 @@ float DrawString(float x, float y, char *str)
         }
 
         DrawChar(x, y, font_datas.Z, (u8) *str);
-        x += dx * font_datas.fonts[font_datas.current_font].fw[((u8)*str)] / font_datas.fonts[font_datas.current_font].w;
+		
+		//Make font look nicer by fixing bad spacing
+		float ddX = dx * font_datas.fonts[font_datas.current_font].fw[((u8)*str)] / font_datas.fonts[font_datas.current_font].w;
+		if (str[1] == 'j')
+			ddX *= 2.0/3.0;
+		if (str[0] == 'm' || str[0] == 'M')
+			ddX *= 0.9;
+		if (str[0] == '.')
+			ddX *= 3.0/2.0;
+        x += ddX;
         str++; 
     }
 
@@ -540,6 +555,9 @@ float DrawFormatString(float x, float y, char *format, ...)
     }
 	else if (font_datas.align == 2) {
 		x -= WidthFromStr((u8 *) str);
+	}
+	else if (font_datas.align == 3) {
+		x -= WidthFromStr((u8 *) str)/2;
 	}
 
     while (*str) {

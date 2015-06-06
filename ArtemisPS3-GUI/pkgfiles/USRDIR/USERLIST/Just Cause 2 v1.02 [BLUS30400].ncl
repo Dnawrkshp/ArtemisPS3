@@ -1,0 +1,12 @@
+Invincibility
+0
+0 00715A64 ED800028
+#
+No Reload
+0
+0 0039A148 39290000
+#
+Infinite Explosives
+0
+0 002BD358 38A00009
+#

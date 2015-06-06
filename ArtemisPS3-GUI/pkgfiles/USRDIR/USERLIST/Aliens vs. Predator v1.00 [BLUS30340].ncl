@@ -1,0 +1,138 @@
+Checkpoints Are Made Nonstop
+0
+0 0035561C 2F800000
+#
+Checkpoints Are Normal
+0
+0 0035561C 2F8003E7
+#
+Health Never Decreases
+0
+0 0003A1E8 801F0004
+0 0003A1F0 2F800000
+0 0003A1F8 3C004220
+0 0003A1FC 901F0018
+0 0003A204 419E0034
+#
+Enemies Die From Any Damage
+0
+0 0003A1E8 801F0004
+0 0003A1F0 2F800000
+0 0003A1F8 38000000
+0 0003A1FC 901F0018
+0 0003A204 409E0050
+#
+Health Never Decreases For You, Enemies Die From Any Damage
+0
+0 0003A1F8 801F0004
+0 0003A200 3C004220
+0 0003A204 901F0030
+0 0003A208 419E0030
+0 0003A20C 48000048
+#
+Aliens Have Trouble Moving Around
+0
+0 003AB998 2F800000
+#
+Partial Invincibility
+0
+0 005E7444 60000000
+#
+Any Damage Instantly Kills
+0
+0 00378874 48000008
+#
+Aliens Don't Move Or Attack
+0
+0 00678268 4800000C
+#
+Many Things Are Very Bright White
+0
+0 000750E8 3F4044FA
+0 000750EC 934B0000
+0 000750F0 934B0010
+0 000750F4 934B0020
+#
+Aliens Spin In Circles Trying To Move
+0
+0 0068CDB4 60000000
+0 0068CF14 60000000
+#
+Turrets Don't Turn To Shoot
+0
+0 0068E1E4 60000000
+0 0068E28C 60000000
+#
+Aliens Don't Attack
+0
+0 005E93C0 48000010
+#
+Always Running
+0
+0 005DAF08 3C00447A
+0 005DAF0C 901F00A4
+#
+0.125x Gravity
+0
+0 000B343C 3C003E00
+0 000B3440 90030100
+#
+0.25x Gravity
+0
+0 000B343C 3C003E80
+0 000B3440 90030100
+#
+0.5x Gravity
+0
+0 000B343C 3C003F00
+0 000B3440 90030100
+#
+Explosive Gas Tanks Don't Explode
+0
+0 0027F664 48000008
+#
+Increased Brightness
+0
+0 0016BC48 3C00BF80
+#
+Faster Animations
+0
+0 001DC498 60000000
+#
+Rapid Fire
+0
+0 004E5EEC 60000000
+0 004E5FE4 60000000
+#
+Nothing Can Take Damage
+0
+0 003781B4 4E800020
+#
+Marines & Androids Are Invincible
+0
+0 003C3594 60000000
+#
+Predators Are Invincible
+0
+0 003D6B74 60000000
+#
+Aliens Are Invincible
+0
+0 003B4E8C 60000000
+#
+Enemies Never Turn To Aim
+0
+0 0068DC84 4E800020
+#
+Ammo & Medkits Never Decrease
+0
+0 004C9E18 60000000
+#
+Predator Energy Never Decreases
+0
+0 009017DC 60000000
+#
+Can Throw Unlimited Flares Out At The Same Time
+0
+0 004CC414 60000000
+#

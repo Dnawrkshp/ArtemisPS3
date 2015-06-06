@@ -1,0 +1,9 @@
+No Reload, Infinite Ammo + Grenades
+0
+0 00479C40 39200063
+#
+Infinite HP
+0
+0 00549A14 D1A3004C
+0 00549A18 EC2D6824
+#

@@ -1,0 +1,4 @@
+Max Studs On Gain
+0
+0 0073CB84 60000000
+#

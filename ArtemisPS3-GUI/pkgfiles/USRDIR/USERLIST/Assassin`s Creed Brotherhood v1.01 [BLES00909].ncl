@@ -1,0 +1,4 @@
+Infinite HP (Alt)
+0
+0 0095E308 801F005C
+#

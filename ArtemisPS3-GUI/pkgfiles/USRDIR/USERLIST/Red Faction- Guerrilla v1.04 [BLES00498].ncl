@@ -1,0 +1,22 @@
+Infinite Ammo + No Reload
+0
+0 0051FB24 60000000
+#
+Max Salvage on Gain
+0
+0 006D04F0 48000020
+#
+Infinite Grenades
+0
+0 00519210 60000000
+#
+Infinite Ammo
+0
+0 00520D50 60000000
+0 00520DE4 60000000
+#
+Infinite Health
+0
+0 00200F48 3FE0457A
+0 00200F4C 93E30904
+#

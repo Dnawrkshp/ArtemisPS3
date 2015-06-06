@@ -1,0 +1,8 @@
+Hit Anywhere
+0
+0 0006D48C 409E04A8
+#
+No Hit 1P + 2P
+0
+0 0006D440 419DFAF4
+#

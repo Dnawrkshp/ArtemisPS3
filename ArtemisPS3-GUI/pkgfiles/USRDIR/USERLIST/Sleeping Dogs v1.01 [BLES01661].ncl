@@ -1,0 +1,25 @@
+Max Everything
+0
+0 00593D30 3CA07FFF
+#
+Max Money
+0
+0 00581D14 3C607FFF
+#
+Max Money on Buy in Stores Only
+0
+0 005B5094 3D003B9A
+0 005B5098 6108C9FF
+0 005B509C 91070000
+/*
+Delete saved game options
+or the game won't boot.
+*/
+#
+Infinite HP [01.02]
+0
+6 3B144CE8 00000034
+0 00000000 48000000
+6 3B144CE8 0000002C
+0 00000000 48000000
+#

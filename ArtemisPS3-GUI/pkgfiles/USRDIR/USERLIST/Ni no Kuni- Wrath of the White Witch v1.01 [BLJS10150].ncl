@@ -1,0 +1,29 @@
+Level Up on Every Battle
+0
+0 3121A400 007FFF3C
+#
+Infinite Health
+0
+0 3121A800 007FFF3C
+#
+Infinite Magic
+0
+0 3121AC00 007FFF3C
+#
+Max Health
+0
+0 3121B800 007FFF3C
+#
+Max Magic
+0
+0 3121BC00 007FFF3C
+#
+Damage Player + Enemy
+0
+0 005FC3C4 4086EC98
+#
+Max HP + MP Summon
+0
+0 3121B7D8 000003E7
+0 3121B7DC 000003E7
+#

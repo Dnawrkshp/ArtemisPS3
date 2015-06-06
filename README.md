@@ -12,7 +12,7 @@ Status
 - [X] Load artemis_ps3.sprx into VSH
 - [ ] Access codes from an online database
 - [X] Access user codes
-- [ ] Allow for users to enter their own codes
+- [ ] Allow for users to enter their own codes from Artemis
 - [X] Sorts codes and games alphabetically
 
 
@@ -24,7 +24,6 @@ Credits
     Dnawrkshp       -   Creator of ArtemisPS3-GUI and ArtemisPS3-PRX
     NzV             -   PS3MAPI (on which Artemis is dependant upon)
     PS2Dragon       -   Artemis Logo
-    Square Enix     -   Kingdom Hearts Dearly Beloved song
 	
 
 Dependancies

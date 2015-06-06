@@ -1,0 +1,45 @@
+Max Money After Buying
+0
+0 0028E8B8 60000000
+0 0028E8BC 90030C78
+#
+Hit Kill Enemy + Recover Hit Hp
+0
+0 00F6F558 BF800000
+#
+Infinite Musou
+0
+0 0008A640 409C0008
+#
+1000 HP Max
+0
+0 00289A34 409D0028
+#
+1400 Attack
+0
+0 00289670 409D0028
+#
+1400 Defense
+0
+0 00289780 409D0028
+#
+Musou +3
+0
+0 00289094 409D000C
+#
+500 Speed
+0
+0 00285704 60000000
+#
+Multiple Arrow Shot
+0
+0 00F72054 40800000
+#
+Move Player Speed (Normal)
+0
+0 00F6FF1C 3F800000
+#
+Move Player Speed (2x)
+0
+0 00F6FF1C 40000000
+#

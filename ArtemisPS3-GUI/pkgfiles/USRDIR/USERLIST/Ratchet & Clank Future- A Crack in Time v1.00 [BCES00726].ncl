@@ -1,0 +1,12 @@
+Max Money
+0
+0 00E24F68 05F5E0FF
+#
+EXP Max
+0
+0 00E24F64 3B9AC9FF
+#
+Infinite Health
+0
+0 0008DAA8 409A0038
+#

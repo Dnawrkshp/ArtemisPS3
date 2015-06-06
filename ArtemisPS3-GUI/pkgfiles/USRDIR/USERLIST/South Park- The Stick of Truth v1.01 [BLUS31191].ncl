@@ -1,0 +1,36 @@
+Max Net Worth
+0
+0 00464DC4 83BC0004
+#
+Max XP after battle
+0
+0 003F7450 38842710
+#
+Upgrade Points doesn't decrease
+0
+0 003F71F4 60A60000
+#
+Perk Points doesn't decrease
+0
+0 003F7180 60A60000
+#
+Infinite PP + Mana
+0
+0 0049F71C C0250004
+0 005EE5F4 60000000
+#
+God Mode
+0
+0 00535654 39000001
+0 00535664 9103002C
+0 00432C4C 60000000
+#
+Disable God Mode
+0
+0 00535654 39000000
+0 00535664 9103002C
+#
+Max + Infinite Item on use
+0
+0 00630338 3880000A
+#

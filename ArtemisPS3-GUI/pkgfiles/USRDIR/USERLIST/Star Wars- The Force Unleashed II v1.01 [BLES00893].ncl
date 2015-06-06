@@ -1,0 +1,12 @@
+Infinite Health
+0
+0 001A599C D043000C
+#
+Infinite Force
+0
+0 001A59B4 D043000C
+#
+Infinite Fury
+0
+0 001A59CC D043000C
+#

@@ -1,0 +1,12 @@
+Infinite Ammo
+0
+0 00611504 7C1D0378
+#
+No Reload
+0
+0 00642614 39200064
+#
+Infinite Skill Points
+0
+0 00751CD0 60000000
+#

@@ -1,0 +1,12 @@
+Infinite Health
+0
+0 00956D40 40820010
+#
+Invincible 1P
+0
+0 00954C50 4082000C
+#
+Attack Power & Magic (1000X)
+0
+0 00969B50 447A0000
+#

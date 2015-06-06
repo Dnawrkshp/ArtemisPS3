@@ -1,0 +1,17 @@
+Max Soul On Gain + Use
+0
+0 00030488 60000000
+0 0003046C 60000000
+#
+Infinite Ignition Gauge
+0
+0 000432C0 409D000C
+#
+Max Beat
+0
+0 0003051C 3809270F
+#
+Freeze The Time
+0
+0 0003050C 60000000
+#

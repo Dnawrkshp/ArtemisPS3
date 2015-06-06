@@ -22,6 +22,7 @@ struct code_entry
 struct game_entry
 {
     char * name;
+	char * path;
     int code_count;
     int code_sorted;
     struct code_entry * codes;
@@ -39,3 +40,4 @@ struct game_entry BubbleSortCodeList(struct game_entry game);
 int isCodeLineValid(char * line);
 long getFileSize(const char * path);
 struct option_entry * ReadOptions(struct code_entry code, int * count);
+struct code_entry * ReadNCL(const char * path, int * _code_count);

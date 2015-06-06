@@ -1,0 +1,20 @@
+Max EP
+0
+0 0005AB94 B0BE01F8
+#
+Max CP
+0
+0 00055184 B0BE01FC
+#
+Infinite Tools
+0
+0 001A0814 60000000
+#
+Infinite Fishing
+0
+0 001B2A58 30A60000
+#
+State Change Forever Continue
+0
+0 000723C4 30630000
+#

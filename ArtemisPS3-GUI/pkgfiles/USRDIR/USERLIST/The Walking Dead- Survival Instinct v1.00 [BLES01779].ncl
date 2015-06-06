@@ -1,0 +1,8 @@
+Zombie No Attack
+0
+0 00B5DB84 447A0000
+#
+Player Health Modifier X999999999
+0
+0 00B59BDC 4E6E6B28
+#

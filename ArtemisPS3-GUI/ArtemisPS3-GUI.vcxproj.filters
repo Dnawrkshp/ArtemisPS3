@@ -65,91 +65,137 @@
     <ClInclude Include="include\ps3mapi_ps3_lib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="data\background.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_about.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_about.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_cheats.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_options.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_start.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\desc_start.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_about.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_cheats.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_onlinecheats.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_options.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_start.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\icon_usercheats.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\logo.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\logo_ghost.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\menu_bar.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\project.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\sel_bar1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="data\sel_bar2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="makefile" />
     <None Include="data\background_music_mp3.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="data\cousinereg_ttf.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="data\electromagnetic_lungs_ttf.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="data\neuropol_ttf.bin">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="data\spu_soundmodule.bin">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="data\ubuntumono_ttf.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="data\ubuntureg_ttf.bin">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="makefile" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="sfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\titlescr_logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\bgimg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\cheat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\circle_error_dark.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\circle_error_light.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\circle_loading_bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\circle_loading_seek.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\edit_ico_add.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\edit_ico_del.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\edit_shadow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_lt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_rt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\footer_ico_triangle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_dot.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_ico_abt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_ico_cht.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_ico_opt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_ico_xmb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\header_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\help.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\mark_arrow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\mark_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\opt_off.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\opt_on.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\scroll_bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\scroll_lock.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\titlescr_ico_abt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\titlescr_ico_cht.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\titlescr_ico_opt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\titlescr_ico_xmb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\berion.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="data\comfortaa_bold.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="data\comfortaa_light.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="data\comfortaa_regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

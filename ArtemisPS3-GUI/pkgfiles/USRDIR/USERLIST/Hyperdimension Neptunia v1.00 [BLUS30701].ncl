@@ -1,0 +1,24 @@
+Infinite HP
+0
+0 002671C0 38C90000
+#
+Death
+0
+0 002671C0 7CDE4850
+#
+Exp Mod (2x)
+0
+0 00284BBC 1C840002
+#
+Exp Mod (10000x)
+0
+0 00284BBC 1C842710
+#
+Gold Multiplier (2x)
+0
+0 00284BEC 1C840002
+#
+Gold Multiplier (10000x)
+0
+0 00284BEC 1C842710
+#

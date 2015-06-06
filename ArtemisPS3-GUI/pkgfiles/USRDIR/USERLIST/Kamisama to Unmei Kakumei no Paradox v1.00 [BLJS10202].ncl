@@ -1,0 +1,49 @@
+EN Not Decrease
+0
+0 00012344 A0031922
+#
+SP Not Decrease
+0
+0 00214FE0 60000000
+#
+Max Money
+0
+0 00116BF4 60000000
+#
+Money Not Decrease
+0
+0 00117004 60000000
+0 0010BF74 7D605B78
+#
+Godhead (Shinkaku) Max
+0
+0 0007B6F8 60000000
+#
+Godhead (Shinkaku) Not Decrease
+0
+0 0007B280 60000000
+#
+Max Burst
+0
+0 00086D4C 60000000
+#
+Max Damage
+0
+0 000654F8 60000000
+#
+Level 9999
+0
+0 00215B60 3C00FB9A
+#
+Damage Max
+0
+0 000654F8 60000000
+#
+Burst Max
+0
+0 00086D4C 60000000
+#
+Godhead (Shinkaku) Not Decrease
+0
+0 0007B280 60000000
+#

@@ -1,0 +1,8 @@
+Enemy No Attack
+0
+0 0017C280 419D0084
+#
+Player Hit Kill
+0
+0 0017A414 419D0BA4
+#

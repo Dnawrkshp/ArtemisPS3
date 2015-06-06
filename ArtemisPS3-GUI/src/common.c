@@ -99,10 +99,17 @@ int is_mamba(void)
 }
 
 //----------------------------------------
-//FILE UTILS
+//GAME UTILS
 //----------------------------------------
 
-sysFSStat stat1;
+int game_exists(const char *name, const char *id)
+{
+
+}
+
+//----------------------------------------
+//FILE UTILS
+//----------------------------------------
 
 int file_exists(const char *path)
 {

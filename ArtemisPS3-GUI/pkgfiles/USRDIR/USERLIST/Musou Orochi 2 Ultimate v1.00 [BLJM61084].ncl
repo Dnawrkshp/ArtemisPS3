@@ -1,0 +1,39 @@
+1 Hit Max Level
+0
+0 00D7415C BF800000
+#
+P1 Invincible
+0
+0 00D6E2A8 447A0000
+#
+1 Hit Kills
+0
+0 00D72DA8 BF800000
+#
+Infinite Musou
+0
+0 00D6E780 38D1B717
+0 00058660 40980084
+#
+Musou Instantly Refills To Full
+0
+0 00D6E4E4 447A0000
+#
+Hit With Fire, Lightning, and Ice
+0
+0 00052E70 409D0018
+0 00053028 409D0194
+0 000530F4 409DFD94
+#
+Shadow Clone Mode
+0
+0 0033DEC4 409EFF98
+#
+Defeated Number 9999
+0
+0 0035BFCC 3883270F
+#
+Precious Stones Max With Ultimate Mode Weapon Purchase
+0
+0 0030637C 90031378
+#

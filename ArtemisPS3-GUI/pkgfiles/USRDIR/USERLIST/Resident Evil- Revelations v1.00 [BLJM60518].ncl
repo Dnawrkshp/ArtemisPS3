@@ -1,0 +1,17 @@
+Invincible
+0
+0 003E66CC 3880FFFF
+0 0026A508 38800000
+#
+Infinite Reload
+0
+0 003EA46C 4082003C
+#
+1P Hit Kill Ammo Mode
+0
+0 002ACEAC 3860270F
+#
+Quick Shot Stab Fast
+0
+0 002AF6A0 42C80000
+#

@@ -1,0 +1,15 @@
+Infinite EP
+0
+0 300B6A30 7FFFFFFF
+#
+Infinite HP
+0
+6 30372C04 00000EB4
+0 00000000 49000000
+6 30372C04 00000EAC
+0 00000000 49000000
+/*
+It's normal that HP
+displays incorrectly.
+*/
+#

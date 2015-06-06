@@ -1,0 +1,12 @@
+No Hits Hot Player
+0
+0 00F68E08 00000000
+#
+Shock Misses
+0
+0 00F6C7BC 00000000
+#
+Flame Misses
+0
+0 00F6EAD0 00000000
+#

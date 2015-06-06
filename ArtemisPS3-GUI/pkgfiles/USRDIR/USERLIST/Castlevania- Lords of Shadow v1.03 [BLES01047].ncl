@@ -1,0 +1,35 @@
+Infinite Health (use after Besieged Village)
+0
+0 0015B778 907B0488
+#
+Max Experience after pause (use after Besieged Village)
+0
+0 0015FDD8 3C607FFF
+0 0015FDDC 6063FFFF
+0 0015FDE0 9064002C
+#
+Infinite Daggers (use after Besieged Village)
+0
+0 0015B2EC 38C00005
+0 0015B2F0 90C5002C
+0 0015B2F4 80A5002C
+#
+Infinite Crystals (use after Sanctuary Entrance)
+0
+0 0015B2B4 38800004
+0 0015B2B8 9083002C
+0 0015B2BC 8063002C
+#
+Infinite Holy Water (use after Abbey Tower)
+0
+0 0015B2D0 38A00063
+0 0015B2D4 90A4002C
+0 0015B2D8 8084002C
+#
+Infinite Magic
+0
+0 00158AAC D026002C
+0 00158AB8 D047002C
+0 00158AD8 D03C0274
+0 00158ADC D05C027C
+#

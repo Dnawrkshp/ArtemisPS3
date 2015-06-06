@@ -1,0 +1,8 @@
+No Move Enemy
+0
+0 00A45810 40800000
+#
+Hit Anywhere Torch
+0
+0 006007F0 00000000
+#

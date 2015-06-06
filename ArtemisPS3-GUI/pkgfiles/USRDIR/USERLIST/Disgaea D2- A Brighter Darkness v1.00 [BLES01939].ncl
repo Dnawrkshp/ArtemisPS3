@@ -1,0 +1,420 @@
+Can Dispatch An Unlimited Amount Of Units On Stage
+0
+0 001F7758 38000000
+0 001F7768 60000000
+#
+Bonus Gauge At 9
+0
+0 001E513C 39200064
+0 001ECA20 3B800009
+#
+Max Mana After Killing An Enemy
+0
+0 000153AC 2F800000
+#
+Enter The Reincarnation Menu For Max Mana
+0
+0 002516CC 3C000099
+#
+Reincarnated Or Newly Created Characters Start With Max Mana
+0
+0 001088BC 3D200099
+#
+Can Control Anything (Geoblocks & Treasure can freeze game)
+0
+0 00230470 48000010
+0 002324D0 480002F8
+#
+Infinite Actions (Doesn't work on mounted units)
+0
+0 0023045C 907D0944
+#
+Health Never Decreases For Your Units, Enemies Die From Any Damage
+0
+0 000E893C 881A06EB
+0 000E8944 409E000C
+0 000E8948 E8071080
+0 000E894C 48000008
+0 000E8950 38000000
+0 000E8954 F8071070
+#
+Use SP For Full Refill, Enemies' SP Reduced To From 1 Use
+0
+0 000F2A20 893B06EB
+0 000F2A2C 2F890000
+0 000F2A30 409E000C
+0 000F2A34 E9231088
+0 000F2A38 48000008
+0 000F2A3C 39200000
+0 000F2A40 F9231078
+#
+SP Never Decreases
+0
+0 000F2A38 7C090378
+#
+Remove Limit  of Assembly Counts From Item World
+0
+0 001AD228 60000000
+0 00276214 60000000
+#
+Use A Weapon To Master It
+0
+0 0001A1A4 60000000
+#
+Gain EXP To Max Out At Level 9999
+0
+0 0001A220 60000000
+#
+2x EXP
+0
+0 0001A204 1FDE0002
+#
+4x EXP
+0
+0 0001A204 1FDE0004
+#
+8x EXP
+0
+0 0001A204 1FDE0008
+#
+16x EXP
+0
+0 0001A204 1FDE0010
+#
+32x EXP
+0
+0 0001A204 1FDE0020
+#
+64x EXP
+0
+0 0001A204 1FDE0040
+#
+128x EXP
+0
+0 0001A204 1FDE0080
+#
+256x EXP
+0
+0 0001A204 1FDE0100
+#
+Stage Bonuses Have Large Amounts Of HL
+0
+0 0002FFA8 60000000
+#
+Stage Bonuses Have Large Amounts Of EXP
+0
+0 0002FFE0 60000000
+#
+Special Skill Ranges Are At Normal Max
+0
+0 000F1B8C 60000000
+#
+Special Skill Ranges Are At Abnormal Max
+0
+0 00020C10 60000000
+0 00020C1C 3800007F
+#
+All Special Skill Formations Are Available
+0
+0 000F1BBC 60000000
+#
+All Skills Gain EXP From Using A Skill
+0
+0 00019F8C 60000000
+#
+Use A Special Skill To Max It At Level 99
+0
+0 00019F20 3D807F7F
+#
+Win The Instant A Stage Starts
+0
+0 00200D4C 38000000
+#
+All Senators Love You
+0
+0 0027BA1C 3BA07F7F
+0 0027BA50 39407F7F
+#
+No Senators At The Dark Assembly
+0
+0 0027C820 60000000
+#
+Unlock Cheat Item World: Geo Count
+0
+0 001BE660 4800067C
+#
+Unlock Cheat Item World: Map Size
+0
+0 001BE688 480006BC
+#
+Unlock Cheat Item World: Pirates And Treasure Rate
+0
+0 001BE6B0 480006FC
+#
+Unlock Cheat Prinny: Everyone Is A Bomb
+0
+0 001BE700 48000574
+#
+Unlock Cheat Prinny: Explosion Range
+0
+0 001BE790 60000000
+#
+Unlock Cheat Prinny: Prinny Day Every Day
+0
+0 001BE80C 60000000
+#
+Unlock Cheat Item World: Search Route
+0
+0 001BE888 60000000
+#
+Unlock Cheat Fun: Auto Heal At Base
+0
+0 001BE904 60000000
+#
+Unlock Cheat Battle Dialogue: Protect
+0
+0 001BE980 60000000
+#
+Unlock Cheat Battle Dialogue: Support Attack
+0
+0 001BE9FC 60000000
+#
+Unlock Cheat Battle Dialogue: Rasetsu Mode
+0
+0 001BEA78 60000000
+#
+Unlock Cheat Battle Dialogue: LoC Mode
+0
+0 001BEAF4 60000000
+#
+Unlock Cheat All You Can Take Titles
+0
+0 001BEB70 60000000
+0 001BEB8C 60000000
+#
+Unlock Cheat Battle Dialogue: Battle Dialogue
+0
+0 001BEC08 60000000
+#
+Max HL Upon Gain Or Buying
+0
+0 0002F1D8 60000000
+0 0002F1E0 60000000
+0 0002F200 4800002C
+#
+Max HL By Losing It Trying To Bribe The Dark Assembly
+0
+0 00279214 38000919
+0 0027921C 780007C6
+#
+Max HL By Extorting It From The Dark Assembly
+0
+0 00275378 60000000
+#
+New Items' Are Legendary
+0
+0 00062334 60000000
+0 00062338 38600002
+#
+All New Items' Population Capacities Are 6
+0
+0 000623F4 60000000
+0 000623FC 60000000
+0 00062410 60000000 
+#
+All New Items Have 6 Innocents
+0
+0 000624D8 2F9A0006
+0 000624DC 419D0034
+#
+All New Items' Attack Ranges Are Max
+0
+0 00062280 3920007F
+#
+All New Items' Counter Attacks Are Max
+0
+0 00062288 3800007F
+#
+All New Items' Critical Percentages Are Max
+0
+0 00062290 3920007F
+#
+All New Items' Move Ranges Are Max
+0
+0 000622AC 3800007F
+#
+All New Items' Jump Heights Are Max
+0
+0 000622B4 3920007F
+#
+All New Items Have A Max Of 9999 Many Levels
+0
+0 000623E0 3800270F
+#
+All New Items' Innocents Are At Max Levels
+0
+0 00060BA8 38604E1E
+#
+All New Items' Innocents Are Transferable
+0
+0 00060B08 98BF0007
+#
+All New Items' Innocents Are Dieticians
+0
+0 00060B7C 38000001
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Masters
+0
+0 00060B7C 38000002
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Gladiators
+0
+0 00060B7C 38000003
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Sentries
+0
+0 00060B7C 38000004
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Tutors
+0
+0 00060B7C 38000005
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Coaches
+0
+0 00060B7C 38000006
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Marksmen
+0
+0 00060B7C 38000007
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Physicians
+0
+0 00060B7C 38000008
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Mesclemen
+0
+0 00060B7C 3800000B
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Alchemists
+0
+0 00060B7C 38000015
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Hypnotists
+0
+0 00060B7C 38000016
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Witch Doctors
+0
+0 00060B7C 38000017
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Amnesiacs
+0
+0 00060B7C 38000018
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Gangsters
+0
+0 00060B7C 38000019
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Professionals
+0
+0 00060B7C 3800001A
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Coffee Makers
+0
+0 00060B7C 3800002A
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Medicine Men
+0
+0 00060B7C 3800002B
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Psychologists
+0
+0 00060B7C 3800002C
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Social Workers
+0
+0 00060B7C 3800002D
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Firefighters
+0
+0 00060B7C 3800002E
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Aeronauts
+0
+0 00060B7C 3800002F
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Cryophiles
+0
+0 00060B7C 38000030
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Brokers
+0
+0 00060B7C 3800003D
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Statisticians
+0
+0 00060B7C 3800003E
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+All New Items' Innocents Are Trainers
+0
+0 00060B7C 38000041
+0 00060B84 B01F0004
+0 00060B88 482DF351
+#
+Sold Items At Shop Can Be Bought Back Endlessly
+0
+0 002AA450 60000000
+0 002AA464 4BFFFDA8
+#
+Buy An Item To Fill Your Entire Remaining Inventory With Copies Of That Item
+0
+0 002AA1A8 60000000
+#

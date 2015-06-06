@@ -1,0 +1,63 @@
+Cole Can't Die
+0
+0 0013FE24 C0190750
+0 0013FE28 D0190754
+0 0013FE28 C07E8010
+0 0013FE2C 60000000
+#
+Cole Is Invincible
+0
+0 00147760 60000000
+#
+Unlimited Electricity
+0
+0 0012458C 60000000
+#
+Cole Is Good
+0
+0 0038B520 38600000
+#
+Cole Is Evil
+0
+0 0038B520 38600001
+#
+Civilians Are Invincible & Can't Decrease Karma
+0
+0 001F1D14 60000000
+#
+Objects Never Run Out Of Electricity
+0
+0 000D800C 60000000
+#
+Instantly Absorb All Electricity From Objects
+0
+0 000D84CC 60000000
+#
+AIs Never Move
+0
+0 0017EAB0 3C000000
+#
+AIs Move Half As Fast
+0
+0 0017EAB0 3C003F00
+#
+AIs Move 2x Faster
+0
+0 0017EAB0 3C004000
+#
+AIs Move Backwards
+0
+0 0017EAB0 3C00BF80
+#
+Game Is 1.25x Brighter
+0
+0 00344424 3D603FA0
+#
+Game Is 1.5x Brighter
+0
+0 00344424 3D603FC0
+#
+Game Is 2x Brighter
+0
+0 00344424 3D604000
+#

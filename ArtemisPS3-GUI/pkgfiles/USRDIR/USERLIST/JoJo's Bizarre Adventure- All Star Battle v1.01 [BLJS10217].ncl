@@ -1,0 +1,12 @@
+Max Money 
+0
+0 004A9E74 2F9F0000
+#
+999 Combo
+0
+0 0014E540 380003E7
+#
+Infinite Special
+0
+0 0070D454 48000010
+#

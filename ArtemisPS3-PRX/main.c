@@ -1,6 +1,7 @@
 #include "types.h"
 #include "common.h"
 #include "printf.h"
+#include "misc.h"
 
 #include <sdk_version.h>
 #include <cellstatus.h>
@@ -42,7 +43,7 @@ SYS_MODULE_STOP(art_stop);
 
 static const int second = 1000000;
 
-const char* VERSION = "artemis r1";
+const char* VERSION = "artemis r2";
 
 static sys_ppu_thread_t thread_id = 1;
 
@@ -171,7 +172,10 @@ static void _free(void * ptr)
 		vsh_free = (void *)((int)getNIDfunc("allocator", 0x77A602DD, 0));
 	
 	if (vsh_free)
+	{
 		vsh_free(ptr);
+		//ptr = NULL;
+	}
 	else
 		printf ("Unable to find free\n");
 	
@@ -1020,6 +1024,12 @@ static void art_process(int forceWrite)
 		doForceWrite = forceWrite;
 		
 		//If not loaded userlist, load it
+		if (forceWrite && userCodes)
+		{
+			_free(userCodes);
+			userCodes = NULL;
+		}
+
 		if (!userCodes)
 		{
 			int fileSize = getFileSize("/dev_hdd0/tmp/art.txt");
@@ -1027,7 +1037,7 @@ static void art_process(int forceWrite)
 			memset(userCodes, 0, fileSize + 1);
 			if(cellFsOpen("/dev_hdd0/tmp/art.txt", CELL_FS_O_RDONLY, &fd, NULL, 0) == CELL_FS_SUCCEEDED)
 			{
-				u64 read_e = 0, pos; //, write_e
+				u64 read_e = 0, pos;
 				cellFsLseek(fd, 0, CELL_FS_SEEK_SET, &pos);
 				
 				cellFsRead(fd, (void *)userCodes, fileSize, &read_e);
@@ -1121,18 +1131,21 @@ static void art_thread(uint64_t arg)
 				//Check if shutting down
 				if (userCodes)
 					_free(userCodes);
+				userCodes = NULL;
 				
 				if (cellFsOpen("/dev_hdd0/tmp/turnoff", CELL_FS_O_RDONLY, &fd, NULL, 0) != CELL_FS_SUCCEEDED)
 				{
-					printf ("Artemis PS3 :::: Detected shutdown\n");
-					SetStatusOff();
-					stop_prx_module();
-					sys_ppu_thread_exit(0);
+					//printf ("Artemis PS3 :::: Detected shutdown\n");
+					//SetStatusOff();
+					//stop_prx_module();
+					//sys_ppu_thread_exit(0);
 				}
 				else
 					cellFsClose(fd);
 				
 				printf ("Artemis PS3 :::: Detatched\n");
+				vsh_free = NULL;
+				vsh_malloc = NULL;
 				hasDisplayed = 0;
 				sys_timer_sleep(3);
 			}
@@ -1149,12 +1162,12 @@ static void art_thread(uint64_t arg)
 		{
 			if (!hasDisplayed && GetGameProcess() != 0)
 			{
-				show_msg((char *)"Artemis PS3\nL3+R3 To Attach");
+				show_msg((char *)"Artemis PS3\nStart To Attach");
 				hasDisplayed = 1;
 			}
-			
+
 			//printf("Okay\n");
-			if ((data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_R3) && (data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_L3))
+			if (data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_START)
 			{
 				//printf("Checking for proc\n");
 				int notAttached = attachedPID == 0;
@@ -1168,7 +1181,7 @@ static void art_thread(uint64_t arg)
 							show_msg((char *)"Artemis PS3\nAttached and Wrote");
 							printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
 							
-							if (!hasChecked)
+							//if (!hasChecked)
 							{
 								char check[4];
 								isDEX = dex_get_process_mem(attachedPID, 0x10000, check, 4) != ENOSYS;
@@ -1199,6 +1212,19 @@ static void art_thread(uint64_t arg)
 					art_process(1);
 					delay2 = 1000;
 				}
+			}
+			else if (data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_SELECT)
+			{
+				attachedPID = 0;
+				hasDisplayed = 0;
+				show_msg((char *)"Artemis PS3\nDetatched");
+				if (userCodes)
+				{
+					_free(userCodes);
+					userCodes = NULL;
+				}
+				vsh_free = NULL;
+				vsh_malloc = NULL;
 			}
 			sys_timer_sleep(1);
 		}

@@ -1,0 +1,8 @@
+Infinite Money
+0
+0 001B4E30 7C832378
+#
+Infinite MP
+0
+0 000F84AC 60000000
+#

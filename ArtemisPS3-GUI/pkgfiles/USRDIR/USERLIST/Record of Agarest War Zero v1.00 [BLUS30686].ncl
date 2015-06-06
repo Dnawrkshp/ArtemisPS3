@@ -1,0 +1,29 @@
+SP 500
+0
+0 0028688C 396001F4
+#
+AP 999
+0
+0 0029A608 394003E7
+0 002A48D8 394003E7
+#
+AP 999 (Alt)
+0
+0 0029A608 394003E7
+#
+Max PP After Battle
+0
+0 00083F10 60000000
+#
+Max TP After Exchange Some In The Guild
+0
+0 000B245C 60000000
+#
+Max Gold After Win Battle (Results)
+0
+0 0027E7D0 60000000
+#
+Max Exp After Win Battle (Results)
+0
+0 0029412C 60000000
+#

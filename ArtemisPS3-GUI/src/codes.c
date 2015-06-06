@@ -674,6 +674,12 @@ void UnloadGameList(struct game_entry * list, int count)
                 free(list[x].name);
                 list[x].name = NULL;
             }
+
+			if (list[x].path)
+			{
+				free(list[x].path);
+				list[x].path = NULL;
+			}
             
             if (list[x].codes)
             {
@@ -910,7 +916,10 @@ struct game_entry * ReadUserList(int * gmc)
                     
                     printf("ReadUserList() :: Reading %s...\t", dir->d_name);
                     
-                    ret[cur_count].codes = ReadNCL(fullPath, (int *)ccnt);
+                    //ret[cur_count].codes = ReadNCL(fullPath, (int *)ccnt);
+					ret[cur_count].codes = NULL;
+					ret[cur_count].path = malloc(strlen(fullPath) + 1);
+					strcpy(ret[cur_count].path, fullPath);
                     ret[cur_count].code_count = *ccnt;
                     ret[cur_count].name = stripExt(dir->d_name);
                     ret[cur_count].code_sorted = 0;
@@ -1365,13 +1374,16 @@ char * ParseActivatedGameList(struct game_entry * list, int count)
         int x = 0, y = 0;
         for (x = 0; x < count; x++)
         {
-            for (y = 0; y < list[x].code_count; y++)
-            {
-                if (list[x].codes[y].activated)
-                {
-                    AppendCode(ret, list[x].codes[y]);
-                }
-            }
+			if (list[x].codes)
+			{
+				for (y = 0; y < list[x].code_count; y++)
+				{
+					if (list[x].codes[y].activated)
+					{
+						AppendCode(ret, list[x].codes[y]);
+					}
+				}
+			}
         }
     }
     

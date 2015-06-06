@@ -1,0 +1,41 @@
+Font:	Comfortaa
+	for 1920x1080 resolution
+
+	where:			color   size  style   space between letters
+---------------------------------------------------------------------------
+
+Title screen:
+	below logo:		1A0000	36px  normal  200
+	below icons:		1A0000	32px  bold    0
+	footer:			1A0000	20px  normal  200
+
+Menu:
+	header:			1A0000  48px  normal  0
+	sub-header		1A0000  36px  normal  0
+	sub-header (ver):	1A0000  30px  normal  0
+
+	list			1A0000  36px  normal  0
+	once/constant		F7F1EC	32px  normal  0
+	edit			1A0000	36px  normal  0
+	edit-sub		1A0000	30px  normal  0
+
+About:
+	thanks			1A0000	40px  bold    0
+	thanks-sub		1A0000	30px  normal  0
+	ps2/ps3			1A0000	36px  normal  0
+	ps3-credits		1A0000	24px  normal  100
+	ps2-credits-left	1A0000	24px  normal  0
+	ps2-credits-right	1A0000	18px  normal  0
+
+Popups:
+	loading-up		1A0000	24px  normal  200
+	loading-percentage	1A0000	36px  normal  0
+	loading-bottom		1A0000	30px  normal  200
+
+	error-up		9D0000	24px  normal  200
+	error-bottom		9D0000	30px  normal  200
+	error-bottom-2		9D0000	24px  normal  200
+
+	help:			FFECDE  36px  normal  0
+
+Footer:				1A0000  24px  normal  200

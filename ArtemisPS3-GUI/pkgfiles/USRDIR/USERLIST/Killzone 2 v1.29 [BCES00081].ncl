@@ -1,0 +1,8 @@
+God Mode
+0
+0 000CE7EC 60000000
+#
+Debug Options
+0
+0 00B336F4 38600001
+#

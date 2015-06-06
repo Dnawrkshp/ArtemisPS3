@@ -1,0 +1,24 @@
+1P Speed Move (8X)
+0
+0 00F99A04 41000000
+#
+1P Speed Move (12X)
+0
+0 00F99A04 41400000
+#
+1P Invincible No Hit (2X)
+0
+0 00F99A28 40000000
+#
+1P Invincible No Hit (3X)
+0
+0 00F99A28 40400000
+#
+1P Invincible No Hit (4X)
+0
+0 00F99A28 40800000
+#
+1P Invincible No Hit (5X)
+0
+0 00F99A28 40A00000
+#

@@ -1,0 +1,113 @@
+Max Orbs
+0
+0 39694C88 497423F0
+#
+Infinite Magic
+0
+0 0009654C 60000000
+#
+Infinite Health - Hard Mode
+0
+6 00567530 00000010
+6 00000000 000001BC
+0 00000000 48000000
+#
+Infinite Jump
+0
+0 3969369F 00
+#
+Max Red Orbs On Gain Or Use (999,999)
+0
+0 0009445C 60000000
+#
+Infinite Combo Time
+0
+0 00094EC4 60000000
+0 00094ED4 60000000
+0 00094EEC 60000000
+0 00094F1C 60000000
+0 00095040 60000000
+#
+All Hits Give You 9,999 Red Orbs
+0
+0 000950D4 60000000
+#
+Red Orb Amounts From Combo Attacks Keep Adding From Every Hit
+0
+0 000950DC 60000000
+#
+Gain Any Red Orbs And They Never Stop Increasing
+0
+0 00094FE0 60000000
+#
+Unlimited Rage Of Sparta
+0
+0 0009C528 60000000
+0 0009F618 60000000
+#
+Unlimited Item Meter
+0
+0 00096618 60000000
+#
+Item Meter Instantly Fully Recovers
+0
+0 00095280 60000000
+#
+Gain + Use Red Orbs For Max Red Orbs & Max Health
+0
+0 00094454 C03E8048
+0 00094458 3C007F80
+0 0009445C 9003E95C
+0 00094460 9003E960
+#
+Infinite Rage Of Sparta & Use Rage Of Sparta For Max Health
+0
+0 0009C524 3C007F80
+0 0009C528 901FE95C
+0 0009C52C 901FE960
+0 0009F618 60000000
+#
+Infinite Magic & Use Magic For Max Health
+0
+0 00096544 3C007F80
+0 00096548 901FE95C
+0 0009654C 901FE960
+#
+Item Meter Never Decreases, Use An Item For Max Health & Fall Slowly
+0
+0 00096608 3FC00000
+0 0009660C 93C3E8B4
+0 00096610 3FC07F80
+0 00096614 93C3E95C
+0 00096618 93C3E960
+#
+Challenge Mode Timers Never Decrease
+0
+0 0002A238 60000000
+#
+Some Attacks Can't Be Done (Useful For Challenge Mode)
+0
+0 0012EBAC 60000000
+#
+Many Attacks Don't Hit (Useful For Challenge Mode)
+0
+0 00120F50 60000000
+#
+Infinite Double Jumping
+0
+0 000CCB94 60000000
+#
+Magic Never Decreases & Use Magic For Infinite Health & Have All Items
+0
+0 00096538 3C001FFF
+0 0009653C 60009E3D
+0 00096540 901F01A4
+0 00096544 3C007F80
+0 00096548 901FE95C
+0 0009654C 901FE960
+#
+Infinite Health
+0
+0 00140EEC C1A901C0
+0 00140EF8 D1A901BC
+#

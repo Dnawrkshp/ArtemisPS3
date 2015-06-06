@@ -1,0 +1,12 @@
+Infinite Ammo
+0
+0 001719E4 9003020C
+#
+Infinite Anti-Missiles
+0
+0 00089354 900B0004
+#
+Increase Max SP
+0
+0 00082724 912335A0
+#

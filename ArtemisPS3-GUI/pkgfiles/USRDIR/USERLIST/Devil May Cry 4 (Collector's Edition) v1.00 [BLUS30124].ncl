@@ -1,0 +1,222 @@
+Red Orbs 9999999
+0
+6 10310D88 00000114
+0 00000000 0098967F
+#
+Proud Souls 999999
+0
+6 10310EC8 00000180
+0 00000000 000F423F
+#
+Vital Soul S + M + L 30
+0
+6 10310EC8 00000034
+0 00000000 0000001E
+6 10310EC8 00000038
+0 00000000 0000001E
+6 10310EC8 0000003C
+0 00000000 0000001E
+#
+Devil Star S + L 10
+0
+6 10310EC8 00000040
+0 00000000 0000000A
+6 10310EC8 00000044
+0 00000000 0000000A
+#
+Holy Water 30
+0
+6 10310EC8 00000048
+0 00000000 0000001E
+#
+1 Hit Kill [Tested On Boss Only]
+0
+0 005422D8 60000000
+0 00538574 60000000
+#
+Infinite Health [Won't Work In 1 Hit Kill Mode]
+0
+0 001D4624 3D80469C
+0 001D4628 918314EC
+#
+Infinite Blue Orbs in Shop
+0
+0 001519D4 38000000
+#
+Infinite Devil Trigger
+0
+0 00694D30 60000000
+0 00695184 60000000
+#
+Buy Or Use A Gold Orb For 9,999
+0
+0 001426D4 4800008C
+0 00142760 3800270F
+#
+Buy Or Use A Vital Star S For 9,999
+0
+0 001425D4 4800008C
+0 00142660 3800270F
+#
+Buy Or Use A Vital Star M For 9,999
+0
+0 00143214 4800008C
+0 001432A0 3800270F
+#
+Buy Or Use A Vital Star L For 9,999
+0
+0 00143114 4800008C
+0 001431A0 3800270F
+#
+Buy Or Use A Devil Star S For 9,999
+0
+0 00143014 4800008C
+0 001430A0 3800270F
+#
+Buy Or Use A Devil Star L For 9,999
+0
+0 00142F14 4800008C
+0 00142FA0 3800270F
+#
+Buy Or Use A Holy Water For 9,999
+0
+0 00142E14 4800008C
+0 00142EA0 3800270F
+#
+Unlimited Yellow Orbs
+0
+6 10310EC8 00000030
+0 00000000 00000003
+#
+Stylish SSS
+0
+0 00DF92F8 447A0000
+#
+5x Game Speed
+0
+0 00DF9360 3F000000
+#
+75x Game Speed
+0
+0 00DF9360 3F400000
+#
+1.25x Game Speed
+0
+0 00DF9360 3FA00000
+#
+1.5x Game Speed
+0
+0 00DF9360 3FC00000
+#
+5x Game Speed (Alt)
+0
+0 00E29E50 3F000000
+#
+75x Game Speed (Alt)
+0
+0 00E29E50 3F400000
+#
+1.25x Game Speed (Alt)
+0
+0 00E29E50 3FA00000
+#
+1.5x Game Speed (Alt)
+0
+0 00E29E50 3FC00000
+#
+1.25x Dante Movement Speed
+0
+0 00E19DB4 3FA00000
+#
+1.5x Dante Movement Speed
+0
+0 00E19DB4 3FC00000
+#
+1.75x Dante Movement Speed
+0
+0 00E19DB4 3FE00000
+#
+2x Dante Movement Speed
+0
+0 00E19DB4 40000000
+#
+3x Dante Movement Speed
+0
+0 00E19DB4 40400000
+#
+4x Dante Movement Speed
+0
+0 00E19DB4 40800000
+#
+1.25x Dante Movement Speed (Alt)
+0
+0 00E1A340 3FA00000
+#
+1.5x Dante Movement Speed (Alt)
+0
+0 00E1A340 3FC00000
+#
+1.75x Dante Movement Speed (Alt)
+0
+0 00E1A340 3FE00000
+#
+2x Dante Movement Speed (Alt)
+0
+0 00E1A340 40000000
+#
+3x Dante Movement Speed (Alt)
+0
+0 00E1A340 40400000
+#
+4x Dante Movement Speed (Alt)
+0
+0 00E1A340 40800000
+#
+1.25x Nero Movement Speed
+0
+0 00E1B80C 3FA00000
+#
+1.5x Nero Movement Speed
+0
+0 00E1B80C 3FC00000
+#
+1.75x Nero Movement Speed
+0
+0 00E1B80C 3FE00000
+#
+2x Nero Movement Speed
+0
+0 00E1B80C 40000000
+#
+3x Nero Movement Speed
+0
+0 00E1B80C 40400000
+#
+4x Nero Movement Speed
+0
+0 00E1B80C 40800000
+#
+1.25x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 3FA00000
+#
+1.5x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 3FC00000
+#
+1.75x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 3FE00000
+#
+2x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 40000000
+#
+3x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 40400000
+#
+4x Dante + Nero Run Speed Auto
+0
+0 00E1DF64 408000000
+#

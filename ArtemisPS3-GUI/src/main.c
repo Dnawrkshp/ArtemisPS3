@@ -49,23 +49,21 @@
 #define SC_FS_MOUNT         (837)
 
 //Menus
+#include "menu.h"
 #include "menu_about.h"
 #include "menu_options.h"
 #include "menu_cheats.h"
 
-//Font
-#include "neuropol_ttf_bin.h"
-#include "ubuntumono_ttf_bin.h"
-#include "electromagnetic_lungs_ttf_bin.h"
 
-//Code db
-#include "codes.h"
+//Font
+#include "comfortaa_bold_ttf.h"
+#include "comfortaa_light_ttf.h"
+#include "comfortaa_regular_ttf.h"
 
 //Sound
 #include "spu_soundmodule_bin.h"
 #include "spu_soundlib.h"
 #include "audioplayer.h"
-
 #include "background_music_mp3_bin.h"
 
 // SPU
@@ -80,24 +78,12 @@ sysSpuImage spu_image;
 
 #define SPU_SIZE(x) (((x)+127) & ~127)
 
-//Textures
-#include "background_png.h"             //all
-#include "project_png.h"                //main
-#include "desc_about_png.h"             //main
-#include "desc_options_png.h"           //main
-#include "desc_cheats_png.h"            //main
-#include "desc_start_png.h"             //main
-#include "icon_start_png.h"             //main
-#include "icon_about_png.h"             //main
-#include "icon_cheats_png.h"            //main
-#include "icon_options_png.h"           //main
-#include "logo_png.h"                   //main
-#include "logo_ghost_png.h"             //all
-#include "menu_bar_png.h"               //options, cheats, about
-#include "sel_bar1_png.h"               //cheats
-#include "sel_bar2_png.h"               //cheats
-#include "icon_usercheats_png.h"        //cheats
-#include "icon_onlinecheats_png.h"      //cheats
+
+//Pad stuff
+padInfo padinfo;
+padData paddata[MAX_PADS];
+padData padA[MAX_PADS];
+padData padB[MAX_PADS];
 
 //Options
 const char * options_path = "/dev_hdd0/game/ARTPS3001/USRDIR/opt.ini";
@@ -106,19 +92,12 @@ void music_callback(int sel);
 void sort_callback(int sel);
 void ani_callback(int sel);
 
-typedef struct
-{
-    char * name;
-    char * * options;
-    void (*callback)(int);
-} option;
-
 const option menu_options_options[] = {
-    { .name = "Music", .options = (char *[]){ "On", "Off", NULL }, .callback = music_callback },
-    { .name = "Sort Cheats", .options = (char *[]){ "On", "Off", NULL }, .callback = sort_callback },
-    { .name = "Menu Animations", .options = (char *[]){ "On", "Off", NULL }, .callback = ani_callback },
-    { .name = NULL }
-    };
+	{ .name = "Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
+	{ .name = "Sort Cheats", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = sort_callback },
+	{ .name = "Menu Animations", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = ani_callback },
+	{ .name = NULL }
+};
 
 int doSort = 1;
 int doAni = 1;
@@ -127,41 +106,17 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r1";                //Artemis PS3 version (about menu)
+const char * VERSION = "r2";                //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
-const int MENU_ICON_OFF = 140;              //X Offset to start printing menu mini icon
+const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
+const int MENU_MAIN_ICON_WIDTH = 80;		//Width of main menu icons
+const int MENU_SPLIT_OFF = 200;				//Offset from left of sub/split menu to start drawing
 
 int close_art = 0;
 
-typedef struct _png_texture
-{
-    const void *buffer;
-    u32 size;
-    pngData texture;
-    u32 texture_off;
-} png_texture;
-
-u32 * texture_mem;      // Pointers to texture memory
-u32 * font_mem;         // Pointer after font
-
-//Pad stuff
-padInfo padinfo;
-padData paddata[MAX_PADS];
-padData padA[MAX_PADS];
-padData padB[MAX_PADS];
-
-png_texture * menu_main_textures;           // png_texture array for main menu, initialized in LoadTexture
-const int menu_main_size = 12;              // Size of main menu png_texture array
-
-png_texture * menu_about_textures;          // png_texture array for about menu, initialized in LoadTexture
-const int menu_about_size = 1;              // Size of about menu png_texture array
-
-png_texture * menu_options_textures;        // png_texture array for options menu, initialized in LoadTexture
-const int menu_options_size = 0;            // Size of options menu png_texture array
-
-png_texture * menu_cheats_textures;         // png_texture array for cheats menu, initialized in LoadTexture
-const int menu_cheats_size = 4;             // Size of cheats menu png_texture array
+png_texture * menu_textures;           // png_texture array for main menu, initialized in LoadTexture
+const int menu_size = 33;              // Size of menu png_texture array
 
 int screen_width = 0, screen_height = 0;    // Set to dimensions of the screen in main()
 
@@ -171,46 +126,48 @@ int highlight_amount = 6;                   // Amount of alpha to inc/dec each t
 int pause_pulse = 0;                        // Counter that holds how long alpha is held in place
 int idle_time = 0;                          // Set by readPad
 
-const char * menu_about_strings[] = { "Berion", "GUI graphic designer",
-                                    "Lazy Bastard", "Project Founder",
-                                    "ps2dragon", "Author of Artemis logo",
-                                    "NzV", "Author of PS3MAPI",
-                                    "Dnawrkshp", "Core developer, author of cheat engine code and GUI code",
-                                    NULL, NULL };
+const char * menu_about_strings[] = { "Berion", "Designer",
+									"NzV", "PS3MAPI",
+									"Dnawrkshp", "Programmer",
+									NULL, NULL };
+
+const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
+											"PS2Dragon", "Artemis Logo",
+											NULL, NULL };
 
 /*
- * 0 - Main Menu
- * 1 - Code Menu (User List)
- * 2 - Code Menu (Online List)
- * 3 - About Menu
- * 4 - Options Menu
- * 5 - Code Menu (Select Cheats)
- * 6 - Code Menu (View Cheat)
- * 7 - Code Menu (View Cheat Options)
- */
+* 0 - Main Menu
+* 1 - Code Menu (User List)
+* 2 - Code Menu (Online List)
+* 3 - About Menu
+* 4 - Options Menu
+* 5 - Code Menu (Select Cheats)
+* 6 - Code Menu (View Cheat)
+* 7 - Code Menu (View Cheat Options)
+*/
 int menu_id = 0;                                                    // Menu currently in
 int menu_sel = 0;                                                   // Index of selected item (use varies per menu)
 int menu_old_sel[] = { 0, 0, 0, 0, 0, 0, 0, 0 };                        // Previous menu_sel for each menu
 int last_menu_id[] = { 0, 0, 0, 0, 0, 0, 0, 0 };                        // Last menu id called (for returning)
 const char * menu_pad_help[] = { NULL, //Main
-                                "X - Select    O - Back    [] - Refresh", //User list   
-                                "X - Select    O - Back    [] - Refresh", //Online list
-                                "O - Back", //about
-                                "X - Select    O - Back", //options
-                                "X - Enable    [] - Toggle Mode    TRI - View Code    O - Back", //select cheats
-                                "O - Back", //view cheat
-                                "X - Select    O - Back" //cheat option
-                                };
-                            
+								"X - Select    O - Back    [] - Refresh", //User list   
+								"X - Select    O - Back    [] - Refresh", //Online list
+								"O - Back", //about
+								"X - Select    O - Back", //options
+								"X - Enable    [] - Toggle Mode    TRI - View Code    O - Back", //select cheats
+								"O - Back", //view cheat
+								"X - Select    O - Back" //cheat option
+								};
+
 /*
- * User code list
- */
+* User code list
+*/
 struct game_entry * user_game_list = NULL;
 int user_game_count = 0;
 
 /*
- * Online code list
- */
+* Online code list
+*/
 struct game_entry * online_game_list = NULL;
 int online_game_count = 0;
 
@@ -218,7 +175,11 @@ struct game_entry selected_entry;
 struct code_entry selected_centry;
 int option_index = 0;
 
+// Set to dimensions of the screen in main()
+int screen_width;
+int screen_height;
 
+void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba);
 
 void release_all() {
     
@@ -325,6 +286,25 @@ void SaveOptions()
     fclose(fp);
 }
 
+
+#define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
+int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
+{
+	lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
+	return_to_user_prog(int);
+}
+
+int ps3mapi_get_core_version(void)
+{
+	lv2syscall2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
+	return_to_user_prog(int);
+}
+
+int has_ps3mapi(void)
+{
+	if (ps3mapi_get_core_version() >= PS3MAPI_CORE_MINVERSION) return SUCCESS;
+	return FAILED;
+}
 
 int isArtemisLoaded()
 {
@@ -563,12 +543,162 @@ void DrawSpritesRot2D(float x, float y, float layer, float dx, float dy, u32 rgb
 
 }
 
+void DrawSelector(int x, int y, int w, int h, int hDif, u8 alpha)
+{
+	int i = 0;
+	for (i = 0; i < 848; i++)
+		DrawTexture(menu_textures[mark_line_png_index], i, y, 0, menu_textures[mark_line_png_index].texture.width, menu_textures[mark_line_png_index].texture.height + hDif, 0xFFFFFF00 | alpha);
+
+	DrawTextureCentered(menu_textures[mark_arrow_png_index], x, y, 0, w, h, 0xFFFFFF00 | alpha);
+}
+
+void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int ani, int div)
+{
+	u8 icon_a = (u8)(((ani * 2) > 0xFF) ? 0xFF : (ani * 2));
+	int w, h, c;
+
+	//------------ Backgrounds
+
+	//Background
+	c = bgimg_png_index;
+	DrawTexture(menu_textures[c], 0, 0, 0, 848, 512, bgrgba);
+
+	//------------- Menu Bar
+
+	c = header_line_png_index;
+	int cnt, cntMax = ((ani * div) > 800) ? 800 : (ani * div);
+	for (cnt = MENU_ICON_OFF; cnt < cntMax; cnt++)
+	{
+		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
+		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
+	}
+	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffff00 | icon_a);
+
+	//header mini icon
+	DrawTextureCenteredX(icon, MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffff00 | icon_a);
+
+	//header title string
+	SetFontColor(rgba | icon_a, 0x00000000);
+	SetCurrentFont(font_comfortaa_regular);
+	if (headerTitle)
+	{
+		SetFontSize(24, 24);
+		DrawString(MENU_ICON_OFF + 10, 31, headerTitle);
+	}
+
+	//header sub title string
+	if (headerSubTitle)
+	{
+		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
+		SetFontSize(20, 20);
+		char * tName = malloc(strlen(headerSubTitle) + 1);
+		strcpy(tName, headerSubTitle);
+		while (WidthFromStr((u8*)tName) > width)
+		{
+			tName[strlen(tName) - 1] = 0;
+		}
+		SetFontAlign(2);
+		DrawString(800, 35, tName);
+		free(tName);
+		SetFontAlign(0);
+	}
+}
+
+void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int mode)
+{
+	int c, w, h;
+
+	//Background
+	c = bgimg_png_index;
+	DrawTexture(menu_textures[c], xOff, 0, 0, 848 - xOff, 512, bgrgba);
+
+	//------------ Menu Bar
+	c = header_line_png_index;
+	int cnt = 0;
+	for (cnt = xOff + MENU_ICON_OFF; cnt < 800; cnt++)
+	{
+		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
+		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
+	}
+	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffffff);
+
+	//header mini icon
+	if (mode)
+		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 12, 40, 0, 32, 32, 0xffffffff);
+	else
+		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffffff);
+
+	//header title string
+	SetFontColor(rgba, 0x00000000);
+	SetCurrentFont(font_comfortaa_regular);
+	if (mode)
+	{
+		SetFontSize(20, 20);
+		if (headerTitle)
+			DrawString(xOff + MENU_ICON_OFF + 10, 35, headerTitle);
+	}
+	else
+	{
+		SetFontSize(24, 24);
+		if (headerTitle)
+			DrawString(xOff + MENU_ICON_OFF + 10, 31, headerTitle);
+	}
+
+	//header sub title string
+	if (headerSubTitle)
+	{
+		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
+		SetFontSize(20, 20);
+		char * tName = malloc(strlen(headerSubTitle) + 1);
+		strcpy(tName, headerSubTitle);
+		while (WidthFromStr((u8*)tName) > width)
+		{
+			tName[strlen(tName) - 1] = 0;
+		}
+		SetFontAlign(2);
+		DrawString(800, 35, tName);
+		free(tName);
+		SetFontAlign(0);
+	}
+}
+
 void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
 {
     tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
         tex.texture.height, tex.texture.pitch,  
         TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
     DrawSprites2D(x, y, z, w, h, rgba);
+}
+
+void DrawTextureCentered(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
+{
+	x -= w / 2;
+	y -= h / 2;
+
+	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
+		tex.texture.height, tex.texture.pitch,
+		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
+	DrawSprites2D(x, y, z, w, h, rgba);
+}
+
+void DrawTextureCenteredX(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
+{
+	x -= w / 2;
+
+	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
+		tex.texture.height, tex.texture.pitch,
+		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
+	DrawSprites2D(x, y, z, w, h, rgba);
+}
+
+void DrawTextureCenteredY(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
+{
+	y -= h / 2;
+
+	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
+		tex.texture.height, tex.texture.pitch,
+		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
+	DrawSprites2D(x, y, z, w, h, rgba);
 }
 
 int pad_time = 0, rest_time = 0, pad_held_time = 0, rest_held_time = 0;
@@ -703,7 +833,7 @@ int readPad(int port)
 
 void Draw_MainMenu_Ani()
 {
-    int c = 0, w = 0, h = 0;
+    int w = 0, h = 0;
     
     int max = MENU_ANI_MAX, ani = 0;
     for (ani = 0; ani < max; ani++)
@@ -732,17 +862,18 @@ void Draw_MainMenu_Ani()
         
         
         //Background
-        DrawTexture(menu_main_textures[0], 0, 0, 0, 848, 512, 0xFFFFFF00 | bg_a);
-        
-        //Ghost logo
-        c = 7;
-        w = menu_main_textures[c].texture.width; h = menu_main_textures[c].texture.height;
-        DrawTexture(menu_main_textures[c], 424 - (w / 2) + 2, 256 - (h / 2) - 150, 0, w, h, 0xFFFFFF00 | bg_a);
+        DrawTexture(menu_textures[bgimg_png_index], 0, 0, 0, 848, 512, 0xFFFFFF00 | bg_a);
         
         //Artemis logo
-        w = 320; h = 240;
-        DrawTexture(menu_main_textures[6], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xFFFFFF00 | logo_a);
+		w = 500, h = 88;
+        DrawTexture(menu_textures[titlescr_logo_png_index], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xFFFFFF00 | logo_a);
         
+		//Artemis description
+		SetFontAlign(1);
+		SetCurrentFont(font_comfortaa_light);
+		SetFontSize(18, 16);
+		SetFontColor(0x00000000 | logo_a, 0x00000000);
+		DrawString(screen_width / 2, 210, "cross platform hacking system");
         
         tiny3d_Flip();
     }
@@ -763,43 +894,50 @@ void Draw_MainMenu_Ani()
         
         DrawBackground2D(0xFFFFFFFF);
         
-        u8 icon_a = (u8)(((ani * rate) > 0xFF) ? 0xFF : (ani * rate));
+        u8 icon_a = (u8)(((ani * rate) > 32) ? 32 : (ani * rate));
         
         //------------ Backgrounds
         
         //Background
-        DrawTexture(menu_main_textures[0], 0, 0, 0, 848, 512, 0xFFFFFFFF);
-        
-        //Ghost logo
-        c = 7;
-        w = menu_main_textures[c].texture.width; h = menu_main_textures[c].texture.height;
-        DrawTexture(menu_main_textures[c], 424 - (w / 2) + 2, 256 - (h / 2) - 150, 0, w, h, 0xFFFFFFFF);
+        DrawTexture(menu_textures[bgimg_png_index], 0, 0, 0, 848, 512, 0xFFFFFFFF);
         
         //Artemis logo
-        w = 320; h = 240;
-        DrawTexture(menu_main_textures[6], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xFFFFFFFF);
-        
+        w = 500; h = 88;
+        DrawTexture(menu_textures[titlescr_logo_png_index], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xFFFFFFFF);
+
+		//Artemis description
+		SetFontAlign(1);
+		SetCurrentFont(font_comfortaa_light);
+		SetFontSize(18, 16);
+		SetFontColor(0x000000FF, 0x00000000);
+		DrawString(screen_width / 2, 210, "cross platform hacking system");
+
+		SetFontSize(12, 12);
+		DrawString(screen_width / 2, 480, "www.gamehacking.org/artemis");
         
         //------------ Info
-        c = 11;
-        w = (2 * menu_main_textures[c].texture.width) / 4; h = (2 * menu_main_textures[c].texture.height) / 4;
-        DrawTexture(menu_main_textures[c], 424 - (w / 2), 450, 0, w, h, 0xffffff00 | icon_a);
+        //c = 11;
+        //w = (2 * menu_textures[c].texture.width) / 4; h = (2 * menu_textures[c].texture.height) / 4;
+        //DrawTexture(menu_textures[c], 424 - (w / 2), 450, 0, w, h, 0xffffff00 | icon_a);
         
         //------------ Icons
         
         //Start game
-        DrawTexture(menu_main_textures[8], 100 + 150, 320, 0, 64, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_xmb_png_index], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Cheats
-        DrawTexture(menu_main_textures[4], 200 + 150, 320, 0, 64, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_cht_png_index], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Options
-        DrawTexture(menu_main_textures[5], 300 + 150 + 5, 320, 0, 64, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_opt_png_index], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //About
-        DrawTexture(menu_main_textures[3], 400 + 150, 320, 0, 64, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_abt_png_index], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         tiny3d_Flip();
+
+		if (icon_a == 32)
+			break;
     }
     
     highlight_alpha = 32;
@@ -807,62 +945,81 @@ void Draw_MainMenu_Ani()
 
 void Draw_MainMenu()
 {
-    int c = 0, w = 0, h = 0;
+    int c = bgimg_png_index, w = 0, h = 0;
     
     //------------ Backgrounds
     
     //Background
-    DrawTexture(menu_main_textures[c], 0, 0, 0, 848, 512, 0xffffffff);
-    
-    //Ghost logo
-    c = 7;
-    DrawTexture(menu_main_textures[c], 424 - (w / 2) + 2, 256 - (h / 2) - 150, 0, w, h, 0xffffffff);
+    DrawTexture(menu_textures[c], 0, 0, 0, 848, 512, 0xffffffff);
     
     //Artemis logo
-    c = 6;
-    w = 320; h = 240;
-    DrawTexture(menu_main_textures[c], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xffffffff);
+    c = titlescr_logo_png_index;
+    w = 500; h = 88;
+    DrawTexture(menu_textures[c], 424 - (w / 2), 256 - (h / 2) - 100, 0, w, h, 0xffffffff);
     
+	//Artemis description
+	SetFontAlign(1);
+	SetCurrentFont(font_comfortaa_light);
+	SetFontSize(18, 16);
+	SetFontColor(0x000000FF, 0x00000000);
+	DrawString(screen_width / 2, 210, "cross platform hacking system");
+
+	SetFontSize(12, 12);
+	DrawString(screen_width / 2, 480, "www.gamehacking.org/artemis");
+
     //------------ Info
-    c = 11;
-    w = (2 * menu_main_textures[c].texture.width) / 4; h = (2 * menu_main_textures[c].texture.height) / 4;
-    DrawTexture(menu_main_textures[c], 424 - (w / 2), 450, 0, w, h, 0xffffffff);
+    //c = 11;
+    //w = (2 * menu_textures[c].texture.width) / 4; h = (2 * menu_textures[c].texture.height) / 4;
+    //DrawTexture(menu_textures[c], 424 - (w / 2), 450, 0, w, h, 0xffffffff);
     
     //------------ Icons
-    
+	SetFontAlign(3);
+	SetFontSize(12, 12);
+	SetCurrentFont(font_comfortaa_regular);
+
     //Start game
-    c = 8;
-    DrawTexture(menu_main_textures[c], 100 + 150, 320, 0, 64, 64, 0xffffffff);
-    
+	c = titlescr_ico_xmb_png_index;
+	DrawTexture(menu_textures[c], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 0) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 0) ? 0xFF : 32), 0x00000000);
+	DrawString(100 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "Start game");
+
     //Cheats
-    c = 4;
-    DrawTexture(menu_main_textures[c], 200 + 150, 320, 0, 64, 64, 0xffffffff);
-    
+	c = titlescr_ico_cht_png_index;
+	DrawTexture(menu_textures[c], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 1) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 1) ? 0xFF : 32), 0x00000000);
+	DrawString(200 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Cheats");
+
     //Options
-    c = 5;
-    DrawTexture(menu_main_textures[c], 300 + 150 + 5, 320, 0, 64, 64, 0xffffffff);
-    
+	c = titlescr_ico_opt_png_index;
+	DrawTexture(menu_textures[c], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 2) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 2) ? 0xFF : 32), 0x00000000);
+	DrawString(300 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 14, 390, "Options");
+
     //About
-    c = 3;
-    DrawTexture(menu_main_textures[c], 400 + 150, 320, 0, 64, 64, 0xffffffff);
-    
+	c = titlescr_ico_abt_png_index;
+	DrawTexture(menu_textures[c], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 3) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 3) ? 0xFF : 32), 0x00000000);
+	DrawString(400 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
+
+	SetFontAlign(0);
+
     //------------ Text Descriptors
     
     //Start
-    c = 10;
-    DrawTexture(menu_main_textures[c], 100 + 150, 390, 0, menu_main_textures[c].texture.width, menu_main_textures[c].texture.height, 0xffffff00 | ((menu_sel == 0) ? highlight_alpha : 0xFF));
+    //c = 10;
+    //DrawTexture(menu_textures[c], 100 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 0) ? highlight_alpha : 0xFF));
     
     //Cheats
-    c = 9;
-    DrawTexture(menu_main_textures[c], 200 + 150, 390, 0, menu_main_textures[c].texture.width, menu_main_textures[c].texture.height, 0xffffff00 | ((menu_sel == 1) ? highlight_alpha : 0xFF));
+    //c = 9;
+    //DrawTexture(menu_textures[c], 200 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 1) ? highlight_alpha : 0xFF));
     
     //Options
-    c = 2;
-    DrawTexture(menu_main_textures[c], 300 + 150, 390, 0, menu_main_textures[c].texture.width, menu_main_textures[c].texture.height, 0xffffff00 | ((menu_sel == 2) ? highlight_alpha : 0xFF));
+    //c = 2;
+    //DrawTexture(menu_textures[c], 300 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 2) ? highlight_alpha : 0xFF));
     
     //About
-    c = 1;
-    DrawTexture(menu_main_textures[c], 400 + 150, 390 - 3, 0, menu_main_textures[c].texture.width, menu_main_textures[c].texture.height, 0xffffff00 | ((menu_sel == 3) ? highlight_alpha : 0xFF));
+    //c = 1;
+    //DrawTexture(menu_textures[c], 400 + 150, 390 - 3, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 3) ? highlight_alpha : 0xFF));
 }
 
 // Used only in initialization. Allocates 64 mb for textures and loads the font
@@ -878,126 +1035,87 @@ void LoadTexture()
     
     ResetFont();
     
-    TTFLoadFont(NULL, (void *) electromagnetic_lungs_ttf_bin, electromagnetic_lungs_ttf_bin_size);
+	TTFLoadFont(NULL, (void *)comfortaa_regular_ttf, comfortaa_regular_ttf_size);
     texture_pointer = (u32 *) AddFontFromTTF((u8 *) texture_pointer, 32, 255, 32, 32, TTF_to_Bitmap);
-    TTFLoadFont(NULL, (void *) ubuntumono_ttf_bin, ubuntumono_ttf_bin_size);
+	TTFLoadFont(NULL, (void *)comfortaa_bold_ttf, comfortaa_bold_ttf_size);
     texture_pointer = (u32 *) AddFontFromTTF((u8 *) texture_pointer, 32, 255, 32, 32, TTF_to_Bitmap);
-    //TTFLoadFont(NULL, (void *) neuropol_ttf_bin, neuropol_ttf_bin_size);
-    //texture_pointer = (u32 *) AddFontFromTTF((u8 *) texture_pointer, 32, 255, 32, 32, TTF_to_Bitmap);
+	TTFLoadFont(NULL, (void *)comfortaa_light_ttf, comfortaa_light_ttf_size);
+    texture_pointer = (u32 *) AddFontFromTTF((u8 *) texture_pointer, 32, 255, 32, 32, TTF_to_Bitmap);
     
     font_mem = texture_pointer;
     
     TTFUnloadFont();
     
-    if (!menu_main_textures && menu_main_size)
-        menu_main_textures = (png_texture *)malloc(sizeof(png_texture) * menu_main_size);
-    if (!menu_about_textures && menu_about_size)
-        menu_about_textures = (png_texture *)malloc(sizeof(png_texture) * menu_about_size);
-    if (!menu_options_textures && menu_options_size)
-        menu_options_textures = (png_texture *)malloc(sizeof(png_texture) * menu_options_size);
-    if (!menu_cheats_textures && menu_cheats_size)
-        menu_cheats_textures = (png_texture *)malloc(sizeof(png_texture) * menu_cheats_size);
+    if (!menu_textures && menu_size)
+        menu_textures = (png_texture *)malloc(sizeof(png_texture) * menu_size);
     
     //Init Main Menu textures
-    menu_main_textures[0].buffer = (const void*)background_png; menu_main_textures[0].size = (u32)background_png_size;
-    menu_main_textures[1].buffer = (const void*)desc_about_png; menu_main_textures[1].size = (u32)desc_about_png_size;
-    menu_main_textures[2].buffer = (const void*)desc_options_png; menu_main_textures[2].size = (u32)desc_options_png_size;
-    menu_main_textures[3].buffer = (const void*)icon_about_png; menu_main_textures[3].size = (u32)icon_about_png_size;
-    menu_main_textures[4].buffer = (const void*)icon_cheats_png; menu_main_textures[4].size = (u32)icon_cheats_png_size;
-    menu_main_textures[5].buffer = (const void*)icon_options_png; menu_main_textures[5].size = (u32)icon_options_png_size;
-    menu_main_textures[6].buffer = (const void*)logo_png; menu_main_textures[6].size = (u32)logo_png_size;
-    menu_main_textures[7].buffer = (const void*)logo_ghost_png; menu_main_textures[7].size = (u32)logo_ghost_png_size;
-    menu_main_textures[8].buffer = (const void*)icon_start_png; menu_main_textures[8].size = (u32)icon_start_png_size;
-    menu_main_textures[9].buffer = (const void*)desc_cheats_png; menu_main_textures[9].size = (u32)desc_cheats_png_size;
-    menu_main_textures[10].buffer = (const void*)desc_start_png; menu_main_textures[10].size = (u32)desc_start_png_size;
-    menu_main_textures[11].buffer = (const void*)project_png; menu_main_textures[11].size = (u32)project_png_size;
-    
-    menu_about_textures[0].buffer = (const void*)menu_bar_png; menu_about_textures[0].size = (u32)menu_bar_png_size;
-    
-    //menu_options_textures[0].buffer = (const void*)icon_options_mini_png; menu_options_textures[0].size = (u32)icon_options_mini_png_size;
-    
-    menu_cheats_textures[0].buffer = (const void*)sel_bar1_png; menu_cheats_textures[0].size = (u32)sel_bar1_png_size;
-    menu_cheats_textures[1].buffer = (const void*)sel_bar2_png; menu_cheats_textures[1].size = (u32)sel_bar2_png_size;
-    menu_cheats_textures[2].buffer = (const void*)icon_usercheats_png; menu_cheats_textures[2].size = (u32)icon_usercheats_png_size;
-    menu_cheats_textures[3].buffer = (const void*)icon_onlinecheats_png; menu_cheats_textures[3].size = (u32)icon_onlinecheats_png_size;
+	menu_textures[bgimg_png_index].buffer = (const void*)bgimg_png; menu_textures[bgimg_png_index].size = (u32)bgimg_png_size;
+	menu_textures[cheat_png_index].buffer = (const void*)cheat_png; menu_textures[cheat_png_index].size = (u32)cheat_png_size;
+	menu_textures[circle_error_dark_png_index].buffer = (const void*)circle_error_dark_png; menu_textures[circle_error_dark_png_index].size = (u32)circle_error_dark_png_size;
+	menu_textures[circle_error_light_png_index].buffer = (const void*)circle_error_light_png; menu_textures[circle_error_light_png_index].size = (u32)circle_error_light_png_size;
+	menu_textures[circle_loading_bg_png_index].buffer = (const void*)circle_loading_bg_png; menu_textures[circle_loading_bg_png_index].size = (u32)circle_loading_bg_png_size;
+	menu_textures[circle_loading_seek_png_index].buffer = (const void*)circle_loading_seek_png; menu_textures[circle_loading_seek_png_index].size = (u32)circle_loading_seek_png_size;
+	menu_textures[edit_ico_add_png_index].buffer = (const void*)edit_ico_add_png; menu_textures[edit_ico_add_png_index].size = (u32)edit_ico_add_png_size;
+	menu_textures[edit_ico_del_png_index].buffer = (const void*)edit_ico_del_png; menu_textures[edit_ico_del_png_index].size = (u32)edit_ico_del_png_size;
+	menu_textures[edit_shadow_png_index].buffer = (const void*)edit_shadow_png; menu_textures[edit_shadow_png_index].size = (u32)edit_shadow_png_size;
+	menu_textures[footer_ico_circle_png_index].buffer = (const void*)footer_ico_circle_png; menu_textures[footer_ico_circle_png_index].size = (u32)footer_ico_circle_png_size;
+	menu_textures[footer_ico_cross_png_index].buffer = (const void*)footer_ico_cross_png; menu_textures[footer_ico_cross_png_index].size = (u32)footer_ico_cross_png_size;
+	menu_textures[footer_ico_lt_png_index].buffer = (const void*)footer_ico_lt_png; menu_textures[footer_ico_lt_png_index].size = (u32)footer_ico_lt_png_size;
+	menu_textures[footer_ico_rt_png_index].buffer = (const void*)footer_ico_rt_png; menu_textures[footer_ico_rt_png_index].size = (u32)footer_ico_rt_png_size;
+	menu_textures[footer_ico_square_png_index].buffer = (const void*)footer_ico_square_png; menu_textures[footer_ico_square_png_index].size = (u32)footer_ico_square_png_size;
+	menu_textures[footer_ico_triangle_png_index].buffer = (const void*)footer_ico_triangle_png; menu_textures[footer_ico_triangle_png_index].size = (u32)footer_ico_triangle_png_size;
+	menu_textures[header_dot_png_index].buffer = (const void*)header_dot_png; menu_textures[header_dot_png_index].size = (u32)header_dot_png_size;
+	menu_textures[header_ico_abt_png_index].buffer = (const void*)header_ico_abt_png; menu_textures[header_ico_abt_png_index].size = (u32)header_ico_abt_png_size;
+	menu_textures[header_ico_cht_png_index].buffer = (const void*)header_ico_cht_png; menu_textures[header_ico_cht_png_index].size = (u32)header_ico_cht_png_size;
+	menu_textures[header_ico_opt_png_index].buffer = (const void*)header_ico_opt_png; menu_textures[header_ico_opt_png_index].size = (u32)header_ico_opt_png_size;
+	menu_textures[header_ico_xmb_png_index].buffer = (const void*)header_ico_xmb_png; menu_textures[header_ico_xmb_png_index].size = (u32)header_ico_xmb_png_size;
+	menu_textures[header_line_png_index].buffer = (const void*)header_line_png; menu_textures[header_line_png_index].size = (u32)header_line_png_size;
+	menu_textures[help_png_index].buffer = (const void*)help_png; menu_textures[help_png_index].size = (u32)help_png_size;
+	menu_textures[mark_arrow_png_index].buffer = (const void*)mark_arrow_png; menu_textures[mark_arrow_png_index].size = (u32)mark_arrow_png_size;
+	menu_textures[mark_line_png_index].buffer = (const void*)mark_line_png; menu_textures[mark_line_png_index].size = (u32)mark_line_png_size;
+	menu_textures[opt_off_png_index].buffer = (const void*)opt_off_png; menu_textures[opt_off_png_index].size = (u32)opt_off_png_size;
+	menu_textures[opt_on_png_index].buffer = (const void*)opt_on_png; menu_textures[opt_on_png_index].size = (u32)opt_on_png_size;
+	menu_textures[scroll_bg_png_index].buffer = (const void*)scroll_bg_png; menu_textures[scroll_bg_png_index].size = (u32)scroll_bg_png_size;
+	menu_textures[scroll_lock_png_index].buffer = (const void*)scroll_lock_png; menu_textures[scroll_lock_png_index].size = (u32)scroll_lock_png_size;
+	menu_textures[titlescr_ico_abt_png_index].buffer = (const void*)titlescr_ico_abt_png; menu_textures[titlescr_ico_abt_png_index].size = (u32)titlescr_ico_abt_png_size;
+	menu_textures[titlescr_ico_cht_png_index].buffer = (const void*)titlescr_ico_cht_png; menu_textures[titlescr_ico_cht_png_index].size = (u32)titlescr_ico_cht_png_size;
+	menu_textures[titlescr_ico_opt_png_index].buffer = (const void*)titlescr_ico_opt_png; menu_textures[titlescr_ico_opt_png_index].size = (u32)titlescr_ico_opt_png_size;
+	menu_textures[titlescr_ico_xmb_png_index].buffer = (const void*)titlescr_ico_xmb_png; menu_textures[titlescr_ico_xmb_png_index].size = (u32)titlescr_ico_xmb_png_size;
+	menu_textures[titlescr_logo_png_index].buffer = (const void*)titlescr_logo_png; menu_textures[titlescr_logo_png_index].size = (u32)titlescr_logo_png_size;
 }
 
 void LoadTextures_Menu()
 {
-    u32 * texture_pointer; // use to assign texture space without changes texture_mem
+	u32 * texture_pointer; // use to assign texture space without changes texture_mem
 
-    if(!font_mem) return; // fail!
+	if (!font_mem) return; // fail!
 
-    texture_pointer = font_mem;
-    
-    int cnt = 0;
-    
-    //Main Menu
-    for (cnt = 0; cnt < menu_main_size; cnt++)
-    {
-        pngLoadFromBuffer(menu_main_textures[cnt].buffer, menu_main_textures[cnt].size, &menu_main_textures[cnt].texture);
-    
-        // copy texture datas from PNG to the RSX memory allocated for textures
-        if(menu_main_textures[cnt].texture.bmp_out)
-        {
-            memcpy(texture_pointer, menu_main_textures[cnt].texture.bmp_out, menu_main_textures[cnt].texture.pitch * menu_main_textures[cnt].texture.height);
-            free(menu_main_textures[cnt].texture.bmp_out); // free the PNG because i don't need this datas
-            menu_main_textures[cnt].texture_off = tiny3d_TextureOffset(texture_pointer);      // get the offset (RSX use offset instead address)
-            texture_pointer += ((menu_main_textures[cnt].texture.pitch * menu_main_textures[cnt].texture.height + 15) & ~15) / 4; // aligned to 16 bytes (it is u32) and update the pointer
-        }
-    }
-    
-    //About Menu
-    for (cnt = 0; cnt < menu_about_size; cnt++)
-    {
-        pngLoadFromBuffer(menu_about_textures[cnt].buffer, menu_about_textures[cnt].size, &menu_about_textures[cnt].texture);
-    
-        // copy texture datas from PNG to the RSX memory allocated for textures
-        if(menu_about_textures[cnt].texture.bmp_out)
-        {
-            memcpy(texture_pointer, menu_about_textures[cnt].texture.bmp_out, menu_about_textures[cnt].texture.pitch * menu_about_textures[cnt].texture.height);
-            free(menu_about_textures[cnt].texture.bmp_out); // free the PNG because i don't need this datas
-            menu_about_textures[cnt].texture_off = tiny3d_TextureOffset(texture_pointer);      // get the offset (RSX use offset instead address)
-            texture_pointer += ((menu_about_textures[cnt].texture.pitch * menu_about_textures[cnt].texture.height + 15) & ~15) / 4; // aligned to 16 bytes (it is u32) and update the pointer
-        }
-    }
-    
-    //Options Menu
-    for (cnt = 0; cnt < menu_options_size; cnt++)
-    {
-        pngLoadFromBuffer(menu_options_textures[cnt].buffer, menu_options_textures[cnt].size, &menu_options_textures[cnt].texture);
-    
-        // copy texture datas from PNG to the RSX memory allocated for textures
-        if(menu_options_textures[cnt].texture.bmp_out)
-        {
-            memcpy(texture_pointer, menu_options_textures[cnt].texture.bmp_out, menu_options_textures[cnt].texture.pitch * menu_options_textures[cnt].texture.height);
-            free(menu_options_textures[cnt].texture.bmp_out); // free the PNG because i don't need this datas
-            menu_options_textures[cnt].texture_off = tiny3d_TextureOffset(texture_pointer);      // get the offset (RSX use offset instead address)
-            texture_pointer += ((menu_options_textures[cnt].texture.pitch * menu_options_textures[cnt].texture.height + 15) & ~15) / 4; // aligned to 16 bytes (it is u32) and update the pointer
-        }
-    }
-    
-    //Cheats Menu
-    for (cnt = 0; cnt < menu_cheats_size; cnt++)
-    {
-        pngLoadFromBuffer(menu_cheats_textures[cnt].buffer, menu_cheats_textures[cnt].size, &menu_cheats_textures[cnt].texture);
-    
-        // copy texture datas from PNG to the RSX memory allocated for textures
-        if(menu_cheats_textures[cnt].texture.bmp_out)
-        {
-            memcpy(texture_pointer, menu_cheats_textures[cnt].texture.bmp_out, menu_cheats_textures[cnt].texture.pitch * menu_cheats_textures[cnt].texture.height);
-            free(menu_cheats_textures[cnt].texture.bmp_out); // free the PNG because i don't need this datas
-            menu_cheats_textures[cnt].texture_off = tiny3d_TextureOffset(texture_pointer);      // get the offset (RSX use offset instead address)
-            texture_pointer += ((menu_cheats_textures[cnt].texture.pitch * menu_cheats_textures[cnt].texture.height + 15) & ~15) / 4; // aligned to 16 bytes (it is u32) and update the pointer
-        }
-    }
-    
-    u32 tBytes = texture_pointer - texture_mem;
-    printf ("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
+	texture_pointer = font_mem;
+
+	int cnt = 0;
+
+	//Main Menu
+	for (cnt = 0; cnt < menu_size; cnt++)
+	{
+		pngLoadFromBuffer(menu_textures[cnt].buffer, menu_textures[cnt].size, &menu_textures[cnt].texture);
+
+		// copy texture datas from PNG to the RSX memory allocated for textures
+		if (menu_textures[cnt].texture.bmp_out)
+		{
+			memcpy(texture_pointer, menu_textures[cnt].texture.bmp_out, menu_textures[cnt].texture.pitch * menu_textures[cnt].texture.height);
+			free(menu_textures[cnt].texture.bmp_out); // free the PNG because i don't need this datas
+			menu_textures[cnt].texture_off = tiny3d_TextureOffset(texture_pointer);      // get the offset (RSX use offset instead address)
+			texture_pointer += ((menu_textures[cnt].texture.pitch * menu_textures[cnt].texture.height + 15) & ~15) / 4; // aligned to 16 bytes (it is u32) and update the pointer
+		}
+	}
+
+	u32 tBytes = texture_pointer - texture_mem;
+	printf("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
 }
 
 short *background_music = NULL;
-int background_music_size = 48000*72*4; // initial size of buffer to decode (for 48000 samples x 20 seconds and 16 bit stereo as reference)
+int background_music_size = 48000*72*4; // initial size of buffer to decode (for 48000 samples x 72 seconds and 16 bit stereo as reference)
 int effect_freq;
 int effect_is_stereo;
 void LoadSounds()
@@ -1110,10 +1228,10 @@ void SetMenu(int id)
             
             break;
         case 6: //Cheat View Menu
-            
+			Draw_CheatsMenu_View_Ani_Exit();
             break;
         case 7: //Cheat Option Menu
-            
+			Draw_CheatsMenu_Options_Ani_Exit();
             break;
     }
     
@@ -1150,7 +1268,7 @@ void SetMenu(int id)
         case 5: //Cheat Selection Menu
             if (menu_id == 1 || menu_id == 2) //if entering from game list, don't keep index, otherwise keep
                 menu_old_sel[5] = 0;
-            if (doAni)
+			if (doAni && menu_id != 7 && menu_id != 6)
                 Draw_CheatsMenu_Selection_Ani();
             break;
         case 6: //Cheat View Menu
@@ -1172,30 +1290,6 @@ void SetMenu(int id)
     
     menu_sel = menu_old_sel[menu_id];
 }
-
-//COBRA/MAMBA+PS3MAPI+LOADPLUGIN
-
-#define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
-
-int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
-{
-    lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
-    return_to_user_prog(int);
-}
-
-int ps3mapi_get_core_version(void)
-{
-	lv2syscall2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
-	return_to_user_prog(int);						
-}
-
-int has_ps3mapi(void)
-{
-    if (ps3mapi_get_core_version() >= PS3MAPI_CORE_MINVERSION) return SUCCESS;
-    return FAILED;
-}
-
-
 
 // Resets new frame
 void drawScene()
@@ -1230,53 +1324,55 @@ void drawScene()
                 {
                     switch (menu_sel)
                     {
-                        case 0: //start (install MAMBA if needed, load artemis_ps3.sprx, write cheats to /dev_hdd0/tmp/art.txt)
+                        case 0: //start (install MAMBA, load artemis_ps3.sprx, write cheats to /dev_hdd0/tmp/art.txt)
                             userc = ParseActivatedGameList(user_game_list, user_game_count);
                             onlinec = ParseActivatedGameList(online_game_list, online_game_count);
                             
                             writeFile("/dev_hdd0/tmp/art.txt", userc, onlinec);
                             
                             free (userc);
-                            free (onlinec);
+							free (onlinec);
                             
 							//
 							char plugin_name[30];
 							char plugin_filename[256];
 							memset(plugin_name, 0, sizeof(plugin_name));
 							memset(plugin_filename, 0, sizeof(plugin_filename));
-                            //Check if COBRA+PS3MAPI is installed
-                            if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
+							//Check if COBRA+PS3MAPI is installed
+							if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
 							{
-                                printf ("COBRA+PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
+								printf("COBRA+PS3MAPI Detected\n");
+								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
 								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
 								{
-                                    printf ("COBRA: Artemis is not loaded yet\n");
+									printf("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
-                                }
-                                printf ("COBRA: Artemis running\n");
-                                {lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
+								}
+								printf("COBRA: Artemis running\n");
+								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
 							}
-                            //Check if MAMBA+PS3MAPI is installed
-                            else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
-                            {
-                                printf ("MAMBA + PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
+							//Check if MAMBA+PS3MAPI is installed
+							else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
+							{
+								printf("MAMBA + PS3MAPI Detected\n");
+								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
 								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
 								{
-                                    printf ("MAMBA: Artemis is not loaded yet\n");
+									printf("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
-                                }
-                                printf ("MAMBA: Artemis running\n");
-                                {lv2syscall3(392, 0x1004, 0x4, 0x6);} //1 Beep
-                            }
-                            else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
-                            {   
-                                printf ("None are loaded\n");
-                               { lv2syscall3(392, 0x1004, 0x4, 0x6);}  //1 Beep
-                            }
-                            else
-                                { lv2syscall3(392, 0x1004, 0xa, 0x1b6); } //3 beep
+								}
+								printf("MAMBA: Artemis running\n");
+								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
+							}
+							else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
+							{
+								printf("None are loaded\n");
+								{ lv2syscall3(392, 0x1004, 0x4, 0x6); }  //1 Beep
+							}
+							else
+							{
+								lv2syscall3(392, 0x1004, 0xa, 0x1b6);
+							} //3 beep
                             
                             
                             //So we know art is loaded if we boot up later
@@ -1343,6 +1439,12 @@ void drawScene()
                 }
                 else if (paddata[0].BTN_CROSS)
                 {
+					if (!user_game_list[menu_sel].codes)
+					{
+						int sz = 0;
+						user_game_list[menu_sel].codes = ReadNCL(user_game_list[menu_sel].path, &sz);
+						user_game_list[menu_sel].code_count = sz;
+					}
                     if (doSort)
                         user_game_list[menu_sel] = BubbleSortCodeList(user_game_list[menu_sel]);
                     selected_entry = user_game_list[menu_sel];
@@ -1355,7 +1457,7 @@ void drawScene()
                 }
             }
             
-            Draw_UserCheatsMenu();
+            Draw_UserCheatsMenu(menu_sel, 0xFF);
             break;
         case 2: //Online Cheats Menu
             
@@ -1395,6 +1497,7 @@ void drawScene()
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
+					SaveOptions();
                     SetMenu(0);
                     return;
                 }
@@ -1406,8 +1509,6 @@ void drawScene()
                         menu_options_selections[menu_sel] = menu_options_maxsel[menu_sel] - 1;
                     
                     menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
-                    
-                    SaveOptions();
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
@@ -1417,9 +1518,21 @@ void drawScene()
                         menu_options_selections[menu_sel] = 0;
                     
                     menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
-                    
-                    SaveOptions();
                 }
+				else if (paddata[0].BTN_CROSS)
+				{
+					if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_BOOL)
+						menu_options_selections[menu_sel] = !menu_options_selections[menu_sel];
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_LIST)
+					{
+						if (menu_options_selections[menu_sel] < (menu_options_maxsel[menu_sel] - 1))
+							menu_options_selections[menu_sel]++;
+						else
+							menu_options_selections[menu_sel] = 0;
+					}
+
+					menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
+				}
             }
             
             Draw_OptionsMenu();
@@ -1500,7 +1613,7 @@ void drawScene()
                 }
             }
             
-            Draw_CheatsMenu_Selection();
+            Draw_CheatsMenu_Selection(menu_sel, 0xFFFFFFFF);
             break;
         case 6: //Cheat View Menu
             
@@ -1624,6 +1737,7 @@ s32 main(s32 argc, const char* argv[])
     LoadSounds();
     
     SetExtraSpace(5);
+	SetCurrentFont(0);
     
     menu_options_maxopt = 0;
     while (menu_options_options[menu_options_maxopt].name)
@@ -1641,8 +1755,11 @@ s32 main(s32 argc, const char* argv[])
     for (i = 0; i < menu_options_maxopt; i++)
     {
         menu_options_maxsel[i] = 0;
-        while (menu_options_options[i].options[menu_options_maxsel[i]])
-            menu_options_maxsel[i]++;
+		if (menu_options_options[i].type == ARTEMIS_OPTION_LIST)
+		{
+			while (menu_options_options[i].options[menu_options_maxsel[i]])
+				menu_options_maxsel[i]++;
+		}
     }
     
     LoadOptions();
