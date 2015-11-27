@@ -25,7 +25,7 @@ typedef struct _process_t
 	void *mem_object; // 0x30
 	UnkProcessStruct *unk_38; // 0x38
 	uint64_t unk_40; // 0x40
-	void *first_thread; // 0x48
+	void *first_thread; // 0x48 
 	uint64_t unk_50; // 0x50
 	uint64_t unk_58; // 0x58
 	void *unk_60; // 0x60
@@ -36,7 +36,7 @@ typedef struct _process_t
 	uint64_t unk_88[4]; // 0x88
 	uint64_t unk_A8; // 0xA8  user address?
 	struct _process_t *parent; // 0xB0
-	struct _process_t *first_child; // 0xB8
+	struct _process_t *first_child; // 0xB8  
 	struct _process_t *next_sibling; // 0xC0
 	uint64_t num_children; // 0xC8
 	void *unk_D0; // 0xD0
@@ -73,20 +73,6 @@ typedef struct _process_t
 	// 0x26C -> sdk version 32bits
 } __attribute__((packed)) *process_t;
 
-typedef struct _kernel_proc_info_t
-{
-	uint64_t process_object;
-	uint32_t pid;
-	char	 process_name[0x1C];
-}__attribute__((packed)) *kernel_proc_info_t;
-
-typedef struct _proc_table_entry_t
-{
-	uint64_t unk;
-	process_t process;
-}__attribute__((packed)) *proc_table_entry_t;
-
-
 process_t get_current_process(void);
 
 LV2_EXPORT int process_kill(process_t process);
@@ -103,7 +89,7 @@ static INLINE void *get_current_process_object_table(void)
 {
 	suspend_intr();
 	void *t = get_current_process()->object_table;
-	resume_intr();
+	resume_intr();	
 	return t;
 }
 

@@ -5,7 +5,7 @@
 LV2_FUNCTION(decrypt_func, decrypt_func_symbol)
 #endif
 
-#ifdef authenticate_program_segment
+#ifdef authenticate_program_segment_symbol
 LV2_FUNCTION(authenticate_program_segment, authenticate_program_segment_symbol)
 #endif
 
@@ -51,9 +51,11 @@ LV2_FUNCTION(close_prx_object, close_prx_object_symbol)
 
 #ifdef lock_prx_mutex_symbol
 LV2_FUNCTION(lock_prx_mutex, lock_prx_mutex_symbol)
-LV2_FUNCTION(unlock_prx_mutex, unlock_prx_mutex_symbol)
 #endif
 
+#ifdef unlock_prx_mutex_symbol
+LV2_FUNCTION(unlock_prx_mutex, unlock_prx_mutex_symbol)
+#endif
 
 
 

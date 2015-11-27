@@ -110,7 +110,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <PSL1GHTSDKPath>Z:\PSDK3v2</PSL1GHTSDKPath>
+    <PSL1GHTSDKPath>C:\PSDK3v2</PSL1GHTSDKPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetExt>.self</TargetExt>

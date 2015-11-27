@@ -3,23 +3,35 @@ include $(CELL_MK_DIR)/sdk.makedef.mk
 
 BUILD_TYPE     	= release
 
-LIBSTUB_DIR		= ../lib
+LIBSTUB_DIR		= ./lib
 PRX_DIR			= .
 INSTALL			= cp
 PEXPORTPICKUP		= ppu-lv2-prx-exportpickup
-PRX_LDFLAGS_EXTRA	= -L ../lib -Wl,--strip-unused-data
+PRX_LDFLAGS_EXTRA	= -L ./lib -Wl,--strip-unused-data
 
 CRT_HEAD                += $(shell ppu-lv2-gcc -print-file-name'='ecrti.o)
 CRT_HEAD                += $(shell ppu-lv2-gcc -print-file-name'='crtbegin.o)
 CRT_TAIL                += $(shell ppu-lv2-gcc -print-file-name'='crtend.o)
 CRT_HEAD                += $(shell ppu-lv2-gcc -print-file-name'='ecrtn.o)
 
+PPU_PRX_EXLIBS =	-lstdc_export_stub \
+          		 	-lsysPrxForUser_export_stub \
+             	 	-lvsh_export_stub \
+               		-lpaf_export_stub \
+               		-lvshmain_export_stub \
+               		-lvshtask_export_stub \
+              		-lallocator_export_stub \
+               		-lsdk_export_stub \
+               		-lxsetting_export_stub \
+               		-lsys_io_export_stub \
+               		-lpngdec_ppuonly_export_stub
+
 OBJS_DIR = obj
-PPU_SRCS = printf.c libc.c main.c ps3mapi_ps3_lib.c
+PPU_SRCS = printf.c libc.c main.c ps3mapi_ps3_lib.c mem.c misc.c
 PPU_PRX_TARGET = artemis_ps3.prx
 PPU_PRX_LDFLAGS += $(PRX_LDFLAGS_EXTRA)
 PPU_PRX_STRIP_FLAGS = -s
-PPU_PRX_LDLIBS 	= -lfs_stub -lnet_stub -lrtc_stub -lio_stub
+PPU_PRX_LDLIBS 	= $(PPU_PRX_EXLIBS) -lfs_stub -lnet_stub -lrtc_stub -lio_stub
 
 PPU_CFLAGS += -Os -ffunction-sections -fdata-sections -fno-builtin-printf -nodefaultlibs -std=gnu99 -Wno-shadow -Wno-unused-parameter
 

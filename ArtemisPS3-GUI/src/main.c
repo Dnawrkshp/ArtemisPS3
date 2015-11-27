@@ -36,8 +36,6 @@
 #include <tiny3d.h>
 #include <libfont.h>
 
-#include <ppu-lv2.h>
-
 //From NzV's MAMBA PRX Loader (https://github.com/NzV/MAMBA_PRX_Loader)
 #include "common.h"
 #include "mamba_prx_loader.h"
@@ -106,7 +104,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r2";                //Artemis PS3 version (about menu)
+const char * VERSION = "r3";                //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -193,12 +191,12 @@ void release_all() {
         SND_End();
 
     if(inited & INITED_SPU) {
-        tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
-        SetFontSize(12, 24);
-        SetFontColor(0xffffffff, 0x00000000);
-        DrawFormatString(0, 0, "Destroying SPU... ");
-        tiny3d_Flip();
-        sleep(1);
+        //tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
+        //SetFontSize(12, 24);
+        //SetFontColor(0xffffffff, 0x00000000);
+        //DrawFormatString(0, 0, "Destroying SPU... ");
+        //tiny3d_Flip();
+        //sleep(1);
         sysSpuRawDestroy(spu);
         sysSpuImageClose(&spu_image);
     }
@@ -210,12 +208,18 @@ void release_all() {
 static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
 
      switch (status) {
-        case SYSUTIL_EXIT_GAME:
+        case SYSUTIL_EXIT_GAME: //0x0101
                 
             release_all();
             sysProcessExit(1);
             break;
       
+		case SYSUTIL_MENU_OPEN: //0x0131
+
+			break;
+		case SYSUTIL_MENU_CLOSE: //0x0132
+
+			break;
        default:
            break;
          
@@ -1343,7 +1347,7 @@ void drawScene()
 							{
 								printf("COBRA+PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
+								if (!((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)))
 								{
 									printf("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
@@ -1356,7 +1360,7 @@ void drawScene()
 							{
 								printf("MAMBA + PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if ((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
+								if (!((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)))
 								{
 									printf("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);

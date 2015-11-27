@@ -1,5 +1,5 @@
 clean:
-	rm -f *.o *.elf *.map *.bin payload_src/*.o lv2/src/*.o
+	rm -f *.o *.elf stage2/*.map *.bin stage2/*.o lv2/src/*.o lv1/src/*.o debug/src/*.o 
 all:
 	make -f Makefile_3.55 clean --no-print-directory
 	make -f Makefile_3.55 --no-print-directory
@@ -39,6 +39,8 @@ all:
 	make -f Makefile_4.55D --no-print-directory
 	make -f Makefile_4.60 clean --no-print-directory
 	make -f Makefile_4.60 --no-print-directory
+	make -f Makefile_4.60D clean --no-print-directory
+	make -f Makefile_4.60D --no-print-directory
 	make -f Makefile_4.65 clean --no-print-directory
 	make -f Makefile_4.65 --no-print-directory
 	make -f Makefile_4.65D clean --no-print-directory
@@ -53,4 +55,10 @@ all:
 	make -f Makefile_4.70D --no-print-directory
 	make -f Makefile_4.75 clean --no-print-directory
 	make -f Makefile_4.75 --no-print-directory
-	rm -f *.o *.elf *.map source/*.o lv2/src/*.o
+	make -f Makefile_4.75D clean --no-print-directory
+	make -f Makefile_4.75D --no-print-directory
+	make -f Makefile_4.76 clean --no-print-directory
+	make -f Makefile_4.76 --no-print-directory
+	make -f Makefile_4.76D clean --no-print-directory
+	make -f Makefile_4.76D --no-print-directory
+	rm -f *.o *.elf stage2/*.map stage2/*.o lv2/src/*.o lv1/src/*.o debug/src/*.o

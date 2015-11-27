@@ -168,6 +168,7 @@
 #define SYS_SM_SHUTDOWN						    379 /* Added */
 #define SYS_SM_GET_PARAMS					    380 /* Added */
 #define SYS_GET_HW_CONFIG					    393 /* Added */
+#define SYS_CONSOLE_WRITE					    398
 #define SYS_TTY_READ                                                402
 #define SYS_TTY_WRITE                                               403
 #define SYS_OVERLAY_LOAD_MODULE                                     450
@@ -337,16 +338,16 @@ static INLINE void create_syscall(int n, void *func)
 {
 	uint64_t ***table = (uint64_t ***)MKA(syscall_table_symbol);
 	uint64_t **syscall = table[n];
-	f_desc_t *f = (f_desc_t *)func;
-	syscall[0] = f->addr;
+	f_desc_t *f = (f_desc_t *)func;	
+	syscall[0] = f->addr;	
 }
 
 static INLINE void create_syscall2(int n, void *func)
 {
 	uint64_t **table = (uint64_t **)MKA(syscall_table_symbol);
-	f_desc_t *f = (f_desc_t *)func;
+	f_desc_t *f = (f_desc_t *)func;	
 	uint64_t *opd = f->addr;
-
+	
 	opd[0] = ((uint64_t)opd) + 16;
 	opd[1] = MKA(TOC);
 	table[n] = opd;
@@ -354,10 +355,10 @@ static INLINE void create_syscall2(int n, void *func)
 
 #define patch_syscall	create_syscall
 
-/*static INLINE void set_syscall_handler(void *syscall_handler)
+static INLINE void set_syscall_handler(void *syscall_handler)
 {
 	patch_call(syscall_call_offset, syscall_handler);
-}*/
+}
 
 
 #endif /* __LV2_SYSCALL_H__ */

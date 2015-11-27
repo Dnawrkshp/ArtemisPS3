@@ -2,10 +2,14 @@
 #include "common.h"
 #include "printf.h"
 #include "misc.h"
+#include "ps3mapi_ps3_lib.h"
+#include "mem.h"
+#include "inc/vshmain.h"
 
 #include <sdk_version.h>
 #include <cellstatus.h>
 #include <cell/cell_fs.h>
+#include <cell/sysmodule.h>
 #include <cell/rtc.h>
 #include <cell/pad.h>
 
@@ -28,8 +32,6 @@
 #include <time.h>
 #include <unistd.h>
 
-#include "ps3mapi_ps3_lib.h"
-
 SYS_MODULE_INFO(ART, 0, 1, 0);
 SYS_MODULE_START(art_start);
 SYS_MODULE_STOP(art_stop);
@@ -43,13 +45,14 @@ SYS_MODULE_STOP(art_stop);
 
 static const int second = 1000000;
 
-const char* VERSION = "artemis r2";
+const char* VERSION = "artemis r3";
 
 static sys_ppu_thread_t thread_id = 1;
 
 static int doForceWrite = 0;
 static int isConstantWrite = 0;
 static process_id_t attachedPID = 0;
+static int exitThread = 0;
 
 //Config
 static int hasChecked = 0;
@@ -81,8 +84,6 @@ int getFileSize(const char * path);
 int readFile(const char * path, char * buffer, int size);
 void * getNIDfunc(const char * vsh_module, uint32_t fnid, int32_t offset);
 static void show_msg(char* msg);
-void SetStatusOff(void);
-void SetStatusOn(void);
 
 //From webman-MOD
 int (*vshtask_notify)(int, const char *) = NULL;
@@ -127,7 +128,7 @@ void * getNIDfunc(const char * vsh_module, uint32_t fnid, int32_t offset)
 				}
 			}
 		}
-		table=table+4;
+		table += 4;
 	}
 	return 0;
 }
@@ -541,13 +542,13 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
 		{
 			//Parse second line vars (for codes that need the second line
 			//Get next code arguments
-			while (lines[arg3Off] != ' ')
+			while (arg3Off < linesLen && lines[arg3Off] != ' ')
 				arg3Off++;
 			arg4Off = arg3Off + 1;
-			while (lines[arg4Off] != ' ')
+			while (arg4Off < linesLen && lines[arg4Off] != ' ')
 				arg4Off++;
 			arg4Len = arg4Off + 1;
-			while (lines[arg4Len] != '\r' && lines[arg4Len] != '\n')
+			while (arg4Len < linesLen && lines[arg4Len] != '\r' && lines[arg4Len] != '\n')
 				arg4Len++;
 			arg4Len -= arg4Off;
 		}
@@ -569,7 +570,6 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
 		
 		//Get value for second line
 		ReadHexPartial(lines, arg4Off + 1, arg4Len - 1, buf1_2, (arg4Len - 1)/2);
-		
 		skipSecondLine: ;
 		
 		switch (cType)
@@ -616,7 +616,6 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
 					default:
 						ReadHex(lines, (start + lineLen) - arg2Len + 1, arg2Len - 1, buf0, 4);
 						WriteMem(pid, addr, buf0, (arg2Len/2));
-						
 					break;
 				}
 				break;
@@ -674,15 +673,16 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
 				switch (arg0)
 				{
 					case 1:
-						if (typeA_Copy)
-							_free(typeA_Copy);
+						//if (typeA_Copy)
+						//	_free(typeA_Copy);
 						
 						//Get count
 						ReadHexPartial(lines, (start + lineLen) - arg2Len + 1, arg2Len - 1, buf0, (arg2Len - 1)/2);
 						uint count = (uint)(((unsigned char)buf0[0] << 24) | ((unsigned char)buf0[1] << 16) | ((unsigned char)buf0[2] << 8) | ((unsigned char)buf0[3]));
 						
 						typeA_Size = count;
-						typeA_Copy = (char *)_malloc(count);
+						//typeA_Copy = (char *)_malloc(count);
+						typeA_Copy = (char *)mem_alloc(0);
 						get_process_mem(pid, addr, typeA_Copy, 4, isDEX, isCCAPI);
 						
 						
@@ -790,6 +790,8 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
 	return start + totalLenRead;
 }
 
+char lineBuf[100];
+
 /*
  * Function:		ConvertCodes()
  * File:			main.c
@@ -801,7 +803,6 @@ int ParseLine(unsigned long pid, char * lines, int start, int linesLen, int * sk
  *	ncCodes:		buffer containing entire code list
  * Return:			void
  */
-char lineBuf[100];
 void ConvertCodes(unsigned long pid, char * ncCodes)
 {
 	int totalLen = strlen(ncCodes);
@@ -915,66 +916,6 @@ int getFileSize(const char * path)
 }
 
 /*
- * Function:		SetStatusOff()
- * File:			main.c
- * Project:			ArtemisPS3-PRX
- * Description:			Sets the Artemis state to "no" or off
- * This is so the GUI knows that even if MAMBA is loaded for some reason, artemis isn't as well
- * Should be called only when the PS3 is shutting down
- * Arguments:
- *	void
- * Return:			void
- */
-void SetStatusOff(void)
-{
-	//Delete tmp artstate file
-	char r[] = "no";
-	int fd = 0;
-	if(cellFsOpen("/dev_hdd0/tmp/artstate", CELL_FS_O_WRONLY, &fd, NULL, 0) == CELL_FS_SUCCEEDED)
-	{
-		u64 pos, write_e = 0;
-		cellFsLseek(fd, 0, CELL_FS_SEEK_SET, &pos);
-		
-		if (cellFsWrite(fd, (void *)r, 3, &write_e)==CELL_FS_SUCCEEDED)
-		{
-			
-		}
-		
-		cellFsClose(fd);
-	}
-}
-
-/*
- * Function:		SetStatusOn()
- * File:			main.c
- * Project:			ArtemisPS3-PRX
- * Description:		Sets the Artemis state to "on"
- *					This is so the GUI knows that artemis is loaded and not to load it a second time (allowing a user to change codes without rebooting)
- *					Should be called when Artemis PRX loads
- * Arguments:
- *	void
- * Return:			void
- */
-void SetStatusOn(void)
-{
-	//Delete tmp artstate file
-	char r[] = "on";
-	int fd = 0;
-	if(cellFsOpen("/dev_hdd0/tmp/artstate", CELL_FS_O_WRONLY, &fd, NULL, 0) == CELL_FS_SUCCEEDED)
-	{
-		u64 pos, write_e = 0;
-		cellFsLseek(fd, 0, CELL_FS_SEEK_SET, &pos);
-		
-		if (cellFsWrite(fd, (void *)r, 3, &write_e)==CELL_FS_SUCCEEDED)
-		{
-			
-		}
-		
-		cellFsClose(fd);
-	}
-}
-
-/*
  * Function:		readFile()
  * File:			main.c
  * Project:			ArtemisPS3-PRX
@@ -1023,18 +964,18 @@ static void art_process(int forceWrite)
 	{
 		doForceWrite = forceWrite;
 		
-		//If not loaded userlist, load it
+		//Force load userCodes on forceWrite
 		if (forceWrite && userCodes)
 		{
-			_free(userCodes);
+			reset_heap();
 			userCodes = NULL;
 		}
 
 		if (!userCodes)
 		{
 			int fileSize = getFileSize("/dev_hdd0/tmp/art.txt");
-			userCodes = (char *)_malloc(fileSize + 1);
-			memset(userCodes, 0, fileSize + 1);
+			userCodes = (char *)mem_alloc(fileSize + 2);
+			memset(userCodes, 0, fileSize + 2);
 			if(cellFsOpen("/dev_hdd0/tmp/art.txt", CELL_FS_O_RDONLY, &fd, NULL, 0) == CELL_FS_SUCCEEDED)
 			{
 				u64 read_e = 0, pos;
@@ -1043,8 +984,9 @@ static void art_process(int forceWrite)
 				cellFsRead(fd, (void *)userCodes, fileSize, &read_e);
 				cellFsClose(fd);
 			}
+			userCodes[fileSize] = '\n';
 		}
-			
+		
 		if (attachedPID != NULL && attachedPID != 0)
 		{
 			ConvertCodes(attachedPID, userCodes);
@@ -1056,40 +998,37 @@ static void art_process(int forceWrite)
 }
 
 /*
- * Function:		GetGameProcess()
+ * Function:		check_syscall_api
  * File:			main.c
  * Project:			ArtemisPS3-PRX
- * Description:		Finds the current game process
- * Arguments:
- *	void
- * Return:			Retuns the id of the current game process, 0 if none
+ * Description:		Checks syscalls to determine which API to use
+ * Arguments:		
+ *  void
+ * Return:			void
  */
-static process_id_t GetGameProcess(void)
+void check_syscall_api(void)
 {
-	char pidName[64];
-	process_id_t pids[5];
-	
-	ps3mapi_get_all_processes_pid(pids);
-	if (pids != NULL)
+	char check[4];
+	isDEX = dex_get_process_mem(attachedPID, 0x10000, check, 4) != ENOSYS;
+	if (!(isDEX && check[0] == 0x7F && check[1] == 'E' && check[2] == 'L' && check[3] == 'F'))
 	{
-		for (int cnt = 0; cnt < 5; cnt++)
+		isDEX = 0;
+	}
+	else if (isDEX)
+		printf("Artemis PS3 :::: Using DEX Syscalls\n");
+	if (!isDEX)
+	{
+		isCCAPI = ccapi_get_process_mem(attachedPID, 0x10000, check, 4) != ENOSYS;
+		if (!(isCCAPI && check[0] == 0x7F && check[1] == 'E' && check[2] == 'L' && check[3] == 'F'))
 		{
-			if (pids[cnt] != 0)
-			{
-				ps3mapi_get_process_name_by_pid(pids[cnt], pidName);
-				if (strstr(pidName, "EBOOT") != NULL)
-				{
-					return pids[cnt];
-				}
-				else if (strstr(pidName, "vsh") == NULL && (strstr(pidName, "sys") == NULL)) //in case it's a self (HD collections and such)
-				{
-					return pids[cnt];
-				}
-			}
+			isCCAPI = 0;
 		}
 	}
-	
-	return 0;
+	else if (isCCAPI)
+		printf("Artemis PS3 :::: Using CCAPI Syscalls\n");
+
+	if (!isDEX && !isCCAPI)
+		printf("Artemis PS3 :::: Using MAMBA Syscalls\n");
 }
 
 /*
@@ -1098,151 +1037,108 @@ static process_id_t GetGameProcess(void)
  * Project:			ArtemisPS3-PRX
  * Description:		Artemis PRX Thread start
  *					Interprets user input and calls art_process()
- * Arguments:
+ * Arguments:		
  *	arg:			
  * Return:			void
  */
 static void art_thread(uint64_t arg)
 {
+	//int GameRunningFlag = 0, lastGameRunningFlag = 0;
+	int GameProcessID = 0, lastGameProcessID = 0;
+
 	printf("Artemis PS3 :::: Thread Started!\n");
-	
-	SetStatusOn();
 	
 	sys_timer_sleep(10);
 	sys_ppu_thread_yield();
 	
 	CellPadData data;
+	CellPadInfo2 info;
 	int delay = 0, delay2 = 0, hasDisplayed = 0, fd = 0;
-	
-	while(1)
+
+	while (1)
 	{
-		//Check if not turning off
-		if (delay <= 0)
+		if (exitThread)
 		{
-			
+			destroy_heap();
+			exitThread = 0;
+			{ sys_ppu_thread_exit(0); }
+			{ return; }
 		}
-		//Check if attached
-		if (attachedPID != 0 && delay <= 0)
+
+		GameProcessID = GetGameProcessID();
+		if (GameProcessID != 0)
 		{
-			delay = 50;
-			attachedPID = GetGameProcess();
-			if (attachedPID == 0) //Process exiting/exited
+			if (GameProcessID != lastGameProcessID)
 			{
-				//Check if shutting down
-				if (userCodes)
-					_free(userCodes);
-				userCodes = NULL;
-				
-				if (cellFsOpen("/dev_hdd0/tmp/turnoff", CELL_FS_O_RDONLY, &fd, NULL, 0) != CELL_FS_SUCCEEDED)
+				for (int x = 0; x < (10 * 100); x++) //10 second delay
 				{
-					//printf ("Artemis PS3 :::: Detected shutdown\n");
-					//SetStatusOff();
-					//stop_prx_module();
-					//sys_ppu_thread_exit(0);
+					sys_timer_usleep(10000);
+					sys_ppu_thread_yield();
 				}
-				else
-					cellFsClose(fd);
 				
-				printf ("Artemis PS3 :::: Detatched\n");
-				vsh_free = NULL;
-				vsh_malloc = NULL;
-				hasDisplayed = 0;
-				sys_timer_sleep(3);
-			}
-		}
-		else if (attachedPID == 0)
-		{
-			if (GetGameProcess() != 0 && cellPadGetData(0, &data) != CELL_PAD_OK)
-				hasDisplayed = 0;
-			sys_timer_sleep(2);
-		}
-		
-		//Check to write/attach
-		if(cellPadGetData(0, &data) == CELL_PAD_OK && data.len > 0)
-		{
-			if (!hasDisplayed && GetGameProcess() != 0)
-			{
+				create_heap(1);
 				show_msg((char *)"Artemis PS3\nStart To Attach");
-				hasDisplayed = 1;
 			}
 
-			//printf("Okay\n");
-			if (data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_START)
+			cellPadGetInfo2(&info);
+			if (info.port_status[0] && (cellPadGetData(0, &data) | 1) && data.len > 0)
 			{
-				//printf("Checking for proc\n");
-				int notAttached = attachedPID == 0;
-				attachedPID = GetGameProcess();
-				if (attachedPID)
+				if (attachedPID) // Run codes
 				{
-					if (delay2 <= 0)
+					art_process(0);
+				}
+
+
+				uint32_t pad = data.button[2] | (data.button[3] << 8);
+				if (pad & PAD_START)
+				{
+					attachedPID = GameProcessID;
+					if (attachedPID)
 					{
-						if (notAttached)
+						show_msg((char *)"Artemis PS3\nAttached and Wrote");
+						printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
+
+						check_syscall_api();
+						art_process(1);
+
+						while ((cellPadGetData(0, &data) | 1) && data.len > 0)
 						{
-							show_msg((char *)"Artemis PS3\nAttached and Wrote");
-							printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
-							
-							//if (!hasChecked)
-							{
-								char check[4];
-								isDEX = dex_get_process_mem(attachedPID, 0x10000, check, 4) != ENOSYS;
-								if (!(isDEX && check[0] == 0x7F && check[1] == 'E' && check[2] == 'L' && check[3] == 'F'))
-								{
-									isDEX = 0;
-								}
-								else if (isDEX)
-									printf ("Artemis PS3 :::: Using DEX Syscalls\n");
-								if (!isDEX)
-								{
-									isCCAPI = ccapi_get_process_mem(attachedPID, 0x10000, check, 4) != ENOSYS;
-									if (!(isCCAPI && check[0] == 0x7F && check[1] == 'E' && check[2] == 'L' && check[3] == 'F'))
-									{
-										isCCAPI = 0;
-									}
-								}
-								else if (isCCAPI)
-									printf ("Artemis PS3 :::: Using CCAPI Syscalls\n");
-								
-								if (!isDEX && !isCCAPI)
-									printf ("Artemis PS3 :::: Using MAMBA Syscalls\n");
-							}
+							if (!((data.button[2] | (data.button[3] << 8)) & PAD_START))
+								break;
+
+							sys_timer_usleep(1000000);
+							sys_ppu_thread_yield();
 						}
-						else
-							show_msg((char *)"Artemis PS3\nWrote Codes Once");
 					}
-					art_process(1);
-					delay2 = 1000;
+					else
+					{
+						show_msg((char *)"Artemis PS3\nFailed to Attach");
+					}
 				}
+
 			}
-			else if (data.button[CELL_PAD_BTN_OFFSET_DIGITAL1] & CELL_PAD_CTRL_SELECT)
-			{
-				attachedPID = 0;
-				hasDisplayed = 0;
-				show_msg((char *)"Artemis PS3\nDetatched");
-				if (userCodes)
-				{
-					_free(userCodes);
-					userCodes = NULL;
-				}
-				vsh_free = NULL;
-				vsh_malloc = NULL;
-			}
-			sys_timer_sleep(1);
+			sys_timer_usleep(100 * 1000); //0.1 second delay
 		}
-		else if (attachedPID != 0) //make sure to only write when in game, not in game XMB
+		else
 		{
-			art_process(0);
+			if (attachedPID) // Disconnect
+			{
+				printf("Artemis PS3 :::: Process Exited\n");
+				destroy_heap();
+				attachedPID = 0;
+			}
+			else
+				sys_timer_usleep(3 * 1000 * 1000); //3 second delay
 		}
-		
-		if (delay > 0)
-			delay--;
-		if (delay2 > 0)
-			delay2--;
-		
+
+		lastGameProcessID = GameProcessID;
 		sys_timer_usleep(1668);
 		sys_ppu_thread_yield();
 	}
-	
+
+	destroy_heap();
 	sys_ppu_thread_exit(0);
+
 }
 
 /*
@@ -1267,49 +1163,31 @@ int art_start(uint64_t arg)
 	return SYS_PRX_RESIDENT;
 }
 
-static void stop_prx_module(void)
+static void finalize_module(void)
 {
-	sys_prx_id_t prx = prx_get_module_id_by_address(stop_prx_module);
-	int *result = NULL;
+	uint64_t meminfo[5];
 
-	{system_call_6(482, (u64)(u32)prx, 0, NULL, (u64)(u32)result, 0, NULL);}
-}
+	sys_prx_id_t prx = prx_get_module_id_by_address(finalize_module);
 
-static void unload_prx_module(void)
-{
+	meminfo[0] = 0x28;
+	meminfo[1] = 2;
+	meminfo[3] = 0;
 
-	sys_prx_id_t prx = prx_get_module_id_by_address(unload_prx_module);
-
-	{system_call_3(483, (u64)prx, 0, NULL);}
-
-}
-
-static void art_stop_thread(uint64_t arg)
-{	
-	uint64_t exit_code;
-	sys_timer_usleep(500000);
-
-	if (thread_id != (sys_ppu_thread_t)-1)
-		sys_ppu_thread_join(thread_id, &exit_code);
-		
-	sys_ppu_thread_exit(0);
+	system_call_3(482, prx, 0, (uint64_t)(uint32_t)meminfo);
 }
 
 int art_stop(void)
 {
-	if (userCodes)
-		_free(userCodes);
-	
-	SetStatusOff();
-	sys_ppu_thread_t t;
-	uint64_t exit_code;
+	//if (userCodes)
+	//	_free(userCodes);
+	finalize_module();
+	exitThread = 1;
 
-	sys_ppu_thread_create(&t, art_stop_thread, 0, 0, 0x2000, SYS_PPU_THREAD_CREATE_JOINABLE, STOP_THREAD_NAME);
-	sys_ppu_thread_join(t, &exit_code);
-	
-	sys_timer_usleep(500000);
-	
-	unload_prx_module();
+	while (exitThread)
+	{
+		sys_timer_usleep(1668);
+		sys_ppu_thread_yield();
+	}
 
 	_sys_ppu_thread_exit(0);
 	return SYS_PRX_STOP_OK;

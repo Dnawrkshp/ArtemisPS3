@@ -45,7 +45,7 @@ DATA		:=	data
 INCLUDES	:=	include libfont/include
 PKGFILES	:=	$(CURDIR)/pkgfiles
 
-TITLE		:=	Artemis PS3 (r2)
+TITLE		:=	Artemis PS3 (r3)
 APPID		:=	ARTPS3001
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
@@ -62,7 +62,7 @@ LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	-ltiny3d -lfreetype -lsysmodule -lgcm_sys -lrsx -lsysutil -lio -lnet -lz -laudioplayer -lmpg123 -logg -lspu_sound -laudio -lsysmodule -lm \
+LIBS	:=	-ltiny3d -lfreetype -lgcm_sys -lrsx -lsysutil -lio -lnet -lz -laudioplayer -lmpg123 -logg -lspu_sound -laudio -lsysmodule -lm \
 			-I$(PS3DEV)/portlibs/modules/lib/spu_soundmodule.bin.a -lpngdec -lpng
 
 #---------------------------------------------------------------------------------

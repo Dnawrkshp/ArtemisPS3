@@ -15,40 +15,104 @@ Discarded input sections
  .text          0x0000000000000000        0x0 lv2/src/io.o
  .data          0x0000000000000000        0x0 lv2/src/io.o
  .bss           0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsWrite.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsLseek.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsUnlink_internal.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsUtilMount.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsUtilMount_h.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .cellFsUtilUmount.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .pathdup_from_user.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .open_fs_object.text
+                0x0000000000000000        0x0 lv2/src/io.o
+ .close_fs_object.text
+                0x0000000000000000        0x0 lv2/src/io.o
  .text          0x0000000000000000        0x0 lv2/src/memory.o
  .data          0x0000000000000000        0x0 lv2/src/memory.o
  .bss           0x0000000000000000        0x0 lv2/src/memory.o
- .text          0x0000000000000000       0x18 lv2/src/thread.o
+ .copy_to_user.text
+                0x0000000000000000        0x0 lv2/src/memory.o
+ .copy_to_process.text
+                0x0000000000000000        0x0 lv2/src/memory.o
+ .kernel_ea_to_lpar_addr.text
+                0x0000000000000000        0x0 lv2/src/memory.o
+ .text          0x0000000000000000        0x0 lv2/src/thread.o
  .data          0x0000000000000000        0x0 lv2/src/thread.o
  .bss           0x0000000000000000        0x0 lv2/src/thread.o
+ .ppu_thread_create.text
+                0x0000000000000000        0x0 lv2/src/thread.o
+ .ppu_thread_exit.text
+                0x0000000000000000        0x0 lv2/src/thread.o
+ .ppu_thread_delay.text
+                0x0000000000000000        0x0 lv2/src/thread.o
  .text          0x0000000000000000        0x0 lv2/src/thread_c.o
  .data          0x0000000000000000        0x0 lv2/src/thread_c.o
  .bss           0x0000000000000000        0x0 lv2/src/thread_c.o
- .text          0x0000000000000000       0x38 lv2/src/process.o
+ .text          0x0000000000000000        0x0 lv2/src/process.o
  .data          0x0000000000000000        0x0 lv2/src/process.o
  .bss           0x0000000000000000        0x0 lv2/src/process.o
  .text          0x0000000000000000        0x0 lv2/src/modules.o
  .data          0x0000000000000000        0x0 lv2/src/modules.o
  .bss           0x0000000000000000        0x0 lv2/src/modules.o
+ .decrypt_func.text
+                0x0000000000000000        0x0 lv2/src/modules.o
+ .prx_get_module_list.text
+                0x0000000000000000        0x0 lv2/src/modules.o
  .text          0x0000000000000000        0x0 lv2/src/modules_c.o
  .data          0x0000000000000000        0x0 lv2/src/modules_c.o
  .bss           0x0000000000000000        0x0 lv2/src/modules_c.o
  .text.prx_get_module_name_by_address
-                0x0000000000000000       0xc8 lv2/src/modules_c.o
+                0x0000000000000000        0x0 lv2/src/modules_c.o
  .text          0x0000000000000000        0x0 lv2/src/syscall.o
  .data          0x0000000000000000        0x0 lv2/src/syscall.o
  .bss           0x0000000000000000        0x0 lv2/src/syscall.o
  .text          0x0000000000000000        0x0 lv2/src/libc.o
  .data          0x0000000000000000        0x0 lv2/src/libc.o
  .bss           0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_printf.text
+                0x0000000000000000        0x0 lv2/src/libc.o
  .lv2_sprintf.text
-                0x0000000000000000       0x10 lv2/src/libc.o
+                0x0000000000000000        0x0 lv2/src/libc.o
  .lv2_snprintf.text
-                0x0000000000000000       0x10 lv2/src/libc.o
- .sprintf.text  0x0000000000000000       0x44 lv2/src/libc.o
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strcpy.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strncpy.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strlen.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strcat.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strncmp.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_strchr.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_memcpy.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_memset.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .lv2_memcmp.text
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .printf.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .sprintf.text  0x0000000000000000        0x0 lv2/src/libc.o
  .snprintf.text
-                0x0000000000000000       0x44 lv2/src/libc.o
- .strcmp.text   0x0000000000000000       0x44 lv2/src/libc.o
+                0x0000000000000000        0x0 lv2/src/libc.o
+ .strcpy.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .strncpy.text  0x0000000000000000        0x0 lv2/src/libc.o
+ .strlen.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .strcat.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .strcmp.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .strncmp.text  0x0000000000000000        0x0 lv2/src/libc.o
+ .strchr.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .memcpy.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .memset.text   0x0000000000000000        0x0 lv2/src/libc.o
+ .memcmp.text   0x0000000000000000        0x0 lv2/src/libc.o
 
 Memory Configuration
 
@@ -70,257 +134,240 @@ LOAD lv2/src/syscall.o
 LOAD lv2/src/libc.o
                 0x80000000007f0000                __base = 0x80000000007f0000
 
-.text           0x80000000007f0000      0xb2b
+.text           0x80000000007f0000      0xcc8
  *(.text)
  .text          0x80000000007f0000       0x40 payload_src/start.o
                 0x80000000007f0000                _start
  *(.text.*)
- .text.sys_load_mamba
-                0x80000000007f0040      0x1b4 payload_src/main.o
-                0x80000000007f0040                .sys_load_mamba
  .text.get_vsh_process
-                0x80000000007f01f4      0x100 payload_src/main.o
-                0x80000000007f01f4                .get_vsh_process
- .text.sys_prx_load_vsh_plugin
-                0x80000000007f02f4      0x280 payload_src/main.o
-                0x80000000007f02f4                .sys_prx_load_vsh_plugin
+                0x80000000007f0040      0x124 payload_src/main.o
  .text.sys_prx_unload_vsh_plugin
-                0x80000000007f0574       0xe8 payload_src/main.o
-                0x80000000007f0574                .sys_prx_unload_vsh_plugin
+                0x80000000007f0164      0x114 payload_src/main.o
+ .text.sys_prx_load_vsh_plugin
+                0x80000000007f0278      0x2b8 payload_src/main.o
+ .text.sys_load_mamba
+                0x80000000007f0530      0x1b8 payload_src/main.o
  .text.syscall1022
-                0x80000000007f065c      0x11c payload_src/main.o
-                0x80000000007f065c                .syscall1022
+                0x80000000007f06e8      0x15c payload_src/main.o
  .text.ppu_user_thread_create
-                0x80000000007f0778      0x168 lv2/src/thread_c.o
-                0x80000000007f0778                .ppu_user_thread_create
- .text.prx_start_module_with_thread
-                0x80000000007f08e0      0x144 lv2/src/modules_c.o
-                0x80000000007f08e0                .prx_start_module_with_thread
+                0x80000000007f0844      0x1c0 lv2/src/thread_c.o
  .text.prx_stop_module_with_thread
-                0x80000000007f0a24       0xf8 lv2/src/modules_c.o
-                0x80000000007f0a24                .prx_stop_module_with_thread
+                0x80000000007f0a04      0x120 lv2/src/modules_c.o
+ .text.prx_start_module_with_thread
+                0x80000000007f0b24      0x188 lv2/src/modules_c.o
  *(.rodata)
  *(.rodata.*)
- .rodata.str1.1
-                0x80000000007f0b1c        0xf payload_src/main.o
- .rodata.str1.1
-                0x0000000000000000        0xf lv2/src/modules_c.o
-                                          0x1 (size before relaxing)
+ *fill*         0x80000000007f0cac        0x4 00
+ .rodata.brlt   0x80000000007f0cb0        0x0 linker stubs
+ .rodata.str1.8
+                0x80000000007f0cb0        0xf payload_src/main.o
+                                         0x10 (size before relaxing)
+ *fill*         0x80000000007f0cbf        0x1 00
+ .rodata.str1.8
+                0x80000000007f0cc0        0x8 lv2/src/modules_c.o
  *(.gnu.linkonce.t.*)
 
-.sfpr           0x80000000007f0b2c       0x54
- .sfpr          0x80000000007f0b2c       0x54 linker stubs
-                0x80000000007f0b2c                _savegpr0_24
-                0x80000000007f0b38                _savegpr0_27
-                0x80000000007f0b3c                _savegpr0_28
-                0x80000000007f0b40                _savegpr0_29
-                0x80000000007f0b54                _restgpr0_24
-                0x80000000007f0b60                _restgpr0_27
-                0x80000000007f0b64                _restgpr0_28
-                0x80000000007f0b68                _restgpr0_29
+.sfpr           0x80000000007f0cc8        0x0
+ .sfpr          0x0000000000000000        0x0 linker stubs
 
-.glink          0x80000000007f0b80        0x0
+.glink          0x80000000007f0cc8        0x0
  .glink         0x0000000000000000        0x0 linker stubs
 
-.eh_frame_hdr   0x80000000007f0b80        0x0
- .eh_frame_hdr  0x0000000000000000        0x0 lv2/src/libc.o
-
 .cellFsOpen.text
-                0x80000000007f0b80       0x10
+                0x80000000007f0cc8       0x10
  .cellFsOpen.text
-                0x80000000007f0b80       0x10 lv2/src/io.o
-                0x80000000007f0b80                cellFsOpen
+                0x80000000007f0cc8       0x10 lv2/src/io.o
+                0x80000000007f0cc8                cellFsOpen
 
 .cellFsClose.text
-                0x80000000007f0b90       0x10
+                0x80000000007f0cd8       0x10
  .cellFsClose.text
-                0x80000000007f0b90       0x10 lv2/src/io.o
-                0x80000000007f0b90                cellFsClose
+                0x80000000007f0cd8       0x10 lv2/src/io.o
+                0x80000000007f0cd8                cellFsClose
 
 .cellFsRead.text
-                0x80000000007f0ba0       0x10
+                0x80000000007f0ce8       0x10
  .cellFsRead.text
-                0x80000000007f0ba0       0x10 lv2/src/io.o
-                0x80000000007f0ba0                cellFsRead
+                0x80000000007f0ce8       0x10 lv2/src/io.o
+                0x80000000007f0ce8                cellFsRead
 
 .cellFsStat.text
-                0x80000000007f0bb0       0x10
+                0x80000000007f0cf8       0x10
  .cellFsStat.text
-                0x80000000007f0bb0       0x10 lv2/src/io.o
-                0x80000000007f0bb0                cellFsStat
+                0x80000000007f0cf8       0x10 lv2/src/io.o
+                0x80000000007f0cf8                cellFsStat
 
-.alloc.text     0x80000000007f0bc0       0x10
- .alloc.text    0x80000000007f0bc0       0x10 lv2/src/memory.o
-                0x80000000007f0bc0                alloc
+.alloc.text     0x80000000007f0d08       0x10
+ .alloc.text    0x80000000007f0d08       0x10 lv2/src/memory.o
+                0x80000000007f0d08                alloc
 
-.dealloc.text   0x80000000007f0bd0       0x10
- .dealloc.text  0x80000000007f0bd0       0x10 lv2/src/memory.o
-                0x80000000007f0bd0                dealloc
+.dealloc.text   0x80000000007f0d18       0x10
+ .dealloc.text  0x80000000007f0d18       0x10 lv2/src/memory.o
+                0x80000000007f0d18                dealloc
 
 .copy_from_user.text
-                0x80000000007f0be0       0x10
+                0x80000000007f0d28       0x10
  .copy_from_user.text
-                0x80000000007f0be0       0x10 lv2/src/memory.o
-                0x80000000007f0be0                copy_from_user
+                0x80000000007f0d28       0x10 lv2/src/memory.o
+                0x80000000007f0d28                copy_from_user
 
 .copy_from_process.text
-                0x80000000007f0bf0       0x10
+                0x80000000007f0d38       0x10
  .copy_from_process.text
-                0x80000000007f0bf0       0x10 lv2/src/memory.o
-                0x80000000007f0bf0                copy_from_process
+                0x80000000007f0d38       0x10 lv2/src/memory.o
+                0x80000000007f0d38                copy_from_process
 
 .page_allocate.text
-                0x80000000007f0c00       0x10
+                0x80000000007f0d48       0x10
  .page_allocate.text
-                0x80000000007f0c00       0x10 lv2/src/memory.o
-                0x80000000007f0c00                page_allocate
+                0x80000000007f0d48       0x10 lv2/src/memory.o
+                0x80000000007f0d48                page_allocate
 
 .page_free.text
-                0x80000000007f0c10       0x10
+                0x80000000007f0d58       0x10
  .page_free.text
-                0x80000000007f0c10       0x10 lv2/src/memory.o
-                0x80000000007f0c10                page_free
+                0x80000000007f0d58       0x10 lv2/src/memory.o
+                0x80000000007f0d58                page_free
 
 .page_export_to_proc.text
-                0x80000000007f0c20       0x10
+                0x80000000007f0d68       0x10
  .page_export_to_proc.text
-                0x80000000007f0c20       0x10 lv2/src/memory.o
-                0x80000000007f0c20                page_export_to_proc
+                0x80000000007f0d68       0x10 lv2/src/memory.o
+                0x80000000007f0d68                page_export_to_proc
 
 .page_unexport_from_proc.text
-                0x80000000007f0c30       0x10
+                0x80000000007f0d78       0x10
  .page_unexport_from_proc.text
-                0x80000000007f0c30       0x10 lv2/src/memory.o
-                0x80000000007f0c30                page_unexport_from_proc
+                0x80000000007f0d78       0x10 lv2/src/memory.o
+                0x80000000007f0d78                page_unexport_from_proc
 
 .ppu_thread_join.text
-                0x80000000007f0c40       0x10
+                0x80000000007f0d88       0x10
  .ppu_thread_join.text
-                0x80000000007f0c40       0x10 lv2/src/thread.o
-                0x80000000007f0c40                ppu_thread_join
+                0x80000000007f0d88       0x10 lv2/src/thread.o
+                0x80000000007f0d88                ppu_thread_join
 
 .create_user_thread2.text
-                0x80000000007f0c50       0x10
+                0x80000000007f0d98       0x10
  .create_user_thread2.text
-                0x80000000007f0c50       0x10 lv2/src/thread.o
-                0x80000000007f0c50                create_user_thread2
+                0x80000000007f0d98       0x10 lv2/src/thread.o
+                0x80000000007f0d98                create_user_thread2
 
 .start_thread.text
-                0x80000000007f0c60       0x10
+                0x80000000007f0da8       0x10
  .start_thread.text
-                0x80000000007f0c60       0x10 lv2/src/thread.o
-                0x80000000007f0c60                start_thread
+                0x80000000007f0da8       0x10 lv2/src/thread.o
+                0x80000000007f0da8                start_thread
 
 .run_thread.text
-                0x80000000007f0c70       0x10
+                0x80000000007f0db8       0x10
  .run_thread.text
-                0x80000000007f0c70       0x10 lv2/src/thread.o
-                0x80000000007f0c70                run_thread
+                0x80000000007f0db8       0x10 lv2/src/thread.o
+                0x80000000007f0db8                run_thread
 
 .register_thread.text
-                0x80000000007f0c80       0x10
+                0x80000000007f0dc8       0x10
  .register_thread.text
-                0x80000000007f0c80       0x10 lv2/src/thread.o
-                0x80000000007f0c80                register_thread
+                0x80000000007f0dc8       0x10 lv2/src/thread.o
+                0x80000000007f0dc8                register_thread
 
 .allocate_user_stack.text
-                0x80000000007f0c90       0x10
+                0x80000000007f0dd8       0x10
  .allocate_user_stack.text
-                0x80000000007f0c90       0x10 lv2/src/thread.o
-                0x80000000007f0c90                allocate_user_stack
+                0x80000000007f0dd8       0x10 lv2/src/thread.o
+                0x80000000007f0dd8                allocate_user_stack
 
 .prx_load_module.text
-                0x80000000007f0ca0       0x10
+                0x80000000007f0de8       0x10
  .prx_load_module.text
-                0x80000000007f0ca0       0x10 lv2/src/modules.o
-                0x80000000007f0ca0                prx_load_module
+                0x80000000007f0de8       0x10 lv2/src/modules.o
+                0x80000000007f0de8                prx_load_module
 
 .prx_start_module.text
-                0x80000000007f0cb0       0x10
+                0x80000000007f0df8       0x10
  .prx_start_module.text
-                0x80000000007f0cb0       0x10 lv2/src/modules.o
-                0x80000000007f0cb0                prx_start_module
+                0x80000000007f0df8       0x10 lv2/src/modules.o
+                0x80000000007f0df8                prx_start_module
 
 .prx_stop_module.text
-                0x80000000007f0cc0       0x10
+                0x80000000007f0e08       0x10
  .prx_stop_module.text
-                0x80000000007f0cc0       0x10 lv2/src/modules.o
-                0x80000000007f0cc0                prx_stop_module
+                0x80000000007f0e08       0x10 lv2/src/modules.o
+                0x80000000007f0e08                prx_stop_module
 
 .prx_unload_module.text
-                0x80000000007f0cd0       0x10
+                0x80000000007f0e18       0x10
  .prx_unload_module.text
-                0x80000000007f0cd0       0x10 lv2/src/modules.o
-                0x80000000007f0cd0                prx_unload_module
+                0x80000000007f0e18       0x10 lv2/src/modules.o
+                0x80000000007f0e18                prx_unload_module
+
+.prx_get_module_info.text
+                0x80000000007f0e28       0x10
+ .prx_get_module_info.text
+                0x80000000007f0e28       0x10 lv2/src/modules.o
+                0x80000000007f0e28                prx_get_module_info
 
 .extend_kstack.text
-                0x80000000007f0ce0       0x10
+                0x80000000007f0e38       0x10
  .extend_kstack.text
-                0x80000000007f0ce0       0x10 lv2/src/syscall.o
-                0x80000000007f0ce0                extend_kstack
+                0x80000000007f0e38       0x10 lv2/src/syscall.o
+                0x80000000007f0e38                extend_kstack
 
 .lv2_strcmp.text
-                0x80000000007f0cf0       0x10
+                0x80000000007f0e48       0x10
  .lv2_strcmp.text
-                0x80000000007f0cf0       0x10 lv2/src/libc.o
-                0x80000000007f0cf0                lv2_strcmp
-
-.rela.dyn       0x80000000007f0d00        0x0
- .rela.iplt     0x0000000000000000        0x0 linker stubs
- .rela.text     0x0000000000000000        0x0 linker stubs
- .rela.toc      0x0000000000000000        0x0 linker stubs
+                0x80000000007f0e48       0x10 lv2/src/libc.o
+                0x80000000007f0e48                lv2_strcmp
 
 .data
  *(.data)
  *(.data.*)
 
-.branch_lt      0x80000000007f0d00        0x0
- .branch_lt     0x80000000007f0d00        0x0 linker stubs
-
-.opd            0x80000000007f0d00       0xc0
+.opd            0x80000000007f0e58       0xc0
  *(.opd)
- .opd           0x80000000007f0d00       0x78 payload_src/main.o
-                0x80000000007f0d00                sys_load_mamba
-                0x80000000007f0d18                get_vsh_process
-                0x80000000007f0d30                sys_prx_load_vsh_plugin
-                0x80000000007f0d48                sys_prx_unload_vsh_plugin
-                0x80000000007f0d60                syscall1022
- .opd           0x80000000007f0d78       0x18 lv2/src/thread_c.o
-                0x80000000007f0d78                ppu_user_thread_create
- .opd           0x80000000007f0d90       0x30 lv2/src/modules_c.o
-                0x80000000007f0d90                prx_start_module_with_thread
-                0x80000000007f0da8                prx_stop_module_with_thread
+ .opd           0x80000000007f0e58       0x78 payload_src/main.o
+                0x80000000007f0e70                sys_prx_unload_vsh_plugin
+                0x80000000007f0e88                sys_prx_load_vsh_plugin
+                0x80000000007f0e58                get_vsh_process
+                0x80000000007f0eb8                syscall1022
+                0x80000000007f0ea0                sys_load_mamba
+ .opd           0x80000000007f0ed0       0x18 lv2/src/thread_c.o
+                0x80000000007f0ed0                ppu_user_thread_create
+ .opd           0x80000000007f0ee8       0x30 lv2/src/modules_c.o
+                0x80000000007f0f00                prx_start_module_with_thread
+                0x80000000007f0ee8                prx_stop_module_with_thread
  *(.opd.*)
 
-.got            0x80000000007f0dc0       0xe8
-                0x80000000007f0dc0                __toc_start = .
+.got            0x80000000007f0f18       0xf8
+                0x80000000007f0f18                __toc_start = .
  *(.got)
  *(.got.*)
  *(.toc)
- .toc           0x80000000007f0dc0       0x98 payload_src/main.o
- .toc           0x80000000007f0e58       0x28 lv2/src/thread_c.o
- .toc           0x80000000007f0e80       0x28 lv2/src/modules_c.o
+ .toc           0x80000000007f0f18       0xa8 payload_src/main.o
+ .toc           0x80000000007f0fc0       0x28 lv2/src/thread_c.o
+ .toc           0x80000000007f0fe8       0x28 lv2/src/modules_c.o
                                          0x38 (size before relaxing)
  *(.toc.*)
-                0x80000000007f0ea8                __toc_end = .
+                0x80000000007f1010                __toc_end = .
 
-.bss            0x80000000007f0ea8       0x28
+.bss            0x80000000007f1010       0x28
  *(.bss)
  *(.bss.*)
  .bss.mamba_loaded
-                0x80000000007f0ea8        0x4 payload_src/main.o
-                0x80000000007f0ea8                mamba_loaded
- *fill*         0x80000000007f0eac        0x4 00
- COMMON         0x80000000007f0eb0       0x20 payload_src/main.o
-                0x80000000007f0eb0                vsh_process
-                0x80000000007f0eb8                vsh_plugins
-OUTPUT(payload_3_55.elf elf64-powerpc)
+                0x80000000007f1010        0x4 payload_src/main.o
+                0x80000000007f1010                mamba_loaded
+ *fill*         0x80000000007f1014        0x4 00
+ COMMON         0x80000000007f1018       0x20 payload_src/main.o
+                0x80000000007f1018                vsh_process
+                0x80000000007f1020                vsh_plugins
 
-.iplt           0x80000000007f0ed0        0x0
- .iplt          0x0000000000000000        0x0 linker stubs
+.rela.dyn       0x80000000007f1038        0x0
+ .rela.text     0x0000000000000000        0x0 linker stubs
+ .rela.toc      0x0000000000000000        0x0 linker stubs
+OUTPUT(payload_4_75.elf elf64-powerpc)
+LOAD linker stubs
 
-.comment        0x0000000000000000       0x11
- .comment       0x0000000000000000       0x11 payload_src/main.o
-                                         0x12 (size before relaxing)
- .comment       0x0000000000000000       0x12 lv2/src/thread_c.o
- .comment       0x0000000000000000       0x12 lv2/src/modules_c.o
+.comment        0x0000000000000000       0x36
+ .comment       0x0000000000000000       0x12 payload_src/main.o
+ .comment       0x0000000000000012       0x12 lv2/src/thread_c.o
+ .comment       0x0000000000000024       0x12 lv2/src/modules_c.o
