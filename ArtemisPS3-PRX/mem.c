@@ -24,7 +24,7 @@ uint32_t get_heap(void)
 void create_heap(int32_t size)
 {
   mc_app = vsh_memory_container_by_id(0);
-  sys_memory_allocate_from_container(MB(size), mc_app, SYS_MEMORY_PAGE_SIZE_1M, &heap_mem);
+  sys_memory_allocate_from_container(KB(size * 64), mc_app, SYS_MEMORY_PAGE_SIZE_64K, &heap_mem);
   prx_heap = (uint32_t)heap_mem;
 }
 

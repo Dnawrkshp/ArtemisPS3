@@ -1076,7 +1076,7 @@ static void art_thread(uint64_t arg)
 					sys_ppu_thread_yield();
 				}
 				
-				create_heap(1);
+				
 				show_msg((char *)"Artemis PS3\nStart To Attach");
 			}
 
@@ -1097,6 +1097,8 @@ static void art_thread(uint64_t arg)
 						show_msg((char *)"Artemis PS3\nAttached and Wrote");
 						printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
 
+						if (get_heap() == 0)
+							create_heap(1);
 						check_syscall_api();
 						art_process(1);
 

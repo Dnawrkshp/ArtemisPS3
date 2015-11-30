@@ -1584,7 +1584,7 @@ void drawScene()
 							{
 								printf("COBRA+PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)))
+								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
 									printf("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
@@ -1597,7 +1597,7 @@ void drawScene()
 							{
 								printf("MAMBA + PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!((strlen(plugin_filename) > 0) && (strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)))
+								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
 									printf("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
