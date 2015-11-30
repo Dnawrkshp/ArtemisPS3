@@ -65,6 +65,10 @@ char * userCodes = NULL;
 #define scanInc 0x1000
 const char memBuf[scanInc];
 
+//turnoff flag check delay
+int check_turnoff_delay = 0;
+int check_turnoff_delay_max = 10;
+
 int art_start(uint64_t arg);
 int art_stop(void);
 static void stop_prx_module(void);
@@ -998,6 +1002,27 @@ static void art_process(int forceWrite)
 }
 
 /*
+ * Function:		check_turnoff
+ * File:			main.c
+ * Project:			ArtemisPS3-PRX
+ * Description:		Checks the turnoff flag
+ * Arguments:
+ *  void
+ * Return:			1 if on, 0 if off
+ */
+int check_turnoff(void)
+{
+	if (check_turnoff_delay >= check_turnoff_delay_max)
+	{
+		check_turnoff_delay = 0;
+		CellFsStat stat;
+		return cellFsStat("/dev_hdd0/tmp/turnoff", &stat) == 0;
+	}
+	check_turnoff_delay++;
+	return 1;
+}
+
+/*
  * Function:		check_syscall_api
  * File:			main.c
  * Project:			ArtemisPS3-PRX
@@ -1043,7 +1068,6 @@ void check_syscall_api(void)
  */
 static void art_thread(uint64_t arg)
 {
-	//int GameRunningFlag = 0, lastGameRunningFlag = 0;
 	int GameProcessID = 0, lastGameProcessID = 0;
 
 	printf("Artemis PS3 :::: Thread Started!\n");
@@ -1068,63 +1092,73 @@ static void art_thread(uint64_t arg)
 		GameProcessID = GetGameProcessID();
 		if (GameProcessID != 0)
 		{
-			if (GameProcessID != lastGameProcessID)
+			if (!check_turnoff()) //exit
 			{
-				for (int x = 0; x < (10 * 100); x++) //10 second delay
-				{
-					sys_timer_usleep(10000);
-					sys_ppu_thread_yield();
-				}
-				
-				
-				show_msg((char *)"Artemis PS3\nStart To Attach");
+				printf("Artemis PS3 :::: Process Exited\n");
+				destroy_heap();
+				attachedPID = 0;
 			}
-
-			cellPadGetInfo2(&info);
-			if (info.port_status[0] && (cellPadGetData(0, &data) | 1) && data.len > 0)
+			else
 			{
-				uint32_t pad = data.button[2] | (data.button[3] << 8);
-				if (attachedPID) // Run codes
+				if (GameProcessID != lastGameProcessID)
 				{
-					art_process(0);
+					for (int x = 0; x < (10 * 100); x++) //10 second delay
+					{
+						sys_timer_usleep(10000);
+						sys_ppu_thread_yield();
+					}
+
+
+					show_msg((char *)"Artemis PS3\nStart To Attach");
 				}
 
-				if (pad & PAD_START)
+				cellPadGetInfo2(&info);
+				if (info.port_status[0] && (cellPadGetData(0, &data) | 1) && data.len > 0)
 				{
-					attachedPID = GameProcessID;
-					if (attachedPID)
+					uint32_t pad = data.button[2] | (data.button[3] << 8);
+					if (attachedPID) // Run codes
 					{
-						show_msg((char *)"Artemis PS3\nAttached and Wrote");
-						printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
+						art_process(0);
+					}
 
-						if (get_heap() == 0)
-							create_heap(1);
-						check_syscall_api();
-						art_process(1);
-
-						while ((cellPadGetData(0, &data) | 1) && data.len > 0)
+					if (pad & PAD_START)
+					{
+						attachedPID = GameProcessID;
+						if (attachedPID)
 						{
-							if (!((data.button[2] | (data.button[3] << 8)) & PAD_START))
-								break;
+							show_msg((char *)"Artemis PS3\nAttached and Wrote");
+							printf("Artemis PS3 :::: Attached to 0x%08X\n", attachedPID);
 
-							sys_timer_usleep(1000000);
-							sys_ppu_thread_yield();
+							if (get_heap() == 0)
+								create_heap(1);
+							check_syscall_api();
+							art_process(1);
+
+							while ((cellPadGetData(0, &data) | 1) && data.len > 0)
+							{
+								if (!((data.button[2] | (data.button[3] << 8)) & PAD_START))
+									break;
+
+								sys_timer_usleep(1000000);
+								sys_ppu_thread_yield();
+							}
+						}
+						else
+						{
+							show_msg((char *)"Artemis PS3\nFailed to Attach");
 						}
 					}
-					else
+					else if (pad & PAD_SELECT && attachedPID)
 					{
-						show_msg((char *)"Artemis PS3\nFailed to Attach");
+						show_msg((char *)"Artemis PS3\nDetached");
+						reset_heap();
+						attachedPID = 0;
 					}
-				}
-				else if (pad & PAD_SELECT && attachedPID)
-				{
-					show_msg((char *)"Artemis PS3\nDetached");
-					reset_heap();
-					attachedPID = 0;
+
 				}
 
+				sys_timer_usleep(100 * 1000); //0.1 second delay
 			}
-			sys_timer_usleep(100 * 1000); //0.1 second delay
 		}
 		else
 		{
