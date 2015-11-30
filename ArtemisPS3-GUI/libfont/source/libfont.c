@@ -5,8 +5,11 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdarg.h> 
-#include <libfont.h>
+#include <stdarg.h>
+#include <pngdec/pngdec.h>
+
+#include "libfont.h"
+#include "menu.h"
 
 struct t_font_description
 {
@@ -44,6 +47,24 @@ static struct t_font_datas
     float X,Y,Z;
 
 } font_datas;
+
+typedef struct t_special_char
+{
+	char value;
+
+	short fw;
+	short fy;
+	float sx;
+	float sy;
+
+	png_texture image;
+} special_char;
+
+static special_char special_chars[MAX_SPECIAL_CHARS];
+static int special_char_index = 0;
+
+
+special_char GetSpecialCharFromValue(char value);
 
 
 void ResetFont()
@@ -294,12 +315,70 @@ void SetExtraSpace(int space)
 	font_datas.extra = space;
 }
 
+void RegisterSpecialCharacter(char value, short fw, short fy, float sx, float sy, png_texture image)
+{
+	int x;
+
+	special_char chr;
+	chr.value = value;
+	chr.fw = fw;
+	chr.fy = fy;
+	chr.sx = sx;
+	chr.sy = sy;
+	chr.image = image;
+
+	// Verify special character
+	if (chr.value == 0)
+		return;
+	if (chr.image.texture_off == 0)
+		return;
+	if (chr.image.size == 0)
+		return;
+	if (chr.image.texture.width == 0 || chr.image.texture.height == 0)
+		return;
+	
+	// Verify value is not in use
+	if (GetSpecialCharFromValue(chr.value).value == chr.value)
+		return;
+
+	for (x = 0; x < special_char_index; x++)
+	{
+		if (&special_chars[x] && special_chars[x].value == chr.value)
+			return;
+	}
+
+	// Verify room in array
+	if ((special_char_index + 1) < MAX_SPECIAL_CHARS)
+	{
+		special_chars[special_char_index] = chr;
+		special_char_index++;
+	}
+}
+
+special_char GetSpecialCharFromValue(char value)
+{
+	int x;
+
+	special_char ret;
+	for (x = 0; x < special_char_index; x++)
+	{
+		if (&special_chars[x] && special_chars[x].value == value)
+			return special_chars[x];
+	}
+	return ret;
+}
+
 int WidthFromStr(u8 * str)
 {
     int w = 0;
 
     while(*str) {
-		w += (font_datas.sx+font_datas.extra) * font_datas.fonts[font_datas.current_font].fw[*str++] / font_datas.fonts[font_datas.current_font].w;
+		special_char schr = GetSpecialCharFromValue(*str);
+		if (schr.value != 0)
+			w += ((font_datas.sx * schr.sx) + font_datas.extra) * schr.fw / (float)font_datas.fonts[font_datas.current_font].w;
+		else
+			w += (font_datas.sx + font_datas.extra) * font_datas.fonts[font_datas.current_font].fw[*str] / (float)font_datas.fonts[font_datas.current_font].w;
+		*str++;
     }
 
     return w;
@@ -316,112 +395,158 @@ int WidthFromStrMono(u8 * str)
     return w;
 }
 
+void DrawCharSpecial(float x, float y, float z, special_char schr)
+{
+	float w = (float)font_datas.fonts[font_datas.current_font].w, h = (float)font_datas.fonts[font_datas.current_font].h;
+	float dx = font_datas.sx * schr.sx, dy = font_datas.sy * schr.sy;
+
+	y += (float)((schr.fy * font_datas.sy) / h) / schr.sy;
+	
+	// Load sprite texture
+	tiny3d_SetTexture(0, schr.image.texture_off, schr.image.texture.width,
+		schr.image.texture.height, schr.image.texture.pitch,
+		TINY3D_TEX_FORMAT_A8R8G8B8, 1);
+
+	tiny3d_SetPolygon(TINY3D_QUADS);
+
+	tiny3d_VertexPos(x, y, z);
+	tiny3d_VertexColor(font_datas.color);
+	tiny3d_VertexTexture(0.0f, 0.0f);
+
+	tiny3d_VertexPos(x + dx, y, z);
+	tiny3d_VertexTexture(0.999f, 0.0f);
+
+	tiny3d_VertexPos(x + dx, y + dy + 1, z);
+	tiny3d_VertexTexture(0.999f, 0.999f);
+
+	tiny3d_VertexPos(x, y + dy + 1, z);
+	tiny3d_VertexTexture(0.0f, 0.999f);
+
+	tiny3d_End();
+}
+
 void DrawCharMono(float x, float y, float z, u8 chr)
 {
-	float dx  = font_datas.sx, dy = font_datas.sy;
-    float dx2 = (dx * font_datas.mono) / font_datas.fonts[font_datas.current_font].w;  
-    float dy2 = (float) (dy * font_datas.fonts[font_datas.current_font].bh) / (float) font_datas.fonts[font_datas.current_font].h;
-    
-    if(font_datas.number_of_fonts <= 0) return;
+	special_char schr = GetSpecialCharFromValue(chr);
+	if (schr.value == chr && chr != 0)
+	{
+		DrawCharSpecial(x, y, z, schr);
+		return;
+	}
 
-    if(chr < font_datas.fonts[font_datas.current_font].first_char) return;
-   
-    if(font_datas.bkcolor) {
-        tiny3d_SetPolygon(TINY3D_QUADS);
+	float dx = font_datas.sx, dy = font_datas.sy;
+	float dx2 = (dx * font_datas.mono) / font_datas.fonts[font_datas.current_font].w;
+	float dy2 = (float)(dy * font_datas.fonts[font_datas.current_font].bh) / (float)font_datas.fonts[font_datas.current_font].h;
 
-        tiny3d_VertexPos(x     , y     , z);
-        tiny3d_VertexColor(font_datas.bkcolor);
+	if (font_datas.number_of_fonts <= 0) return;
 
-        tiny3d_VertexPos(x + dx2, y     , z);
+	if (chr < font_datas.fonts[font_datas.current_font].first_char) return;
 
-        tiny3d_VertexPos(x + dx2, y + dy2, z);
+	if (font_datas.bkcolor) {
+		tiny3d_SetPolygon(TINY3D_QUADS);
 
-        tiny3d_VertexPos(x     , y + dy2, z);
+		tiny3d_VertexPos(x, y, z);
+		tiny3d_VertexColor(font_datas.bkcolor);
 
-        tiny3d_End();
-    }
+		tiny3d_VertexPos(x + dx2, y, z);
 
-    y += (float) (font_datas.fonts[font_datas.current_font].fy[chr] * font_datas.sy) / (float) (font_datas.fonts[font_datas.current_font].h);
+		tiny3d_VertexPos(x + dx2, y + dy2, z);
 
-    if(chr > font_datas.fonts[font_datas.current_font].last_char) return;
+		tiny3d_VertexPos(x, y + dy2, z);
 
-    // Load sprite texture
-    tiny3d_SetTexture(0, font_datas.fonts[font_datas.current_font].rsx_text_offset + font_datas.fonts[font_datas.current_font].rsx_bytes_per_char 
-        * (chr - font_datas.fonts[font_datas.current_font].first_char), font_datas.fonts[font_datas.current_font].w,
-        font_datas.fonts[font_datas.current_font].h, font_datas.fonts[font_datas.current_font].w * 
-        ((font_datas.fonts[font_datas.current_font].color_format == TINY3D_TEX_FORMAT_A8R8G8B8) ? 4 : 2), 
-        font_datas.fonts[font_datas.current_font].color_format, 1);
+		tiny3d_End();
+	}
 
-    tiny3d_SetPolygon(TINY3D_QUADS);
+	y += (float)(font_datas.fonts[font_datas.current_font].fy[chr] * font_datas.sy) / (float)(font_datas.fonts[font_datas.current_font].h);
 
-    tiny3d_VertexPos(x     , y     , z);
-    tiny3d_VertexColor(font_datas.color);
-    tiny3d_VertexTexture(0.0f, 0.0f);
+	if (chr > font_datas.fonts[font_datas.current_font].last_char) return;
 
-    tiny3d_VertexPos(x + dx, y     , z);
-    tiny3d_VertexTexture(0.95f, 0.0f);
+	// Load sprite texture
+	tiny3d_SetTexture(0, font_datas.fonts[font_datas.current_font].rsx_text_offset + font_datas.fonts[font_datas.current_font].rsx_bytes_per_char
+		* (chr - font_datas.fonts[font_datas.current_font].first_char), font_datas.fonts[font_datas.current_font].w,
+		font_datas.fonts[font_datas.current_font].h, font_datas.fonts[font_datas.current_font].w *
+		((font_datas.fonts[font_datas.current_font].color_format == TINY3D_TEX_FORMAT_A8R8G8B8) ? 4 : 2),
+		font_datas.fonts[font_datas.current_font].color_format, 1);
 
-    tiny3d_VertexPos(x + dx, y + dy, z);
-    tiny3d_VertexTexture(0.95f, 0.95f);
+	tiny3d_SetPolygon(TINY3D_QUADS);
 
-    tiny3d_VertexPos(x     , y + dy, z);
-    tiny3d_VertexTexture(0.0f, 0.95f);
+	tiny3d_VertexPos(x, y, z);
+	tiny3d_VertexColor(font_datas.color);
+	tiny3d_VertexTexture(0.0f, 0.0f);
 
-    tiny3d_End();
+	tiny3d_VertexPos(x + dx, y, z);
+	tiny3d_VertexTexture(0.95f, 0.0f);
+
+	tiny3d_VertexPos(x + dx, y + dy, z);
+	tiny3d_VertexTexture(0.95f, 0.95f);
+
+	tiny3d_VertexPos(x, y + dy, z);
+	tiny3d_VertexTexture(0.0f, 0.95f);
+
+	tiny3d_End();
 }
 
 void DrawChar(float x, float y, float z, u8 chr)
 {
-    float dx  = font_datas.sx, dy = font_datas.sy;
-    float dx2 = (dx * font_datas.fonts[font_datas.current_font].fw[chr]) / font_datas.fonts[font_datas.current_font].w;  
-    float dy2 = (float) (dy * font_datas.fonts[font_datas.current_font].bh) / (float) font_datas.fonts[font_datas.current_font].h;
-    
-    if(font_datas.number_of_fonts <= 0) return;
+	special_char schr = GetSpecialCharFromValue(chr);
+	if (schr.value == chr && chr != 0)
+	{
+		DrawCharSpecial(x, y, z, schr);
+		return;
+	}
 
-    if(chr < font_datas.fonts[font_datas.current_font].first_char) return;
-   
-    if(font_datas.bkcolor) {
-        tiny3d_SetPolygon(TINY3D_QUADS);
+	float dx = font_datas.sx, dy = font_datas.sy;
+	float dx2 = (dx * font_datas.fonts[font_datas.current_font].fw[chr]) / font_datas.fonts[font_datas.current_font].w;
+	float dy2 = (float)(dy * font_datas.fonts[font_datas.current_font].bh) / (float)font_datas.fonts[font_datas.current_font].h;
 
-        tiny3d_VertexPos(x     , y     , z);
-        tiny3d_VertexColor(font_datas.bkcolor);
+	if (font_datas.number_of_fonts <= 0) return;
 
-        tiny3d_VertexPos(x + dx2, y     , z);
+	if (chr < font_datas.fonts[font_datas.current_font].first_char) return;
 
-        tiny3d_VertexPos(x + dx2, y + dy2, z);
+	if (font_datas.bkcolor) {
+		tiny3d_SetPolygon(TINY3D_QUADS);
 
-        tiny3d_VertexPos(x     , y + dy2, z);
+		tiny3d_VertexPos(x, y, z);
+		tiny3d_VertexColor(font_datas.bkcolor);
 
-        tiny3d_End();
-    }
+		tiny3d_VertexPos(x + dx2, y, z);
 
-    y += (float) (font_datas.fonts[font_datas.current_font].fy[chr] * font_datas.sy) / (float) (font_datas.fonts[font_datas.current_font].h);
+		tiny3d_VertexPos(x + dx2, y + dy2, z);
 
-    if(chr > font_datas.fonts[font_datas.current_font].last_char) return;
+		tiny3d_VertexPos(x, y + dy2, z);
 
-    // Load sprite texture
-    tiny3d_SetTexture(0, font_datas.fonts[font_datas.current_font].rsx_text_offset + font_datas.fonts[font_datas.current_font].rsx_bytes_per_char 
-        * (chr - font_datas.fonts[font_datas.current_font].first_char), font_datas.fonts[font_datas.current_font].w,
-        font_datas.fonts[font_datas.current_font].h, font_datas.fonts[font_datas.current_font].w * 
-        ((font_datas.fonts[font_datas.current_font].color_format == TINY3D_TEX_FORMAT_A8R8G8B8) ? 4 : 2), 
-        font_datas.fonts[font_datas.current_font].color_format, 1);
+		tiny3d_End();
+	}
 
-    tiny3d_SetPolygon(TINY3D_QUADS);
+	y += (float)(font_datas.fonts[font_datas.current_font].fy[chr] * font_datas.sy) / (float)(font_datas.fonts[font_datas.current_font].h);
 
-    tiny3d_VertexPos(x     , y     , z);
-    tiny3d_VertexColor(font_datas.color);
-    tiny3d_VertexTexture(0.0f, 0.0f);
+	if (chr > font_datas.fonts[font_datas.current_font].last_char) return;
 
-    tiny3d_VertexPos(x + dx, y     , z);
-    tiny3d_VertexTexture(0.95f, 0.0f);
+	// Load sprite texture
+	tiny3d_SetTexture(0, font_datas.fonts[font_datas.current_font].rsx_text_offset + font_datas.fonts[font_datas.current_font].rsx_bytes_per_char
+		* (chr - font_datas.fonts[font_datas.current_font].first_char), font_datas.fonts[font_datas.current_font].w,
+		font_datas.fonts[font_datas.current_font].h, font_datas.fonts[font_datas.current_font].w *
+		((font_datas.fonts[font_datas.current_font].color_format == TINY3D_TEX_FORMAT_A8R8G8B8) ? 4 : 2),
+		font_datas.fonts[font_datas.current_font].color_format, 1);
 
-    tiny3d_VertexPos(x + dx, y + dy, z);
-    tiny3d_VertexTexture(0.95f, 0.95f);
 
-    tiny3d_VertexPos(x     , y + dy, z);
-    tiny3d_VertexTexture(0.0f, 0.95f);
 
-    tiny3d_End();
+	tiny3d_SetPolygon(TINY3D_QUADS);
+
+	tiny3d_VertexPos(x, y, z);
+	tiny3d_VertexColor(font_datas.color);
+	tiny3d_VertexTexture(0.0f, 0.0f);
+
+	tiny3d_VertexPos(x + dx, y, z);
+	tiny3d_VertexTexture(0.95f, 0.0f);
+
+	tiny3d_VertexPos(x + dx, y + dy, z);
+	tiny3d_VertexTexture(0.95f, 0.95f);
+
+	tiny3d_VertexPos(x, y + dy, z);
+	tiny3d_VertexTexture(0.0f, 0.95f);
+
+	tiny3d_End();
 }
 
 static int i_must_break_line(char *str, float x)
@@ -504,6 +629,8 @@ float DrawString(float x, float y, char *str)
 
     while (*str) {
         
+		special_char schr = GetSpecialCharFromValue(*str);
+
         if(*str == '\n') {
             x = initX; 
             y += font_datas.sy * font_datas.fonts[font_datas.current_font].bh / font_datas.fonts[font_datas.current_font].h;
@@ -518,15 +645,20 @@ float DrawString(float x, float y, char *str)
 
         DrawChar(x, y, font_datas.Z, (u8) *str);
 		
-		//Make font look nicer by fixing bad spacing
-		float ddX = dx * font_datas.fonts[font_datas.current_font].fw[((u8)*str)] / font_datas.fonts[font_datas.current_font].w;
-		if (str[1] == 'j')
-			ddX *= 2.0/3.0;
-		if (str[0] == 'm' || str[0] == 'M')
-			ddX *= 0.9;
-		if (str[0] == '.')
-			ddX *= 3.0/2.0;
-        x += ddX;
+		if (schr.value != 0)
+			x += (font_datas.sx * schr.sx) * schr.fw / (float)font_datas.fonts[font_datas.current_font].w;
+		else
+		{
+			//Make font look nicer by fixing bad spacing
+			float ddX = dx * font_datas.fonts[font_datas.current_font].fw[((u8)*str)] / font_datas.fonts[font_datas.current_font].w;
+			if (str[1] == 'j')
+				ddX *= 2.0 / 3.0;
+			if (str[0] == 'm' || str[0] == 'M')
+				ddX *= 0.9;
+			if (str[0] == '.')
+				ddX *= 3.0 / 2.0;
+			x += ddX;
+		}
         str++; 
     }
 

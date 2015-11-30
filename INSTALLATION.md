@@ -25,11 +25,11 @@ Using Artemis
 *		Once you have selected your codes Press X on Start in the main menu
 *		You should hear a single beep (if you hear three MAMBA failed to install)
 *		From here you can launch the game or launch homebrew to mount the game
+*		When the game has launched, a notification will appear telling you to press Start to attach
 *		Once you are ready to use your codes in the game, open the in game XMB by pressing the PS button
-*		A notification should appear telling you to press Start to attach (if this does not appear just wait a little)
 *		HOLD Start until Artemis says that it has attached
 *		At this point any codes chosen to constant write will be constantly writing
-*		For any single write codes you wish to write again, just enter the in game XMB again and hold L3 and R3
+*		For any single write codes you wish to write again, just enter the in game XMB again and hold Start
 *		If you wish the detatch (and therefore stop constant writing), enter the in game XMB and HOLD Select
 
 Creating cheat lists (.ncl)

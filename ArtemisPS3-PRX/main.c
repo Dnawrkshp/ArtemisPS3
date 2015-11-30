@@ -45,7 +45,7 @@ SYS_MODULE_STOP(art_stop);
 
 static const int second = 1000000;
 
-const char* VERSION = "artemis r3";
+const char* VERSION = "artemis r4";
 
 static sys_ppu_thread_t thread_id = 1;
 
@@ -1083,13 +1083,12 @@ static void art_thread(uint64_t arg)
 			cellPadGetInfo2(&info);
 			if (info.port_status[0] && (cellPadGetData(0, &data) | 1) && data.len > 0)
 			{
+				uint32_t pad = data.button[2] | (data.button[3] << 8);
 				if (attachedPID) // Run codes
 				{
 					art_process(0);
 				}
 
-
-				uint32_t pad = data.button[2] | (data.button[3] << 8);
 				if (pad & PAD_START)
 				{
 					attachedPID = GameProcessID;
@@ -1114,6 +1113,12 @@ static void art_thread(uint64_t arg)
 					{
 						show_msg((char *)"Artemis PS3\nFailed to Attach");
 					}
+				}
+				else if (pad & PAD_SELECT && attachedPID)
+				{
+					show_msg((char *)"Artemis PS3\nDetached");
+					reset_heap();
+					attachedPID = 0;
 				}
 
 			}

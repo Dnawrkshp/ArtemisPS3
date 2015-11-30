@@ -7,8 +7,13 @@
 #define LIBFONT_H
 
 #include <tiny3d.h>
+#include "menu.h"
 
 /* NOTE: LIBFONT is thinkin to work with Tiny3D 2D mode: you need to call tiny3d_Project2D() before to work with draw functions */
+
+// max number of special characters
+
+#define MAX_SPECIAL_CHARS	20
 
 // initialize all datas. After you call it you don't have any font to use
 
@@ -86,6 +91,10 @@ void SetMonoSpace(int space);
 // set spacing
 
 void SetExtraSpace(int space);
+
+// register special character into font
+
+void RegisterSpecialCharacter(char value, short fw, short fy, float sx, float sy, png_texture image);
 
 // get width of string based on font
 

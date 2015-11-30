@@ -39,6 +39,9 @@
     <ClCompile Include="src\menu_options.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="libfont\source\libfont.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\codes.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libfont\include\libfont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

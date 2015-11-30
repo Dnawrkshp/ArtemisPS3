@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="libfont\source\libfont.c" />
     <ClCompile Include="src\codes.c" />
     <ClCompile Include="src\common.c" />
     <ClCompile Include="src\lv2_utils.c" />
@@ -30,6 +31,7 @@
     <ClInclude Include="include\menu_cheats.h" />
     <ClInclude Include="include\menu_options.h" />
     <ClInclude Include="include\ps3mapi_ps3_lib.h" />
+    <ClInclude Include="libfont\include\libfont.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\background_music_mp3.bin" />

@@ -1,7 +1,5 @@
-#include "codes.h"
-#include <unistd.h>
-#include <string.h>
-#include <pngdec/pngdec.h>
+#ifndef __ARTEMIS_MENU_H__
+#define __ARTEMIS_MENU_H__
 
 
 //Textures
@@ -77,7 +75,7 @@
 #define  font_comfortaa_bold								1
 #define  font_comfortaa_light								2
 
-typedef struct _png_texture
+typedef struct t_png_texture
 {
 	const void *buffer;
 	u32 size;
@@ -97,16 +95,19 @@ typedef struct
 	char * name;
 	char * * options;
 	int type;
-	void(*callback)(int);
+	void(*callback)(int,int);
 } option;
 
 #define ARTEMIS_OPTION_BOOL				1
 #define ARTEMIS_OPTION_LIST				2
+#define ARTEMIS_OPTION_INC				3
 
 extern const option menu_options_options[];
 
 extern int doSort;
 extern int doAni;
+extern int marginHorizontal;
+extern int marginVertical;
 
 extern int menu_options_maxopt;
 extern int * menu_options_maxsel;
@@ -167,3 +168,6 @@ extern void DrawTextureCenteredY(png_texture tex, int x, int y, int z, int w, in
 extern void DrawSelector(int x, int y, int w, int h, int hDif, u8 alpha);
 extern void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int mode);
 extern void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int ani, int div);
+extern void DrawBackgroundTexture(int x, u8 alpha);
+
+#endif
