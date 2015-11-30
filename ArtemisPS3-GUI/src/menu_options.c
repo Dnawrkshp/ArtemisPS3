@@ -1,7 +1,12 @@
+#include <unistd.h>
+#include <string.h>
+#include <pngdec/pngdec.h>
+#include <stdio.h>
+
+#include "codes.h"
+
 #include "menu.h"
 #include "menu_options.h"
-
-#include <stdio.h>
 
 #include <tiny3d.h>
 #include <libfont.h>
@@ -9,13 +14,14 @@
 void Draw_OptionsMenu_Ani()
 {
     int c = 0, w = 0, h = 0;
+	char ARTEMIS_OPTION_INC_TEMP[24];
     
     int div = 12, max = MENU_ANI_MAX, ani = 0;
     for (ani = 0; ani < max; ani++)
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -54,6 +60,12 @@ void Draw_OptionsMenu_Ani()
 						DrawString(dx + 40, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
 						SetFontAlign(0);
 						break;
+					case ARTEMIS_OPTION_INC:
+						SetFontAlign(0);
+						sprintf((char*)ARTEMIS_OPTION_INC_TEMP, "%d", menu_options_selections[ind]);
+						int inc_width = WidthFromStr((u8*)ARTEMIS_OPTION_INC_TEMP);
+						DrawString((MENU_ICON_OFF - 18) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
+						break;
 				}
                 
                 if (menu_old_sel[4] == ind)
@@ -78,6 +90,7 @@ void Draw_OptionsMenu_Ani()
 void Draw_OptionsMenu()
 {
 	int c = 0, w = 0, h = 0;
+	char ARTEMIS_OPTION_INC_TEMP[24];
 
 	DrawHeader(menu_textures[header_ico_opt_png_index], 0, "Options", NULL, 0x000000ff, 0xffffffff, 0);
     
@@ -101,6 +114,12 @@ void Draw_OptionsMenu()
 				SetFontAlign(2);
 				DrawString(dx + 40, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
 				SetFontAlign(0);
+				break;
+			case ARTEMIS_OPTION_INC:
+				SetFontAlign(0);
+				sprintf((char*)ARTEMIS_OPTION_INC_TEMP, "%d", menu_options_selections[ind]);
+				int inc_width = WidthFromStr((u8*)ARTEMIS_OPTION_INC_TEMP);
+				DrawString((MENU_ICON_OFF - 18) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
 				break;
 		}
         

@@ -1,7 +1,12 @@
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+#include <pngdec/pngdec.h>
+
+#include "codes.h"
+
 #include "menu.h"
 #include "menu_cheats.h"
-
-#include <stdio.h>
 
 #include <tiny3d.h>
 #include <libfont.h>
@@ -92,7 +97,7 @@ void Draw_CheatsMenu_Options_Ani_Exit(void)
 	{
 		tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
-		tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+		tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
 
 		tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
 			0x00000303 | 0x00000000,
@@ -111,6 +116,7 @@ void Draw_CheatsMenu_Options_Ani_Exit(void)
 			rgbVal = 0xD0;
 		Draw_CheatsMenu_Selection(menu_old_sel[5], (rgbVal << 24) | (rgbVal << 16) | (rgbVal << 8) | 0xFF);
 
+		DrawTexture(menu_textures[edit_shadow_png_index], left - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), icon_a);
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat Option", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
 
 		int _game_a = (int)(icon_a - (max / 2)) * 2;
@@ -137,7 +143,7 @@ void Draw_CheatsMenu_Options_Ani(void)
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -157,6 +163,7 @@ void Draw_CheatsMenu_Options_Ani(void)
 			rgbVal = 0xD0;
 		Draw_CheatsMenu_Selection(menu_sel, (rgbVal << 24) | (rgbVal << 16) | (rgbVal << 8) | 0xFF);
 
+		DrawTexture(menu_textures[edit_shadow_png_index], left - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), icon_a);
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat Option", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
         
 		u8 game_a = (u8)(icon_a < 0x8F ? 0 : icon_a);
@@ -177,6 +184,7 @@ void Draw_CheatsMenu_Options(void)
 
 	Draw_CheatsMenu_Selection(menu_old_sel[5], 0xD0D0D0FF);
 
+	DrawTexture(menu_textures[edit_shadow_png_index], MENU_SPLIT_OFF - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), 0x000000FF);
 	DrawHeader(menu_textures[header_ico_opt_png_index], MENU_SPLIT_OFF, "Cheat Option", selected_centry.name, 0x000000ff, 0xffffffff, 1);
 
 	DrawOptions(selected_centry.options[option_index], 0xFF, 22, menu_sel);
@@ -359,7 +367,7 @@ void Draw_CheatsMenu_View_Ani_Exit(void)
 	{
 		tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
-		tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+		tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
 
 		tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
 			0x00000303 | 0x00000000,
@@ -378,6 +386,7 @@ void Draw_CheatsMenu_View_Ani_Exit(void)
 			rgbVal = 0xD0;
 		Draw_CheatsMenu_Selection(menu_old_sel[5], (rgbVal << 24) | (rgbVal << 16) | (rgbVal << 8) | 0xFF);
 
+		DrawTexture(menu_textures[edit_shadow_png_index], left - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), icon_a);
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat View", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
 
 		int _game_a = (int)(icon_a - (max / 2)) * 2;
@@ -401,7 +410,7 @@ void Draw_CheatsMenu_View_Ani(void)
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -421,6 +430,7 @@ void Draw_CheatsMenu_View_Ani(void)
 			rgbVal = 0xD0;
 		Draw_CheatsMenu_Selection(menu_sel, (rgbVal << 24) | (rgbVal << 16) | (rgbVal << 8) | 0xFF);
 
+		DrawTexture(menu_textures[edit_shadow_png_index], left - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), icon_a);
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat View", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
 
 		u8 game_a = (u8)(icon_a < 0x8F ? 0 : icon_a);
@@ -442,6 +452,7 @@ void Draw_CheatsMenu_View(void)
     
 	Draw_CheatsMenu_Selection(menu_old_sel[5], 0xD0D0D0FF);
 
+	DrawTexture(menu_textures[edit_shadow_png_index], MENU_SPLIT_OFF - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), 0x000000FF);
 	DrawHeader(menu_textures[header_ico_opt_png_index], MENU_SPLIT_OFF, "Cheat View", selected_centry.name, 0x000000ff, 0xffffffff, 1);
 
     int nlines = DrawCodes(selected_centry, 0xFF, 22, MENU_SPLIT_OFF, menu_sel);
@@ -593,7 +604,7 @@ void Draw_CheatsMenu_Selection_Ani()
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -640,7 +651,7 @@ void Draw_UserCheatsMenu_Ani()
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,

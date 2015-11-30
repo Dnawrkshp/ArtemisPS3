@@ -1,3 +1,9 @@
+#include <unistd.h>
+#include <string.h>
+#include <pngdec/pngdec.h>
+
+#include "codes.h"
+
 #include "menu.h"
 #include "menu_about.h"
 
@@ -13,7 +19,7 @@ void Draw_AboutMenu_Ani()
 	{
 		tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
-		tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+		tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
 
 		tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
 			0x00000303 | 0x00000000,
@@ -37,7 +43,7 @@ void Draw_AboutMenu_Ani()
 		DrawString(848 / 2, 70, "Thank You for using Artemis!");
 		SetCurrentFont(font_comfortaa_regular);
 		SetFontSize(12, 12);
-		DrawString(848 / 2, 95, "a cross platform hacking system");
+		DrawString(848 / 2, 95, "a collaborative effort to free modding");
 
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
@@ -97,7 +103,7 @@ void Draw_AboutMenu_Ani__()
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -123,7 +129,7 @@ void Draw_AboutMenu_Ani__()
 		DrawString(848 / 2, 70, "Thank You for using Artemis!");
 		SetCurrentFont(font_comfortaa_regular);
 		SetFontSize(12, 12);
-		DrawString(848 / 2, 95, "a cross platform hacking system");
+		DrawString(848 / 2, 95, "a collaborative effort to free modding");
         
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
@@ -188,7 +194,7 @@ void Draw_AboutMenu()
 	DrawString(848 / 2, 70, "Thank You for using Artemis!");
 	SetCurrentFont(font_comfortaa_regular);
     SetFontSize(12, 12);
-	DrawString(848 / 2, 95, "a cross platform hacking system");
+	DrawString(848 / 2, 95, "a collaborative effort to free modding");
 
 	SetFontAlign(0);
 	SetCurrentFont(font_comfortaa_bold);

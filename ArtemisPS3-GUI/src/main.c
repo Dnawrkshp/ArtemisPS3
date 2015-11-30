@@ -34,13 +34,15 @@
 #include <freetype/ftglyph.h>
 
 #include <tiny3d.h>
-#include <libfont.h>
+#include "libfont.h"
 
 //From NzV's MAMBA PRX Loader (https://github.com/NzV/MAMBA_PRX_Loader)
 #include "common.h"
 #include "mamba_prx_loader.h"
 #include "ps3mapi_ps3_lib.h"
 #include "lv2_utils.h"
+
+#include "codes.h"
 
 #define SC_SYS_POWER        (379)
 #define SYS_REBOOT          0x8201
@@ -86,25 +88,31 @@ padData padB[MAX_PADS];
 //Options
 const char * options_path = "/dev_hdd0/game/ARTPS3001/USRDIR/opt.ini";
 
-void music_callback(int sel);
-void sort_callback(int sel);
-void ani_callback(int sel);
+void music_callback(int index, int sel);
+void sort_callback(int index, int sel);
+void ani_callback(int index, int sel);
+void horm_callback(int index, int sel);
+void verm_callback(int index, int sel);
 
 const option menu_options_options[] = {
 	{ .name = "Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
 	{ .name = "Sort Cheats", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = sort_callback },
 	{ .name = "Menu Animations", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = ani_callback },
+	{ .name = "Horizontal Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = horm_callback },
+	{ .name = "Vertical Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = verm_callback },
 	{ .name = NULL }
 };
 
 int doSort = 1;
 int doAni = 1;
+int marginHorizontal = 0;
+int marginVertical = 0;
 
 int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r3";                //Artemis PS3 version (about menu)
+const char * VERSION = "r4";                //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -123,6 +131,8 @@ int highlight_pulse = 1;                    // Whether the increment the highlig
 int highlight_amount = 6;                   // Amount of alpha to inc/dec each time
 int pause_pulse = 0;                        // Counter that holds how long alpha is held in place
 int idle_time = 0;                          // Set by readPad
+
+const char * menu_main_description = "Playstation 3 Hacking System";
 
 const char * menu_about_strings[] = { "Berion", "Designer",
 									"NzV", "PS3MAPI",
@@ -143,18 +153,18 @@ const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
 * 6 - Code Menu (View Cheat)
 * 7 - Code Menu (View Cheat Options)
 */
-int menu_id = 0;                                                    // Menu currently in
-int menu_sel = 0;                                                   // Index of selected item (use varies per menu)
-int menu_old_sel[] = { 0, 0, 0, 0, 0, 0, 0, 0 };                        // Previous menu_sel for each menu
-int last_menu_id[] = { 0, 0, 0, 0, 0, 0, 0, 0 };                        // Last menu id called (for returning)
-const char * menu_pad_help[] = { NULL, //Main
-								"X - Select    O - Back    [] - Refresh", //User list   
-								"X - Select    O - Back    [] - Refresh", //Online list
-								"O - Back", //about
-								"X - Select    O - Back", //options
-								"X - Enable    [] - Toggle Mode    TRI - View Code    O - Back", //select cheats
-								"O - Back", //view cheat
-								"X - Select    O - Back" //cheat option
+int menu_id = 0;																					// Menu currently in
+int menu_sel = 0;																					// Index of selected item (use varies per menu)
+int menu_old_sel[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Previous menu_sel for each menu
+int last_menu_id[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Last menu id called (for returning)
+const char * menu_pad_help[] = { NULL,																//Main
+								"\x10 Select    \x13 Back    \x11 Refresh",							//User list   
+								"\x10 Select    \x13 Back    \x11 Refresh",							//Online list
+								"\x13 Back",														//About
+								"\x10 Select    \x13 Back",											//Options
+								"\x10 Enable    \x11 Toggle Mode    \x12 View Code    \x13 Back",	//Select Cheats
+								"\x13 Back",														//View Cheat
+								"\x10 Select    \x13 Back"											//Cheat Option
 								};
 
 /*
@@ -231,7 +241,7 @@ char * ParseOptionName(char * buffer, char * ret)
 {
     strcpy(ret, buffer);
     int i = 0;
-    for (i = 0; i < sizeof(ret); i++)
+    for (i = 0; i < strlen(ret); i++)
         if (ret[i] == ' ')
             ret[i] = '_';
     
@@ -480,6 +490,7 @@ void TTF_to_Bitmap(u8 chr, u8 * bitmap, short *w, short *h, short *y_correction)
 // draw one background color in virtual 2D coordinates
 void DrawBackground2D(u32 rgba)
 {
+	/*
     tiny3d_SetPolygon(TINY3D_QUADS);
 
     tiny3d_VertexPos(0  , 0  , 65535);
@@ -491,6 +502,19 @@ void DrawBackground2D(u32 rgba)
 
     tiny3d_VertexPos(0  , 511, 65535);
     tiny3d_End();
+	*/
+
+	tiny3d_SetPolygon(TINY3D_QUADS);
+
+	tiny3d_VertexPos(-marginHorizontal, -marginVertical, 65535);
+	tiny3d_VertexColor(rgba);
+
+	tiny3d_VertexPos(847 + marginHorizontal, -marginVertical, 65535);
+
+	tiny3d_VertexPos(847 + marginHorizontal, 511 + marginVertical, 65535);
+
+	tiny3d_VertexPos(-marginHorizontal, 511 + marginVertical, 65535);
+	tiny3d_End();
 }
 
 void DrawSprites2D(float x, float y, float layer, float dx, float dy, u32 rgba)
@@ -499,16 +523,16 @@ void DrawSprites2D(float x, float y, float layer, float dx, float dy, u32 rgba)
 
     tiny3d_VertexPos(x     , y     , layer);
     tiny3d_VertexColor(rgba);
-    tiny3d_VertexTexture(0.0f, 0.0f);
+    tiny3d_VertexTexture(0.01f, 0.01f);
 
     tiny3d_VertexPos(x + dx, y     , layer);
-    tiny3d_VertexTexture(0.99f, 0.0f);
+    tiny3d_VertexTexture(0.99f, 0.01f);
 
     tiny3d_VertexPos(x + dx, y + dy, layer);
     tiny3d_VertexTexture(0.99f, 0.99f);
 
     tiny3d_VertexPos(x     , y + dy, layer);
-    tiny3d_VertexTexture(0.0f, 0.99f);
+    tiny3d_VertexTexture(0.01f, 0.99f);
 
     tiny3d_End();
 }
@@ -562,10 +586,9 @@ void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle,
 	int w, h, c;
 
 	//------------ Backgrounds
-
+	
 	//Background
-	c = bgimg_png_index;
-	DrawTexture(menu_textures[c], 0, 0, 0, 848, 512, bgrgba);
+	DrawBackgroundTexture(0, (u8)bgrgba);
 
 	//------------- Menu Bar
 
@@ -613,8 +636,7 @@ void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSub
 	int c, w, h;
 
 	//Background
-	c = bgimg_png_index;
-	DrawTexture(menu_textures[c], xOff, 0, 0, 848 - xOff, 512, bgrgba);
+	DrawBackgroundTexture(xOff, (u8)bgrgba);
 
 	//------------ Menu Bar
 	c = header_line_png_index;
@@ -664,6 +686,14 @@ void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSub
 		free(tName);
 		SetFontAlign(0);
 	}
+}
+
+void DrawBackgroundTexture(int x, u8 alpha)
+{
+	if (x == 0)
+		DrawTexture(menu_textures[bgimg_png_index], x - marginHorizontal, -marginVertical, 0, 848 - x + (marginHorizontal * 2), 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
+	else
+		DrawTexture(menu_textures[bgimg_png_index], x, -marginVertical, 0, 848 - x + marginHorizontal, 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
 }
 
 void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
@@ -844,7 +874,7 @@ void Draw_MainMenu_Ani()
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -866,7 +896,7 @@ void Draw_MainMenu_Ani()
         
         
         //Background
-        DrawTexture(menu_textures[bgimg_png_index], 0, 0, 0, 848, 512, 0xFFFFFF00 | bg_a);
+		DrawBackgroundTexture(0, bg_a);
         
         //Artemis logo
 		w = 500, h = 88;
@@ -877,7 +907,7 @@ void Draw_MainMenu_Ani()
 		SetCurrentFont(font_comfortaa_light);
 		SetFontSize(18, 16);
 		SetFontColor(0x00000000 | logo_a, 0x00000000);
-		DrawString(screen_width / 2, 210, "cross platform hacking system");
+		DrawString(screen_width / 2, 210, (char*)menu_main_description);
         
         tiny3d_Flip();
     }
@@ -888,7 +918,7 @@ void Draw_MainMenu_Ani()
     {
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
         
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0x0, TINY3D_ALPHA_FUNC_GEQUAL);
         
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
             0x00000303 | 0x00000000,
@@ -903,7 +933,7 @@ void Draw_MainMenu_Ani()
         //------------ Backgrounds
         
         //Background
-        DrawTexture(menu_textures[bgimg_png_index], 0, 0, 0, 848, 512, 0xFFFFFFFF);
+		DrawBackgroundTexture(0, 0xFF);
         
         //Artemis logo
         w = 500; h = 88;
@@ -914,7 +944,7 @@ void Draw_MainMenu_Ani()
 		SetCurrentFont(font_comfortaa_light);
 		SetFontSize(18, 16);
 		SetFontColor(0x000000FF, 0x00000000);
-		DrawString(screen_width / 2, 210, "cross platform hacking system");
+		DrawString(screen_width / 2, 210, (char*)menu_main_description);
 
 		SetFontSize(12, 12);
 		DrawString(screen_width / 2, 480, "www.gamehacking.org/artemis");
@@ -954,7 +984,7 @@ void Draw_MainMenu()
     //------------ Backgrounds
     
     //Background
-    DrawTexture(menu_textures[c], 0, 0, 0, 848, 512, 0xffffffff);
+	DrawBackgroundTexture(0, 0xff);
     
     //Artemis logo
     c = titlescr_logo_png_index;
@@ -966,7 +996,7 @@ void Draw_MainMenu()
 	SetCurrentFont(font_comfortaa_light);
 	SetFontSize(18, 16);
 	SetFontColor(0x000000FF, 0x00000000);
-	DrawString(screen_width / 2, 210, "cross platform hacking system");
+	DrawString(screen_width / 2, 210, (char*)menu_main_description);
 
 	SetFontSize(12, 12);
 	DrawString(screen_width / 2, 480, "www.gamehacking.org/artemis");
@@ -1171,7 +1201,7 @@ void LoadSounds()
     SND_Pause(0);
 }
 
-void music_callback(int sel)
+void music_callback(int index, int sel)
 {
     switch (sel)
     {
@@ -1183,14 +1213,34 @@ void music_callback(int sel)
     }
 }
 
-void sort_callback(int sel)
+void sort_callback(int index, int sel)
 {
     doSort = !sel;
 }
 
-void ani_callback(int sel)
+void ani_callback(int index, int sel)
 {
     doAni = !sel;
+}
+
+void horm_callback(int index, int sel)
+{
+	if (sel < 0)
+		sel = 0;
+	if (sel > 100)
+		sel = 100;
+	marginHorizontal = sel;
+	menu_options_selections[index] = sel;
+}
+
+void verm_callback(int index, int sel)
+{
+	if (sel < 0)
+		sel = 0;
+	if (sel > 100)
+		sel = 100;
+	marginVertical = sel;
+	menu_options_selections[index] = sel;
 }
 
 void ReloadUserCheats()
@@ -1507,23 +1557,21 @@ void drawScene()
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-                    if (menu_options_selections[menu_sel] > 0)
-                        menu_options_selections[menu_sel]--;
-                    else
-                        menu_options_selections[menu_sel] = menu_options_maxsel[menu_sel] - 1;
+					if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_BOOL)
+						menu_options_selections[menu_sel] = !menu_options_selections[menu_sel];
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_LIST)
+					{
+						if (menu_options_selections[menu_sel] > 0)
+							menu_options_selections[menu_sel]--;
+						else
+							menu_options_selections[menu_sel] = menu_options_maxsel[menu_sel] - 1;
+					}
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_INC)
+						menu_options_selections[menu_sel]--;
                     
-                    menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
+					menu_options_options[menu_sel].callback(menu_sel, menu_options_selections[menu_sel]);
                 }
-                else if (paddata[0].BTN_RIGHT)
-                {
-                    if (menu_options_selections[menu_sel] < (menu_options_maxsel[menu_sel] - 1))
-                        menu_options_selections[menu_sel]++;
-                    else
-                        menu_options_selections[menu_sel] = 0;
-                    
-                    menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
-                }
-				else if (paddata[0].BTN_CROSS)
+				else if (paddata[0].BTN_CROSS || paddata[0].BTN_RIGHT)
 				{
 					if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_BOOL)
 						menu_options_selections[menu_sel] = !menu_options_selections[menu_sel];
@@ -1534,8 +1582,11 @@ void drawScene()
 						else
 							menu_options_selections[menu_sel] = 0;
 					}
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_INC)
+						menu_options_selections[menu_sel]++;
+					
 
-					menu_options_options[menu_sel].callback(menu_options_selections[menu_sel]);
+					menu_options_options[menu_sel].callback(menu_sel, menu_options_selections[menu_sel]);
 				}
             }
             
@@ -1714,11 +1765,7 @@ void exiting()
 }
 
 /*
-    Main function
-    
-    Initializes pad, screen, textures, and server
-    
-    When connected, it loops and parses PC communication
+    Program start
 */
 s32 main(s32 argc, const char* argv[])
 {
@@ -1727,7 +1774,6 @@ s32 main(s32 argc, const char* argv[])
     ioPadInit(7);
     
     sysModuleLoad(SYSMODULE_PNGDEC);
-    //sysModuleLoad(SYSMODULE_JPGDEC);
 
     atexit(exiting); // Tiny3D register the event 3 and do exit() call when you exit  to the menu
 
@@ -1735,19 +1781,41 @@ s32 main(s32 argc, const char* argv[])
     if(sysUtilRegisterCallback(SYSUTIL_EVENT_SLOT0, sys_callback, NULL)==0) inited |= INITED_CALLBACK;
     
     // Load texture
-
     LoadTexture();
     LoadTextures_Menu();
     LoadSounds();
     
+	// Setup font
     SetExtraSpace(5);
 	SetCurrentFont(0);
-    
+	RegisterSpecialCharacter(0x10,
+		menu_textures[footer_ico_cross_png_index].texture.width / 1,
+		4,
+		1.2,
+		1.2,
+		menu_textures[footer_ico_cross_png_index]);
+	RegisterSpecialCharacter(0x11,
+		menu_textures[footer_ico_square_png_index].texture.width / 1,
+		4,
+		1.2,
+		1.2,
+		menu_textures[footer_ico_square_png_index]);
+	RegisterSpecialCharacter(0x12,
+		menu_textures[footer_ico_triangle_png_index].texture.width / 1,
+		4,
+		1.2,
+		1.2,
+		menu_textures[footer_ico_triangle_png_index]);
+	RegisterSpecialCharacter(0x13,
+		menu_textures[footer_ico_circle_png_index].texture.width / 1,
+		4,
+		1.2,
+		1.2,
+		menu_textures[footer_ico_circle_png_index]);
+
     menu_options_maxopt = 0;
     while (menu_options_options[menu_options_maxopt].name)
-    {
         menu_options_maxopt++;
-    }
     
     int selSize = menu_options_maxopt * sizeof(int);
     menu_options_maxsel = (int *)malloc(selSize);
@@ -1776,7 +1844,7 @@ s32 main(s32 argc, const char* argv[])
     
     videoResolution res;
     assert(videoGetResolution(state.displayMode.resolution, &res) == 0);
-    //printf("Resolution: %d by %d\n", res.width, res.height);
+    printf("Resolution: %d by %d\n", res.width, res.height);
     screen_width = res.width;
     screen_height = res.height;
     
@@ -1785,20 +1853,23 @@ s32 main(s32 argc, const char* argv[])
     
     //Set options
     for (i = 0; i < menu_options_maxopt; i++)
-        menu_options_options[i].callback(menu_options_selections[i]);
-    
+        menu_options_options[i].callback(i, menu_options_selections[i]);
+
     SetMenu(0);
     
     while (1)
     {       
+
+		
+
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
         // Enable alpha Test
-        tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+        tiny3d_AlphaTest(1, 0, TINY3D_ALPHA_FUNC_GEQUAL);
 
         // Enable alpha blending.
         tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
-            0x00000303 | 0x00000000,
+			TINY3D_BLEND_FUNC_DST_RGB_ONE_MINUS_SRC_ALPHA | TINY3D_BLEND_FUNC_DST_ALPHA_ZERO,
             TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
                     
         // Check the pads.
