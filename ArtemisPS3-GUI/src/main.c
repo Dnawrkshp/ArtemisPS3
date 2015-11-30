@@ -143,6 +143,14 @@ const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
 											"PS2Dragon", "Artemis Logo",
 											NULL, NULL };
 
+//Game filtering
+#define GAMES_MOUNT_PATH		"/dev_hdd0/GAMES/"
+#define GAMES_PSN_PATH			"/dev_hdd0/game/"
+#define GAMES_DISC_PATH			"/app_home/PS3_GAME/PARAM.SFO"
+
+char * * user_installed_titleids;
+int user_installed_titleids_count = 0;
+
 /*
 * 0 - Main Menu
 * 1 - Code Menu (User List)
@@ -236,6 +244,185 @@ static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
     }
 }
 
+char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
+{
+	DIR *d;
+	struct dirent *dir;
+
+	char fullPath[1024];
+	char FullID[20];
+
+	char * * files = (char**)malloc(1000 * sizeof(char*));
+
+	int count = 0, x = 0;
+
+	if ((d = opendir(path)))
+	{
+		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
+		{
+			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
+			{
+				sprintf(fullPath, "%s%s%s", path, dir->d_name, param);
+				if (file_exists(fullPath) == SUCCESS)
+				{
+					files[count] = (char*)malloc(strlen(fullPath));
+					strcpy(files[count], (char*)fullPath);
+					count++;
+				}
+			}
+		}
+		closedir(d);
+	}
+
+	*ret_count = count;
+	return files;
+}
+
+void LoadGames()
+{
+	char * titleIDs[1000];
+	int id_count[3];
+	char ** id_path[3];
+	int count = 0, x = 0, y = 0;
+
+	//Free old array if exists
+	if (user_installed_titleids)
+	{
+		for (x = 0; x < user_installed_titleids_count; x++)
+			if (user_installed_titleids[x])
+				free(user_installed_titleids);
+
+		free(user_installed_titleids);
+	}
+	user_installed_titleids_count = 0;
+	
+	id_path[0] = LoadGames_ReadDirectory(GAMES_MOUNT_PATH, "/PS3_GAME/PARAM.SFO", &id_count[0]);
+	id_path[1] = LoadGames_ReadDirectory(GAMES_PSN_PATH, "/PARAM.SFO", &id_count[1]);
+	id_path[2] = (char **)malloc(1 * sizeof(char*));
+	id_path[2][0] = (char*)malloc(512);
+	strcpy(id_path[2][0], GAMES_DISC_PATH);
+	if (file_exists(id_path[2][0]) == SUCCESS)
+		id_count[2] = 1;
+	else
+	{
+		id_count[2] = 0;
+		free(id_path[2][0]);
+		id_path[2][0] = NULL;
+	}
+
+	count = id_count[0] + id_count[1] + id_count[2];
+	if (count > 0)
+	{
+		user_installed_titleids = (char **)malloc(count * sizeof(char*));
+		for (x = 0; x < 3; x++)
+		{
+			if (id_path[x])
+			{
+				for (y = 0; y < id_count[x]; y++)
+				{
+					if (id_path[x][y])
+					{
+						user_installed_titleids[user_installed_titleids_count] = (char*)malloc(10);
+
+						int fSize = getFileSize(id_path[x][y]);
+						char * fullFile = readFile(id_path[x][y]);
+						strcpy((char*)user_installed_titleids[user_installed_titleids_count], (char*)&fullFile[fSize - 0x18]);
+						free(fullFile);
+						fullFile = NULL;
+						user_installed_titleids_count++;
+
+						free(id_path[x][y]);
+					}
+				}
+				free(id_path[x]);
+			}
+		}
+	}
+
+	/*
+	//Mountable disc games
+	if ((d = opendir(GAMES_MOUNT_PATH)))
+	{
+		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
+		{
+			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
+			{
+				sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_MOUNT_PATH, dir->d_name);
+				printf("%s :: ", (char*)fullPath);
+				if (file_exists(fullPath) == SUCCESS)
+				{
+					int fSize = getFileSize(fullPath);
+					fullFile = readFile(fullPath);
+					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
+					free(fullFile);
+					fullFile = NULL;
+					printf("%s", (char*)FullID);
+
+					titleIDs[count] = (char*)malloc(strlen(FullID));
+					strcpy(titleIDs[count], (char*)FullID);
+
+					count++;
+				}
+				else
+					printf("doesn't exist");
+				printf("\n");
+			}
+		}
+		closedir(d);
+	}
+
+	//PSN games
+	if ((d = opendir(GAMES_PSN_PATH)))
+	{
+		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
+		{
+			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
+			{
+				sprintf(fullPath, "%s%s/PARAM.SFO", GAMES_PSN_PATH, dir->d_name);
+				printf("%s :: ", (char*)fullPath);
+				if (file_exists(fullPath) == SUCCESS)
+				{
+					int fSize = getFileSize(fullPath);
+					fullFile = readFile(fullPath);
+					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
+					free(fullFile);
+					fullFile = NULL;
+					printf("%s", (char*)FullID);
+
+					titleIDs[count] = (char*)malloc(strlen(FullID));
+					strcpy(titleIDs[count], (char*)FullID);
+
+					count++;
+				}
+				else
+					printf("doesn't exist");
+				printf("\n");
+			}
+		}
+		closedir(d);
+	}
+
+	sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_DISC_PATH, dir->d_name);
+	printf("%s :: ", (char*)fullPath);
+	if (file_exists(fullPath) == SUCCESS)
+	{
+		int fSize = getFileSize(fullPath);
+		fullFile = readFile(fullPath);
+		strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
+		free(fullFile);
+		fullFile = NULL;
+		printf("%s", (char*)FullID);
+
+		titleIDs[count] = (char*)malloc(strlen(FullID));
+		strcpy(titleIDs[count], (char*)FullID);
+
+		count++;
+	}
+	else
+		printf("doesn't exist");
+	printf("\n");
+	*/
+}
 
 char * ParseOptionName(char * buffer, char * ret)
 {
@@ -1835,6 +2022,8 @@ s32 main(s32 argc, const char* argv[])
     }
     
     LoadOptions();
+
+	//LoadGames();
     
     //texture_mem = tiny3d_AllocTexture(64*1024*1024);
 

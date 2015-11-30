@@ -43,7 +43,7 @@ void Draw_AboutMenu_Ani()
 		DrawString(848 / 2, 70, "Thank You for using Artemis!");
 		SetCurrentFont(font_comfortaa_regular);
 		SetFontSize(12, 12);
-		DrawString(848 / 2, 95, "a collaborative effort to free modding");
+		DrawString(848 / 2, 95, "an open source hacking system");
 
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
@@ -129,7 +129,7 @@ void Draw_AboutMenu_Ani__()
 		DrawString(848 / 2, 70, "Thank You for using Artemis!");
 		SetCurrentFont(font_comfortaa_regular);
 		SetFontSize(12, 12);
-		DrawString(848 / 2, 95, "a collaborative effort to free modding");
+		DrawString(848 / 2, 95, "an open source hacking system");
         
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
@@ -194,7 +194,7 @@ void Draw_AboutMenu()
 	DrawString(848 / 2, 70, "Thank You for using Artemis!");
 	SetCurrentFont(font_comfortaa_regular);
     SetFontSize(12, 12);
-	DrawString(848 / 2, 95, "a collaborative effort to free modding");
+	DrawString(848 / 2, 95, "an open source hacking system");
 
 	SetFontAlign(0);
 	SetCurrentFont(font_comfortaa_bold);

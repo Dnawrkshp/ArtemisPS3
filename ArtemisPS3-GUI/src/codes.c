@@ -18,6 +18,157 @@
 #define USERLIST_PATH2  "/dev_hdd0/game/ARTPS3001/USRDIR/USERLIST/"
 
 /*
+ * Function:		parseVTID_ParseTitleID()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Locates the title id text with a name
+ * Arguments:
+ *  text:			Name of game
+ *  length:			Pointer to int. Set to length of title id text on return
+ * Return:			Offset to title id text
+ */
+int parseVTID_ParseTitleID(char * text, int * length)
+{
+	int len = strlen(text), x = 0, off = 0;
+
+	for (off = 0; off < (len - 10); off++)
+	{
+		if (off == 0 && text[off] == '[' && text[off + 10] == ']' &&
+			is_char_letter(text[off + 1]) == SUCCESS &&
+			is_char_letter(text[off + 2]) == SUCCESS &&
+			is_char_letter(text[off + 3]) == SUCCESS &&
+			is_char_letter(text[off + 4]) == SUCCESS &&
+			is_char_integer(text[off + 5]) == SUCCESS &&
+			is_char_integer(text[off + 6]) == SUCCESS &&
+			is_char_integer(text[off + 7]) == SUCCESS &&
+			is_char_integer(text[off + 8]) == SUCCESS &&
+			is_char_integer(text[off + 9]) == SUCCESS)
+			break;
+		else if (text[off] == ' ' && text[off + 1] == '[' && text[off + 11] == ']' &&
+			is_char_letter(text[off + 2]) == SUCCESS &&
+			is_char_letter(text[off + 3]) == SUCCESS &&
+			is_char_letter(text[off + 4]) == SUCCESS &&
+			is_char_letter(text[off + 5]) == SUCCESS &&
+			is_char_integer(text[off + 6]) == SUCCESS &&
+			is_char_integer(text[off + 7]) == SUCCESS &&
+			is_char_integer(text[off + 8]) == SUCCESS &&
+			is_char_integer(text[off + 9]) == SUCCESS &&
+			is_char_integer(text[off + 10]) == SUCCESS)
+		{
+			off++;
+			break;
+		}
+	}
+
+	if (off == len)
+	{
+		*length = 0;
+		return -1;
+	}
+
+	while (x < (len - off - 1))
+	{
+		if (text[off + 1 + x] == ' ')
+			break;
+		x++;
+	}
+
+	*length = x;
+	return off;
+}
+
+/*
+ * Function:		parseVTID_ParseVersion()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Locates the version text with a name
+ * Arguments:
+ *	text:			Name of game
+ *  length:			Pointer to int. Set to length of version text on return
+ * Return:			Offset to version text
+ */
+int parseVTID_ParseVersion(char * text, int * length)
+{
+	int len = strlen(text), x = 0, off = 0;
+
+	for (off = 0; off < (len - 2); off++)
+	{
+		if (off == 0 && (text[off] == 'v' || text[off] == 'V') && is_char_integer(text[off + 1]) == SUCCESS)
+			break;
+		else if (text[off] == ' ' && (text[off + 1] == 'v' || text[off + 1] == 'V') && is_char_integer(text[off + 2]) == SUCCESS)
+		{
+			off++;
+			break;
+		}
+	}
+
+	if (off == len)
+	{
+		*length = 0;
+		return -1;
+	}
+
+	while (x < (len - off - 1))
+	{
+		if (text[off + 1 + x] == ' ')
+			break;
+		x++;
+	}
+
+	*length = x;
+	return off;
+}
+
+/*
+ * Function:		parseVTID()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Attempts to extract the version and title id of a game from the name of the file
+ * Arguments:
+ *	in:				game_entry (with name)
+ * Return:			void
+ */
+void parseVTID(struct game_entry * in)
+{
+	int name_len = strlen(in->name);
+	int length = 0, x = 0, y = 0;
+
+	//Version, starts with a v, 4/5 letters follow as ##.## or #.##
+	int vOff = parseVTID_ParseVersion(in->name, &length);
+	if (vOff >= 0 && length == 4 || length == 5)
+	{
+		char * v = (char*)(&in->name[vOff]);
+		in->version = (char*)malloc(length + 2);
+		memcpy(in->version, v, length+1);
+		in->version[length + 1] = '\0';
+
+		for (x = 0; x < (name_len - vOff - length - 2); x++)
+		{
+			v[x] = v[x + length + 2];
+		}
+		v[x] = '\0';
+
+		name_len = strlen(in->name);
+	}
+
+	//TitleID, starts with [, 9 letters follow as XXXX#####, ends with ]
+	int tOff = parseVTID_ParseTitleID(in->name, &length);
+	if (tOff >= 0 && length == 10) //found, verify 4 letters, 5 numbers
+	{
+		char * t = (char*)(&in->name[tOff]);
+		in->title_id = (char*)malloc(length);
+		memcpy(in->title_id, (char*)&t[1], length-1);
+		in->title_id[length - 1] = '\0';
+
+		for (x = 0; x < (name_len - tOff - length - 2); x++)
+		{
+			t[x] = t[x + length + 2];
+		}
+		t[x] = '\0';
+	}
+}
+
+/*
  * Function:		stripExt()
  * File:			codes.c
  * Project:			ArtemisPS3-GUI
@@ -272,7 +423,7 @@ char * readFile(const char * path)
     fread(string, fsize, 1, f);
     fclose(f);
 
-    string[fsize] = 0;
+    //string[fsize] = 0;
     return string;
 }
 
@@ -680,7 +831,19 @@ void UnloadGameList(struct game_entry * list, int count)
 				free(list[x].path);
 				list[x].path = NULL;
 			}
+
+			if (list[x].title_id)
+			{
+				free(list[x].title_id);
+				list[x].title_id = NULL;
+			}
             
+			if (list[x].version)
+			{
+				free(list[x].version);
+				list[x].version = NULL;
+			}
+
             if (list[x].codes)
             {
                 for (y = 0; y < list[x].code_count; y++)
@@ -923,6 +1086,9 @@ struct game_entry * ReadUserList(int * gmc)
                     ret[cur_count].code_count = *ccnt;
                     ret[cur_count].name = stripExt(dir->d_name);
                     ret[cur_count].code_sorted = 0;
+					ret[cur_count].version = NULL;
+					ret[cur_count].title_id = NULL;
+					parseVTID(&ret[cur_count]);
                     
                     printf("Successfully read %d codes\n", ret[cur_count].code_count);
                     

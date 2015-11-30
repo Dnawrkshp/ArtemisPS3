@@ -13,6 +13,23 @@
 #define VERSION_NAME "MAMBA/PRX Autoloader v2.1.2 by NzV"
 
 //----------------------------------------
+//String Utils
+//----------------------------------------
+int is_char_integer(char c)
+{
+	if (c >= '0' && c <= '9')
+		return SUCCESS;
+	return FAILED;
+}
+
+int is_char_letter(char c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return SUCCESS;
+	return FAILED;
+}
+
+//----------------------------------------
 //LOG
 //----------------------------------------
 
@@ -119,7 +136,7 @@ int file_exists(const char *path)
     return ret;
 	*/
 
-	FILE *f = fopen(path, "rb");
+	FILE *f = fopen(path, "r");
 	if (f == NULL)
 		return FAILED;
 

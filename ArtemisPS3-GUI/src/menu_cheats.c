@@ -63,7 +63,7 @@ void DrawOptions(struct option_entry option, u8 alpha, int y_inc, int selIndex)
     int startDrawX = selIndex - (maxPerPage / 2);
     int max = maxPerPage + startDrawX;
     
-    SetFontSize(y_inc-2, y_inc-2);
+    SetFontSize(y_inc-6, y_inc-4);
 
     for (c = startDrawX; c < max; c++)
     {
@@ -167,8 +167,8 @@ void Draw_CheatsMenu_Options_Ani(void)
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat Option", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
         
 		u8 game_a = (u8)(icon_a < 0x8F ? 0 : icon_a);
-		DrawOptions(selected_centry.options[option_index], game_a, 22, menu_old_sel[7]);
-        DrawScrollBar(menu_old_sel[7], selected_centry.options[option_index].size, 22, 800, game_a);
+		DrawOptions(selected_centry.options[option_index], game_a, 20, menu_old_sel[7]);
+        DrawScrollBar(menu_old_sel[7], selected_centry.options[option_index].size, 20, 800, game_a);
         
         tiny3d_Flip();
         
@@ -187,8 +187,8 @@ void Draw_CheatsMenu_Options(void)
 	DrawTexture(menu_textures[edit_shadow_png_index], MENU_SPLIT_OFF - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), 0x000000FF);
 	DrawHeader(menu_textures[header_ico_opt_png_index], MENU_SPLIT_OFF, "Cheat Option", selected_centry.name, 0x000000ff, 0xffffffff, 1);
 
-	DrawOptions(selected_centry.options[option_index], 0xFF, 22, menu_sel);
-	DrawScrollBar(menu_sel, selected_centry.options[option_index].size, 22, 800, 0xFF);
+	DrawOptions(selected_centry.options[option_index], 0xFF, 20, menu_sel);
+	DrawScrollBar(menu_sel, selected_centry.options[option_index].size, 20, 800, 0xFF);
 }
 
 
@@ -316,7 +316,7 @@ int DrawCodes(struct code_entry code, u8 alpha, int y_inc, int xOff, int selInde
                     lines[c] = (char*)(&splitCodes[cIndex + 1]);
                 }
                 
-                SetFontSize(y_inc-2, y_inc-2);
+                SetFontSize(y_inc-6, y_inc-4);
                 SetCurrentFont(font_comfortaa_regular);
                 //SetExtraSpace(0);
                 for (c = startDrawX; c < max; c++)
@@ -434,8 +434,8 @@ void Draw_CheatsMenu_View_Ani(void)
 		DrawHeader(menu_textures[header_ico_opt_png_index], left, "Cheat View", selected_centry.name, 0x00000000 | icon_a, 0xffffffff, 1);
 
 		u8 game_a = (u8)(icon_a < 0x8F ? 0 : icon_a);
-		int nlines = DrawCodes(selected_centry, game_a, 22, left, menu_old_sel[6]);
-		DrawScrollBar(menu_old_sel[6], nlines, 22, 800, game_a);
+		int nlines = DrawCodes(selected_centry, game_a, 20, left, menu_old_sel[6]);
+		DrawScrollBar(menu_old_sel[6], nlines, 20, 800, game_a);
 		
 		tiny3d_Flip();
 
@@ -455,9 +455,9 @@ void Draw_CheatsMenu_View(void)
 	DrawTexture(menu_textures[edit_shadow_png_index], MENU_SPLIT_OFF - (menu_textures[edit_shadow_png_index].texture.width * 1) + 1, -marginVertical, 0, menu_textures[edit_shadow_png_index].texture.width, 512 + (marginVertical * 2), 0x000000FF);
 	DrawHeader(menu_textures[header_ico_opt_png_index], MENU_SPLIT_OFF, "Cheat View", selected_centry.name, 0x000000ff, 0xffffffff, 1);
 
-    int nlines = DrawCodes(selected_centry, 0xFF, 22, MENU_SPLIT_OFF, menu_sel);
+    int nlines = DrawCodes(selected_centry, 0xFF, 20, MENU_SPLIT_OFF, menu_sel);
     //DrawScrollBar2(menu_sel, nlines, 18, 700, 0xFF);
-    DrawScrollBar(menu_sel, nlines, 22, 800, 0xFF);
+    DrawScrollBar(menu_sel, nlines, 20, 800, 0xFF);
 }
 
 /*
@@ -465,10 +465,10 @@ void Draw_CheatsMenu_View(void)
  */
 void DrawGameList(int selIndex, struct game_entry * games, int glen, u8 alpha)
 {
-    SetFontSize(20, 20);
+    SetFontSize(14, 16);
 	SetCurrentFont(font_comfortaa_regular);
     
-    int game_y = 80, y_inc = 22;
+    int game_y = 80, y_inc = 20;
     int maxPerPage = (512 - (game_y * 2)) / y_inc;
     
     int x = selIndex - (maxPerPage / 2);
@@ -490,7 +490,20 @@ void DrawGameList(int selIndex, struct game_entry * games, int glen, u8 alpha)
 				DrawTextureCentered(menu_textures[mark_arrow_png_index], MENU_ICON_OFF + (MENU_TITLE_OFF / 2), game_y + (y_inc / 2), 0, MENU_TITLE_OFF / 3, y_inc / 2, 0xFFFFFF00 | a);
 			}
             SetFontColor(0x00000000 | a, 0x00000000);
-            DrawString(MENU_ICON_OFF + (MENU_TITLE_OFF * 1) - xo, game_y, games[x].name);
+			if (games[x].name)
+			{
+				char * nBuffer = (char*)malloc(strlen(games[x].name));
+				strcpy(nBuffer, games[x].name);
+				int game_name_width = 0;
+				while ((game_name_width = WidthFromStr(nBuffer)) > 0 && (MENU_ICON_OFF + (MENU_TITLE_OFF * 1) - xo + game_name_width) > (800 - (MENU_ICON_OFF * 3) - xo))
+					nBuffer[strlen(nBuffer) - 1] = '\0';
+				DrawString(MENU_ICON_OFF + (MENU_TITLE_OFF * 1) - xo, game_y, nBuffer);
+				free(nBuffer);
+			}
+			if (games[x].title_id)
+				DrawString(800 - (MENU_ICON_OFF * 3) - xo, game_y, games[x].title_id);
+			if (games[x].version)
+				DrawString(800 - (MENU_ICON_OFF * 1) - xo, game_y, games[x].version);
         }
         
         if (x == selIndex)
@@ -511,9 +524,9 @@ void DrawGameList(int selIndex, struct game_entry * games, int glen, u8 alpha)
 
 void DrawCheatsList(int selIndex, struct game_entry game, u8 alpha)
 {
-    SetFontSize(20, 20);
+    SetFontSize(14, 16);
     
-    int game_y = 80, y_inc = 22;
+    int game_y = 80, y_inc = 20;
     int maxPerPage = (512 - (game_y * 2)) / y_inc;
     
     int x = selIndex - (maxPerPage / 2);
@@ -546,7 +559,7 @@ void DrawCheatsList(int selIndex, struct game_entry game, u8 alpha)
 				SetFontColor(0xFFFFFF00 | a, 0);
 				DrawString(MENU_ICON_OFF + ((MENU_TITLE_OFF * 3) - 15) / 2, game_y + 2, game.codes[x].cwrite ? "constant" : "once");
                 SetFontAlign(0);
-                SetFontSize(20, 20);
+                SetFontSize(14, 16);
                 
                 if (game.codes[x].options_count > 0 && game.codes[x].options)
                 {

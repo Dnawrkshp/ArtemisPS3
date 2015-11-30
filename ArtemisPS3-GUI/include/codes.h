@@ -22,6 +22,8 @@ struct code_entry
 struct game_entry
 {
     char * name;
+	char * version;
+	char * title_id;
 	char * path;
     int code_count;
     int code_sorted;
