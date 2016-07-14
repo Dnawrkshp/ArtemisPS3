@@ -1,0 +1,23 @@
+Also known as
+Ryu Ga Gotoku 4 Densetsu O Tsugumono
+
+#
+Money
+0
+Skiller
+0 00B50108 3C803B9A
+0 00B50112 C9FF9083
+0 00B50118 7C031800
+#
+Infinite Money
+0
+Skiller
+0 00B4FF90 3C803B9A
+0 00B4FF9A C9FF9083
+0 00B4FFA0 7C031800
+#
+Walk Trophy
+0
+Skiller
+0 00280C28 48000008
+#

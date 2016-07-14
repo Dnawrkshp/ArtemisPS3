@@ -1,0 +1,6 @@
+Debug Options
+0
+dron_3
+0 00EDCB80 74727565
+0 00EDCB84 00000000
+#

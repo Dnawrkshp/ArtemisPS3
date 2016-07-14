@@ -1,0 +1,62 @@
+Max Money On Buy (May Give Max On Gain)
+0
+Medo
+0 00658B14 409D004C
+0 00658B60 3C007FFF
+#
+Max Combot Money On Buy
+0
+Medo
+0 00175D2C 3C007FFF
+#
+Max Wins P2
+0
+Medo
+0 00319A0C 60000000
+#
+Max Loss P2
+0
+Medo
+0 00319A3C 60000000
+#
+CPU Do Not Attack
+0
+xtatu
+0 000BD88C 409E0110
+0 000BD9C8 409D0048
+0 000BDA24 409E0010
+#
+Disable CPU Block
+0
+xtatu
+0 000DC6E8 419D008C
+#
+1P Invincible + Hitanywhere Solo Mode
+0
+xtatu
+0 000D6998 7F95B800
+0 000D699C 409DFD04
+#
+1P Invincible + Hitanywhere Tag Mode
+0
+xtatu
+0 000C1670 70800010
+0 000C1818 4BFFFEAC
+#
+CPU Do Not Attack [01.01]
+0
+xtatu
+0 000BDAD8 409E010C
+0 000BDC10 409D0048
+0 000BDC6C 409E0010
+#
+Disable CPU Block [01.01]
+0
+xtatu
+0 000DC6E8 419D008C
+#
+Multi Hit 1P [01.03]
+0
+xtatu
+0 000D58DC 409EFFEC
+#

@@ -1,4 +1,0 @@
-Infinite HP
-0
-0 0039DCFC 480000CC
-#

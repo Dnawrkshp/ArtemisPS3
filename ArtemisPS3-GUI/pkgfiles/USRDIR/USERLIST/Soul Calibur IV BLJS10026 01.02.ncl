@@ -1,0 +1,5 @@
+Money 999999
+0
+CodeFreak/PS3UserCheat
+0 0102CCA0 000F423F
+#

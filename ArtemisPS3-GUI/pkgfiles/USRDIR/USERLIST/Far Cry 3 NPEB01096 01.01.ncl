@@ -1,0 +1,39 @@
+Max Money On Buy + Sell
+0
+Medo
+0 00A740F8 38802710
+#
+Max Skill Points On Use
+0
+Medo
+0 0038CA1C 38A00063
+#
+Infinite Ammo + Bottomless Clip (No Reload)
+0
+Medo
+0 00A5D238 60000000
+0 00A5D23C 60000000
+0 00A5D250 80830014
+#
+Alt Infinite Ammo + Bottomless Clip (No Reload)
+0
+Medo
+0 00A5D238 60000000
+0 00A5D23C 60000000
+0 00A5D298 60000000
+#
+Speed 2x
+0
+Medo
+0 00B21978 40000000
+#
+Max Exp On Gain
+0
+Medo
+0 0038CD88 307F0030
+#
+Infinite Health
+0
+Medo
+0 0097FD74 60000000
+#

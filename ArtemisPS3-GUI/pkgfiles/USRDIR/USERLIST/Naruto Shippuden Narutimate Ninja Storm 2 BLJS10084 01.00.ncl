@@ -1,0 +1,68 @@
+Also known as
+Naruto Shippuden Ultimate Storm 2
+
+#
+Battle Time 99 in Battle
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 00000174
+0 00000000 00001770
+#
+P1 Health Max in Battle
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 00000018
+0 00000000 42C80000
+#
+P1 Chakra Max in Battle
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 00000020
+0 00000000 42C80000
+#
+P1 Storm Gauge Max in Battle
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 00000034
+0 00000000 42C80000
+#
+P1 Support Health Max in Battle
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 0000002C
+0 00000000 42C80000
+6 00EEF874 00000030
+0 00000000 42C80000
+#
+Win Quickly
+0
+CodeFreak/PS3UserCheat
+6 00EEF874 00000070
+0 00000000 00000000
+#
+9,999,999 Ryo Once Win in Ultimate Adventure
+0
+CodeFreak/PS3UserCheat
+0 00ED8240 0098967F
+#
+999,999 SP Once Win
+0
+CodeFreak/PS3UserCheat
+0 00EED348 000F423F
+#
+Play Time 999:59:59 in Ultimate Adventure
+0
+CodeFreak/PS3UserCheat
+0 00EED344 0036EE80
+#
+Naruto HP Max in Ultimate Adventure
+0
+CodeFreak/PS3UserCheat
+0 00ED82EC 42C80000
+#
+AoB 9,999,999 Ryo
+0
+CodeFreak/PS3UserCheat
+B 00010000 04000000
+B 7C0022147F804800409D0008 7C0022144800000448000004
+#

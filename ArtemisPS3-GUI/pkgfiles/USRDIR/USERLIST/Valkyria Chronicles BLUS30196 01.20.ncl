@@ -1,0 +1,76 @@
+Also known as
+Senjou No Valkyria
+
+#
+Infinite HP + Can Always Act
+0
+Hiei-YYH
+0 00C609BC 80690004
+0 00C609C0 7D292214
+0 00C609C4 2C030000
+0 00C609C8 40820014
+0 00C609CC 3860270F
+0 00C609D0 90690008
+0 00C609D4 38600000
+0 00C609D8 98690016
+0 00C609DC 4BF2878C
+0 00B89164 480D7858
+#
+Infinite Exp
+0
+Hiei-YYH
+0 00508548 7F64DB78
+#
+Infinite DCT
+0
+Hiei-YYH
+0 004D7068 7C641B78
+#
+Infinite Ammo
+0
+Hiei-YYH
+0 001B8798 38A00000
+#
+Infinite AP
+0
+Hiei-YYH
+0 000CEA9C C1A90308
+0 000CEAA4 D1A90310
+#
+Max CP
+0
+Hiei-YYH
+0 001AB0B8 3BE00014
+0 001AB0BC 93E9000C
+0 001AB0C0 4BFFFED8
+#
+Reenter Camp For Max Exp
+0
+hyper2k
+0 0052DE5C 60000000
+#
+Max Exp After Battle
+0
+hyper2k
+0 0053E0C4 60000000
+#
+Max DCT On Use (Go back in and out of workshop)
+0
+hyper2k
+0 0052F60C 4800000C
+#
+Max DCT On Gain (After battle)
+0
+hyper2k
+0 0053E088 60000000
+#
+Infinite CP (Command Points)
+0
+hyper2k
+0 0018A30C 60000000
+#
+Max Infinite AP (or AP Max)
+0
+hyper2k
+0 001A05A4 60000000
+#

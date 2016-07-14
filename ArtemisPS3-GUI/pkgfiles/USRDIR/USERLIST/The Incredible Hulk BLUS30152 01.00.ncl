@@ -1,0 +1,17 @@
+Score 999,999,999
+0
+CodeFreak/PS3UserCheat
+0 3B425860 3B9AC9FF
+#
+Infinite Health
+0
+CodeFreak/PS3UserCheat
+6 00AAE128 0000057C
+0 00000000 000003E8
+#
+Infinite Power
+0
+CodeFreak/PS3UserCheat
+6 00AAE128 00000584
+0 00000000 00000064
+#

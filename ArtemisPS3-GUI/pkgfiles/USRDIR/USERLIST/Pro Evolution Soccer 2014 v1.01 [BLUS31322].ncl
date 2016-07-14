@@ -1,8 +1,0 @@
-Score
-0
-0 002C52C4 30840000
-#
-Infinite Strength Points
-0
-0 004E04AC 60000000
-#

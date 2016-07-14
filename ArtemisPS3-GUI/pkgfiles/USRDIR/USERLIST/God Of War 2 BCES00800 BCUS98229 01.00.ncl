@@ -1,0 +1,23 @@
+Infinite Orbs
+0
+CodeFreak/PS3UserCheat
+0 307E2CFC 000F423F
+#
+Infinite Health
+0
+CodeFreak/PS3UserCheat
+6 00577968 0000036C
+0 00000000 43480000
+6 00577968 00000370
+0 00000000 43480000
+#
+Infinite Magic
+0
+CodeFreak/PS3UserCheat
+0 00577618 43480000
+#
+Infinite Rage Of God
+0
+jgduff
+0 00577620 43480000
+#

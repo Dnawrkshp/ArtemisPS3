@@ -1,0 +1,15 @@
+Stop Timer
+0
+CMbl4
+0 00E64A74 60000000
+#
+Unlimited Lives
+0
+CMbl4
+0 00ECD440 60000000
+#
+Unlimited Armor
+0
+CMbl4
+0 00ED43A4 60000000
+#

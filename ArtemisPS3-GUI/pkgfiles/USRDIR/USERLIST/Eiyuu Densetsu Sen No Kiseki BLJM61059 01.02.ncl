@@ -1,0 +1,59 @@
+Also known as
+The Legend Of Heroes Trails Of Cold Steel
+
+#
+Max EP
+0
+games24.blog.fc2.com/blog-entry-195.html
+0 0005F664 B0BE01F8
+#
+Max CP
+0
+games24.blog.fc2.com/blog-entry-195.html
+0 00059C64 B0BE01FC
+#
+Infinite Tools
+0
+games24.blog.fc2.com/blog-entry-195.html
+0 001A87D4 60000000
+#
+Infinite Fishing
+0
+games24.blog.fc2.com/blog-entry-195.html
+0 001BABE8 30A60000
+#
+State Change Forever Continue
+0
+games24.blog.fc2.com/blog-entry-195.html
+0 0007927C 30630000
+#
+AoB Max EP
+0
+games24.blog.fc2.com/blog-entry-195.html
+B 00010000 04000000
+B B07E01F8E80100907C0803A6EBC10070 B0BE01F8E80100907C0803A6EBC10070
+#
+AoB Max CP
+0
+games24.blog.fc2.com/blog-entry-195.html
+B 00010000 04000000
+B B07E01FCE80100907C0803A6EBC10070 B0BE01FCE80100907C0803A6EBC10070
+#
+AoB Infinite Tools
+0
+games24.blog.fc2.com/blog-entry-195.html
+B 00010000 04000000
+B 7C8520107CA400D07CA5FE767CA42038 600000007CA400D07CA5FE767CA42038
+#
+AoB Infinite Fishing
+0
+games24.blog.fc2.com/blog-entry-195.html
+B 00010000 04000000
+B 30A6FFFFB0A4000038600000987D01B1 30A60000B0A4000038600000987D01B1
+#
+AoB State Change Forever Continue
+0
+games24.blog.fc2.com/blog-entry-195.html
+B 00010000 04000000
+B 3063FFFF78640020F881007090650008 3063000078640020F881007090650008
+#

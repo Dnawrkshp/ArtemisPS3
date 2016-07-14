@@ -1,0 +1,22 @@
+Infinite Ammo
+0
+Blaster99
+0 006A60E8 3BC00064
+#
+Max Money
+0
+Blaster99
+0 0088E520 3C800001
+0 0088E524 6084869F
+#
+Infinite Salt
+0
+Blaster99
+0 0088E8AC 7F65DB78
+#
+Infinite Lock Picks
+0
+Blaster99
+0 0088EAA4 38A003E7
+0 0088E9C0 38A003E7
+#

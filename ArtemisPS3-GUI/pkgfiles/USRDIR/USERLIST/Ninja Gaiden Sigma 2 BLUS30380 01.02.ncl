@@ -1,0 +1,16 @@
+Max Money
+0
+CodeFreak/PS3UserCheat
+0 01A75C64 000F423F
+#
+HP Max
+0
+CodeFreak/PS3UserCheat
+F2 016DCF4C 016DCF60
+F2 016DCF4C 016DCF4E
+#
+MP Max
+0
+CodeFreak/PS3UserCheat
+F2 016DCF70 016DCF72
+#

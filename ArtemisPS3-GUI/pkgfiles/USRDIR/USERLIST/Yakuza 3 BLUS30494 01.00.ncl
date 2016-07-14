@@ -1,0 +1,17 @@
+Also known as
+Ryu Ga Gotoku 3
+
+#
+Infinite Money
+0
+Skiller
+0 00562C24 90840004
+0 00562C28 80840004
+#
+Exp Max
+0
+Skiller
+0 00A5F000 6063967F
+0 00A5F004 907E0018
+0 00A5F008 48000060
+#

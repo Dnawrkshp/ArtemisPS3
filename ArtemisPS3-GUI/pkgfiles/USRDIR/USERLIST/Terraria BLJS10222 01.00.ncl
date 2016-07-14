@@ -1,0 +1,11 @@
+Infinite Items
+0
+dron_3
+0 00291FB8 38090001
+#
+Infinite HP
+0
+dron_3
+0 002837C0 60000000
+0 00289C78 60000000
+#

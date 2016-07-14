@@ -1,0 +1,33 @@
+Infinite Ammo
+0
+games24.blog.fc2.com/blog-entry-193.html
+0 00CFD080 39290000
+#
+Infinite Recon
+0
+games24.blog.fc2.com/blog-entry-193.html
+0 0023110C 39290000
+#
+Infinite Boost Gauge
+0
+games24.blog.fc2.com/blog-entry-193.html
+0 00A92494 60000000
+#
+AoB Infinite Ammo
+0
+games24.blog.fc2.com/blog-entry-193.html
+B 00010000 04000000
+B 3929FFFF912300044E80002038630234 39290000912300044E80002038630234
+#
+AoB Infinite Recon
+0
+games24.blog.fc2.com/blog-entry-193.html
+B 00010000 04000000
+B 3929FFFF913E023C4BFFFEF0F821FF41 39290000913E023C4BFFFEF0F821FF41
+#
+AoB Infinite Boost Gauge
+0
+games24.blog.fc2.com/blog-entry-193.html
+B 00010000 04000000
+B 409E000CED415828D163000480030000 60000000ED415828D163000480030000
+#

@@ -1,0 +1,17 @@
+Items Never Decrease
+0
+dron_3
+0 018FD860 60000000
+#
+Ammo Never Decreases
+0
+dron_3
+0 018F4744 60000000
+#
+Health Never Decreases
+0
+dron_3
+0 017F8260 801D0010
+0 017F8264 2F800000
+0 017F8268 409E000C
+#

@@ -1,0 +1,38 @@
+Also known as
+RockMan 10 Uchuukara No Kyoui!!
+
+#
+Invincible
+0
+optantic
+0 0853C864 80
+#
+Infinite Lives
+0
+optantic
+0 0853C90C 02
+#
+Invincibility
+0
+dron_3
+0 000E4300 38000080
+0 000E4304 981F00A8
+0 000E4308 480002C0
+#
+Infinite Lives
+0
+dron_3
+0 000E25B8 38600009
+#
+AoB Invincibility
+0
+dron_3
+B 00010000 04000000
+B 881F00A82F800000409E02C0 38000080981F00A8480002C0
+#
+AoB Infinite Lives
+0
+dron_3
+B 00010000 04000000
+B 7C630038987C0150 38600009987C0150
+#

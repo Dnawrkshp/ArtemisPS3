@@ -1,0 +1,24 @@
+Infinite Health
+0
+CodeUnique3
+0 00048618 7C651B78
+0 001FE17C 7CF91814
+#
+Infinite Bullet Usage
+0
+CodeUnique3
+0 012276A8 0000001E
+0 012276B4 0000001E
+#
+Max Total Bullet 999
+0
+CodeUnique3
+0 01227630 000003E7
+0 01227638 000003E7
+#
+Infinite Grenade Usage
+0
+CodeUnique3
+0 01227650 000003E7
+0 012276C0 00000005
+#

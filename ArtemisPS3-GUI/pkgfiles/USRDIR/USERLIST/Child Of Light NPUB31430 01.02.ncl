@@ -1,0 +1,47 @@
+Infinite Health + 1 Hit Kill
+0
+Medo
+0 00B8887C 7C053000
+0 00B88880 81FFFFFC
+0 00B88884 2F8F0283
+0 00B88888 419D000C
+0 00B8888C 38A00000
+0 00B88890 481594F7
+0 00B88894 48159503
+0 001494F0 48B9887F
+#
+Infinite Igniculus Gauge
+0
+Medo
+0 00195BB4 60000000
+#
+Recover Max Health With Igniculus
+0
+Medo
+0 0014947C 3880270F
+#
+Infinite MP
+0
+Medo
+0 001496BC 60000000
+#
+Max Items on Gain
+0
+Medo
+0 000507AC 38800063
+#
+Max Items on Use
+0
+Medo
+0 00052934 3B800064
+#
+Max Skill Points on Use
+0
+Medo
+0 000F6608 38600063
+#
+Level 99 After 1 Battle
+0
+Medo
+0 00147F3C 60000000
+#

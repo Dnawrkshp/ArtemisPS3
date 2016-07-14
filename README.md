@@ -1,6 +1,12 @@
 # ArtemisPS3
 An Open Source Playstation 3 Hacking System created under the Project Artemis initiative (http://www.gamehacking.org/artemis)
 
+
+Note
+-----------
+The Artemis PS3 package file will no longer be held within the repository browser.
+It has been moved to [Releases](https://github.com/Dnawrkshp/ArtemisPS3/releases/)
+
 How To Use
 ----------
 Please refer to the [Installation](https://github.com/Dnawrkshp/ArtemisPS3/tree/master/INSTALLATION.md) file for installation and use instructions.

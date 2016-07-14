@@ -1,0 +1,16 @@
+Max Money
+0
+JorgeFFC
+0 012AFEE4 05F5E0FF
+#
+Infinite Money
+0
+JorgeFFC
+0 00048248 60000000
+0 00048254 3C60E0FF
+#
+Infinite Rainbow Pearls
+0
+JorgeFFC
+0 00093190 3D00E0FF
+#

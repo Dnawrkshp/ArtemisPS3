@@ -1,0 +1,48 @@
+Also known as
+Gundam Musou 2
+
+#
+Player Armor Max in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 00000120
+0 00000000 00004E20
+6 00848DC4 00000124
+0 00000000 00004E20
+#
+Player SP Max in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 00000128
+0 00000000 00002328
+6 00848DC4 0000012C
+0 00000000 00002328
+#
+Player Infinite Thrust in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 0000013E
+0 00000000 03E8
+6 00848DC4 00000140
+0 00000000 03E8
+#
+Player Fight Range Max in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 0000014E
+0 00000000 7FFF
+#
+Enemy 1 Hit Kill in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 00000136
+0 00000000 03E8
+6 00848DC4 00000138
+0 00000000 03E8
+#
+Player Defense Max in Mission
+0
+CodeFreak/PS3UserCheat
+6 00848DC4 0000013C
+0 00000000 03E8
+#

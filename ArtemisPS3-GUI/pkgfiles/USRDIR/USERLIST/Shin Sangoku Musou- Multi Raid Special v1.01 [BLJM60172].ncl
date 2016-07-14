@@ -1,8 +1,0 @@
-Gold 9999999
-0
-0 00820928 0098967F
-#
-Infinite Force gauge
-0
-0 008A0DCA FFFF
-#

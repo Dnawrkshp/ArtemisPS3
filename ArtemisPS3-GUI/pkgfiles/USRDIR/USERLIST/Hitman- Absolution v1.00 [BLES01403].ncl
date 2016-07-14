@@ -1,4 +1,0 @@
-Never Dead Mode
-0
-0 00F8AEE0 C2C80000
-#

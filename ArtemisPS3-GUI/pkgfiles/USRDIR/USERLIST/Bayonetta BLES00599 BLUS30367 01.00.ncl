@@ -1,0 +1,44 @@
+Max Money
+0
+CodeFreak/PS3UserCheat
+0 001B0D0C 60000000
+0 001B0D14 60000000
+0 001B0D98 3880270F
+#
+Witch Time
+0
+CodeFreak/PS3UserCheat
+0 001B19D8 D183047C
+#
+Torture Move
+0
+CodeFreak/PS3UserCheat
+0 001B09BE E2BCC182
+0 001B09D0 D183047C
+#
+Item 99
+0
+CodeFreak/PS3UserCheat
+0 001DFA3C 409D0008
+0 001DFA6C 409D0008
+#
+999999999 Halos
+0
+CodeFreak/PS3UserCheat
+0 01EC5514 05F5E0FF
+#
+Infinite MP
+0
+xtatu
+0 01EC550C 44960000
+#
+All Weapon
+0
+xtatu
+0 01EC54B8 FFFFFFFF
+#
+All Equip
+0
+xtatu
+0 01EC54BC FFFFFFFF
+#

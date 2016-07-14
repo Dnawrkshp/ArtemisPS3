@@ -1,8 +1,0 @@
-Max Money
-0
-0 00E24F68 3B9AC9FF
-#
-Max Exp
-0
-0 00E24F64 3B9AC9FF
-#

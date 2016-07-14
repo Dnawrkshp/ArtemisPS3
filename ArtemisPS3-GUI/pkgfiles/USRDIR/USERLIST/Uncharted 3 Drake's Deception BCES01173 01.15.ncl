@@ -1,0 +1,35 @@
+Also known as
+Uncharted 3 Sabaku Ni Nemuru Atlantis
+
+#
+Infinite HP
+0
+CodeUnique3
+0 00479214 60000000
+#
+Infinite Weapon
+0
+CodeUnique3
+0 006E37A0 39290000
+#
+1 Hit Kill
+0
+CodeUnique3
+0 008485E8 38000000
+#
+Invisible
+0
+CodeUnique3
+6 01381890 00000000
+6 00000000 0000024C
+6 00000000 0000002C
+0 00000000 00000000
+#
+Disable Invisible
+0
+CodeUnique3
+6 01381890 00000000
+6 00000000 0000024C
+6 00000000 0000002C
+0 00000000 00000064
+#

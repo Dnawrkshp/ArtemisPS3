@@ -1,0 +1,19 @@
+Infinite Score
+0
+CodeFreak/PS3UserCheat
+6 101E7FEC 00000004
+6 00000000 00000024
+0 00000000 05F5E0FF
+#
+Infinite HP (Trainer Mode does not work)
+0
+CodeFreak/PS3UserCheat
+6 101EB0E0 00000648
+6 00000000 00001C8C
+0 00000000 4F000000
+#
+Infinite Ammo
+0
+CodeFreak/PS3UserCheat
+0 00223A54 3800270F
+#

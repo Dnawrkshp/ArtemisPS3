@@ -1,0 +1,25 @@
+Gil 999999999
+0
+hyper2k
+0 4446BE38 3B9AC9FF
+#
+Material + Item 99
+0
+CodeFreak
+0 005867FC 2B800000
+/*
+Reflected on number of
+items available 4
+increases.
+*/
+#
+All Characters CP 999999
+0
+hyper2k
+0 4447BA70 000F423F
+0 4447D8F0 000F423F
+0 4447F770 000F423F
+0 444806B0 000F423F
+0 44482530 000F423F
+0 44483470 000F423F
+#

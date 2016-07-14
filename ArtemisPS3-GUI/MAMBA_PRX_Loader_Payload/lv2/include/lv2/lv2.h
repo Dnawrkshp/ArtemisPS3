@@ -4,6 +4,16 @@
 #include <stdint.h>
 #include <stddef.h>
 
+/*typedef unsigned long long int 	uint64_t;
+typedef unsigned long int 		uint32_t;
+typedef unsigned int 			uint16_t;
+typedef unsigned char 			uint8_t;
+
+typedef long long int 	int64_t;
+typedef long int 		int32_t;
+typedef int 			int16_t;
+typedef char 			int8_t;*/
+
 #ifdef __cplusplus
 #define LONGCALL extern "C" __attribute__((longcall))
 #else
@@ -82,7 +92,7 @@ ret _##name args
 
 static INLINE void *mfsprg0()
 {
-	uint64_t ret; 
+	uint64_t ret;
 	__asm__ __volatile__("mfsprg0 %0\n\t" : "=r"(ret));
 	return (void *)ret;
 }

@@ -1,0 +1,109 @@
+This is a mix of 01.02 and 01.03, but I have no way of determining which is which without somebody with the game to test.
+
+#
+Gold 9999999
+0
+ChaosZage
+0 000E7BE8 60000000
+#
+Gold 9999999
+0
+ChaosZage
+0 000E7F68 60000000
+#
+Max Something
+0
+ChaosZage
+0 000E4D94 60000000
+#
+Infinite Weapon Upgrades
+0
+ChaosZage
+0 00215E58 38000009
+0 00215E5C 9809002A
+0 002162B8 38000009
+0 002162BC 980B002A
+#
+Exp After Picking Up Exp Scroll Multiplier
+0
+ChaosZage
+0 000C1C18 1D29Z
+[Z]0014=10x;00C8=100x;07D0=1000x[/Z]
+#
+Koku 9999
+0
+CodeFreak/PS3UserCheat
+0 007B3D48 0000270F
+#
+All Skill Item 999
+0
+CodeFreak/PS3UserCheat
+0 007B3D4C 000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7000003E7
+#
+Exp 99999 While Gaining
+0
+ChaosZage
+0 000E5D20 3D400002
+0 000E5D24 394A869F
+#
+Exp 99999 While Gaining
+0
+ChaosZage
+0 000E60A0 3D400002
+0 000E60A4 394A869F
+#
+Limited Time Max
+0
+CodeFreak/PS3UserCheat
+0 00767234 00000000
+#
+K.O. 9999 In Battle
+0
+ChaosZage
+0 000ACAFC 60000000
+#
+K.O. 9999 In Battle
+0
+ChaosZage
+0 000ACE40 60000000
+#
+P1 Infinite HP In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82BC 447A0000
+0 36AD82C0 447A0000
+#
+P1 Infinite Musou In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82CC 447A0000
+0 36AD82D0 447A0000
+0 36AD82D4 447A0000
+0 36AD82D8 447A0000
+0 36AD82DC 447A0000
+#
+P1 Special Skill Guage In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82E4 447A0000
+#
+P1 Offense Max In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82E8 461C4000
+#
+P1 Defense Max In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82EC 461C4000
+#
+P1 Hyper Speed In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82F8 42480000
+#
+P1 Hyper Jump In Battle
+0
+CodeFreak/PS3UserCheat
+0 36AD82FC 42480000
+#

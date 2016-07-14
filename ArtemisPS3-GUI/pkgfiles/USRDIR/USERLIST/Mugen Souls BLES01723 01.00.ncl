@@ -1,0 +1,48 @@
+Also known as
+Attouteki Yuugi Mugen Souls
+
+#
+Max G After 1 Battle
+0
+xtatu
+0 002C700C 409D0068
+#
+Max Mugen P After 1 Battle
+0
+xtatu
+0 002C6F50 409D0058
+#
+Max G Up Points on Use or Gain
+0
+xtatu
+0 002C652C 419D000C
+#
+Max PP During Battle
+0
+xtatu
+0 002C6648 419D0008
+#
+AoB Max G After 1 Battle
+0
+xtatu
+B 00010000 04000000
+B 419D00687C030378 409D00687C030378
+#
+AoB Max Mugen P After 1 Battle
+0
+xtatu
+B 00010000 04000000
+B 419D0058F80B6BD8 409D0058F80B6BD8
+#
+AoB Max G Up Points on Use or Gain
+0
+xtatu
+B 00010000 04000000
+B 409D000C7C6B4850 419D000C7C6B4850
+#
+AoB Max PP During Battle
+0
+xtatu
+B 00010000 04000000
+B 409D0008386003E790696BE84E 419D0008386003E790696BE84E
+#

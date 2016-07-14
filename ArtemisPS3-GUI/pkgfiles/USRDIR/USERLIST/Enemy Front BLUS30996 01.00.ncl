@@ -1,0 +1,11 @@
+Infinite Health
+0
+dron_3
+0 0026EAE0 C02300AC
+0 0026EAE4 D02300A4
+#
+No Reload
+0
+dron_3
+0 00307C1C 60000000
+#

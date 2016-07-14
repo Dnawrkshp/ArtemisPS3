@@ -1,9 +1,0 @@
-Max Gold on Gain + Sell
-0
-0 0002A878 33FE034C
-#
-Infinite Fate
-0
-0 00042320 38800109
-0 00042338 38600109
-#

@@ -1,4 +1,0 @@
-P2 CPU Stands Still
-0
-0 0018b780 409E0154
-#

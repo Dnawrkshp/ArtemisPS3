@@ -1,0 +1,125 @@
+Max Gil
+0
+hyper2k
+0 4458CD98 3B9AC9FF
+#
+Hope CP
+0
+hyper2k
+0 4459E850 000F423F
+#
+Hope HP
+0
+hyper2k
+0 4459E988 000F423F
+#
+Hope STR
+0
+hyper2k
+0 4459E998 000F423F
+#
+Hope MAG
+0
+hyper2k
+0 4459E99C 000F423F
+#
+Lightning CP
+0
+hyper2k
+0 445A06D0 000F423F
+#
+Lightning HP
+0
+hyper2k
+0 445A0808 000F423F
+#
+Lightning STR
+0
+hyper2k
+0 445A0818 000F423F
+#
+Lightning MAG
+0
+hyper2k
+0 445A081C 000F423F
+#
+Snow CP
+0
+hyper2k
+0 445A3490 000F423F
+#
+Snow HP
+0
+hyper2k
+0 445A35C8 000F423F
+#
+Snow STR
+0
+hyper2k
+0 445A35D8 000F423F
+#
+Snow MAG
+0
+hyper2k
+0 445A35DC 000F423F
+#
+Vanille CP
+0
+hyper2k
+0 445A43D0 000F423F
+#
+Vanille HP
+0
+hyper2k
+0 445A4508 000F423F
+#
+Vanille STR
+0
+hyper2k
+0 445A4518 000F423F
+#
+Vanille MAG
+0
+hyper2k
+0 445A451C 000F423F
+#
+Sazh CP
+0
+hyper2k
+0 445A5050 000F423F
+#
+Sazh HP
+0
+hyper2k
+0 445A5188 000F423F
+#
+Sazh STR
+0
+hyper2k
+0 445A5198 000F423F
+#
+Sazh MAG
+0
+hyper2k
+0 445A519C 000F423F
+#
+Fang CP
+0
+hyper2k
+0 4459C9D0 000F423F
+#
+Fang HP
+0
+hyper2k
+0 4459CB08 000F423F
+#
+Fang STR
+0
+hyper2k
+0 4459CB18 000F423F
+#
+Fang MAG
+0
+hyper2k
+0 4459CB1C 000F423F
+#

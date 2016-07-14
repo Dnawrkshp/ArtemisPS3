@@ -1,0 +1,19 @@
+Also known as
+SIREN Blood Curse
+
+#
+Infinite Ammo Usage
+0
+xtatu
+0 0014A5F4 93BE0374
+#
+No Move Enemy
+0
+xtatu
+0 00623210 42C80000
+#
+No Move Enemy Attack
+0
+xtatu
+0 00374140 419E000C
+#

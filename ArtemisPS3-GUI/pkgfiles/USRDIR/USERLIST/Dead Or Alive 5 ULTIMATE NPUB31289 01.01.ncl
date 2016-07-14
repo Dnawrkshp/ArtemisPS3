@@ -1,0 +1,25 @@
+Player 1 Can Hit From Anywhere, Player 2 Can Not Hit
+0
+puzzle
+0 002891E0 60000000
+0 00288FE0 60000000
+0 00288FE8 60000000
+#
+Player 1 Can Throw From Anywhere, Player 2 Can Not Throw
+0
+puzzle
+0 002F8384 7C1BE800
+#
+Disable Block
+0
+puzzle
+0 002F6E80 48000018
+0 002F6F1C 48000064
+0 002F6F20 48000048
+0 002F7070 48000018
+#
+Disable Hold
+0
+puzzle
+0 002D7A80 48000380
+#

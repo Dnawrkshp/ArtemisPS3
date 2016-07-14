@@ -1,8 +1,0 @@
-Ghost Mode No Hit Player
-0
-0 0019F89C 41820220
-#
-Damage P1
-0
-0 001BA3DC 40820008
-#

@@ -1,0 +1,6 @@
+Infinite HP
+0
+CodeFreak/PS3UserCheat
+6 00F4075C 0000061C
+0 00000000 43870000
+#

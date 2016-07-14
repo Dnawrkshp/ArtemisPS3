@@ -1,8 +1,0 @@
-Infinite HP
-0
-0 00939404 60000000
-#
-Infinite Money, Items
-0
-0 0047F350 7C090378
-#

@@ -1,0 +1,12 @@
+Max Consumables
+0
+jijibecali
+4 31998834 0001869F
+4 00000004 00000008
+#
+Max Erase And Create Dye
+0
+jijibecali
+0 319987BC 41F00000
+0 319987E4 41F00000
+#

@@ -1,0 +1,24 @@
+Heinrich Health Max
+0
+CodeFreak/PS3UserCheat
+6 010FA918 00000044
+0 00000000 000000C8
+#
+Gretchen Health Max
+0
+CodeFreak/PS3UserCheat
+6 010FA978 00000044
+0 00000000 000000C8
+#
+Knight's Fury + Witch's Embrace Max
+0
+CodeFreak/PS3UserCheat
+6 010FA978 00000050
+0 00000000 00000064
+#
+Witch Power 9,999,999
+0
+CodeFreak/PS3UserCheat
+6 0115AD94 00000048
+0 00000000 0098967F
+#

@@ -1,0 +1,22 @@
+Infinite Lives
+0
+dron_3
+0 0002D42C 397F0000
+#
+Invincibility
+0
+dron_3
+0 000684F0 60000000
+#
+Infinite Superbombs
+0
+dron_3
+0 0002AE6C 60000000
+#
+Max Cash
+0
+dron_3
+0 0007D2D4 3C003B9A
+0 0007D2D8 6000C9FF
+0 0007D2DC 901F002C
+#

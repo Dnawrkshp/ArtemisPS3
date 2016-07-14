@@ -1,9 +1,0 @@
-Infinite Ammo + Bottomless Clip
-0
-0 0041DCB0 60000000
-0 0041DC94 60000000
-#
-Rapid Fire
-0
-0 0041DD60 60000000
-#

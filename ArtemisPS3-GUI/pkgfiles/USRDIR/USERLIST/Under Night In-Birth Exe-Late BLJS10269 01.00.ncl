@@ -1,0 +1,18 @@
+Player 1 Invincible
+0
+eltyran84
+0 00951D04 00002904
+0 00951D08 00002904
+#
+1 Hit Kills
+0
+eltyran84
+0 00952408 00000000
+0 0095240C 00000000
+#
+Player 1 Infinite Power
+0
+eltyran84
+0 00952D1C 00004E20
+0 00951D20 00004E20
+#

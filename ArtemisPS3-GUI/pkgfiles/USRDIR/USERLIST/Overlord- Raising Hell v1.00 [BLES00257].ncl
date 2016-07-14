@@ -1,8 +1,0 @@
-Infinite Health
-0
-0 002A2600 D1BD047C
-#
-Infinite Mana
-0
-0 002A2630 D03D04C0
-#

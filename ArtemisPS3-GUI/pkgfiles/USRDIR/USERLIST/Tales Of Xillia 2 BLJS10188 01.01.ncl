@@ -1,0 +1,59 @@
+Exp 99999999
+0
+xtatu
+0 000C6DC4 419D0008
+#
+Gald 99999999
+0
+xtatu
+0 000C932C 419D0008
+#
+E.CORE Max
+0
+xtatu
+0 000C92FC 419D0008
+#
+Battle Speed Modifier
+0
+xtatu
+0 010AECEC Z
+[Z]3F800000=Normal;3FA00000=1.25x;3FC00000=1.5x;3FE00000=1.75x;40000000=2x;40400000=3x;40800000=4x;40A00000=5x;[/Z]
+#
+TP 999 Max Not Infinite
+0
+xtatu
+0 0024FF3C 40850CF8
+0 0024FFAC 40990C58
+#
+SP 999 Max Not Infinite
+0
+xtatu
+0 0024FFAC 40990C58
+#
+HP 9999 Max Not Infinite
+0
+xtatu
+0 0024F87C 40850EC0
+#
+Auto Death Enemy No Fighters Mode
+0
+xtatu
+0 0024F870 40800010
+#
+1 Hit Kills
+0
+xtatu
+0 00250C10 48000040
+#
+Infinite TP
+0
+Medo
+0 00238BD0 31230014
+0 00238BD4 4E800020
+#
+Have All Items + Infinite All Items
+0
+Medo
+0 00533564 38600063
+0 005335BC 38E00063
+#

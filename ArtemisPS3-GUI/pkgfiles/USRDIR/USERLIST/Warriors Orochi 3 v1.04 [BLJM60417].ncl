@@ -1,4 +1,0 @@
-1 Hit Kill Enemy
-0
-0 00BF8464 BF800000
-#

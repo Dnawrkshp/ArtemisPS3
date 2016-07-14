@@ -1,4 +1,0 @@
-Infinite HP
-0
-0 00960CDC 801F005C
-#

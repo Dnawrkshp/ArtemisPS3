@@ -1,0 +1,26 @@
+Souls 999999999
+0
+CodeFreak/PS3UserCheat
+0 301E8048 3B9AC9FF
+#
+HP 99999 + 99999
+0
+CodeFreak/PS3UserCheat
+0 301E7FDC 0001869F
+0 301E7FE4 0001869F
+/*
+HP is half when you are
+in soul body.
+*/
+#
+MP 99999 + 99999
+0
+CodeFreak/PS3UserCheat
+0 301E7FE8 0001869F
+0 301E7FF0 0001869F
+#
+Stamina 99999
+0
+CodeFreak/PS3UserCheat
+0 301E8000 0001869F
+#

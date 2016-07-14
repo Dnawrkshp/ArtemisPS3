@@ -1,5 +1,5 @@
 clean:
-	rm -f *.o *.elf stage2/*.map *.bin stage2/*.o lv2/src/*.o lv1/src/*.o debug/src/*.o 
+	rm -f *.o *.elf *.map *.bin payload_src/*.o lv2/src/*.o
 all:
 	make -f Makefile_3.55 clean --no-print-directory
 	make -f Makefile_3.55 --no-print-directory
@@ -61,4 +61,8 @@ all:
 	make -f Makefile_4.76 --no-print-directory
 	make -f Makefile_4.76D clean --no-print-directory
 	make -f Makefile_4.76D --no-print-directory
-	rm -f *.o *.elf stage2/*.map stage2/*.o lv2/src/*.o lv1/src/*.o debug/src/*.o
+	make -f Makefile_4.78 clean --no-print-directory
+	make -f Makefile_4.78 --no-print-directory
+	make -f Makefile_4.78D clean --no-print-directory
+	make -f Makefile_4.78D --no-print-directory
+	rm -f *.o *.elf *.map source/*.o lv2/src/*.o

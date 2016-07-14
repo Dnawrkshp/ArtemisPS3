@@ -1,0 +1,22 @@
+Hit Anywhere
+0
+xtatu
+0 001BE3C0 419E0228
+#
+1p Infinite HP
+0
+vosman
+0 00208474 801E0064
+0 00208478 901E0060
+#
+Stop Timer
+0
+vosman
+0 00208650 3BBD0001
+#
+Speed Modifier
+0
+vosman
+0 001AFE70 3800Z
+[Z]0400=0.25x;0800=0.5x;1800=1.5x;2000=2x[/Z]
+#

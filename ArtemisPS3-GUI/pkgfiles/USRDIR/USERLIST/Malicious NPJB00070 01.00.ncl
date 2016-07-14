@@ -1,0 +1,12 @@
+Infinite Health
+0
+CodeFreak/PS3UserCheat
+6 00F4FCBC 000001C4
+0 00000000 015E015E
+#
+Infinite Aura
+0
+CodeFreak/PS3UserCheat
+6 00F4FCBC 000008AC
+0 00000000 461C3C00
+#

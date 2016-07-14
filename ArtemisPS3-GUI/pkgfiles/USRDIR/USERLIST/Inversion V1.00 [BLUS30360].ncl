@@ -1,8 +1,0 @@
-Bottomless Clip
-0
-0 003285C4 60000000
-#
-Infinite Ammo
-0
-0 003287C4 60000000
-#

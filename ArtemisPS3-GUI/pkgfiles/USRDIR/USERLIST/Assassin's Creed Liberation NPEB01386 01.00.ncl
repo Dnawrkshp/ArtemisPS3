@@ -1,0 +1,37 @@
+Also known as
+Assassin's Creed 3 Lady Liberty
+
+#
+Infinite Ammo + Pickup + Throw
+0
+dron_3
+0 0169392C 7C090378
+#
+Max Money After Pickup + Steal
+0
+dron_3
+0 016AC878 60000000
+#
+Infinite Health
+0
+dron_3
+0 0125485C A01E005C
+#
+AoB Infinite Ammo + Pickup + Throw
+0
+dron_3
+B 00010000 04000000
+B 7D3F0050419C000C 7C090378419C000C
+#
+AoB Max Money After Pickup + Steal
+0
+dron_3
+B 00010000 04000000
+B 409D000C907F000C48000008909F000C38210080 60000000907F000C48000008909F000C38210080
+#
+AoB Infinite Health
+0
+dron_3
+B 00010000 04000000
+B 7D204B78B01E005A A01E005CB01E005A
+#

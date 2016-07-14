@@ -1,0 +1,17 @@
+Infinite Health 
+0
+dron_3
+0 00272188 38602710 
+0 0027218C 90790154
+0 00272190 90790158
+#
+No Reload 
+0
+dron_3
+0 003ABACC 38800063
+#
+Infinite Ammo 
+0
+dron_3
+0 003B439C 386003E7
+#

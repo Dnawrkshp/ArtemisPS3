@@ -1,0 +1,8 @@
+Money Never Decreases
+0
+kanae.2ch.net/test/read.cgi/gameurawaza/1395654864/
+0 01EE0184 38800000
+0 01EE48C0 38800000
+0 01FC6A04 38800000
+0 01FC7478 38800000
+#

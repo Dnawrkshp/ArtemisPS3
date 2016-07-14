@@ -1,0 +1,22 @@
+Infinite Ammo + No Reload
+0
+Blaster99
+0 006A8238 38A003E7
+0 006A5E84 38A003E7
+#
+9999 Silver Eagles on Pickup + Spend
+0
+Blaster99
+0 0088E244 3880270F
+0 0088E2C0 3880270F
+#
+Infinite Salt
+0
+Blaster99
+0 0088E4FC 38A00064
+#
+Lockpicks On Use 99
+0
+Blaster99
+0 0088E6F4 38A00063
+#

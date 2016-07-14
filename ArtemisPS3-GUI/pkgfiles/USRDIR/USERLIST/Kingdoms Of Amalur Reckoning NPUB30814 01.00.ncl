@@ -1,0 +1,39 @@
+Infinite Health
+0
+Medo
+0 002E15B0 80FF004C
+0 002E15B4 60000000
+0 002E15BC 90FF0048
+#
+Infinite Mana
+0
+Medo
+0 002DB38C 809F0074
+0 002DB518 809F0074
+#
+Max Fate On Gain
+0
+Medo
+0 00423648 38600109
+#
+Infinite Fate
+0
+Medo
+0 004236B4 38600109
+#
+Max Money On Buy
+0
+Medo
+0 0003A4A4 3FC005F5
+0 0003A4A8 63DEE0FF
+#
+Max Items On Buy + Sell
+0
+Medo
+0 0049FD84 38800063
+#
+Max Items On Use
+0
+Medo
+0 004A6B60 38800063
+#

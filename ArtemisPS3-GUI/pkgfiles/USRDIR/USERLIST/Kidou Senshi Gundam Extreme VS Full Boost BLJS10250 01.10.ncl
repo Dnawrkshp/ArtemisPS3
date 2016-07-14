@@ -1,0 +1,11 @@
+Max SP After Combat
+0
+kanae.2ch.net/test/read.cgi/gameurawaza/1395654864/
+0 0052E4ED 68021490
+#
+AoB Max SP After Combat
+0
+kanae.2ch.net/test/read.cgi/gameurawaza/1395654864/
+B 00010000 04000000
+B 680214907C000880FF043C7D833A14 620214907C000880FF043C7D833A14
+#

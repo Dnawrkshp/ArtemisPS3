@@ -6,7 +6,7 @@ Your PS3 must be running CFW 3.55 or above (DEX and CEX supported)!
 
 Installing Artemis PS3
 ------
-*	Download the [ArtemisPS3-GUI.pkg](https://github.com/Dnawrkshp/ArtemisPS3/blob/master/ArtemisPS3-GUI/ArtemisPS3-GUI.pkg)
+*	Download the [latest Artemis PS3 package](https://github.com/Dnawrkshp/ArtemisPS3/releases/)
 *	Install it onto your PS3 (method to install depends on your CFW)
 
 Installing cheat codes
