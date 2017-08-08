@@ -41,3 +41,16 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Compiled source #
+###################
+*.a
+*.o
+*.self
+*.elf
+*.pkg
+build/
+ppu/
+lib/
+obj/
+*.zip
