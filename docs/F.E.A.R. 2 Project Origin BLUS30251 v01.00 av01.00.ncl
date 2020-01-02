@@ -1,0 +1,23 @@
+Use A Health Kit For Permanent Invincibility
+0
+bungholio
+0 006542F8 91630030
+0 00654308 48000044
+#
+Health Kits Never Decrease
+0
+bungholio
+0 006542F0 D1A30018
+#
+AoB Use A Health Kit For Permanent Invincibility
+0
+bungholio
+B 00010000 04000000
+B FF8D0800FBC1FFF083C289C04FDCF382419E0044 91630030FBC1FFF083C289C04FDCF38248000044
+#
+AoB Health Kits Never Decrease
+0
+bungholio
+B 00010000 04000000
+B C1A30014C0230018 C1A30014D1A30018
+#

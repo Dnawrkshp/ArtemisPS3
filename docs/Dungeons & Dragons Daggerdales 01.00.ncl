@@ -1,0 +1,18 @@
+Infinite Health
+0
+jgduff1
+0 1279D640 00000078
+#
+Memory Infinite Refill Health
+0
+jgduff1
+0 13BBBCE8 00000064
+0 13BDA7F8 00000064
+0 13CE48F8 00000064
+0 13CF75F8 00000064
+#
+ASM Infinite Refill Health
+0
+jgduff1
+0 00060948 90640000
+#

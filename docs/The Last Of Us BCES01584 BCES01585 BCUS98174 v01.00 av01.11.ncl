@@ -1,0 +1,36 @@
+Enemies Never Attack
+0
+bungholio
+0 000CD6BC 48000010
+0 000CD6D4 48000010
+#
+Dev Menu
+0
+dron_3 + HdHereidme
+0 00A92640 38000001
+0 00A92644 980B2DB0
+/*
+L3 + Start = Dev Menu
+L3 + Select = Quick Menu
+L3 + Triangle = Debug Text
+L3 + R3 = Debug Fly
+*/
+#
+AoB Enemies Never Attack
+0
+bungholio
+B 00010000 04000000
+B 419E0010786300204812E8F960000000807C0B1C2F83000041 9E001048000010786300204812E8F960000000807C0B1C2F83000048000010
+#
+AoB Dev Menu
+0
+dron_3 + HdHereidme
+B 00010000 04000000
+B 880B2DB02F800000419E01B8 880B2DB038000001980B2DB0
+/*
+L3 + Start = Dev Menu
+L3 + Select = Quick Menu
+L3 + Triangle = Debug Text
+L3 + R3 = Debug Fly
+*/
+#

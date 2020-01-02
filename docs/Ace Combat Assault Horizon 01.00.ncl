@@ -1,0 +1,27 @@
+Max + Infinite Resistance
+0
+FBML
+0 000FDCFC C00A016CD00A01684800002C
+#
+Max + Infinite Missiles + Flares After Use
+0
+FBML
+0 0041D7B0 48000018
+#
+No Cooldown For Regular Missiles
+0
+FBML
+0 0041F8A0 EC000032
+#
+No Cooldown For Special Missiles
+0
+FBML
+0 00421E88 EC000032
+#
+999,999,999 Points After Buying Something
+0
+FBML
+0 00571BA0 3C803B9A
+0 00571BA4 7F23CB78
+0 00571BA8 6084C9FF
+#

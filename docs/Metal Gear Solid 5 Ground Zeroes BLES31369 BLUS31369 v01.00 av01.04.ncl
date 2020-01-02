@@ -1,0 +1,33 @@
+File Info
+0
+bungholio
+/*
+The BLES and BLUS files
+are very different, but
+by coincidence these 2
+codes are the same for
+both.
+*/
+#
+Max Camo
+0
+dron_3
+0 00B500D4 3C807000
+#
+No Damage
+0
+dron_3
+0 00B0FB80 60000000
+#
+AoB Max Camo
+0
+dron_3
+B 00010000 04000000
+B 388000002C030000609D0000418200083083FFE02C040000 3C8070002C030000609D0000418200083083FFE02C040000
+#
+AoB No Damage
+0
+dron_3
+B 00010000 04000000
+B 4BA2143D 60000000
+#

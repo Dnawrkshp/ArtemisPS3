@@ -1,0 +1,281 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Ratchet & Clank 4 Za Jednego
+Ratchet & Clank Todos Para Uno
+Ratchet & Clank Todos Por Um
+Ratchet & Clank Tutti Per Uno
+*/
+#
+Dump Player Health Addresses
+0
+bungholio
+0 00BBA0F8 3C600152
+0 00BBA0FC 6063F000
+0 00BBA100 1C190004
+0 00BBA104 48000020
+0 00BBA124 38981C00
+0 00BBA128 7C83012E
+0 00BBA12C 80980000
+0 00BBA130 480124E2
+0 000124DC 48BBA0FA
+/*
+You will need this on for
+either the health or
+invincibility codes to
+work.
+*/
+#
+Health Never Decreases For All Players
+0
+bungholio
+0 00BBA150 EC21F02A
+0 00BBA154 38600004
+0 00BBA158 7C6903A6
+0 00BBA15C 48000020
+0 00BBA17C 3C600153
+0 00BBA180 80A3F000
+0 00BBA184 7F9F2840
+0 00BBA188 48000020
+0 00BBA1A8 419E002C
+0 00BBA1AC 38630004
+0 00BBA1B0 4200FFD0
+0 00BBA1B4 48046B5E
+0 00BBA1D4 C03F0028
+0 00BBA1D8 48046B5E
+0 00046B58 48BBA152
+/*
+Requires Dump Player
+Health Addresses to be on.
+*/
+#
+All Players Are Invincible
+0
+bungholio
+0 00BBA1DC 38A00004
+0 00BBA1E0 48000020
+0 00BBA200 7CA903A6
+0 00BBA204 3CA00153
+0 00BBA208 8005F000
+0 00BBA20C 48000020
+0 00BBA22C 7F830040
+0 00BBA230 4D9E0020
+0 00BBA234 38A50004
+0 00BBA238 48000020
+0 00BBA258 4200FFB0
+0 00BBA25C F821F9C1
+0 00BBA260 4804626E
+0 00046268 48BBA1DE
+/*
+Requires Dump Player
+Health Addresses to be on.
+*/
+#
+Hold X To Fly
+0
+bungholio
+0 00BBA284 3CC00153
+0 00BBA288 9066F020
+0 00BBA28C 546604E6
+0 00BBA290 4853805E
+0 00538058 48BBA286
+0 00BBA2B0 3C600153
+0 00BBA2B4 A003F022
+0 00BBA2B8 70000004
+0 00BBA2BC 48000020
+0 00BBA2DC 2B800004
+0 00BBA2E0 409E0030
+0 00BBA2E4 3C000000
+0 00BBA2E8 48000020
+0 00BBA308 9003F024
+0 00BBA30C C023F024
+0 00BBA310 D03F0638
+0 00BBA314 482BDFAA
+0 002BDFA4 48BBA2B2
+/*
+Requires Dump Player
+Health Addresses to be on.
+*/
+#
+Bolt Multiplier
+0
+bungholio
+0 00BBA0A4 1FFFZ
+0 00BBA0A8 7CA5F814
+0 00BBA0AC 482ADD1A
+0 002ADD14 48BBA0A6
+0 00BBA0CC 1F39Z
+0 00BBA0D0 7F23C814
+0 00BBA0D4 481E5D3A
+0 001E5D34 48BBA0CE
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Max Critters On Gain
+0
+bungholio
+0 001E5798 38E003E7
+#
+Ammo Never Decreases
+0
+bungholio
+0 004A8FF0 60000000
+#
+Have All Weapons
+0
+bungholio
+0 00BBA43C 38040006
+0 00BBA440 90060000
+0 00BBA444 80C60000
+0 00BBA448 483035D6
+0 003035D0 48BBA43E
+0 00BBA468 38A00001
+0 00BBA46C 98BA0018
+0 00BBA470 88BA0018
+0 00BBA474 4813FE66
+0 0013FE60 48BBA46A
+0 00BBA494 3CE000F2
+0 00BBA498 60E75870
+0 00BBA49C 78881764
+0 00BBA4A0 7CE7402E
+0 00BBA4A4 80E7003C
+0 00BBA4A8 80E700F8
+0 00BBA4AC 90E6000C
+0 00BBA4B0 7B671764
+0 00BBA4B4 4816ADD6
+0 0016ADD0 48BBA496
+#
+Have All Weapons Fully Upgraded
+0
+bungholio
+0 00BBA3E4 38000007
+0 00BBA3E8 98030019
+0 00BBA3EC 88630019
+0 00BBA3F0 484A904E
+0 004A9048 48BBA3E6
+#
+Manual Rapid Fire
+0
+bungholio
+0 004B6CE8 48000008
+/*
+Holding the fire button no
+longer makes weapons
+rapidly fire until they
+run out of ammo, they all
+now require you to press
+fire each time you want to
+fire a shot.
+
+With this, you can fire as
+quickly as you are able to
+press the fire button, and
+it is perfect if you have
+a rapid fire controller.
+*/
+#
+Ratchet Weapon Damage Scale Modifier
+0
+bungholio
+0 004B51F0 Z
+[Z]41200000=10x;42C80000=100x;447A0000=1,000x;461C4000=10,000x;7F7FFFFF=Max[/Z]
+#
+Unlimited Sprint
+0
+bungholio
+0 0013F560 7F800000
+#
+Taxi Health Never Decreases
+0
+bungholio
+0 0048FC90 38800000
+/*
+The displayed health and
+actual health are
+separate.
+
+If you also want the
+useless displayed health
+add these 2 lines below.
+
+0 0048FCC4 C0230028
+0 0048FCC8 D0230020
+*/
+#
+Guardian Robot Health Never Decreases
+0
+bungholio
+0 00449414 C03E0028
+#
+Ornithoptor Health Never Decreases
+0
+bungholio
+0 00046B58 C03F0028
+#
+Ornithoptor Fuel Never Decreases
+0
+bungholio
+0 00497E94 60000000
+#
+Have All RYNO Parts
+0
+bungholio
+0 00BBA410 38000001
+0 00BBA414 90040000
+0 00BBA418 80840000
+0 00BBA41C 481E54BA
+0 001E54B4 48BBA412
+#
+Unlock Cheats
+0
+bungholio
+0 00543944 E8830000
+0 00543948 7C842B78
+0 0054394C F8830000
+0 00543950 60000000
+#
+Have All Skill Points
+0
+bungholio
+0 00532C94 E9270000
+0 00532C98 7CC64B78
+0 00532C9C F8C70000
+0 00532CA0 60000000
+/*
+Skill points give you the
+different cheats under the
+Cheats menu.
+*/
+#
+Have All Gold Bolts
+0
+bungholio
+0 001E58D8 7C832014
+0 001E58DC 3084072C
+0 001E58E0 3860002A
+0 001E58E4 B0640000
+0 00304014 E8050000
+0 00304018 7C002378
+0 0030401C F8050000
+0 00304020 60000000
+/*
+The 1st set is triggered
+by just pausing the game,
+and sets the amount to 42.
+
+The 1st set will also
+instantly unlock all
+skins.
+
+The 2nd set needs to be on
+as you play the game from
+start to finish, it will
+make the gold bolts vanish
+in the levels and is
+triggered at various
+checkpoints but only gives
+you the gold bolt for the
+area you are about to
+play.
+*/
+#

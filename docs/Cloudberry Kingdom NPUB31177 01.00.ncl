@@ -1,0 +1,12 @@
+Memory Infinite Health
+0
+jgduff1
+0 38BAB150 00000000
+0 38BAB154 00000000
+0 38BAB1CC 0000003D
+#
+ASM Infinite Health
+0
+jgduff1
+0 002E3FEC 9ABE01B0
+#

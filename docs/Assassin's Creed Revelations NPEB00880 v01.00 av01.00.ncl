@@ -1,0 +1,36 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+scimitar_final.self
+*/
+#
+Max Money On Gain
+0
+ciao1102
+0 01037700 3880FFFF
+#
+Max Moral
+0
+ciao1102
+0 01484718 38000063
+#
+Infinite Health
+0
+jgduff1
+0 009A6380 905F0058
+#
+AoB Max Money On Gain
+0
+ciao1102
+B 00010000 04000000
+B 7C9E02147F841840 3880FFFF7F841840
+#
+AoB Max Moral
+0
+ciao1102
+B 00010000 04000000
+B 7C0022147C9E2378 380000637C9E2378
+#

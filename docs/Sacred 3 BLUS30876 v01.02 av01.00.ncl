@@ -1,0 +1,28 @@
+Player Health Never Decreases
+0
+bungholio
+0 005E15D4 2F8AFFFF
+0 005E15D8 419E0008
+0 005E15DC 481DF203
+0 005E15E0 481E7AF6
+0 001E7AF0 485E15D6
+#
+Light Combat Arts Never Decrease
+0
+bungholio
+0 001E7F60 60000000
+#
+Heavy Combat Arts Never Decrease
+0
+bungholio
+0 001E7F34 60000000
+#
+Experience And Gold Multiplier
+0
+bungholio
+0 005E15AC 1F39Z
+0 005E15B0 7C84C814
+0 005E15B4 480F4BFA
+0 000F4BF4 485E15AE
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000[/Z]
+#

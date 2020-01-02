@@ -1,0 +1,31 @@
+Infinite Ammo + No Reload
+0
+jgduff1
+0 00BA82F4 7CBE0038
+0 00BA82FC 907B0610
+#
+Infinite Ammo
+0
+jgduff1
+0 00A9193C 7C030050
+0 00A91960 917C0004
+#
+Infinite Health
+0
+jgduff1
+0 00699780 EFBDF82A
+#
+Max + Infinite Cash On Gain
+0
+jgduff1
+0 00A904B8 7C840038
+0 00A904BC 90430530
+#
+Memory Infinite Concentration
+0
+jgduff1
+0 125F53B0 32EAC608
+0 125F53B4 125F2454
+0 125F53B8 12562FB4
+0 30267A58 0004630C
+#

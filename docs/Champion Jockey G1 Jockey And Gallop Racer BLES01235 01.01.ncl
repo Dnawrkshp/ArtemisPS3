@@ -1,0 +1,11 @@
+Max Riding Points When Decrease
+0
+crapulecorp
+0 00149408 923D6008
+#
+AoB Max Riding Points When Decrease
+0
+crapulecorp
+B 00010000 04000000
+B 907D60087C0803A6EBA10078 923D60087C0803A6EBA10078
+#

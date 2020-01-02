@@ -1,0 +1,41 @@
+Memory Lot + Infinite Money On Gain
+0
+jgduff1
+0 600FFE40 00000004
+#
+ASM Lot Of Money On Gain
+0
+jgduff1
+0 020B658C 92430040
+#
+ASM Infinite Money
+0
+jgduff1
+0 020B6588 60000000
+#
+Memory Infinite Drag
+0
+jgduff1
+0 4C92BA50 00000008
+#
+ASM Infinite Drag
+0
+jgduff1
+0 020E267C 38630000
+#
+Memory Unknown Code 1
+0
+jgduff1
+0 6019A52C 0000000C
+0 6019A530 0000001E
+0 6019A534 00000014
+0 60BC5F8C 0000000C
+#
+ASM Unknown Code 1
+0
+jgduff1
+0 021178EC 91430000
+0 021178E4 60000000
+0 021178F8 92430004
+0 02117904 92430008
+#

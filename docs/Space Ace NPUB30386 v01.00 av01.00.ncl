@@ -1,0 +1,11 @@
+ASM Infinite Life
+0
+jgduff1
+0 0005A6EC 39290000
+#
+ASM Big Score On Gain
+0
+jgduff1
+0 0005A3B0 7C0B4A14
+0 0005A3B8 90480000
+#

@@ -1,0 +1,836 @@
+Invincibility
+0
+bungholio
+0 0014DB3C 4E800020
+/*
+Be careful when going into
+water, some of it has no
+bottom so you will fall
+forever unless you quit or
+use the code to fly.
+*/
+#
+Health Never Decreases
+0
+bungholio
+0 006EBAA0 FC200B6E
+0 006EBAA4 80010204
+0 006EBAA8 3D200014
+0 006EBAAC 48000020
+0 006EBACC 6129DBB0
+0 006EBAD0 7F890040
+0 006EBAD4 409E0008
+0 006EBAD8 C03B07BC
+0 006EBADC 4834962A
+0 00349624 486EBAA2
+/*
+Be careful when going into
+water, some of it has no
+bottom so you will fall
+forever unless you quit or
+use the code to fly.
+*/
+#
+Electrical Attacks Give You Max Electricity
+0
+bungholio
+0 0014AF0C C1A91F40
+#
+Zooming For A Sniper Shot Gives You Max Electricity
+0
+bungholio
+0 0014BF80 C0031F40
+#
+Ionic Charges Never Decrease
+0
+bungholio
+0 00149B54 38600003
+0 00149B58 90690038
+#
+Amp Meter Always Full
+0
+bungholio
+0 006EB998 83BF1F30
+0 006EB99C 93BF1F18
+0 006EB9A0 4814ABC6
+0 0014ABC0 486EB99A
+#
+Most Enemies Never Attack
+0
+bungholio
+0 001E0AF8 3C000000
+/*
+Enemies never know where I
+am making "Hit Clueless
+Enemy" very easy to do.
+Turrets always get you,
+and enemies sometimes
+attack during missions.
+*/
+#
+Jump Height Scale Modifier
+0
+bungholio
+0 002166FC 3C00Z
+[Z]4000=2x;4040=3x;4080=4x;40A0=5x;40C0=6x;40E0=7x;4100=8x;4110=9x;4120=10x[/Z]
+/*
+Not needed since you
+can fly.
+*/
+#
+Karma Gained Multiplier
+0
+bungholio
+0 006EB898 3D2000F5
+0 006EB89C 48000020
+0 006EB8BC 3C00Z
+0 006EB8C0 9009F008
+0 006EB8C4 C009F008
+0 006EB8C8 48000020
+0 006EB8E8 EC210032
+0 006EB8EC C01F0020
+0 006EB8F0 48128862
+0 0012885C 486EB89A
+[Z]4120=10x;42C8=100x;447A=1,000x[/Z]
+#
+All Karma Gained Is Good
+0
+bungholio
+0 00128840 FC20F210
+0 001288A8 60000000
+/*
+This uses the same
+addresses as All Karma
+Gained Is Evil, so only 1
+can be active at a time.
+
+You can safely switch from
+1 to the other while
+playing though, there is
+no risk of the game
+crashing.
+*/
+#
+All Karma Gained Is Evil
+0
+bungholio
+0 00128840 FC20F110
+0 001288A8 480000C0
+/*
+This uses the same
+addresses as All Karma
+Gained Is Good, so only 1
+can be active at a time.
+
+You can safely switch from
+1 to the other while
+playing though, there is
+no risk of the game
+crashing.
+*/
+#
+XP Gained Multiplier
+0
+bungholio
+0 00128A14 1D6BZ
+0 00128A1C 7C005A14
+0 00128A20 901D0030
+0 00128A24 901D0034
+0 00128A28 48386CA5
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+XP Never Decreases
+0
+bungholio
+0 006EB914 80030030
+0 006EB918 7F840040
+0 006EB91C 4D9C0020
+0 006EB920 48000020
+0 006EB940 F821FEC1
+0 006EB944 4812899A
+0 00128994 486EB916
+#
+Have All Powers
+0
+bungholio
+0 006EB96C 3B600007
+0 006EB970 7F7F492E
+0 006EB974 7F7F482E
+0 006EB978 48124B76
+0 00124B70 486EB96E
+/*
+Some missions might not
+work correctly with this.
+
+For example, when I did
+the mission to get the
+Pincer attack, the game
+would not count enemies I
+had defeated unless the
+Pincer Bolt was not
+already purchased.
+
+If needed use either of
+these below instead.
+
+0 006EB96C 3B600003 = Everything unlocked but not purchased.
+0 006EB96C 3B600000 = Nothing unlocked or purchased.
+*/
+#
+Can Use All Powers
+0
+bungholio
+0 0004B524 38600001
+0 00124BD0 63830000
+0 00128FC8 38600001
+0 00162DE4 38600001
+#
+All 6 Karmic Boosts Are Active At The Same Time
+0
+bungholio
+0 00125000 38600001
+#
+Overcharge Never Decreases
+0
+bungholio
+0 006F8700 E9440010
+0 006F8704 80E103F4
+0 006F8708 3D00001B
+0 006F870C 6108252C
+0 006F8710 7F883840
+0 006F8714 409E000C
+0 006F8718 3D0042C8
+0 006F871C 7F8A4040
+0 006F8720 409E0010
+0 006F8724 390B0014
+0 006F8728 3CE000F5
+0 006F872C 9107F050
+0 006F8730 485DF09A
+0 006F8734 F881FFF8
+0 006F8738 3C8000F5
+0 006F873C 8084F050
+0 006F8740 7F841840
+0 006F8744 409E000C
+0 006F8748 3C807F80
+0 006F874C 908BFFFC
+0 006F8750 E881FFF8
+0 006F8754 4E800020
+0 005DF094 486F8702
+0 005DEFF4 486F8736
+/*
+In Overcharge Side
+Missions, you need to jump
+off of a transformer and
+ride rails and whatever
+else to keep off of the
+ground or you will lose
+your overcharge, turn red,
+and die.
+
+This is a sloppy way of
+doing this and I hope it
+has no side effects
+throughout the game.
+
+If you have the code to
+fly with L2 + X on, you
+will not need this and can
+just fly from transformer
+to transformer.
+*/
+#
+Menu Type Modifier
+0
+bungholio
+0 0014B710 3860000Z
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a small visual thing
+to set if the pause menu
+looks good or evil.
+*/
+#
+Electricity Light Modifier
+0
+bungholio
+0 000C7808 3860000Z
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a visual thing to
+set the color of what the
+light emitted from your
+electrical attacks looks
+like, it does not affect
+electricity color.
+*/
+#
+Electricity Type Modifier
+0
+bungholio
+0 00124F24 3860000Z
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a visual thing to
+set whether Cole's 
+electricity looks good or
+evil without having to be
+good or evil.
+*/
+#
+Button Enable Code
+0
+bungholio
+0 006F7310 80E3001C
+0 006F7314 3D0000F5
+0 006F7318 70EA0220
+0 006F731C B148F004
+0 006F7320 A128F006
+0 006F7324 70EA4200
+0 006F7328 B148F006
+0 006F732C 2B8A4200
+0 006F7330 409E0018
+0 006F7334 7F8A4840
+0 006F7338 419E0010
+0 006F733C 8948F00C
+0 006F7340 694A0001
+0 006F7344 9948F00C
+0 006F7348 70EA2000
+0 006F734C B148F00A
+0 006F7350 70EA6000
+0 006F7354 2B8A6000
+0 006F7358 409E0020
+0 006F735C 39400008
+0 006F7360 7D4903A6
+0 006F7364 39400000
+0 006F7368 39280010
+0 006F736C F949F000
+0 006F7370 39290008
+0 006F7374 4200FFF8
+0 006F7378 48189472
+0 006F737C 3C8000F5
+0 006F7380 93A4F000
+0 006F7384 4831861E
+0 006F7388 7C3D49CE
+0 006F738C 3D2000F5
+0 006F7390 8009F000
+0 006F7394 7F9F0040
+0 006F7398 409E0018
+0 006F739C A009F004
+0 006F73A0 2B800220
+0 006F73A4 409E000C
+0 006F73A8 3D204480
+0 006F73AC 913D0018
+0 006F73B0 39200070
+0 006F73B4 48466A4E
+0 006F73B8 3D2000F5
+0 006F73BC 8929F00C
+0 006F73C0 71290001
+0 006F73C4 2B890001
+0 006F73C8 409E0008
+0 006F73CC 3CC00000
+0 006F73D0 3D2042A0
+0 006F73D4 481C629E
+0 006F73D8 C3FE8000
+0 006F73DC 3F8000F5
+0 006F73E0 A0BCF00A
+0 006F73E4 2B852000
+0 006F73E8 409E002C
+0 006F73EC 38A00010
+0 006F73F0 7CA903A6
+0 006F73F4 393C0010
+0 006F73F8 80A9F000
+0 006F73FC 2B850000
+0 006F7400 409E000C
+0 006F7404 93E9F000
+0 006F7408 4800000C
+0 006F740C 39290004
+0 006F7410 4200FFE8
+0 006F7414 3B9C0010
+0 006F7418 80BCF000
+0 006F741C 2B850000
+0 006F7420 419E0018
+0 006F7424 7F9F2840
+0 006F7428 419E000C
+0 006F742C 3B9C0004
+0 006F7430 4BFFFFE8
+0 006F7434 D3FF0008
+0 006F7438 48066A26
+0 0018946C 486F7312
+0 00318618 486F737E
+/*
+This needs to be turned on
+before any other button
+codes or the game will
+crash.
+
+They are holding L2 + X to
+fly, L2 + L3 to toggle AI
+movement, and making
+various vehicles and
+objects invincible.
+*/
+#
+Hold L2 + X To Fly
+0
+bungholio
+0 00466A48 486F738A
+0 00466A4C 38000060
+/*
+Requires the button enable
+code to be on 1st.
+*/
+#
+Press L2 + L3 To Toggle Or Disable AI Movement
+0
+bungholio
+0 001C6298 486F73BA
+/*
+Requires the button enable
+code to be on 1st.
+
+People might not instantly
+stop, but once they do
+they will stay stopped
+until you turn it off.
+
+Cole also has a side
+effect where if you are in
+a mission and need to
+press a button to pick
+something up or move to a
+location and perform an
+action, Cole will stand
+still and do nothing.
+
+If that happens just turn
+the code off and try it
+again.
+*/
+#
+Hold Select While Damaging A Vehicle Or Object To Mark It For Invincibility, Select + L3 To Unmark
+0
+bungholio
+0 00066A20 486F73DA
+0 00066A24 54092834
+/*
+Requires the button enable
+code to be on 1st.
+
+To mark a vehicle or
+whatever to give it
+infinite health, just hold
+Select and then damage it.
+
+That is mainly there for
+missions where you need to
+guard a vehicle or object,
+there seems to be a 2nd
+separate health for random
+vehicles throughout the
+game that is actually at
+000FE0E4 but there are
+many things that use that
+and we do not care because
+we have no use for it.
+
+It actually saves a
+potential 16 things to
+give them invincibility
+because it might get more
+than just vehicles, like
+nearby street poles or
+scaffolding or whatever so
+you might somehow miss
+your actual target without
+there being 16 spaces.
+
+With 16, hopefully
+whatever you try to shoot
+at should end up getting
+marked but if not then
+press Select + L3 and then
+try holding Select and
+damaging it again.
+
+I have it use 4 bytes to
+store pointers at
+addresses from 00F4F010 to
+00F4F04F, once you press
+Select + L3 it will erase
+all things there if there
+are any.
+*/
+#
+AoB Invincibility
+0
+bungholio
+B 00010000 04000000
+B EBC100807C0803A6382100904E8000207D80002638000350F821FC317FE101CE EBC100807C0803A6382100904E8000204E80002038000350F821FC317FE101CE
+/*
+Be careful when going into
+water, some of it has no
+bottom so you will fall
+forever unless you quit or
+use the code to fly.
+*/
+#
+AoB Health Never Decreases
+0
+bungholio
+B 00010000 04000000
+B 000000000000000000000000000000002C0000010009001B0000000000000000006EB378006EB720009391CC0000000000000000000000000000000000000000 FC200B6E800102043D200014480000202C0000010009001B0000000000000000006EB378006EB720009391CC6129DBB07F890040409E0008C03B07BC4834962A
+B 00010000 04000000
+B C03B07C0EC3F082AC1BB07BCEC016828FC200B6E C03B07C0EC3F082AC1BB07BCEC016828486EBBA2
+/*
+Be careful when going into
+water, some of it has no
+bottom so you will fall
+forever unless you quit or
+use the code to fly.
+*/
+#
+AoB Electrical Attacks Give You Max Electricity
+0
+bungholio
+B 00010000 04000000
+B C1A91F38C0040000EDAD0028C01E800C80840008EBC1FFF07C8400D07C8407B4FDAD036E C1A91F38C0040000EDAD0028C01E800C80840008EBC1FFF07C8400D07C8407B4C1A91F40
+#
+AoB Zooming For A Sniper Shot Gives You Max Electricity
+0
+bungholio
+B 00010000 04000000
+B C19E800CEBC1FFF0C1A40008C0090008EC005B7CFC00602ED0031F384E800020 C19E800CEBC1FFF0C1A40008C0090008EC005B7CC0031F40D0031F384E800020
+#
+AoB Ionic Charges Never Decrease
+0
+bungholio
+B 00010000 04000000
+B FBC1FFF083C28290813E8014EBC1FFF0806900387C6307B44E800020 FBC1FFF083C28290813E8014EBC1FFF038600003906900384E800020
+#
+AoB Amp Meter Always Full
+0
+bungholio
+B 00010000 04000000
+B 00938F38000000000000000000000000 00938F3883BF1F3093BF1F184814ABC6
+B 00010000 04000000
+B 60000000393F1F245460063E792300202F800000419EFFC083BF1F184BFFFF01 60000000393F1F245460063E792300202F800000419EFFC0486EB99A4BFFFF01
+#
+AoB Most Enemies Never Attack
+0
+bungholio
+B 00010000 04000000
+B 48001175600000003C00BF80 48001175600000003C000000
+/*
+Enemies never know where I
+am making "Hit Clueless
+Enemy" very easy to do.
+Turrets always get you,
+and enemies sometimes
+attack during missions.
+*/
+#
+AoB Jump Height Scale Modifier
+0
+bungholio
+B 00010000 04000000
+B 3C003F80EB010080 3C00ZEB010080
+[Z]4000=2x;4040=3x;4080=4x;40A0=5x;40C0=6x;40E0=7x;4100=8x;4110=9x;4120=10x[/Z]
+/*
+Not needed since you
+can fly.
+*/
+#
+AoB Karma Gained Multiplier
+0
+bungholio
+B 00010000 04000000
+B 00000000000000002C000001000900080000000000000000006EB2A8006EB5200093900C000000000000000000000000000000002C000001000900110000000000000000006EB2B8006EB54000938FC4000000000000000000000000 3D2000F5480000202C000001000900080000000000000000006EB2A8006EB5200093900C3C00Z9009F008C009F008480000202C000001000900110000000000000000006EB2B8006EB54000938FC4EC210032C01F002048128862
+B 00010000 04000000
+B 60000000837E8058C01F0020881B05002F800000 60000000837E8058486EB89A881B05002F800000
+[Z]4120=10x;42C8=100x;447A=1,000x[/Z]
+#
+AoB All Karma Gained Is Good
+0
+bungholio
+B 00010000 04000000
+B FC20F090835E80BC7C7D1B787F43D378 FC20F210835E80BC7C7D1B787F43D378
+B 00010000 04000000
+B 7F9D1800419E0080C01E80D4FF9E0000409D00C0 7F9D1800419E0080C01E80D4FF9E000060000000
+/*
+This uses the same
+addresses as All Karma
+Gained Is Evil, so only 1
+can be active at a time.
+
+You can safely switch from
+1 to the other while
+playing though, there is
+no risk of the game
+crashing.
+*/
+#
+AoB All Karma Gained Is Evil
+0
+bungholio
+B 00010000 04000000
+B FC20F090835E80BC7C7D1B787F43D378 FC20F110835E80BC7C7D1B787F43D378
+B 00010000 04000000
+B 7F9D1800419E0080C01E80D4FF9E0000409D00C0 7F9D1800419E0080C01E80D4FF9E0000480000C0
+/*
+This uses the same
+addresses as All Karma
+Gained Is Good, so only 1
+can be active at a time.
+
+You can safely switch from
+1 to the other while
+playing though, there is
+no risk of the game
+crashing.
+*/
+#
+AoB XP Gained Multiplier
+0
+bungholio
+B 00010000 04000000
+B 7C005A143863028C909D0030901D003448386CA960000000 1D6BZ3863028C7C005A14901D0030901D003448386CA5
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+AoB XP Never Decreases
+0
+bungholio
+B 00010000 04000000
+B 000000000000000000000000000000002C000001000900080000000000000000006EB2DC006EB58800938F180000000000000000 800300307F8400404D9C0020480000202C000001000900080000000000000000006EB2DC006EB58800938F18F821FEC14812899A
+B 00010000 04000000
+B F821FEC17C0802A67C8907B4F8010150FB61011883630030F92100F0C80100F07D7B2050FC00069C7F9B2000 486EB9167C0802A67C8907B4F8010150FB61011883630030F92100F0C80100F07D7B2050FC00069C7F9B2000
+#
+AoB Have All Powers
+0
+bungholio
+B 00010000 04000000
+B 009390EC00000000000000000000000000000000 009390EC3B6000077F7F492E7F7F482E48124B76
+B 00010000 04000000
+B 4BFFFF6C5489103A7C0802A6F821FF6139290040FBE100987D2907B47C7F1B78FBC100907C8407B483C2824CF80100B0FB610078FB810080FBA100887F7F482E 4BFFFF6C5489103A7C0802A6F821FF6139290040FBE100987D2907B47C7F1B78FBC100907C8407B483C2824CF80100B0FB610078FB810080FBA10088486EB96E
+/*
+Some missions might not
+work correctly with this.
+
+For example, when I did
+the mission to get the
+Pincer attack, the game
+would not count enemies I
+had defeated unless the
+Pincer Bolt was not
+already purchased.
+
+If needed use either of
+these below instead.
+
+0 006EB96C 3B600003 = Everything unlocked but not purchased.
+0 006EB96C 3B600000 = Nothing unlocked or purchased.
+*/
+#
+AoB Can Use All Powers
+0
+bungholio
+B 00010000 04000000
+B 4E800020F821FF817C0802A6FBC1007083C280DCF8010090807E8008480D9B5560000000 4E800020F821FF817C0802A6FBC1007083C280DCF8010090807E8008480D9B5538600001
+B 00010000 04000000
+B 4E8000204BFFFF617F9C18007FE3FB78409C0070577B003CE80100B07F6307B4 4E800020638300007F9C18007FE3FB78409C0070577B003CE80100B07F6307B4
+B 00010000 04000000
+B 5463063E2F830000409EFFC47B1A00207F3607B47F83E3787EC4B37838A0FFFF 386000012F830000409EFFC47B1A00207F3607B47F83E3787EC4B37838A0FFFF
+B 00010000 04000000
+B 600000007FE4FB785460063E38A0FFFF2F8000007B430020419EFF9C 386000017FE4FB785460063E38A0FFFF2F8000007B430020419EFF9C
+#
+AoB All 6 Karmic Boosts Are Active At The Same Time
+0
+bungholio
+B 00010000 04000000
+B 000000182F83000538000001419D0008380000007C0307B4 000000182F83000538000001419D00083800000038600001
+#
+AoB Overcharge Never Decreases
+0
+bungholio
+B 00010000 04000000
+B 00000003000000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 000000030000000300000000E944001080E103F43D00001B6108252C7F883840409E000C3D0042C87F8A4040409E0010390B00143CE000F59107F050485DF09AF881FFF83C8000F58084F0507F841840409E000C3C807F80908BFFFCE881FFF84E800020
+B 00010000 04000000
+B 28A5002FE8040028E9240020E9840018E9440010 28A5002FE8040028E9240020E9840018486F8702
+B 00010000 04000000
+B 7CA903A68804000038840001980B0000396B00014200FFF04E800020 7CA903A68804000038840001980B0000396B00014200FFF0486F8736
+/*
+In Overcharge Side
+Missions, you need to jump
+off of a transformer and
+ride rails and whatever
+else to keep off of the
+ground or you will lose
+your overcharge, turn red,
+and die.
+
+This is a sloppy way of
+doing this and I hope it
+has no side effects
+throughout the game.
+
+If you have the code to
+fly with L2 + X on, you
+will not need this and can
+just fly from transformer
+to transformer.
+*/
+#
+AoB Menu Type Modifier
+0
+bungholio
+B 00010000 04000000
+B 600000002F830000409E006C381D0010 3860000Z2F830000409E006C381D0010
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a small visual thing
+to set if the pause menu
+looks good or evil.
+*/
+#
+AoB Electricity Light Modifier
+0
+bungholio
+B 00010000 04000000
+B 60000000686000017EE3BB787C0BFE70 3860000Z686000017EE3BB787C0BFE70
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a visual thing to
+set the color of what the
+light emitted from your
+electrical attacks looks
+like, it does not affect
+electricity color.
+*/
+#
+AoB Electricity Type Modifier
+0
+bungholio
+B 00010000 04000000
+B 7C0BFE707D6902787D2B48503929FFFF55230FFE419E001CE80100907C6307B4 7C0BFE707D6902787D2B48503929FFFF55230FFE419E001CE80100903860000Z
+[Z]0=Evil;1=Good[/Z]
+/*
+It is a visual thing to
+set whether Cole's 
+electricity looks good or
+evil without having to be
+good or evil.
+*/
+#
+AoB Button Enable Code
+0
+bungholio
+B 00010000 04000000
+B 000001FF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 000001FF00000000000000000000000080E3001C3D0000F570EA0220B148F004A128F00670EA4200B148F0062B8A4200409E00187F8A4840419E00108948F00C694A00019948F00C70EA2000B148F00A70EA60002B8A6000409E0020394000087D4903A63940000039280010F949F000392900084200FFF8481894723C8000F593A4F0004831861E7C3D49CE3D2000F58009F0007F9F0040409E0018A009F0042B800220409E000C3D204480913D00183920007048466A4E3D2000F58929F00C712900012B890001409E00083CC000003D2042A0481C629EC3FE80003F8000F5A0BCF00A2B852000409E002C38A000107CA903A6393C001080A9F0002B850000409E000C93E9F0004800000C392900044200FFE83B9C001080BCF0002B850000419E00187F9F2840419E000C3B9C00044BFFFFE8D3FF000848066A26
+B 00010000 04000000
+B 83C282C8380000207C661B7880E3001C 83C282C8380000207C661B78486F7312
+B 00010000 04000000
+B 600000003C80531B7C6507B4608473877FE3FB78 486F737E3C80531B7C6507B4608473877FE3FB78
+/*
+This needs to be turned on
+before any other button
+codes or the game will
+crash.
+
+They are holding L2 + X to
+fly, L2 + L3 to toggle AI
+movement, and making
+various vehicles and
+objects invincible.
+*/
+#
+AoB Hold L2 + X To Fly
+0
+bungholio
+B 00010000 04000000
+B 39200020814B00147C1D01CE380000607C3D49CE 39200020814B00147C1D01CE486F738A38000060
+/*
+Requires the button enable
+code to be on 1st.
+*/
+#
+AoB Press L2 + L3 To Toggle Or Disable AI Movement
+0
+bungholio
+B 00010000 04000000
+B 3D2040A091630018912300243D2042A0 3D2040A09163001891230024486F73BA
+/*
+Requires the button enable
+code to be on 1st.
+
+People might not instantly
+stop, but once they do
+they will stay stopped
+until you turn it off.
+
+Cole also has a side
+effect where if you are in
+a mission and need to
+press a button to pick
+something up or move to a
+location and perform an
+action, Cole will stand
+still and do nothing.
+
+If that happens just turn
+the code off and try it
+again.
+*/
+#
+AoB Hold Select While Damaging A Vehicle Or Object To Mark It For Invincibility, Select + L3 To Unmark
+0
+bungholio
+B 00010000 04000000
+B 7B230020817D00007F6407B454092834C3FE8000 7B230020817D00007F6407B4486F73DA54092834
+/*
+Requires the button enable
+code to be on 1st.
+
+To mark a vehicle or
+whatever to give it
+infinite health, just hold
+Select and then damage it.
+
+That is mainly there for
+missions where you need to
+guard a vehicle or object,
+there seems to be a 2nd
+separate health for random
+vehicles throughout the
+game that is actually at
+000FE0E4 but there are
+many things that use that
+and we do not care because
+we have no use for it.
+
+It actually saves a
+potential 16 things to
+give them invincibility
+because it might get more
+than just vehicles, like
+nearby street poles or
+scaffolding or whatever so
+you might somehow miss
+your actual target without
+there being 16 spaces.
+
+With 16, hopefully
+whatever you try to shoot
+at should end up getting
+marked but if not then
+press Select + L3 and then
+try holding Select and
+damaging it again.
+
+I have it use 4 bytes to
+store pointers at
+addresses from 00F4F010 to
+00F4F04F, once you press
+Select + L3 it will erase
+all things there if there
+are any.
+*/
+#

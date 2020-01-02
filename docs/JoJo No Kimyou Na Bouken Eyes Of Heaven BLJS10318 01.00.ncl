@@ -1,0 +1,33 @@
+JP Never Decreases
+0
+games24.blog.fc2.com/blog-entry-298.html
+0 000891BC 91230000
+#
+Dual Heat Max
+0
+games24.blog.fc2.com/blog-entry-298.html
+0 007E6880 60000000
+#
+Dual Combo Max
+0
+games24.blog.fc2.com/blog-entry-298.html
+0 007E68EC 60000000
+#
+AoB JP Never Decreases
+0
+games24.blog.fc2.com/blog-entry-298.html
+B 00010000 04000000
+B 900300004BFFFF24F821FF717C0802A6 912300004BFFFF24F821FF717C0802A6
+#
+AoB Dual Heat Max
+0
+games24.blog.fc2.com/blog-entry-298.html
+B 00010000 04000000
+B 409D000C7D204B78912304402F800000 600000007D204B78912304402F800000
+#
+AoB Dual Combo Max
+0
+games24.blog.fc2.com/blog-entry-298.html
+B 00010000 04000000
+B 409D000C7D204B78912304482F800000 600000007D204B78912304482F800000
+#

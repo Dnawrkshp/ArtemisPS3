@@ -1,0 +1,39 @@
+Memory Infinite Flashback + Flashback Use Never Increase
+0
+jgduff1
+0 5057D6A0 00000000
+#
+ASM Infinite Flashback + Flashback Use Never Increase
+0
+jgduff1
+0 002C4AD0 91FF2FD0
+#
+Memory Infinite Nitro
+0
+/*Value At The Beginning*/
+0 13A40F20 40400000
+0 13A41370 40400000
+0 13A42280 40400000
+0 13A426E0 40400000
+0 13A464D8 40400000
+0 13A46938 40400000
+0 13A482A8 40400000
+0 13A48708 40400000
+/*Value In Level 40*/
+0 136F1950 40C00000
+0 136F2CC0 40C00000
+0 136F6F18 40C00000
+0 136F8CE8 40C00000
+#
+Memory Max Level + Unlock All Bonuses + All Cars On 1 Race
+0
+jgduff1
+0 13332040 00002710
+0 5113C7D4 00002710
+#
+ASM Max Level + Unlock All Bonuses + All Cars On 1 Race
+0
+jgduff1
+0 002D230C 7C651814
+0 002D2310 90040000
+#

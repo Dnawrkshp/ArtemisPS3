@@ -1,0 +1,80 @@
+Max Gold
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 000CFFCC 60000000
+#
+Max Items On Gain
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 000CE6A8 7CFD3B78
+#
+Items Never Decrease
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 000CE1A8 7FA7EB78
+0 000CE92C 7FA7EB78
+#
+Max MP
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 0031B7D4 60000000
+#
+Max AP
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 00318FE4 FC401090
+#
+Max Band Gauge
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 00287534 607E0000
+#
+Clear With Quest Battle 1 Time
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+0 002F16E4 90850000
+#
+AoB Max Gold
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 606600007C521E4E80002060650000 600000007C521E4E80002060650000 
+#
+AoB Max Items On Gain
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 7FA3E8147C1D38404181000863A70000 7CFD3B787C1D38404181000863A70000
+#
+AoB Items Never Decrease
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 7CFFE81090E600004832B21D60000000 7FA7EB7890E600004832B21D60000000
+B 00010000 04000000
+B 7CFFE81090E600004832AA9960000000 7FA7EB7890E600004832AA9960000000
+#
+AoB Max MP
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 7FBD2014FBC100802C1D000040800010 60000000FBC100802C1D000040800010
+#
+AoB Max AP
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B EC42F82A38638F50D05F0004C0230000 FC40109038638F50D05F0004C0230000
+#
+AoB Max Band Gauge
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 63FE00004BEE5E61600000002C030000 607E00004BEE5E61600000002C030000
+#
+AoB Clear With Quest Battle 1 Time
+0
+blog.livedoor.jp/games_cheat/archives/18882539.html
+B 00010000 04000000
+B 90C500004800009830C6000C78C60020 908500004800009830C6000C78C60020
+#

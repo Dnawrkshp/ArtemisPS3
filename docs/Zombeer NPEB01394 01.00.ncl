@@ -1,0 +1,37 @@
+Memory Infinite Bottles
+0
+jgduff1
+0 7007EE0C 00000002
+#
+ASM Infinite Bottles
+0
+jgduff1
+0 02A88A74 38630000
+0 02A88A88 60000000
+#
+Memory Infinite Infection Resistance
+0
+jgduff1
+0 700FFE30 420B09FD
+#
+ASM Infinite Infection Resistance
+0
+jgduff1
+0 02AB1584 FC21102A
+0 02AB1594 60000000
+0 02AB1664 60000000
+0 02AB1674 60000000
+#
+Memory Infinite Ammo + No Reload
+0
+jgduff1
+0 7041FDD4 0000001E
+#
+ASM Infinite Ammo + No Reload
+0
+jgduff1
+0 02B0D530 38630000
+0 02B0D53C 60000000
+0 02B0D54C 38630000
+0 02B0D558 60000000
+#

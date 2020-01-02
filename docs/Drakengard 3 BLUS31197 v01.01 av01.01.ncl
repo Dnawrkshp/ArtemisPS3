@@ -1,0 +1,217 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Drag-On Dragoon 3
+*/
+#
+Items Never Decrease
+0
+Hiei-YYH + games24.blog.fc2.com/blog-entry-227.html
+0 00A6C768 60000000
+#
+SP Never Decreases
+0
+games24.blog.fc2.com/blog-entry-227.html
+0 0095B180 935E07EC
+#
+Intoner Gauge Max On Change
+0
+games24.blog.fc2.com/blog-entry-227.html
+0 015803E0 2E1A0000
+0 015803E4 41900008
+0 015803E8 7F44D378
+0 015803EC 909E0800
+0 015803F0 4895B19E
+0 0095B198 495803E2
+/*
+I cannot find a proper
+translation for Utautai
+gauge or whatever it is.
+
+The other translation is
+that it is some kind of
+song or music gauge.
+
+I am assuming it is the
+Intoner gauge.
+*/
+#
+Weapon Material 99 On Change
+0
+games24.blog.fc2.com/blog-entry-227.html
+0 015CC2D0 57E0043E
+0 015CC2D4 2900A148
+0 015CC2D8 408A0008
+0 015CC2DC 38800063
+0 015CC2E0 909D0000
+0 015CC2E4 4E800020
+0 000ECFC4 495CC2D3
+0 000ED0E4 495CC2D3
+#
+Time Never Decreases
+0
+games24.blog.fc2.com/blog-entry-227.html
+0 009F3FB8 60000000
+#
+Jump 8x Higher
+0
+games24.blog.fc2.com/blog-entry-227.html ported by JorgeFFC
+0 009AB2A8 FFC0F890
+#
+Jump 40x Higher
+0
+games24.blog.fc2.com/blog-entry-227.html ported by JorgeFFC
+0 009AB2A8 FFC0F890
+0 009AB2CC FC5EF02A
+#
+No Camera Control Restrictions
+0
+games24.blog.fc2.com/blog-entry-227.html
+0 00962EA8 60000000
+0 00962EAC 60000000
+/*
+This below line might
+give you more camera
+control if activated too.
+
+0 00962EB0 60000000
+*/
+#
+Infinite HP
+0
+Hiei-YYH
+0 009DB774 807E07F0
+0 009DB77C 907E07EC
+#
+Infinite Stamina
+0
+Hiei-YYH
+0 0095B174 60000000
+#
+Infinite Blood Gauge
+0
+Hiei-YYH
+0 0095B3C0 83DF080C
+#
+Max Hits
+0
+Hiei-YYH
+0 0096D928 3860270F
+#
+Exp Multiplier
+0
+Hiei-YYH
+0 015EDE40 809B0044
+0 015EDE44 3FC00001
+0 015EDE48 63DE869F
+0 015EDE4C 7C04F000
+0 015EDE50 80810074
+0 015EDE54 40820008
+0 015EDE58 1C84Z
+0 015EDE5C 4E800020
+0 000ECAB0 495EDE53
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Infinite Gold
+0
+Hiei-YYH
+0 015EDE60 809BFFF4
+0 015EDE64 3FC005F5
+0 015EDE68 63DEE0FF
+0 015EDE6C 7C04F000
+0 015EDE70 80810074
+0 015EDE74 7C641810
+0 015EDE78 40820008
+0 015EDE7C 63C30000
+0 015EDE80 4E800020
+0 000ECC58 495EDE63
+#
+Infinite Weapons Materials
+0
+Hiei-YYH
+0 015EDE84 3C8005F5
+0 015EDE88 6084E0FF
+0 015EDE8C 807DFD94
+0 015EDE90 7C041800
+0 015EDE94 41820040
+0 015EDE98 807DFD90
+0 015EDE9C 7C041800
+0 015EDEA0 41820034
+0 015EDEA4 807DFD8C
+0 015EDEA8 7C041800
+0 015EDEAC 41820028
+0 015EDEB0 807DFD88
+0 015EDEB4 7C041800
+0 015EDEB8 4182001C
+0 015EDEBC 807DFD84
+0 015EDEC0 7C041800
+0 015EDEC4 41820010
+0 015EDEC8 807D0000
+0 015EDECC 3083FFFF
+0 015EDED0 4E800020
+0 015EDED4 38800063
+0 015EDED8 4E800020
+0 000ED0E0 495EDE87
+#
+Auto Play Song of The D Branch Final Mission
+0
+bbs.duowan.com/thread-36687206-1-1.html, converted by JorgeFFC
+0 0091DA28 C03E0050
+0 0091DA34 C05E0058
+0 0091DA38 FC020800
+0 0091DA3C 4180015C
+#
+Max And Infinite Health
+0
+FBML
+0 009DF2FC 807E07F0
+0 009DF300 7C641B78
+0 009DF304 909E07EC
+0 009DF308 48000190
+#
+Max Gold On Gain
+0
+FBML
+0 000ED644 48000008
+#
+Max Base Materials On Gain
+0
+FBML
+0 00A6C924 48000024
+/*
+Copper, Silver, Gold,
+White and Black.
+*/
+#
+Freeze Mission Timer
+0
+FBML
+0 009F3F14 48000148
+#
+Memory Infinite Gold
+0
+jgduff1
+0 11931E50 0000270F
+#
+Gold Never Decreases
+0
+jgduff1
+0 000ECC58 60000000
+#
+Max Gold On Buy
+0
+jgduff1
+0 000ECC5C 90DB0000
+#
+Level Max On One Mission
+0
+jgduff1
+0 0091C080 91230008
+0 0091D290 90030008
+#
+Weapon Materials Never Decrease
+0
+jgduff1
+0 000ED0E0 30830000
+#

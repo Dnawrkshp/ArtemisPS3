@@ -1,0 +1,29 @@
+Memory Infinite Health
+0
+jgduff1
+0 322DE6F0 00000000
+0 322DE6F4 00000000
+0 322DE700 00000000
+0 322DE704 00000000
+0 33D8F7E4 451C4000
+#
+ASM Infinite Health At The Beginning
+0
+jgduff1
+0 0002FD78 60000000
+0 0002FD8C 60000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 0001A7A0 60000000
+0 0001A7A8 60000000
+/*
+It also affects enemies.
+*/
+#
+Memory Unknown Code 1
+0
+jgduff1
+0 33D8F7E4 451C4000
+#

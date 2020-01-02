@@ -1,0 +1,50 @@
+Infinite Health
+0
+jgduff1
+0 000C6240 60000000
+/*
+Also affects CPU
+captains.
+*/
+#
+Infinite Health 2
+0
+jgduff1
+0 000BBB20 60000000
+0 000BBB30 60000000
+0 000BBB70 60000000
+0 000C61EC ECDE3028
+0 000C6200 60000000
+0 000C6204 60000000
+0 000C6214 60000000
+0 000C6244 60000000
+0 000C6254 60000000
+#
+Memory Instantly Full + Infinite Musu
+0
+jgduff1
+0 00EB1E58 03030000
+#
+ASM Instantly Full + Infinite Musu
+0
+jgduff1
+0 000C3A98 98830008
+0 000C3A9C 90E30000
+#
+Max + Infinite Money On Change And After Finishing A Level
+0
+jgduff1
+0 00334718 905F0014
+#
+Max Level On Level Up
+0
+jgduff1
+0 00088A28 7CA02814
+0 00088A3C 901E015C
+#
+Max K.O. On 1 Hit
+0
+jgduff1
+0 00088A28 7CA02814
+0 0008A308 901C0128
+#

@@ -1,0 +1,35 @@
+Memory Infinite Ammo + No Reload
+0
+jgduff1
+0 03054478 00000060
+#
+ASM Infinite Ammo + No Reload
+0
+jgduff1
+0 007E516C 39290000
+#
+Memory Money At 20,000,000 On Buy
+0
+jgduff1
+0 02B87544 0000A410
+#
+ASM Money At 20,000,000 On Buy
+0
+jgduff1
+0 00737634 91230000
+#
+Memory Infinite Health
+0
+jgduff1
+0 03303268 3F800000
+#
+ASM Infinite Health
+0
+jgduff1
+0 0061226C 60000000
+0 00612268 60000000
+0 00612264 60000000
+0 006122B8 60000000
+0 009D6968 60000000
+0 009D695C 60000000
+#

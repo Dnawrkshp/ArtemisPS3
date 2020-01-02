@@ -1,0 +1,20 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+RC1.ppu.self
+*/
+#
+1P Invincible Mode
+0
+xtatu
+0 005026BC 40860008
+#
+AoB 1P Invincible Mode
+0
+xtatu
+B 00010000 04000000
+B 41860008480000143C60005038632694C0430004 40860008480000143C60005038632694C0430004
+#

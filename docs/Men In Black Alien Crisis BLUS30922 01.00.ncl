@@ -1,0 +1,101 @@
+Memory Infinite Health (Human Mode)
+0
+jgduff1
+0 36BD5EDC 43960000
+0 3774185C 43960000
+#
+Invincible
+0
+jgduff1
+0 00C55DB4 C003017C
+0 00C55DBC C1A30180
+/*
+Boss health will not
+change on the screen, but
+it still takes damage
+like normal.
+*/
+#
+ASM Infinite Health (Human Mode)
+0
+jgduff1
+0 003F5614 60000000
+0 003F561C 60000000
+/*
+It also affects enemies.
+*/
+#
+Memory Infinite Shield (Human Mode)
+0
+jgduff1
+0 3815A3B4 00000000
+0 3815A3B8 00000000
+0 381A42B4 3F800000
+#
+ASM Instant Max Shield
+0
+jgduff1
+0 00656C20 EC030828
+#
+ASM Infinite Shield
+0
+jgduff1
+0 00656E38 EC220072
+#
+Many Points
+0
+jgduff1
+0 368AA20C 000044C1
+#
+Lot Of Points On Gain
+0
+jgduff1
+0 006D324C 7C024A14
+0 006D3254 905F0004
+#
+Memory Many + Infinite Points 
+0
+jgduff1
+0 35ABBAC4 00000008
+#
+ASM Many + Infinite Points 
+0
+jgduff1
+0 0047D80C 90491734
+#
+Memory Infinite Shock (Ship Mode)
+0
+jgduff1
+0 36863494 00000005
+0 37BAB054 40A00000
+0 37C47B94 00000005
+#
+ASM Infinite Shock (Ship Mode)
+0
+jgduff1
+0 00685344 39290000
+#
+No Waiting Time
+0
+jgduff1
+0 0067C12C 60000000
+0 0067C138 60000000
+0 0067C13C 60000000
+0 0067C144 60000000
+0 0067C150 60000000
+0 0067C154 60000000
+0 0067C188 60000000
+0 0067D610 60000000
+0 0067D618 60000000
+0 0067D61C 60000000
+0 0067D620 60000000
+0 0067D654 60000000
+0 0067D658 60000000
+0 0067D668 60000000
+0 0067D66C 60000000
+#
+Infinite Missiles (Ship Mode) + Infinite Ammo + No Reload (Human Mode)
+0
+jgduff1
+0 004280D4 396B0000
+#

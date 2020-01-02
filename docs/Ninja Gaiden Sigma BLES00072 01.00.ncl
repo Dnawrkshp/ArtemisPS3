@@ -1,0 +1,48 @@
+Memory Infinite Health
+0
+jgduff1
+0 1028D284 03E803A0
+#
+ASM Infinite Health
+0
+jgduff1
+0 00048528 60000000
+0 0004852C 60000000
+0 00048530 60000000
+0 00124DA4 60000000
+0 00124DCC B0FF01C6
+0 00124DBC 7FCA0214
+0 00124E58 7DEB0050
+0 00124E5C 60000000
+#
+Memory Infinite Money
+0
+jgduff1
+0 102C9120 00000001
+#
+ASM Infinite Money
+0
+jgduff1
+0 001E8DFC 60000000
+#
+Memory Infinite Items (Need One In Stock)
+0
+jgduff1
+0 102C98D8 03000000
+#
+ASM Infinite Items (Need One In Stock)
+0
+jgduff1
+0 00128EE4 60000000
+0 00128EE8 60000000
+#
+Memory Easy Money On Gain
+0
+jgduff1
+0 102C9120 00000001
+#
+ASM Easy Money On Gain
+0
+jgduff1
+0 00125A48 90C30000
+#

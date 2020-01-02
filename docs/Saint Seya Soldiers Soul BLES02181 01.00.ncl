@@ -1,0 +1,10 @@
+Memory Money 999,999,999 In Shop
+0
+jgduff1
+0 023EAA58 3B9AC9FF
+#
+ASM Money 999,999,999 In Shop
+0
+jgduff1
+0 002DB210 902408D0
+#

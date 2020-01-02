@@ -1,0 +1,59 @@
+Memory Infinite Health
+0
+jgduff1
+0 32697164 40400000
+0 33599104 40000000
+0 335FB754 40000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 00075968 60000000
+0 0007596C 60000000
+#
+Memory 33 Million Points On Gain
+0
+jgduff1
+0 301A7D58 00000EE7
+#
+ASM 33 Million Points On Gain
+0
+jgduff1
+0 0001B624 90430028
+#
+Memory Max Tags Scores
+0
+jgduff1
+0 301A7D74 00000008
+#
+ASM Max Tags Scores
+0
+jgduff1
+0 0001B804 91030044
+#
+Memory Infinite Paint Grenades + Paint Shield
+0
+jgduff1
+0 33EF352C 00000002
+#
+ASM Infinite Paint Grenades + Paint Shield
+0
+jgduff1
+0 0005EB2C 90030004
+#
+Memory Unknown Code 1
+0
+jgduff1
+0 31075034 3F800000
+#
+ASM Unknown Code 1
+0
+jgduff1
+0 008FD288 39290005
+0 008FD28C 913F0004
+0 008FD960 38090005
+0 008FD96C 901F0004
+0 009A785C 396B0005
+0 00E607B0 93890004
+0 00E607B4 93690008
+#

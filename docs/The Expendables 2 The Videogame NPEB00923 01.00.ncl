@@ -1,0 +1,7 @@
+Memory Infinite Ammo + No Reload
+0
+jgduff1
+0 4AFE58E0 BA8DD338
+0 4AFE58E4 3B6964C4
+0 4AFE58E8 3CA18004
+#

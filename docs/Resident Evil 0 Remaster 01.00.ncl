@@ -1,0 +1,66 @@
+Memory Infinite Ammo + No Reload
+0
+jgduff1
+0 326D5FAE 000D
+#
+ASM Infinite Ammo + No Reload
+0
+jgduff1
+0 00153524 60000000
+#
+Infinite Ammo
+0
+jgduff1
+0 001539A0 60000000
+0 00153998 7D264810
+0 002CEADC 60000000
+#
+Memory Infinite Health
+0
+jgduff1
+0 3224533C 00401000
+0 32D219D0 000000A2
+0 32D490A0 000000A2
+#
+ASM Infinite Health
+0
+jgduff1
+0 001B73B4 91031040
+#
+Memory Infinite Ink Ribbon
+0
+jgduff1
+0 326D5FC4 0000000A
+0 32DDD350 0000000A
+#
+ASM Infinite Ink Ribbon
+0
+jgduff1
+0 00152990 60000000
+#
+Memory Zombies Never Attack
+0
+jgduff1
+0 326555E0 008D0006
+0 32E85960 000000A2
+#
+ASM Zombies Never Attack
+0
+jgduff1
+0 001B6E20 60000000
+#
+Memory Unknown Code 1
+0
+jgduff1
+0 32D499D0 000000A2
+#
+ASM Unknown Code 1
+0
+jgduff1
+0 001B74A4 60000000
+0 001B74AC 60000000
+0 0064FC70 60000000
+0 0064FC78 60000000
+0 0064FC80 60000000
+0 0064FC88 60000000
+#

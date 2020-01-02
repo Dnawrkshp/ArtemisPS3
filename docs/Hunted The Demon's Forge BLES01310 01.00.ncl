@@ -1,0 +1,31 @@
+ASM Infinite Health
+0
+jgduff1
+0 00BA9088 EC21082A
+0 00BA908C 60000000
+/*
+It also affects enemies.
+*/
+#
+ASM Die From 1 Hit
+0 00BA9084 60000000
+0 00BA9C54 60000000
+0 00BA9CC4 60000000
+#
+ASM Infinite Mana
+0
+jgduff1
+0 00BEB6C8 60000000
+0 00BEB6CC 60000000
+#
+ASM Infinite Weapons Mana
+0
+jgduff1
+0 00AEDF7C 60000000
+0 00BEBAB0 60000000
+#
+ASM Infinite Arrow
+0
+jgduff1
+0 00BEBAA8 60000000
+#

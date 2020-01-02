@@ -1,0 +1,45 @@
+Memory Always First
+0
+jgduff1
+0 80690FFC 0000000E
+0 806A07FC 00000009
+#
+ASM Always First
+0
+jgduff1
+0 0052ED60 60000000
+0 0052ED6C 60000000
+/*
+Spare lines
+0 0052ED2C 60000000
+0 0052ED54 60000000
+0 0052ED58 3BDE0000
+0 0052ED64 3B9C0000
+0 0052ED68 60000000
+0 005ADC48 81690008
+0 005ADC58 7D690278
+0 005ADC5C 7D2B4850
+0 005ADC60 3929FFFF
+*/
+#
+Memory Infinite Flashback
+0
+jgduff1
+0 80727398 00000005
+#
+ASM Infinite Flashback
+0
+jgduff1
+0 000D0E24 39290000
+0 000D0E28 60000000
+#
+Memory Max XP + Max Level + Unlock All Rewards Level 10-11-12 + Need 1 Race Of All Event Category To Unclock GRID CHAMPIONSHIP After 1 Event
+0
+jgduff1
+0 7F873150 00005934
+#
+ASM Max XP + Max Level + Unlock All Rewards Level 10-11-12 + Need 1 Race Of All Event Category To Unclock GRID CHAMPIONSHIP After 1 Event
+0
+jgduff1
+0 012C18F8 90430010
+#

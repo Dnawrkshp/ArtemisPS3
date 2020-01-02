@@ -1,0 +1,70 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Jojo No Kimyou Na Bouken All-Star Battle
+*/
+#
+Infinite Health + Special
+0
+Hiei-YYH
+0 00DCB5B0 3CA03815
+0 00DCB5B4 60A5BABC
+0 00DCB5B8 80A50000
+0 00DCB5BC 80A50000
+0 00DCB5C0 C0250010
+0 00DCB5C4 D025000C
+0 00DCB5C8 80A50008
+0 00DCB5CC 38A56858
+0 00DCB5D0 C0250008
+0 00DCB5D4 D0250004
+0 00DCB5D8 4B887180
+0 00652754 48778E5C
+/*
+I strongly doubt this
+works because address
+3815BABC is where it all
+starts, but there's no way
+to get it without having
+the actual game.
+*/
+#
+Max Gold On Buy
+0
+Hiei-YYH
+0 004D6984 3C8005F5
+0 004D6988 6084E0FF
+#
+Max Money
+0
+games24.blog.fc2.com/blog-entry-190.html
+0 004D6984 2F9F0000
+#
+999 Combo
+0
+games24.blog.fc2.com/blog-entry-190.html
+0 00157474 380003E7
+#
+Infinite Special
+0
+games24.blog.fc2.com/blog-entry-190.html
+0 007399B4 48000010
+#
+AoB Max Money
+0
+games24.blog.fc2.com/blog-entry-190.html
+B 00010000 04000000
+B 7F9F0040419D009890831CB08122D270 2F9F0000419D009890831CB08122D270
+#
+AoB 999 Combo
+0
+games24.blog.fc2.com/blog-entry-190.html
+B 00010000 04000000
+B 7C0022147C0900F87D29FE707C004838 380003E77C0900F87D29FE707C004838
+#
+AoB Infinite Special
+0
+games24.blog.fc2.com/blog-entry-190.html
+B 00010000 04000000
+B 419D0010C183000CFF806000409C000C 48000010C183000CFF806000409C000C
+#

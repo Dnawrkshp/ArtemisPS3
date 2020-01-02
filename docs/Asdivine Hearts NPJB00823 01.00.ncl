@@ -1,0 +1,28 @@
+Infinite Items
+0
+jgduff1
+0 0330F0F4 38840000
+#
+Infinite Health
+0
+jgduff1
+0 032C98F0 60000000
+0 032F86E8 60000000
+0 032FC750 60000000
+#
+Infinite MP
+0
+jgduff1
+0 032B6D7C 60000000
+#
+Easy Max Level + HP + MP
+0
+jgduff1
+0 032568FC B1430000
+#
+Max + Infinite Money After 1 Battle
+0
+jgduff1
+0 032567C8 B3E50000
+0 032567F4 60000000
+#
