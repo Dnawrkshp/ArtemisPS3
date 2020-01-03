@@ -112,7 +112,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r5";                //Artemis PS3 version (about menu)
+const char * VERSION = "r6.net";            //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -122,7 +122,7 @@ const int MENU_SPLIT_OFF = 200;				//Offset from left of sub/split menu to start
 int close_art = 0;
 
 png_texture * menu_textures;           // png_texture array for main menu, initialized in LoadTexture
-const int menu_size = 33;              // Size of menu png_texture array
+const int menu_size = 34;              // Size of menu png_texture array
 
 int screen_width = 0, screen_height = 0;    // Set to dimensions of the screen in main()
 
@@ -137,6 +137,7 @@ const char * menu_main_description = "Playstation 3 Hacking System";
 const char * menu_about_strings[] = { "Berion", "Designer",
 									"NzV", "PS3MAPI",
 									"Dnawrkshp", "Programmer",
+									"Bucanero", "Network code",
 									NULL, NULL };
 
 const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
@@ -244,17 +245,16 @@ static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
     }
 }
 
-char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
+char ** LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
 {
 	DIR *d;
 	struct dirent *dir;
 
 	char fullPath[1024];
-	char FullID[20];
 
 	char * * files = (char**)malloc(1000 * sizeof(char*));
 
-	int count = 0, x = 0;
+	int count = 0;
 
 	if ((d = opendir(path)))
 	{
@@ -262,7 +262,7 @@ char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
 		{
 			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
 			{
-				sprintf(fullPath, "%s%s%s", path, dir->d_name, param);
+				snprintf(fullPath, sizeof(fullPath)-1, "%s%s%s", path, dir->d_name, param);
 				if (file_exists(fullPath) == SUCCESS)
 				{
 					files[count] = (char*)malloc(strlen(fullPath));
@@ -280,7 +280,6 @@ char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
 
 void LoadGames()
 {
-	char * titleIDs[1000];
 	int id_count[3];
 	char ** id_path[3];
 	int count = 0, x = 0, y = 0;
@@ -489,9 +488,16 @@ void SaveOptions()
 
 
 #define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
+#define SYSCALL_OPCODE_UNLOAD_VSH_PLUGIN	0x364F
 int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
 {
 	lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
+	return_to_user_prog(int);
+}
+
+int cobra_mamba_syscall_unload_prx_module(uint32_t slot)
+{
+	lv2syscall2(8, SYSCALL_OPCODE_UNLOAD_VSH_PLUGIN, (uint64_t)slot);
 	return_to_user_prog(int);
 }
 
@@ -531,7 +537,7 @@ void DeleteBootHistory(void)
     {
         if (strstr(dir->d_name, ".") == NULL && strstr(dir->d_name, "..") == NULL)
         {
-            sprintf(fullPath, "%s%s%s", "/dev_hdd0/home/", dir->d_name, "/etc/boot_history.dat");
+            snprintf(fullPath, sizeof(fullPath)-1, "%s%s%s", "/dev_hdd0/home/", dir->d_name, "/etc/boot_history.dat");
             unlink_secure(fullPath);
         }
     }
@@ -1144,16 +1150,19 @@ void Draw_MainMenu_Ani()
         //------------ Icons
         
         //Start game
-		DrawTexture(menu_textures[titlescr_ico_xmb_png_index], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_xmb_png_index], 50 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Cheats
-		DrawTexture(menu_textures[titlescr_ico_cht_png_index], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_cht_png_index], 150 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+
+        //Online cheats
+		DrawTexture(menu_textures[titlescr_ico_net_png_index], 250 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Options
-		DrawTexture(menu_textures[titlescr_ico_opt_png_index], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_opt_png_index], 350 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //About
-		DrawTexture(menu_textures[titlescr_ico_abt_png_index], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_abt_png_index], 450 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         tiny3d_Flip();
 
@@ -1200,27 +1209,33 @@ void Draw_MainMenu()
 
     //Start game
 	c = titlescr_ico_xmb_png_index;
-	DrawTexture(menu_textures[c], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 0) ? 0xFF : 32));
+	DrawTexture(menu_textures[c], 50 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 0) ? 0xFF : 32));
 	SetFontColor(0x00000000 | ((menu_sel == 0) ? 0xFF : 32), 0x00000000);
-	DrawString(100 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "Start game");
+	DrawString(50 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "Start game");
 
     //Cheats
 	c = titlescr_ico_cht_png_index;
-	DrawTexture(menu_textures[c], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 1) ? 0xFF : 32));
+	DrawTexture(menu_textures[c], 150 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 1) ? 0xFF : 32));
 	SetFontColor(0x00000000 | ((menu_sel == 1) ? 0xFF : 32), 0x00000000);
-	DrawString(200 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Cheats");
+	DrawString(150 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Cheats");
+
+    //Online Cheats
+	c = titlescr_ico_net_png_index;
+	DrawTexture(menu_textures[c], 250 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 2) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 2) ? 0xFF : 32), 0x00000000);
+	DrawString(250 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Online DB");
 
     //Options
 	c = titlescr_ico_opt_png_index;
-	DrawTexture(menu_textures[c], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 2) ? 0xFF : 32));
-	SetFontColor(0x00000000 | ((menu_sel == 2) ? 0xFF : 32), 0x00000000);
-	DrawString(300 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 14, 390, "Options");
+	DrawTexture(menu_textures[c], 350 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 3) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 3) ? 0xFF : 32), 0x00000000);
+	DrawString(350 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 14, 390, "Options");
 
     //About
 	c = titlescr_ico_abt_png_index;
-	DrawTexture(menu_textures[c], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 3) ? 0xFF : 32));
-	SetFontColor(0x00000000 | ((menu_sel == 3) ? 0xFF : 32), 0x00000000);
-	DrawString(400 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
+	DrawTexture(menu_textures[c], 450 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 4) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 4) ? 0xFF : 32), 0x00000000);
+	DrawString(450 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
 
 	SetFontAlign(0);
 
@@ -1303,6 +1318,7 @@ void LoadTexture()
 	menu_textures[titlescr_ico_cht_png_index].buffer = (const void*)titlescr_ico_cht_png; menu_textures[titlescr_ico_cht_png_index].size = (u32)titlescr_ico_cht_png_size;
 	menu_textures[titlescr_ico_opt_png_index].buffer = (const void*)titlescr_ico_opt_png; menu_textures[titlescr_ico_opt_png_index].size = (u32)titlescr_ico_opt_png_size;
 	menu_textures[titlescr_ico_xmb_png_index].buffer = (const void*)titlescr_ico_xmb_png; menu_textures[titlescr_ico_xmb_png_index].size = (u32)titlescr_ico_xmb_png_size;
+	menu_textures[titlescr_ico_net_png_index].buffer = (const void*)titlescr_ico_net_png; menu_textures[titlescr_ico_net_png_index].size = (u32)titlescr_ico_net_png_size;
 	menu_textures[titlescr_logo_png_index].buffer = (const void*)titlescr_logo_png; menu_textures[titlescr_logo_png_index].size = (u32)titlescr_logo_png_size;
 }
 
@@ -1367,7 +1383,7 @@ void LoadSounds()
     background_music   = (short *) malloc(background_music_size);
 
 
-    //s_printf("Decoding Effect\n");
+    //printf("Decoding Effect\n");
 
     // decode the mp3 effect file included to memory. It stops by EOF or when samples exceed size_effects_samples
     DecodeAudio( (void *) background_music_mp3_bin, background_music_mp3_bin_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
@@ -1552,11 +1568,11 @@ void drawScene()
                     if (menu_sel > 0)
                         menu_sel--;
                     else
-                        menu_sel = 3;
+                        menu_sel = 4;
                 }
                 else if(paddata[0].BTN_RIGHT)
                 {
-                    if (menu_sel < 3)
+                    if (menu_sel < 4)
                         menu_sel++;
                     else
                         menu_sel = 0;
@@ -1584,7 +1600,7 @@ void drawScene()
 							{
 								printf("COBRA+PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
+								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
 									printf("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
@@ -1597,7 +1613,7 @@ void drawScene()
 							{
 								printf("MAMBA + PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
+								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
 									printf("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
@@ -1627,13 +1643,40 @@ void drawScene()
                         case 1: //Cheats menu
                             SetMenu(1);
                             return;
-                        case 2: //Options menu
+                        case 2: //Online Cheats menu
+                            SetMenu(2);
+                            return;
+                        case 3: //Options menu
                             SetMenu(4);
                             return;
-                        case 3: //About menu
+                        case 4: //About menu
                             SetMenu(3);
                             return;
                     }
+                }
+                else if(paddata[0].BTN_SQUARE)
+                {
+					//
+					char plugin_name[30];
+					char plugin_filename[256];
+					memset(plugin_name, 0, sizeof(plugin_name));
+					memset(plugin_filename, 0, sizeof(plugin_filename));
+					if (((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS)) || ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS)))
+					{
+						// printf("COBRA Detected\n");
+						{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
+						if (strlen(plugin_filename) >= 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") == 0)
+						{
+							printf("Artemis Plugin is already running!\n");
+							cobra_mamba_syscall_unload_prx_module(5);
+							{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
+						}
+						else
+						{
+							printf("Artemis Plugin hasn't been loaded yet!\n");
+							{lv2syscall3(392, 0x1004, 0x7, 0x36); } //2 Beep
+						}
+					}
                 }
             }
             

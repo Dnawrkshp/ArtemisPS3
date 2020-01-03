@@ -131,11 +131,11 @@ int parseVTID_ParseVersion(char * text, int * length)
 void parseVTID(struct game_entry * in)
 {
 	int name_len = strlen(in->name);
-	int length = 0, x = 0, y = 0;
+	int length = 0, x = 0;
 
 	//Version, starts with a v, 4/5 letters follow as ##.## or #.##
 	int vOff = parseVTID_ParseVersion(in->name, &length);
-	if (vOff >= 0 && length == 4 || length == 5)
+	if (vOff >= 0 && (length == 4 || length == 5))
 	{
 		char * v = (char*)(&in->name[vOff]);
 		in->version = (char*)malloc(length + 2);
@@ -292,7 +292,7 @@ long getDirListSize(const char * path)
         {
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
-                sprintf(fullPath, "%s%s", path, dir->d_name);
+                snprintf(fullPath, sizeof(fullPath)-1, "%s%s", path, dir->d_name);
                 if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
                     count++;
@@ -1072,10 +1072,10 @@ struct game_entry * ReadUserList(int * gmc)
         {
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
-                sprintf(fullPath, "%s%s", userPath, dir->d_name);
+                snprintf(fullPath, sizeof(fullPath)-1, "%s%s", userPath, dir->d_name);
                 if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
-                    int ccnt[1];
+                    int ccnt[1] = {0};
                     
                     printf("ReadUserList() :: Reading %s...\t", dir->d_name);
                     
@@ -1287,8 +1287,7 @@ char *replace_str_id(char *str, char *orig, char *rep)
     int index = 0, len = strlen(str), pass = 0, count = replace_str_count(str, orig);
     if (count <= 0)
         return str;
-    char * buffer = malloc((len + 1) + ((strlen(rep) - strlen(orig)) * count));
-    memset(buffer, 0, sizeof(buffer));
+    char * buffer = calloc(1, (len + 1) + ((strlen(rep) - strlen(orig)) * count));
     strcpy(buffer, str);
     free (str);
     
@@ -1532,8 +1531,7 @@ void AppendCode(char * buffer, struct code_entry code)
  */
 char * ParseActivatedGameList(struct game_entry * list, int count)
 {
-    char * ret = (char *)malloc(5000); //Max
-    memset(ret, 0, sizeof(ret));
+    char * ret = (char *)calloc(1, 5000); //Max
     
     if (list)
     {

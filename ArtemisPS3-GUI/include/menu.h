@@ -67,7 +67,9 @@
 #include "titlescr_ico_opt_png.h"
 #define	 titlescr_ico_xmb_png_index							31
 #include "titlescr_ico_xmb_png.h"
-#define	 titlescr_logo_png_index							32
+#define	 titlescr_ico_net_png_index							32
+#include "titlescr_ico_net_png.h"
+#define	 titlescr_logo_png_index							33
 #include "titlescr_logo_png.h"
 
 //Fonts

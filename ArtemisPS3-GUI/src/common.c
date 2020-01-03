@@ -121,7 +121,7 @@ int is_mamba(void)
 
 int game_exists(const char *name, const char *id)
 {
-
+    return 0;
 }
 
 //----------------------------------------

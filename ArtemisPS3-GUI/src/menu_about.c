@@ -12,8 +12,6 @@
 
 void Draw_AboutMenu_Ani()
 {
-	int c = 0, w = 0, h = 0;
-
 	int div = 12, max = MENU_ANI_MAX, ani = 0, cnt = 0;
 	for (ani = 0; ani < max; ani++)
 	{
@@ -48,7 +46,7 @@ void Draw_AboutMenu_Ani()
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
 		SetFontSize(18, 16);
-		float dx = DrawString((848 - (u32)WidthFromStr("Playstation 3® version:")) / 2, 140, "Playstation 3");
+		float dx = DrawString((848 - (u32)WidthFromStr((u8*)"Playstation 3® version:")) / 2, 140, "Playstation 3");
 		//Make the ® small
 		SetFontSize(9, 8);
 		dx = DrawString(dx, 139, "® ");
@@ -96,7 +94,7 @@ void Draw_AboutMenu_Ani()
 
 void Draw_AboutMenu_Ani__()
 {
-	int c = 0, w = 0, h = 0, cnt = 0;
+	int cnt = 0;
     
     int div = 12, max = MENU_ANI_MAX, ani = 0;
     for (ani = 0; ani < max; ani++)
@@ -110,8 +108,6 @@ void Draw_AboutMenu_Ani__()
             TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
         
         tiny3d_Project2D();
-        
-        u8 icon_a = (u8)(((ani * 2) > 0xFF) ? 0xFF : (ani * 2));
         
 		DrawHeader_Ani(menu_textures[header_ico_opt_png_index], "About", (char*)VERSION, 0x00000000, 0xffffffff, ani, div);
         
@@ -134,7 +130,7 @@ void Draw_AboutMenu_Ani__()
 		SetFontAlign(0);
 		SetCurrentFont(font_comfortaa_bold);
 		SetFontSize(18, 16);
-		float dx = DrawString((848 - (u32)WidthFromStr("Playstation 3® version:")) / 2, 140, "Playstation 3");
+		float dx = DrawString((848 - (u32)WidthFromStr((u8*)"Playstation 3® version:")) / 2, 140, "Playstation 3");
 		//Make the ® small
 		SetFontSize(9, 8);
 		dx = DrawString(dx, 139, "® ");
@@ -199,7 +195,7 @@ void Draw_AboutMenu()
 	SetFontAlign(0);
 	SetCurrentFont(font_comfortaa_bold);
 	SetFontSize(18, 16);
-	float dx = DrawString((848 - (u32)WidthFromStr("Playstation 3® version:")) / 2, 140, "Playstation 3");
+	float dx = DrawString((848 - (u32)WidthFromStr((u8*)"Playstation 3® version:")) / 2, 140, "Playstation 3");
 	//Make the ® small
 	SetFontSize(9, 8);
 	dx = DrawString(dx, 139, "® ");
