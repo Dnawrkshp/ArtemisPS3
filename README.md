@@ -9,10 +9,10 @@ It has been moved to [Releases](https://github.com/Dnawrkshp/ArtemisPS3/releases
 
 Screenshots
 ----------
-![main](./screenshots/main.png "Main Menu")
-![games](./screenshots/games.png "Games List")
-![cheats](./screenshots/cheats.png "Cheats List")
-![about](./screenshots/about.png "About")
+![main](./docs/screenshots/main.png "Main Menu")
+![games](./docs/screenshots/games.png "Games List")
+![cheats](./docs/screenshots/cheats.png "Cheats List")
+![about](./docs/screenshots/about.png "About")
 
 How To Use
 ----------
