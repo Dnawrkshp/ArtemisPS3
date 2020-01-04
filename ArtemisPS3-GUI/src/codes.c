@@ -1078,10 +1078,10 @@ void BubbleSortGameList(struct game_entry * games, int count)
 struct game_entry * ReadUserList(int * gmc)
 {
     char * userPath;
-    if (dir_exists(USERLIST_PATH) == SUCCESS)
-        userPath = (char*)USERLIST_PATH;
+    if (dir_exists(USERLIST_PATH_USB) == SUCCESS)
+        userPath = (char*)USERLIST_PATH_USB;
     else
-        userPath = (char*)USERLIST_PATH2;
+        userPath = (char*)USERLIST_PATH_HDD;
     
     int game_count = getDirListSize(userPath);
     if (!game_count)

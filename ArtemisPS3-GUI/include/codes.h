@@ -2,8 +2,8 @@
 
 #define ARTEMIS_PATH    "/dev_hdd0/game/ARTPS3001/USRDIR/"
 
-#define USERLIST_PATH   "/dev_usb000/USERLIST/"
-#define USERLIST_PATH2  ARTEMIS_PATH "USERLIST/"
+#define USERLIST_PATH_USB		"/dev_usb000/USERLIST/"
+#define USERLIST_PATH_HDD		ARTEMIS_PATH "USERLIST/"
 
 #define ONLINE_URL		"http://artemis.nerv.gq/"
 #define ONLINE_CACHE	ARTEMIS_PATH "CACHE/"

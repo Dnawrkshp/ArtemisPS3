@@ -1453,9 +1453,9 @@ void update_callback(int index, int sel)
 {
     if (sel)
     {
-        if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip"))
-	    	if (extract_zip(ONLINE_CACHE "tmp.zip", USERLIST_PATH2))
-            	unlink_secure(ONLINE_CACHE "tmp.zip");
+		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip"))
+			if (extract_zip(ONLINE_CACHE "tmp.zip", USERLIST_PATH_HDD))
+				unlink_secure(ONLINE_CACHE "tmp.zip");
 
 		menu_options_selections[index] = 0;
     }
@@ -1641,7 +1641,7 @@ void drawScene()
 							{
 								LOG("COBRA+PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
+								if (!(strlen(plugin_filename) >= 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
 								{
 									LOG("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
@@ -1654,7 +1654,7 @@ void drawScene()
 							{
 								LOG("MAMBA + PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
+								if (!(strlen(plugin_filename) >= 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0))
 								{
 									LOG("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
