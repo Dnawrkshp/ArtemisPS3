@@ -65,4 +65,34 @@ all:
 	make -f Makefile_4.78 --no-print-directory
 	make -f Makefile_4.78D clean --no-print-directory
 	make -f Makefile_4.78D --no-print-directory
+	make -f Makefile_4.80 clean --no-print-directory
+	make -f Makefile_4.80 --no-print-directory
+	make -f Makefile_4.80D clean --no-print-directory
+	make -f Makefile_4.80D --no-print-directory
+	make -f Makefile_4.80E clean --no-print-directory
+	make -f Makefile_4.80E --no-print-directory
+	make -f Makefile_4.81 clean --no-print-directory
+	make -f Makefile_4.81 --no-print-directory
+	make -f Makefile_4.81D clean --no-print-directory
+	make -f Makefile_4.81D --no-print-directory
+	make -f Makefile_4.81E clean --no-print-directory
+	make -f Makefile_4.81E --no-print-directory
+	make -f Makefile_4.82 clean --no-print-directory
+	make -f Makefile_4.82 --no-print-directory
+	make -f Makefile_4.82D clean --no-print-directory
+	make -f Makefile_4.82D --no-print-directory
+	make -f Makefile_4.82E clean --no-print-directory
+	make -f Makefile_4.82E --no-print-directory
+	make -f Makefile_4.83 clean --no-print-directory
+	make -f Makefile_4.83 --no-print-directory
+	make -f Makefile_4.83D clean --no-print-directory
+	make -f Makefile_4.83D --no-print-directory
+	make -f Makefile_4.83E clean --no-print-directory
+	make -f Makefile_4.83E --no-print-directory
+	make -f Makefile_4.84 clean --no-print-directory
+	make -f Makefile_4.84 --no-print-directory
+	make -f Makefile_4.84D clean --no-print-directory
+	make -f Makefile_4.84D --no-print-directory
+	make -f Makefile_4.84E clean --no-print-directory
+	make -f Makefile_4.84E --no-print-directory
 	rm -f *.o *.elf *.map source/*.o lv2/src/*.o
