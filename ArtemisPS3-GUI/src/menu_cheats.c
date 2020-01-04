@@ -638,10 +638,8 @@ void Draw_CheatsMenu_Selection(int menuSel, u32 rgba)
 /*
  * User Cheats Game Selection Menu
  */
-void Draw_UserCheatsMenu_Ani()
+void Draw_UserCheatsMenu_Ani(struct game_entry * games, int games_len)
 {
-    int c = 0, w = 0, h = 0;
-    
     int div = 12, max = MENU_ANI_MAX, ani = 0;
     for (ani = 0; ani < max; ani++)
     {
@@ -663,7 +661,7 @@ void Draw_UserCheatsMenu_Ani()
         if (_game_a > 0xFF)
             _game_a = 0xFF;
         u8 game_a = (u8)(_game_a < 0 ? 0 : _game_a);
-        DrawGameList(menu_old_sel[1], user_game_list, user_game_count, game_a);
+        DrawGameList(menu_old_sel[1], games, games_len, game_a);
         
         tiny3d_Flip();
         
@@ -672,12 +670,10 @@ void Draw_UserCheatsMenu_Ani()
     }
 }
 
-void Draw_UserCheatsMenu(int menuSel, u8 alpha)
+void Draw_UserCheatsMenu(struct game_entry * games, int games_len, int menuSel, u8 alpha)
 {
-	int c = 0, w = 0, h = 0;
-
 	DrawHeader(menu_textures[header_ico_cht_png_index], 0, "Cheats", "User List", 0x000000ff, 0xffffff00 | alpha, 0);
     
-	DrawGameList(menuSel, user_game_list, user_game_count, alpha);
+	DrawGameList(menuSel, games, games_len, alpha);
     
 }

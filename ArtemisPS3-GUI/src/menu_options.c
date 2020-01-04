@@ -55,6 +55,11 @@ void Draw_OptionsMenu_Ani()
 						h = (int)(menu_textures[c].texture.height / 1.8);
 						DrawTexture(menu_textures[c], MENU_ICON_OFF - 29, y_off - 3, 0, w, h, 0xFFFFFF00 | game_a);
 						break;
+					case ARTEMIS_OPTION_CALL:
+						w = (int)(menu_textures[mark_arrow_png_index].texture.width / 1.8);
+						h = (int)(menu_textures[mark_arrow_png_index].texture.height / 1.8);
+						DrawTexture(menu_textures[mark_arrow_png_index], MENU_ICON_OFF - 26, y_off-3, 0, w, h, 0xFFFFFF00 | game_a);
+						break;
 					case ARTEMIS_OPTION_LIST:
 						SetFontAlign(2);
 						DrawString(dx + 40, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
@@ -64,7 +69,7 @@ void Draw_OptionsMenu_Ani()
 						SetFontAlign(0);
 						sprintf((char*)ARTEMIS_OPTION_INC_TEMP, "%d", menu_options_selections[ind]);
 						int inc_width = WidthFromStr((u8*)ARTEMIS_OPTION_INC_TEMP);
-						DrawString((MENU_ICON_OFF - 18) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
+						DrawString((MENU_ICON_OFF - 26) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
 						break;
 				}
                 
@@ -110,6 +115,11 @@ void Draw_OptionsMenu()
 				h = (int)(menu_textures[c].texture.height / 1.8);
 				DrawTexture(menu_textures[c], MENU_ICON_OFF - 29, y_off-3, 0, w, h, 0xFFFFFFFF);
 				break;
+			case ARTEMIS_OPTION_CALL:
+				w = (int)(menu_textures[mark_arrow_png_index].texture.width / 1.8);
+				h = (int)(menu_textures[mark_arrow_png_index].texture.height / 1.8);
+				DrawTexture(menu_textures[mark_arrow_png_index], MENU_ICON_OFF - 26, y_off-3, 0, w, h, 0xFFFFFFFF);
+				break;
 			case ARTEMIS_OPTION_LIST:
 				SetFontAlign(2);
 				DrawString(dx + 40, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
@@ -119,7 +129,7 @@ void Draw_OptionsMenu()
 				SetFontAlign(0);
 				sprintf((char*)ARTEMIS_OPTION_INC_TEMP, "%d", menu_options_selections[ind]);
 				int inc_width = WidthFromStr((u8*)ARTEMIS_OPTION_INC_TEMP);
-				DrawString((MENU_ICON_OFF - 18) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
+				DrawString((MENU_ICON_OFF - 26) - (inc_width / 2), y_off, (char*)ARTEMIS_OPTION_INC_TEMP);
 				break;
 		}
         

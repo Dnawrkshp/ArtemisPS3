@@ -14,8 +14,7 @@
 
 #include <sys/stat.h>
 
-#define USERLIST_PATH   "/dev_usb000/USERLIST/"
-#define USERLIST_PATH2  "/dev_hdd0/game/ARTPS3001/USRDIR/USERLIST/"
+#define LOG dbglogger_log
 
 /*
  * Function:		parseVTID_ParseTitleID()
@@ -804,6 +803,38 @@ struct code_entry * ReadNCL(const char * path, int * _code_count)
 }
 
 /*
+ * Function:		ReadOnlineNCL()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Downloads an entire NCL file into an array of code_entry
+ * Arguments:
+ *	filename:		File name ncl
+ *	_count_count:	Pointer to int (set to the number of codes within the ncl)
+ * Return:			Returns an array of code_entry, null if failed to load
+ */
+struct code_entry * ReadOnlineNCL(const char * filename, int * _code_count)
+{ 
+	char path[256];
+	snprintf(path, sizeof(path)-1, ONLINE_CACHE "%s", filename);
+
+	if (isExist(path))
+	{
+		struct stat stats;
+		stat(path, &stats);
+		// re-download if file is +1 day old
+		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
+			http_download(ONLINE_URL, filename, path);
+	}
+	else
+	{
+		if (!http_download(ONLINE_URL, filename, path))
+			return NULL;
+	}
+
+    return ReadNCL(path, _code_count);
+}
+
+/*
  * Function:		UnloadGameList()
  * File:			codes.c
  * Project:			ArtemisPS3-GUI
@@ -1077,7 +1108,7 @@ struct game_entry * ReadUserList(int * gmc)
                 {
                     int ccnt[1] = {0};
                     
-                    printf("ReadUserList() :: Reading %s...\t", dir->d_name);
+                    LOG("ReadUserList() :: Reading %s...", dir->d_name);
                     
                     //ret[cur_count].codes = ReadNCL(fullPath, (int *)ccnt);
 					ret[cur_count].codes = NULL;
@@ -1090,7 +1121,7 @@ struct game_entry * ReadUserList(int * gmc)
 					ret[cur_count].title_id = NULL;
 					parseVTID(&ret[cur_count]);
                     
-                    printf("Successfully read %d codes\n", ret[cur_count].code_count);
+                    //printf("Successfully read %d codes\n", ret[cur_count].code_count);
                     
                     cur_count++;
                 }
@@ -1100,6 +1131,100 @@ struct game_entry * ReadUserList(int * gmc)
         closedir(d);
     }
     
+    return ret;
+}
+
+/*
+ * Function:		ReadOnlineList()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Downloads the entire gamelist file into a game_entry array
+ * Arguments:
+ *	gmc:			Set as the number of games read
+ * Return:			Pointer to array of game_entry, null if failed
+ */
+struct game_entry * ReadOnlineList(int * gmc)
+{
+    const char* path = ONLINE_CACHE "artemis.txt";
+
+	if (isExist(path))
+	{
+		struct stat stats;
+		stat(path, &stats);
+		// re-download if file is +1 day old
+		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
+			http_download(ONLINE_URL, "artemis.txt", path);
+	}
+	else
+	{
+		if (!http_download(ONLINE_URL, "artemis.txt", path))
+			return NULL;
+	}
+	
+	long fsize = getFileSize(path);
+	char *data = readFile(path);
+	
+	char *ptr = data;
+	char *end = data + fsize + 1;
+
+    int game_count = 0;
+
+    while (ptr < end && *ptr)
+    {
+    	if (*ptr == '\n')
+    	{
+    		game_count++;
+    	}
+    	ptr++;
+	}
+    
+    if (!game_count)
+        return NULL;
+    struct game_entry * ret = (struct game_entry *)malloc(sizeof(struct game_entry) * game_count);
+    *gmc = game_count;
+
+    int cur_count = 0;    
+    ptr = data;
+    
+    while (ptr < end && *ptr && cur_count < game_count)
+    {
+    	char* content = ptr;
+
+        while (ptr < end && *ptr != '\n' && *ptr != '\r')
+        {
+        	ptr++;
+        }
+        *ptr++ = 0;
+
+        int ccnt[1] = {0};
+
+//        printf("ReadUserList() :: Reading %s...", content);
+
+		ret[cur_count].codes = NULL;
+//			ret[cur_count].path = content;
+		ret[cur_count].path = malloc(strlen(content) + 1);
+		strcpy(ret[cur_count].path, content);
+        ret[cur_count].code_count = *ccnt;
+        ret[cur_count].name = stripExt(content);
+        ret[cur_count].code_sorted = 0;
+		ret[cur_count].version = NULL;
+		ret[cur_count].title_id = NULL;
+		parseVTID(&ret[cur_count]);
+
+        cur_count++;
+
+        if (ptr < end && *ptr == '\r')
+        {
+            ptr++;
+        }
+        if (ptr < end && *ptr == '\n')
+        {
+            ptr++;
+        }
+    }
+
+	if (data) free(data);
+
     return ret;
 }
 
@@ -1281,7 +1406,7 @@ char *replace_str_id(char *str, char *orig, char *rep)
     if (!str || !orig || !rep)
         return str;
         
-    printf("replace_str_id()\n");
+    LOG("replace_str_id()");
     
     char *p;
     int index = 0, len = strlen(str), pass = 0, count = replace_str_count(str, orig);

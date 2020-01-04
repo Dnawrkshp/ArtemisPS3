@@ -78,6 +78,7 @@ sysSpuImage spu_image;
 
 #define SPU_SIZE(x) (((x)+127) & ~127)
 
+#define LOG dbglogger_log
 
 //Pad stuff
 padInfo padinfo;
@@ -86,13 +87,14 @@ padData padA[MAX_PADS];
 padData padB[MAX_PADS];
 
 //Options
-const char * options_path = "/dev_hdd0/game/ARTPS3001/USRDIR/opt.ini";
+const char * options_path = ARTEMIS_PATH "opt.ini";
 
 void music_callback(int index, int sel);
 void sort_callback(int index, int sel);
 void ani_callback(int index, int sel);
 void horm_callback(int index, int sel);
 void verm_callback(int index, int sel);
+void update_callback(int index, int sel);
 
 const option menu_options_options[] = {
 	{ .name = "Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
@@ -100,6 +102,7 @@ const option menu_options_options[] = {
 	{ .name = "Menu Animations", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = ani_callback },
 	{ .name = "Horizontal Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = horm_callback },
 	{ .name = "Vertical Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = verm_callback },
+	{ .name = "Update Local Cheats", .options = NULL, .type = ARTEMIS_OPTION_CALL, .callback = update_callback },
 	{ .name = NULL }
 };
 
@@ -1348,7 +1351,7 @@ void LoadTextures_Menu()
 	}
 
 	u32 tBytes = texture_pointer - texture_mem;
-	printf("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
+	LOG("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
 }
 
 short *background_music = NULL;
@@ -1446,6 +1449,18 @@ void verm_callback(int index, int sel)
 	menu_options_selections[index] = sel;
 }
 
+void update_callback(int index, int sel)
+{
+    if (sel)
+    {
+        if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip"))
+	    	if (extract_zip(ONLINE_CACHE "tmp.zip", USERLIST_PATH2))
+            	unlink_secure(ONLINE_CACHE "tmp.zip");
+
+		menu_options_selections[index] = 0;
+    }
+}
+
 void ReloadUserCheats()
 {
     if (user_game_list)
@@ -1460,6 +1475,22 @@ void ReloadUserCheats()
     user_game_count = *gmc;
     if (doSort)
         BubbleSortGameList(user_game_list, user_game_count);
+}
+
+void ReloadOnlineCheats()
+{
+    if (online_game_list)
+    {
+        UnloadGameList(online_game_list, online_game_count);
+        online_game_count = 0;
+        online_game_list = NULL;
+    }
+
+    int gmc[1];
+    online_game_list = ReadOnlineList((int *)gmc);
+    online_game_count = *gmc;
+    if (doSort)
+        BubbleSortGameList(online_game_list, online_game_count);
 }
 
 void SetMenu(int id)
@@ -1509,10 +1540,20 @@ void SetMenu(int id)
             }
             
             if (doAni)
-                Draw_UserCheatsMenu_Ani();
+                Draw_UserCheatsMenu_Ani(user_game_list, user_game_count);
             break;
         case 2: //Cheats Online Menu
-            
+            if (!online_game_list)
+            {
+                int gmc[1];
+                online_game_list = ReadOnlineList((int *)gmc);
+                online_game_count = *gmc;
+                if (doSort)
+                    BubbleSortGameList(online_game_list, online_game_count);
+            }
+
+            if (doAni)
+                Draw_UserCheatsMenu_Ani(online_game_list, online_game_count);
             break;
         case 3: //About Menu
             if (doAni)
@@ -1598,32 +1639,32 @@ void drawScene()
 							//Check if COBRA+PS3MAPI is installed
 							if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
 							{
-								printf("COBRA+PS3MAPI Detected\n");
+								LOG("COBRA+PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
 								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
-									printf("COBRA: Artemis is not loaded yet\n");
+									LOG("COBRA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
 								}
-								printf("COBRA: Artemis running\n");
+								LOG("COBRA: Artemis running\n");
 								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
 							}
 							//Check if MAMBA+PS3MAPI is installed
 							else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
 							{
-								printf("MAMBA + PS3MAPI Detected\n");
+								LOG("MAMBA + PS3MAPI Detected\n");
 								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
 								if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
 								{
-									printf("MAMBA: Artemis is not loaded yet\n");
+									LOG("MAMBA: Artemis is not loaded yet\n");
 									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
 								}
-								printf("MAMBA: Artemis running\n");
+								LOG("MAMBA: Artemis running\n");
 								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
 							}
 							else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
 							{
-								printf("None are loaded\n");
+								LOG("None are loaded\n");
 								{ lv2syscall3(392, 0x1004, 0x4, 0x6); }  //1 Beep
 							}
 							else
@@ -1667,13 +1708,13 @@ void drawScene()
 						{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
 						if (strlen(plugin_filename) >= 0 && strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") == 0)
 						{
-							printf("Artemis Plugin is already running!\n");
+							LOG("Artemis Plugin is already running!\n");
 							cobra_mamba_syscall_unload_prx_module(5);
 							{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
 						}
 						else
 						{
-							printf("Artemis Plugin hasn't been loaded yet!\n");
+							LOG("Artemis Plugin hasn't been loaded yet!\n");
 							{lv2syscall3(392, 0x1004, 0x7, 0x36); } //2 Beep
 						}
 					}
@@ -1741,10 +1782,67 @@ void drawScene()
                 }
             }
             
-            Draw_UserCheatsMenu(menu_sel, 0xFF);
+            Draw_UserCheatsMenu(user_game_list, user_game_count, menu_sel, 0xFF);
             break;
         case 2: //Online Cheats Menu
             
+            // Check the pads.
+            if (readPad(0))
+            {
+                if(paddata[0].BTN_UP)
+                {
+                    if (menu_sel > 0)
+                        menu_sel--;
+                    else
+                        menu_sel = online_game_count - 1;
+                }
+                else if(paddata[0].BTN_DOWN)
+                {
+                    if (menu_sel < (online_game_count-1))
+                    {
+                        menu_sel++;
+                    }
+                    else
+                        menu_sel = 0;
+                }
+                else if (paddata[0].BTN_LEFT)
+                {
+                    menu_sel -= 5;
+                    if (menu_sel < 0)
+                        menu_sel = 0;
+                }
+                else if (paddata[0].BTN_RIGHT)
+                {
+                    menu_sel += 5;
+                    if (menu_sel >= online_game_count)
+                        menu_sel = online_game_count - 1;
+                }
+                else if (paddata[0].BTN_CIRCLE)
+                {
+                    SetMenu(0);
+                    return;
+                }
+                else if (paddata[0].BTN_CROSS)
+                {
+					if (!online_game_list[menu_sel].codes)
+					{
+						int sz = 0;
+						online_game_list[menu_sel].codes = ReadOnlineNCL(online_game_list[menu_sel].path, &sz);
+						online_game_list[menu_sel].code_count = sz;
+					}
+                    if (doSort)
+                        online_game_list[menu_sel] = BubbleSortCodeList(online_game_list[menu_sel]);
+                    selected_entry = online_game_list[menu_sel];
+                    SetMenu(5);
+                    return;
+                }
+                else if (paddata[0].BTN_SQUARE)
+                {
+                    ReloadOnlineCheats();
+                }
+            }
+
+            Draw_UserCheatsMenu(online_game_list, online_game_count, menu_sel, 0xFF);
             break;
         case 3: //About Menu
             
@@ -1814,6 +1912,8 @@ void drawScene()
 					}
 					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_INC)
 						menu_options_selections[menu_sel]++;
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_CALL)
+						menu_options_selections[menu_sel] = 1;
 					
 
 					menu_options_options[menu_sel].callback(menu_sel, menu_options_selections[menu_sel]);
@@ -1991,6 +2091,7 @@ void drawScene()
 
 void exiting()
 {
+	http_end();
     sysModuleUnload(SYSMODULE_PNGDEC);
 }
 
@@ -1999,6 +2100,10 @@ void exiting()
 */
 s32 main(s32 argc, const char* argv[])
 {
+	dbglogger_init();
+
+	http_init();
+
     tiny3d_Init(1024*1024);
 
     ioPadInit(7);
@@ -2076,7 +2181,7 @@ s32 main(s32 argc, const char* argv[])
     
     videoResolution res;
     assert(videoGetResolution(state.displayMode.resolution, &res) == 0);
-    printf("Resolution: %d by %d\n", res.width, res.height);
+    LOG("Resolution: %d by %d", res.width, res.height);
     screen_width = res.width;
     screen_height = res.height;
     

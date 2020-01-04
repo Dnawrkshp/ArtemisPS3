@@ -1,5 +1,5 @@
-void Draw_UserCheatsMenu_Ani(void);
-void Draw_UserCheatsMenu(int menuSel, u8 alpha);
+void Draw_UserCheatsMenu_Ani(struct game_entry * games, int games_len);
+void Draw_UserCheatsMenu(struct game_entry * games, int games_len, int menuSel, u8 alpha);
 void Draw_CheatsMenu_Selection_Ani();
 void Draw_CheatsMenu_Selection(int menuSel, u32 rgba);
 void Draw_CheatsMenu_View_Ani_Exit(void);

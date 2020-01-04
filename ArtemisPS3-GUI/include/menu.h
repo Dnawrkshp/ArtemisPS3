@@ -103,6 +103,7 @@ typedef struct
 #define ARTEMIS_OPTION_BOOL				1
 #define ARTEMIS_OPTION_LIST				2
 #define ARTEMIS_OPTION_INC				3
+#define ARTEMIS_OPTION_CALL				4
 
 extern const option menu_options_options[];
 

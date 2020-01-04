@@ -1,3 +1,14 @@
+#include <dbglogger.h>
+
+#define ARTEMIS_PATH    "/dev_hdd0/game/ARTPS3001/USRDIR/"
+
+#define USERLIST_PATH   "/dev_usb000/USERLIST/"
+#define USERLIST_PATH2  ARTEMIS_PATH "USERLIST/"
+
+#define ONLINE_URL		"http://artemis.nerv.gq/"
+#define ONLINE_CACHE	ARTEMIS_PATH "CACHE/"
+
+#define ONLINE_CACHE_TIMEOUT    24*3600     // 1-day local cache
 
 struct option_entry
 {
@@ -31,6 +42,7 @@ struct game_entry
 };
 
 struct game_entry * ReadUserList(int * gmc);
+struct game_entry * ReadOnlineList(int * gmc);
 void UnloadGameList(struct game_entry * list, int count);
 int isGameActivated(struct game_entry game);
 char * ParseActivatedGameList(struct game_entry * list, int count);
@@ -43,3 +55,9 @@ int isCodeLineValid(char * line);
 long getFileSize(const char * path);
 struct option_entry * ReadOptions(struct code_entry code, int * count);
 struct code_entry * ReadNCL(const char * path, int * _code_count);
+struct code_entry * ReadOnlineNCL(const char * path, int * _code_count);
+
+int http_init(void);
+void http_end(void);
+int http_download(const char* url, const char* filename, const char* local_dst);
+int extract_zip(const char* zip_file, const char* dest_path);
