@@ -2,7 +2,6 @@
 #include <ssl/ssl.h>
 #include <net/net.h>
 #include <sysmodule/sysmodule.h>
-#include <sysutil/msg.h>
 
 #include <stdlib.h>
 #include <stdio.h>
