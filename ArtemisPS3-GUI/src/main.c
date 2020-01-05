@@ -1757,9 +1757,21 @@ void drawScene()
                     if (menu_sel < 0)
                         menu_sel = 0;
                 }
+                else if (paddata[0].BTN_L1)
+                {
+                    menu_sel -= 25;
+                    if (menu_sel < 0)
+                        menu_sel = 0;
+                }
                 else if (paddata[0].BTN_RIGHT)
                 {
                     menu_sel += 5;
+                    if (menu_sel >= user_game_count)
+                        menu_sel = user_game_count - 1;
+                }
+                else if (paddata[0].BTN_R1)
+                {
+                    menu_sel += 25;
                     if (menu_sel >= user_game_count)
                         menu_sel = user_game_count - 1;
                 }
@@ -1817,9 +1829,21 @@ void drawScene()
                     if (menu_sel < 0)
                         menu_sel = 0;
                 }
+                else if (paddata[0].BTN_L1)
+                {
+                    menu_sel -= 25;
+                    if (menu_sel < 0)
+                        menu_sel = 0;
+                }
                 else if (paddata[0].BTN_RIGHT)
                 {
                     menu_sel += 5;
+                    if (menu_sel >= online_game_count)
+                        menu_sel = online_game_count - 1;
+                }
+                else if (paddata[0].BTN_R1)
+                {
+                    menu_sel += 25;
                     if (menu_sel >= online_game_count)
                         menu_sel = online_game_count - 1;
                 }
