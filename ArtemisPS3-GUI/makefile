@@ -45,7 +45,7 @@ DATA		:=	data
 INCLUDES	:=	include libfont/include
 PKGFILES	:=	$(CURDIR)/pkgfiles
 
-TITLE		:=	Artemis PS3 (r5)
+TITLE		:=	Artemis PS3 (r6.net)
 APPID		:=	ARTPS3001
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
