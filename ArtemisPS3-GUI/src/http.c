@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include "common.h"
+#include "codes.h"
 
 #define HTTP_YES		1
 #define HTTP_NO 		0
@@ -25,9 +26,6 @@ typedef struct
 static t_http_pools http_pools;
 uint64_t prog_bar1_value=0;
 u8 cancel = HTTP_NO;
-
-#include <dbglogger.h>
-#define LOG dbglogger_log
 
 static char getBuffer[64*1024];
 
@@ -193,7 +191,7 @@ char* escape_filename(const char* filename)
 	return ret;
 }
 
-int http_download(const char* url, const char* filename, const char* local_dst)
+int http_download(const char* url, const char* filename, const char* local_dst, int show_progress)
 {
 	int ret = 0, httpCode = 0;
 	httpUri uri;
@@ -207,7 +205,7 @@ int http_download(const char* url, const char* filename, const char* local_dst)
 	void *uri_pool = NULL;
 	char* escaped_name = NULL;
 	char* escaped_url = NULL;
- 
+
 	ret = httpCreateClient(&httpClient);
 	if (ret < 0) {
 		LOG("Error : httpCreateClient HTTP_FAILED (%x)", ret);
@@ -285,6 +283,8 @@ int http_download(const char* url, const char* filename, const char* local_dst)
 	}
 	
 	prog_bar1_value=0;
+	if (show_progress)
+		init_progress_bar("Downloading...", filename);
 	
 	while(nRecv != 0) {
 		if(httpRecvResponse(httpTrans, (void*) getBuffer, sizeof(getBuffer)-1, &nRecv) > 0) break;
@@ -294,9 +294,8 @@ int http_download(const char* url, const char* filename, const char* local_dst)
 		dl+=nRecv;
 		if(length != 0) {
 			prog_bar1_value += nRecv;
-			LOG("down %d (%d)", prog_bar1_value, length);
-//			update_progress_bar(&prog_bar1_value, length);
-//			prog_bar1_value = (dl*100)/length;
+			if (show_progress)
+				update_progress_bar(&prog_bar1_value, length, filename);
 		}
 	}
 	fclose(fp);
@@ -313,6 +312,7 @@ int http_download(const char* url, const char* filename, const char* local_dst)
 	ret=HTTP_SUCCESS;
 
 end:
+	if (show_progress) end_progress_bar();
 	if(httpTrans) httpDestroyTransaction(httpTrans);
 	if(httpClient) httpDestroyClient(httpClient);
 	if(uri_pool) free(uri_pool);

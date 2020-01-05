@@ -1,4 +1,10 @@
+#ifdef ARTEMIS_ENABLE_LOGGING
 #include <dbglogger.h>
+#define LOG dbglogger_log
+#else
+#define LOG(...)
+#define dbglogger_init(...)
+#endif
 
 #define ARTEMIS_PATH    "/dev_hdd0/game/ARTPS3001/USRDIR/"
 
@@ -59,5 +65,11 @@ struct code_entry * ReadOnlineNCL(const char * path, int * _code_count);
 
 int http_init(void);
 void http_end(void);
-int http_download(const char* url, const char* filename, const char* local_dst);
+int http_download(const char* url, const char* filename, const char* local_dst, int show_progress);
+
 int extract_zip(const char* zip_file, const char* dest_path);
+
+int show_dialog(int tdialog, const char * str);
+void init_progress_bar(const char* progress_bar_title, const char* msg);
+void update_progress_bar(long unsigned int* progress, const long unsigned int total_size, const char* msg);
+void end_progress_bar(void);

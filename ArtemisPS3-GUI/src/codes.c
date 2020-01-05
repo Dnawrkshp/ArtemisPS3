@@ -14,7 +14,6 @@
 
 #include <sys/stat.h>
 
-#define LOG dbglogger_log
 
 /*
  * Function:		parseVTID_ParseTitleID()
@@ -823,11 +822,11 @@ struct code_entry * ReadOnlineNCL(const char * filename, int * _code_count)
 		stat(path, &stats);
 		// re-download if file is +1 day old
 		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
-			http_download(ONLINE_URL "codes/", filename, path);
+			http_download(ONLINE_URL "codes/", filename, path, 0);
 	}
 	else
 	{
-		if (!http_download(ONLINE_URL "codes/", filename, path))
+		if (!http_download(ONLINE_URL "codes/", filename, path, 0))
 			return NULL;
 	}
 
@@ -1153,11 +1152,11 @@ struct game_entry * ReadOnlineList(int * gmc)
 		stat(path, &stats);
 		// re-download if file is +1 day old
 		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
-			http_download(ONLINE_URL, "games.txt", path);
+			http_download(ONLINE_URL, "games.txt", path, 0);
 	}
 	else
 	{
-		if (!http_download(ONLINE_URL, "games.txt", path))
+		if (!http_download(ONLINE_URL, "games.txt", path, 0))
 			return NULL;
 	}
 	

@@ -78,7 +78,6 @@ sysSpuImage spu_image;
 
 #define SPU_SIZE(x) (((x)+127) & ~127)
 
-#define LOG dbglogger_log
 
 //Pad stuff
 padInfo padinfo;
@@ -1453,10 +1452,13 @@ void update_callback(int index, int sel)
 {
     if (sel)
     {
-		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip"))
+		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip", 1))
+		{
 			if (extract_zip(ONLINE_CACHE "tmp.zip", USERLIST_PATH_HDD))
-				unlink_secure(ONLINE_CACHE "tmp.zip");
+				show_dialog(0, "Successfully updated local cheat database");
 
+			unlink_secure(ONLINE_CACHE "tmp.zip");
+		}
 		menu_options_selections[index] = 0;
     }
 }
@@ -1695,7 +1697,11 @@ void drawScene()
                             return;
                     }
                 }
-                else if(paddata[0].BTN_SQUARE)
+                else if(paddata[0].BTN_CIRCLE && show_dialog(1, "Exit to XMB?"))
+                {
+                	close_art = 1;
+                }
+                else if(paddata[0].BTN_SQUARE && show_dialog(1, "Remove Artemis plugin from memory?"))
                 {
 					//
 					char plugin_name[30];

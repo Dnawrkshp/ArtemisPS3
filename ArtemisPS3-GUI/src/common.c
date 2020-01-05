@@ -130,35 +130,21 @@ int game_exists(const char *name, const char *id)
 
 int file_exists(const char *path)
 {
-	/*
-    int ret = sysLv2FsStat(path, &stat1);
-    if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return FAILED;
-    return ret;
-	*/
-
-	FILE *f = fopen(path, "r");
-	if (f == NULL)
-		return FAILED;
-
-	fclose(f);
-	return SUCCESS;
+    struct stat sb;
+    if ((stat(path, &sb) == 0) && S_ISREG(sb.st_mode)) {
+    	return SUCCESS;
+    }
+    
+	return FAILED;
 }
 
 int dir_exists(const char *path)
 {
-	/*
-    int ret = sysLv2FsStat(path, &stat1);
-    if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return SUCCESS;
+    struct stat sb;
+    if ((stat(path, &sb) == 0) && S_ISDIR(sb.st_mode)) {
+        return SUCCESS;
+    }
     return FAILED;
-	*/
-	DIR *d;
-	d = opendir(path);
-
-	if (d <= 0)
-		return FAILED;
-
-	closedir(d);
-	return SUCCESS;
 }
 
 int unlink_secure(void *path)
