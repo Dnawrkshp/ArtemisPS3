@@ -14,6 +14,10 @@ Download
 ----------
 You can get a `.pkg` installer for the [latest version here][artemis_latest].
 
+How To Use
+----------
+Please refer to the [Installation](INSTALLATION.md) file for installation and use instructions.
+
 Submitting cheat codes
 ----------
 
@@ -29,10 +33,6 @@ Screenshots
 ![cheats](./screenshots/cheats.png "Cheats List")
 ![options](./screenshots/options.png "Options")
 ![about](./screenshots/about.png "About")
-
-How To Use
-----------
-Please refer to the [Installation](https://github.com/bucanero/ArtemisPS3/tree/master/INSTALLATION.md) file for installation and use instructions.
 
 Status
 -------
