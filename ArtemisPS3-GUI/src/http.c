@@ -95,8 +95,8 @@ int http_init(void)
 	} else module_ssl_loaded=HTTP_YES;
 
 	http_pools.ssl_pool = malloc(0x40000);
-	if (ret < 0) {
-		LOG("Error : out of memory (http_pool)");
+	if (http_pools.ssl_pool == NULL) {
+		LOG("Error : out of memory (ssl_pool)");
 		ret=HTTP_FAILED;
 		goto end;
 	}
@@ -167,12 +167,12 @@ void http_end(void)
 	httpsEnd();
 	sslEnd();
 	httpEnd();
-//	netDeinitialize();
+	netDeinitialize();
 	
 	sysModuleUnload(SYSMODULE_HTTP);
 	sysModuleUnload(SYSMODULE_HTTPS);
 	sysModuleUnload(SYSMODULE_SSL);
-//	if(module_net_loaded) sysModuleUnload(SYSMODULE_NET);
+	sysModuleUnload(SYSMODULE_NET);
 
 	if(http_pools.http_pool) free(http_pools.http_pool);
 	if(http_pools.ssl_pool) free(http_pools.ssl_pool);
@@ -200,7 +200,6 @@ int http_download(const char* url, const char* filename, const char* local_dst, 
 	FILE* fp=NULL;
 	s32 nRecv = -1;
 	s32 size = 0;
-	u64 dl=0;
 	uint64_t length = 0;
 	void *uri_pool = NULL;
 	char* escaped_name = NULL;
@@ -291,7 +290,7 @@ int http_download(const char* url, const char* filename, const char* local_dst, 
 		if(nRecv == 0)	break;
 		fwrite((char*) getBuffer, nRecv, 1, fp);
 		if(cancel==HTTP_YES) break;
-		dl+=nRecv;
+
 		if(length != 0) {
 			prog_bar1_value += nRecv;
 			if (show_progress)
@@ -305,8 +304,6 @@ int http_download(const char* url, const char* filename, const char* local_dst, 
 		ret=HTTP_FAILED;
 		cancel=HTTP_NO;
 	}
-
-	//update_progress_bar();
 
 	//END of TRANSFER
 	ret=HTTP_SUCCESS;
