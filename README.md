@@ -12,7 +12,7 @@ This is a fork of Dnawrkshp's [ArtemisPS3](https://github.com/Dnawrkshp/ArtemisP
 
 Download
 ----------
-You can get a `.pkg` installer for the [latest version here][artemis_latest].
+Get a `.pkg` installer for the [latest version here][artemis_latest].
 
 How To Use
 ----------
