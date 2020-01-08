@@ -814,7 +814,7 @@ struct code_entry * ReadNCL(const char * path, int * _code_count)
 struct code_entry * ReadOnlineNCL(const char * filename, int * _code_count)
 { 
 	char path[256];
-	snprintf(path, sizeof(path)-1, ONLINE_CACHE "%s", filename);
+	snprintf(path, sizeof(path)-1, ONLINE_LOCAL_CACHE "%s", filename);
 
 	if (isExist(path))
 	{
@@ -1144,7 +1144,7 @@ struct game_entry * ReadUserList(int * gmc)
  */
 struct game_entry * ReadOnlineList(int * gmc)
 {
-    const char* path = ONLINE_CACHE "games.txt";
+    const char* path = ONLINE_LOCAL_CACHE "games.txt";
 
 	if (isExist(path))
 	{

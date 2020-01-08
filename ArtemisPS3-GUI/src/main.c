@@ -29,10 +29,6 @@
 #include <sysmodule/sysmodule.h>
 #include <pngdec/pngdec.h>
 
-#include <ft2build.h>
-#include <freetype/freetype.h> 
-#include <freetype/ftglyph.h>
-
 #include <tiny3d.h>
 #include "libfont.h"
 
@@ -54,7 +50,6 @@
 #include "menu_options.h"
 #include "menu_cheats.h"
 
-
 //Font
 #include "comfortaa_bold_ttf.h"
 #include "comfortaa_light_ttf.h"
@@ -64,7 +59,7 @@
 #include "spu_soundmodule_bin.h"
 #include "spu_soundlib.h"
 #include "audioplayer.h"
-#include "background_music_mp3_bin.h"
+#include "background_music_mp3.h"
 
 // SPU
 u32 inited;
@@ -78,6 +73,12 @@ sysSpuImage spu_image;
 
 #define SPU_SIZE(x) (((x)+127) & ~127)
 
+#define load_menu_texture(name, type) \
+    ({ extern const uint8_t name##_##type []; \
+       extern const uint32_t name##_##type##_size; \
+       menu_textures[name##_##type##_index].buffer = (const void*) name##_##type; \
+       menu_textures[name##_##type##_index].size = name##_##type##_size; \
+    })
 
 //Pad stuff
 padInfo padinfo;
@@ -197,8 +198,6 @@ int option_index = 0;
 // Set to dimensions of the screen in main()
 int screen_width;
 int screen_height;
-
-void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba);
 
 void release_all() {
     
@@ -547,387 +546,6 @@ void DeleteBootHistory(void)
     //Delete the other boot history files
     unlink_secure("/dev_hdd0/vsh/pushlist/game.dat");
     unlink_secure("/dev_hdd0/vsh/pushlist/patch.dat");
-}
-
-/******************************************************************************************************************************************************/
-/* TTF functions to load and convert fonts         
- * From fonts_from_ttf Tiny3D sample                                                                                                    */
- /*****************************************************************************************************************************************************/
-
-int ttf_inited = 0;
-
-FT_Library freetype;
-FT_Face face;
-
-/* TTFLoadFont can load TTF fonts from device or from memory:
-path = path to the font or NULL to work from memory
-from_memory = pointer to the font in memory. It is ignored if path != NULL.
-size_from_memory = size of the memory font. It is ignored if path != NULL.
-*/
-int TTFLoadFont(char * path, void * from_memory, int size_from_memory)
-{
-   
-    if(!ttf_inited)
-        FT_Init_FreeType(&freetype);
-    ttf_inited = 1;
-
-    if(path) {
-        if(FT_New_Face(freetype, path, 0, &face)) return -1;
-    } else {
-        if(FT_New_Memory_Face(freetype, from_memory, size_from_memory, 0, &face)) return -1;
-        }
-
-    return 0;
-}
-
-/* release all */
-void TTFUnloadFont()
-{
-   FT_Done_FreeType(freetype);
-   ttf_inited = 0;
-}
-
-/* function to render the character
-chr : character from 0 to 255
-bitmap: u8 bitmap passed to render the character character (max 256 x 256 x 1 (8 bits Alpha))
-*w : w is the bitmap width as input and the width of the character (used to increase X) as output
-*h : h is the bitmap height as input and the height of the character (used to Y correction combined with y_correction) as output
-y_correction : the Y correction to display the character correctly in the screen
-*/
-
-/*
-So basically libfont sucks (Not the TTF library).
-If a character is greater than the set width (I'm talking to you W) then it just cuts it off... Which looks ugly.
-So I've gone ahead and done a hackish patch to make it shrink it down so that it looks like a regular character.
-- Dnawrkshp
-*/
-int doShrinkChar = 0;
-void TTF_to_Bitmap(u8 chr, u8 * bitmap, short *w, short *h, short *y_correction)
-{
-    int width = *w;
-    
-    TTF_to_Bitmap_loop: ;
-    FT_Set_Pixel_Sizes(face, (width), (*h));
-    
-    FT_GlyphSlot slot = face->glyph;
-
-    if(FT_Load_Char(face, (char) chr, FT_LOAD_RENDER )) {(*w) = 0; return;}
-    
-    if (slot->bitmap.width > *w && width == *w)
-    {
-        width = (int)((float)*w * ((float)*w / (float)slot->bitmap.width)) - 1;
-        goto TTF_to_Bitmap_loop;
-    }
-    
-    memset(bitmap, 0, (*w) * (*h));
-    
-    int n, m, ww, mm;
-
-    *y_correction = (*h) - 1 - slot->bitmap_top;
-    
-    ww = 0;
-    
-    if (doShrinkChar)
-    {
-        float mRatio = 0;
-        for(n = 0; n < slot->bitmap.rows; n++) {
-            for (m = 0; m < slot->bitmap.width; m++) {
-                
-                mRatio = (float)(slot->bitmap.width+1) / (float)(*w);
-                if (mRatio > 1)
-                {
-                    mm = (int)((float)m * mRatio);
-                    
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + mm];
-                }
-                else
-                {
-                    mm = m;
-                    //if(m >= (*w) || n >= (*h)) continue;
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + mm];
-                }
-            }
-        
-            bitmap += *w;
-            ww += slot->bitmap.width;
-        }
-        
-        int width = ((slot->advance.x + 31) >> 6) + ((slot->bitmap_left < 0) ? -slot->bitmap_left : 0) - 1;
-        *h = slot->bitmap.rows;
-        
-        if (width < *w)
-            *w = width;
-    }
-    else
-    {
-        for(n = 0; n < slot->bitmap.rows; n++) {
-            for (m = 0; m < slot->bitmap.width; m++) {
-                    
-                    if(m >= (*w) || n >= (*h)) continue;
-                    
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + m];
-                }
-        
-            bitmap += *w;
-            ww += slot->bitmap.width;
-        }
-        
-        *w = ((slot->advance.x + 31) >> 6) + ((slot->bitmap_left < 0) ? -slot->bitmap_left : 0) - 1;
-        *h = slot->bitmap.rows;
-    }
-}
-
-/*
-    From sprite2D source
-    I'm not going to document them for that reason
-*/
-
-// draw one background color in virtual 2D coordinates
-void DrawBackground2D(u32 rgba)
-{
-	/*
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(0  , 0  , 65535);
-    tiny3d_VertexColor(rgba);
-
-    tiny3d_VertexPos(847, 0  , 65535);
-
-    tiny3d_VertexPos(847, 511, 65535);
-
-    tiny3d_VertexPos(0  , 511, 65535);
-    tiny3d_End();
-	*/
-
-	tiny3d_SetPolygon(TINY3D_QUADS);
-
-	tiny3d_VertexPos(-marginHorizontal, -marginVertical, 65535);
-	tiny3d_VertexColor(rgba);
-
-	tiny3d_VertexPos(847 + marginHorizontal, -marginVertical, 65535);
-
-	tiny3d_VertexPos(847 + marginHorizontal, 511 + marginVertical, 65535);
-
-	tiny3d_VertexPos(-marginHorizontal, 511 + marginVertical, 65535);
-	tiny3d_End();
-}
-
-void DrawSprites2D(float x, float y, float layer, float dx, float dy, u32 rgba)
-{
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(x     , y     , layer);
-    tiny3d_VertexColor(rgba);
-    tiny3d_VertexTexture(0.01f, 0.01f);
-
-    tiny3d_VertexPos(x + dx, y     , layer);
-    tiny3d_VertexTexture(0.99f, 0.01f);
-
-    tiny3d_VertexPos(x + dx, y + dy, layer);
-    tiny3d_VertexTexture(0.99f, 0.99f);
-
-    tiny3d_VertexPos(x     , y + dy, layer);
-    tiny3d_VertexTexture(0.01f, 0.99f);
-
-    tiny3d_End();
-}
-
-void DrawSpritesRot2D(float x, float y, float layer, float dx, float dy, u32 rgba, float angle)
-{
-    dx /= 2.0f; dy /= 2.0f;
-
-    MATRIX matrix;
-    
-    // rotate and translate the sprite
-    matrix = MatrixRotationZ(angle);
-    matrix = MatrixMultiply(matrix, MatrixTranslation(x + dx, y + dy, 0.0f));
-    
-    // fix ModelView Matrix
-    tiny3d_SetMatrixModelView(&matrix);
-   
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(-dx, -dy, layer);
-    tiny3d_VertexColor(rgba);
-    tiny3d_VertexTexture(0.0f , 0.0f);
-
-    tiny3d_VertexPos(dx , -dy, layer);
-    tiny3d_VertexTexture(0.99f, 0.0f);
-
-    tiny3d_VertexPos(dx , dy , layer);
-    tiny3d_VertexTexture(0.99f, 0.99f);
-
-    tiny3d_VertexPos(-dx, dy , layer);
-    tiny3d_VertexTexture(0.0f , 0.99f);
-
-    tiny3d_End();
-
-    tiny3d_SetMatrixModelView(NULL); // set matrix identity
-
-}
-
-void DrawSelector(int x, int y, int w, int h, int hDif, u8 alpha)
-{
-	int i = 0;
-	for (i = 0; i < 848; i++)
-		DrawTexture(menu_textures[mark_line_png_index], i, y, 0, menu_textures[mark_line_png_index].texture.width, menu_textures[mark_line_png_index].texture.height + hDif, 0xFFFFFF00 | alpha);
-
-	DrawTextureCentered(menu_textures[mark_arrow_png_index], x, y, 0, w, h, 0xFFFFFF00 | alpha);
-}
-
-void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int ani, int div)
-{
-	u8 icon_a = (u8)(((ani * 2) > 0xFF) ? 0xFF : (ani * 2));
-	int w, h, c;
-
-	//------------ Backgrounds
-	
-	//Background
-	DrawBackgroundTexture(0, (u8)bgrgba);
-
-	//------------- Menu Bar
-
-	c = header_line_png_index;
-	int cnt, cntMax = ((ani * div) > 800) ? 800 : (ani * div);
-	for (cnt = MENU_ICON_OFF; cnt < cntMax; cnt++)
-	{
-		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
-		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
-	}
-	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffff00 | icon_a);
-
-	//header mini icon
-	DrawTextureCenteredX(icon, MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffff00 | icon_a);
-
-	//header title string
-	SetFontColor(rgba | icon_a, 0x00000000);
-	SetCurrentFont(font_comfortaa_regular);
-	if (headerTitle)
-	{
-		SetFontSize(24, 24);
-		DrawString(MENU_ICON_OFF + 10, 31, headerTitle);
-	}
-
-	//header sub title string
-	if (headerSubTitle)
-	{
-		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
-		SetFontSize(20, 20);
-		char * tName = malloc(strlen(headerSubTitle) + 1);
-		strcpy(tName, headerSubTitle);
-		while (WidthFromStr((u8*)tName) > width)
-		{
-			tName[strlen(tName) - 1] = 0;
-		}
-		SetFontAlign(2);
-		DrawString(800, 35, tName);
-		free(tName);
-		SetFontAlign(0);
-	}
-}
-
-void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int mode)
-{
-	int c, w, h;
-
-	//Background
-	DrawBackgroundTexture(xOff, (u8)bgrgba);
-
-	//------------ Menu Bar
-	c = header_line_png_index;
-	int cnt = 0;
-	for (cnt = xOff + MENU_ICON_OFF; cnt < 800; cnt++)
-	{
-		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
-		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
-	}
-	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffffff);
-
-	//header mini icon
-	if (mode)
-		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 12, 40, 0, 32, 32, 0xffffffff);
-	else
-		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffffff);
-
-	//header title string
-	SetFontColor(rgba, 0x00000000);
-	SetCurrentFont(font_comfortaa_regular);
-	if (mode)
-	{
-		SetFontSize(20, 20);
-		if (headerTitle)
-			DrawString(xOff + MENU_ICON_OFF + 10, 35, headerTitle);
-	}
-	else
-	{
-		SetFontSize(24, 24);
-		if (headerTitle)
-			DrawString(xOff + MENU_ICON_OFF + 10, 31, headerTitle);
-	}
-
-	//header sub title string
-	if (headerSubTitle)
-	{
-		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
-		SetFontSize(20, 20);
-		char * tName = malloc(strlen(headerSubTitle) + 1);
-		strcpy(tName, headerSubTitle);
-		while (WidthFromStr((u8*)tName) > width)
-		{
-			tName[strlen(tName) - 1] = 0;
-		}
-		SetFontAlign(2);
-		DrawString(800, 35, tName);
-		free(tName);
-		SetFontAlign(0);
-	}
-}
-
-void DrawBackgroundTexture(int x, u8 alpha)
-{
-	if (x == 0)
-		DrawTexture(menu_textures[bgimg_png_index], x - marginHorizontal, -marginVertical, 0, 848 - x + (marginHorizontal * 2), 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
-	else
-		DrawTexture(menu_textures[bgimg_png_index], x, -marginVertical, 0, 848 - x + marginHorizontal, 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
-}
-
-void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-    tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-        tex.texture.height, tex.texture.pitch,  
-        TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-    DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCentered(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	x -= w / 2;
-	y -= h / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCenteredX(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	x -= w / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCenteredY(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	y -= h / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
 }
 
 int pad_time = 0, rest_time = 0, pad_held_time = 0, rest_held_time = 0;
@@ -1288,40 +906,40 @@ void LoadTexture()
         menu_textures = (png_texture *)malloc(sizeof(png_texture) * menu_size);
     
     //Init Main Menu textures
-	menu_textures[bgimg_png_index].buffer = (const void*)bgimg_png; menu_textures[bgimg_png_index].size = (u32)bgimg_png_size;
-	menu_textures[cheat_png_index].buffer = (const void*)cheat_png; menu_textures[cheat_png_index].size = (u32)cheat_png_size;
-	menu_textures[circle_error_dark_png_index].buffer = (const void*)circle_error_dark_png; menu_textures[circle_error_dark_png_index].size = (u32)circle_error_dark_png_size;
-	menu_textures[circle_error_light_png_index].buffer = (const void*)circle_error_light_png; menu_textures[circle_error_light_png_index].size = (u32)circle_error_light_png_size;
-	menu_textures[circle_loading_bg_png_index].buffer = (const void*)circle_loading_bg_png; menu_textures[circle_loading_bg_png_index].size = (u32)circle_loading_bg_png_size;
-	menu_textures[circle_loading_seek_png_index].buffer = (const void*)circle_loading_seek_png; menu_textures[circle_loading_seek_png_index].size = (u32)circle_loading_seek_png_size;
-	menu_textures[edit_ico_add_png_index].buffer = (const void*)edit_ico_add_png; menu_textures[edit_ico_add_png_index].size = (u32)edit_ico_add_png_size;
-	menu_textures[edit_ico_del_png_index].buffer = (const void*)edit_ico_del_png; menu_textures[edit_ico_del_png_index].size = (u32)edit_ico_del_png_size;
-	menu_textures[edit_shadow_png_index].buffer = (const void*)edit_shadow_png; menu_textures[edit_shadow_png_index].size = (u32)edit_shadow_png_size;
-	menu_textures[footer_ico_circle_png_index].buffer = (const void*)footer_ico_circle_png; menu_textures[footer_ico_circle_png_index].size = (u32)footer_ico_circle_png_size;
-	menu_textures[footer_ico_cross_png_index].buffer = (const void*)footer_ico_cross_png; menu_textures[footer_ico_cross_png_index].size = (u32)footer_ico_cross_png_size;
-	menu_textures[footer_ico_lt_png_index].buffer = (const void*)footer_ico_lt_png; menu_textures[footer_ico_lt_png_index].size = (u32)footer_ico_lt_png_size;
-	menu_textures[footer_ico_rt_png_index].buffer = (const void*)footer_ico_rt_png; menu_textures[footer_ico_rt_png_index].size = (u32)footer_ico_rt_png_size;
-	menu_textures[footer_ico_square_png_index].buffer = (const void*)footer_ico_square_png; menu_textures[footer_ico_square_png_index].size = (u32)footer_ico_square_png_size;
-	menu_textures[footer_ico_triangle_png_index].buffer = (const void*)footer_ico_triangle_png; menu_textures[footer_ico_triangle_png_index].size = (u32)footer_ico_triangle_png_size;
-	menu_textures[header_dot_png_index].buffer = (const void*)header_dot_png; menu_textures[header_dot_png_index].size = (u32)header_dot_png_size;
-	menu_textures[header_ico_abt_png_index].buffer = (const void*)header_ico_abt_png; menu_textures[header_ico_abt_png_index].size = (u32)header_ico_abt_png_size;
-	menu_textures[header_ico_cht_png_index].buffer = (const void*)header_ico_cht_png; menu_textures[header_ico_cht_png_index].size = (u32)header_ico_cht_png_size;
-	menu_textures[header_ico_opt_png_index].buffer = (const void*)header_ico_opt_png; menu_textures[header_ico_opt_png_index].size = (u32)header_ico_opt_png_size;
-	menu_textures[header_ico_xmb_png_index].buffer = (const void*)header_ico_xmb_png; menu_textures[header_ico_xmb_png_index].size = (u32)header_ico_xmb_png_size;
-	menu_textures[header_line_png_index].buffer = (const void*)header_line_png; menu_textures[header_line_png_index].size = (u32)header_line_png_size;
-	menu_textures[help_png_index].buffer = (const void*)help_png; menu_textures[help_png_index].size = (u32)help_png_size;
-	menu_textures[mark_arrow_png_index].buffer = (const void*)mark_arrow_png; menu_textures[mark_arrow_png_index].size = (u32)mark_arrow_png_size;
-	menu_textures[mark_line_png_index].buffer = (const void*)mark_line_png; menu_textures[mark_line_png_index].size = (u32)mark_line_png_size;
-	menu_textures[opt_off_png_index].buffer = (const void*)opt_off_png; menu_textures[opt_off_png_index].size = (u32)opt_off_png_size;
-	menu_textures[opt_on_png_index].buffer = (const void*)opt_on_png; menu_textures[opt_on_png_index].size = (u32)opt_on_png_size;
-	menu_textures[scroll_bg_png_index].buffer = (const void*)scroll_bg_png; menu_textures[scroll_bg_png_index].size = (u32)scroll_bg_png_size;
-	menu_textures[scroll_lock_png_index].buffer = (const void*)scroll_lock_png; menu_textures[scroll_lock_png_index].size = (u32)scroll_lock_png_size;
-	menu_textures[titlescr_ico_abt_png_index].buffer = (const void*)titlescr_ico_abt_png; menu_textures[titlescr_ico_abt_png_index].size = (u32)titlescr_ico_abt_png_size;
-	menu_textures[titlescr_ico_cht_png_index].buffer = (const void*)titlescr_ico_cht_png; menu_textures[titlescr_ico_cht_png_index].size = (u32)titlescr_ico_cht_png_size;
-	menu_textures[titlescr_ico_opt_png_index].buffer = (const void*)titlescr_ico_opt_png; menu_textures[titlescr_ico_opt_png_index].size = (u32)titlescr_ico_opt_png_size;
-	menu_textures[titlescr_ico_xmb_png_index].buffer = (const void*)titlescr_ico_xmb_png; menu_textures[titlescr_ico_xmb_png_index].size = (u32)titlescr_ico_xmb_png_size;
-	menu_textures[titlescr_ico_net_png_index].buffer = (const void*)titlescr_ico_net_png; menu_textures[titlescr_ico_net_png_index].size = (u32)titlescr_ico_net_png_size;
-	menu_textures[titlescr_logo_png_index].buffer = (const void*)titlescr_logo_png; menu_textures[titlescr_logo_png_index].size = (u32)titlescr_logo_png_size;
+    load_menu_texture(bgimg, png);
+    load_menu_texture(cheat, png);
+    load_menu_texture(circle_error_dark, png);
+    load_menu_texture(circle_error_light, png);
+    load_menu_texture(circle_loading_bg, png);
+    load_menu_texture(circle_loading_seek, png);
+    load_menu_texture(edit_ico_add, png);
+    load_menu_texture(edit_ico_del, png);
+    load_menu_texture(edit_shadow, png);
+    load_menu_texture(footer_ico_circle, png);
+    load_menu_texture(footer_ico_cross, png);
+    load_menu_texture(footer_ico_lt, png);
+    load_menu_texture(footer_ico_rt, png);
+    load_menu_texture(footer_ico_square, png);
+    load_menu_texture(footer_ico_triangle, png);
+    load_menu_texture(header_dot, png);
+    load_menu_texture(header_ico_abt, png);
+    load_menu_texture(header_ico_cht, png);
+    load_menu_texture(header_ico_opt, png);
+    load_menu_texture(header_ico_xmb, png);
+    load_menu_texture(header_line, png);
+    load_menu_texture(help, png);
+    load_menu_texture(mark_arrow, png);
+    load_menu_texture(mark_line, png);
+    load_menu_texture(opt_off, png);
+    load_menu_texture(opt_on, png);
+    load_menu_texture(scroll_bg, png);
+    load_menu_texture(scroll_lock, png);
+    load_menu_texture(titlescr_ico_abt, png);
+    load_menu_texture(titlescr_ico_cht, png);
+    load_menu_texture(titlescr_ico_opt, png);
+    load_menu_texture(titlescr_ico_xmb, png);
+    load_menu_texture(titlescr_ico_net, png);
+    load_menu_texture(titlescr_logo, png);
 }
 
 void LoadTextures_Menu()
@@ -1388,7 +1006,7 @@ void LoadSounds()
     //printf("Decoding Effect\n");
 
     // decode the mp3 effect file included to memory. It stops by EOF or when samples exceed size_effects_samples
-    DecodeAudio( (void *) background_music_mp3_bin, background_music_mp3_bin_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
+    DecodeAudio( (void *) background_music_mp3, background_music_mp3_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
 
     // adjust the sound buffer sample correctly to the background_music_size
     {
@@ -1452,12 +1070,12 @@ void update_callback(int index, int sel)
 {
     if (sel)
     {
-		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_CACHE "tmp.zip", 1))
+		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_LOCAL_CACHE "tmp.zip", 1))
 		{
-			if (extract_zip(ONLINE_CACHE "tmp.zip", USERLIST_PATH_HDD))
+			if (extract_zip(ONLINE_LOCAL_CACHE "tmp.zip", USERLIST_PATH_HDD))
 				show_dialog(0, "Successfully updated local cheat database");
 
-			unlink_secure(ONLINE_CACHE "tmp.zip");
+			unlink_secure(ONLINE_LOCAL_CACHE "tmp.zip");
 		}
 		menu_options_selections[index] = 0;
     }
@@ -1591,7 +1209,7 @@ void SetMenu(int id)
     menu_sel = menu_old_sel[menu_id];
 }
 
-void skip_backward(int game_count, int steps)
+void move_selection_back(int game_count, int steps)
 {
     menu_sel -= steps;
 	if ((menu_sel == -1) && (steps == 1))
@@ -1600,7 +1218,7 @@ void skip_backward(int game_count, int steps)
 		menu_sel = 0;
 }
 
-void skip_forward(int game_count, int steps)
+void move_selection_fwd(int game_count, int steps)
 {
 	menu_sel += steps;
 	if ((menu_sel == game_count) && (steps == 1))
@@ -1626,17 +1244,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_LEFT)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = 4;
+					move_selection_back(5, 1);
                 }
                 else if(paddata[0].BTN_RIGHT)
                 {
-                    if (menu_sel < 4)
-                        menu_sel++;
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(5, 1);
                 }
                 else if (paddata[0].BTN_CROSS)
                 {
@@ -1755,27 +1367,27 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-					skip_backward(user_game_count, 1);
+					move_selection_back(user_game_count, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-					skip_forward(user_game_count, 1);
+					move_selection_fwd(user_game_count, 1);
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-					skip_backward(user_game_count, 5);
+					move_selection_back(user_game_count, 5);
                 }
                 else if (paddata[0].BTN_L1)
                 {
-					skip_backward(user_game_count, 25);
+					move_selection_back(user_game_count, 25);
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
-					skip_forward(user_game_count, 5);
+					move_selection_fwd(user_game_count, 5);
                 }
                 else if (paddata[0].BTN_R1)
                 {
-					skip_forward(user_game_count, 25);
+					move_selection_fwd(user_game_count, 25);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1811,27 +1423,27 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-					skip_backward(online_game_count, 1);
+					move_selection_back(online_game_count, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-					skip_forward(online_game_count, 1);
+					move_selection_fwd(online_game_count, 1);
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-					skip_backward(online_game_count, 5);
+					move_selection_back(online_game_count, 5);
                 }
                 else if (paddata[0].BTN_L1)
                 {
-					skip_backward(online_game_count, 25);
+					move_selection_back(online_game_count, 25);
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
-					skip_forward(online_game_count, 5);
+					move_selection_fwd(online_game_count, 5);
                 }
                 else if (paddata[0].BTN_R1)
                 {
-					skip_forward(online_game_count, 25);
+					move_selection_fwd(online_game_count, 25);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1881,17 +1493,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = menu_options_maxopt - 1;
+					move_selection_back(menu_options_maxopt, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (menu_options_maxopt - 1))
-                        menu_sel++;
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(menu_options_maxopt, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1945,31 +1551,19 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = selected_entry.code_count - 1;
+					move_selection_back(selected_entry.code_count, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (selected_entry.code_count-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(selected_entry.code_count, 1);
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-                    menu_sel -= 5;
-                    if (menu_sel < 0)
-                        menu_sel = 0;
+					move_selection_back(selected_entry.code_count, 5);
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
-                    menu_sel += 5;
-                    if (menu_sel >= selected_entry.code_count)
-                        menu_sel = selected_entry.code_count - 1;
+					move_selection_fwd(selected_entry.code_count, 5);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -2032,19 +1626,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = max - 1;
+					move_selection_back(max, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (max-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(max, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -2065,19 +1651,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = max - 1;
+					move_selection_back(max, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (max-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(max, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -2169,10 +1747,8 @@ s32 main(s32 argc, const char* argv[])
         menu_options_maxopt++;
     
     int selSize = menu_options_maxopt * sizeof(int);
-    menu_options_maxsel = (int *)malloc(selSize);
-    menu_options_selections = (int *)malloc(selSize);
-    memset(menu_options_maxsel, 0, selSize);
-    memset(menu_options_selections, 0, selSize);
+    menu_options_maxsel = (int *)calloc(1, selSize);
+    menu_options_selections = (int *)calloc(1, selSize);
     
     int i = 0;
     for (i = 0; i < menu_options_maxopt; i++)
@@ -2212,9 +1788,6 @@ s32 main(s32 argc, const char* argv[])
     
     while (1)
     {       
-
-		
-
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
         // Enable alpha Test
@@ -2226,16 +1799,6 @@ s32 main(s32 argc, const char* argv[])
             TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
                     
         // Check the pads.
-        ioPadGetInfo(&padinfo);
-        if(padinfo.status[0]){
-            ioPadGetData(0, &padA[0]);
-
-            if(padA[0].BTN_R3 && padA[0].BTN_L3)
-            {
-                return 0;
-            }
-        }
-        
         if (close_art)
             return 0;
         

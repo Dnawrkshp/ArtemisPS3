@@ -64,8 +64,18 @@ static special_char special_chars[MAX_SPECIAL_CHARS];
 static int special_char_index = 0;
 
 
-special_char GetSpecialCharFromValue(char value);
+special_char GetSpecialCharFromValue(char value)
+{
+	int x;
+	special_char ret = {.value = 0};
 
+	for (x = 0; x < special_char_index; x++)
+	{
+		if (special_chars[x].value == value)
+			return special_chars[x];
+	}
+	return ret;
+}
 
 void ResetFont()
 {
@@ -317,8 +327,6 @@ void SetExtraSpace(int space)
 
 void RegisterSpecialCharacter(char value, short fw, short fy, float sx, float sy, png_texture image)
 {
-	int x;
-
 	special_char chr;
 	chr.value = value;
 	chr.fw = fw;
@@ -341,31 +349,13 @@ void RegisterSpecialCharacter(char value, short fw, short fy, float sx, float sy
 	if (GetSpecialCharFromValue(chr.value).value == chr.value)
 		return;
 
-	for (x = 0; x < special_char_index; x++)
-	{
-		if (&special_chars[x] && special_chars[x].value == chr.value)
-			return;
-	}
-
 	// Verify room in array
 	if ((special_char_index + 1) < MAX_SPECIAL_CHARS)
 	{
 		special_chars[special_char_index] = chr;
 		special_char_index++;
 	}
-}
 
-special_char GetSpecialCharFromValue(char value)
-{
-	int x;
-
-	special_char ret;
-	for (x = 0; x < special_char_index; x++)
-	{
-		if (&special_chars[x] && special_chars[x].value == value)
-			return special_chars[x];
-	}
-	return ret;
 }
 
 int WidthFromStr(u8 * str)
@@ -378,7 +368,7 @@ int WidthFromStr(u8 * str)
 			w += ((font_datas.sx * schr.sx) + font_datas.extra) * schr.fw / (float)font_datas.fonts[font_datas.current_font].w;
 		else
 			w += (font_datas.sx + font_datas.extra) * font_datas.fonts[font_datas.current_font].fw[*str] / (float)font_datas.fonts[font_datas.current_font].w;
-		*str++;
+		str++;
     }
 
     return w;
@@ -390,6 +380,7 @@ int WidthFromStrMono(u8 * str)
 
     while(*str) {
 		w += (font_datas.sx * font_datas.mono) / font_datas.fonts[font_datas.current_font].w;
+		str++;
     }
 
     return w;
@@ -397,7 +388,7 @@ int WidthFromStrMono(u8 * str)
 
 void DrawCharSpecial(float x, float y, float z, special_char schr)
 {
-	float w = (float)font_datas.fonts[font_datas.current_font].w, h = (float)font_datas.fonts[font_datas.current_font].h;
+	float h = (float)font_datas.fonts[font_datas.current_font].h;
 	float dx = font_datas.sx * schr.sx, dy = font_datas.sy * schr.sy;
 
 	y += (float)((schr.fy * font_datas.sy) / h) / schr.sy;
@@ -428,7 +419,7 @@ void DrawCharSpecial(float x, float y, float z, special_char schr)
 void DrawCharMono(float x, float y, float z, u8 chr)
 {
 	special_char schr = GetSpecialCharFromValue(chr);
-	if (schr.value == chr && chr != 0)
+	if (schr.value != 0)
 	{
 		DrawCharSpecial(x, y, z, schr);
 		return;
@@ -489,7 +480,7 @@ void DrawCharMono(float x, float y, float z, u8 chr)
 void DrawChar(float x, float y, float z, u8 chr)
 {
 	special_char schr = GetSpecialCharFromValue(chr);
-	if (schr.value == chr && chr != 0)
+	if (schr.value != 0)
 	{
 		DrawCharSpecial(x, y, z, schr);
 		return;
@@ -528,8 +519,6 @@ void DrawChar(float x, float y, float z, u8 chr)
 		font_datas.fonts[font_datas.current_font].h, font_datas.fonts[font_datas.current_font].w *
 		((font_datas.fonts[font_datas.current_font].color_format == TINY3D_TEX_FORMAT_A8R8G8B8) ? 4 : 2),
 		font_datas.fonts[font_datas.current_font].color_format, 1);
-
-
 
 	tiny3d_SetPolygon(TINY3D_QUADS);
 
@@ -716,5 +705,3 @@ float DrawFormatString(float x, float y, char *format, ...)
 
     return x;
 }
-
-
