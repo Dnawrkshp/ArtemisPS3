@@ -457,7 +457,7 @@ void LoadOptions()
                 char tName[strlen(menu_options_options[i].name) + 1];
                 if (strcmp(ParseOptionName(menu_options_options[i].name, (char *)tName), name) == 0)
                 {
-                    printf ("LoadOptions() :: %s = %d\n", name, val);
+                    LOG("LoadOptions() :: %s = %d\n", name, val);
                     menu_options_selections[i] = val;
                     break;
                 }
@@ -1209,6 +1209,38 @@ void SetMenu(int id)
     menu_sel = menu_old_sel[menu_id];
 }
 
+void move_letter_back(struct game_entry * games, int game_count)
+{
+	int i;
+	char ch = games[menu_sel].name[0];
+
+	if ((ch > '\x29') && (ch < '\x40'))
+	{
+		menu_sel = 0;
+		return;
+	}
+
+	for (i = menu_sel; (i > 0) && (ch == games[i].name[0]); i--) {}
+
+	menu_sel = i;
+}
+
+void move_letter_fwd(struct game_entry * games, int game_count)
+{
+	int i;
+	char ch = games[menu_sel].name[0];
+
+	if (ch == 'Z')
+	{
+		menu_sel = game_count - 1;
+		return;
+	}
+	
+	for (i = menu_sel; (i < game_count - 2) && (ch == games[i].name[0]); i++) {}
+
+	menu_sel = i;
+}
+
 void move_selection_back(int game_count, int steps)
 {
     menu_sel -= steps;
@@ -1381,6 +1413,10 @@ void drawScene()
                 {
 					move_selection_back(user_game_count, 25);
                 }
+                else if (paddata[0].BTN_L2)
+                {
+					move_letter_back(user_game_list, user_game_count);
+                }
                 else if (paddata[0].BTN_RIGHT)
                 {
 					move_selection_fwd(user_game_count, 5);
@@ -1388,6 +1424,10 @@ void drawScene()
                 else if (paddata[0].BTN_R1)
                 {
 					move_selection_fwd(user_game_count, 25);
+                }
+                else if (paddata[0].BTN_R2)
+                {
+					move_letter_fwd(user_game_list, user_game_count);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1437,6 +1477,10 @@ void drawScene()
                 {
 					move_selection_back(online_game_count, 25);
                 }
+                else if (paddata[0].BTN_L2)
+                {
+					move_letter_back(online_game_list, online_game_count);
+                }
                 else if (paddata[0].BTN_RIGHT)
                 {
 					move_selection_fwd(online_game_count, 5);
@@ -1444,6 +1488,10 @@ void drawScene()
                 else if (paddata[0].BTN_R1)
                 {
 					move_selection_fwd(online_game_count, 25);
+                }
+                else if (paddata[0].BTN_R2)
+                {
+					move_letter_fwd(online_game_list, online_game_count);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
