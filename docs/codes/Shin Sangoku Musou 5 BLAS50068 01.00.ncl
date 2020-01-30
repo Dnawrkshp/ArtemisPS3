@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors 6
-
+*/
 #
 Limited Time Max
 0

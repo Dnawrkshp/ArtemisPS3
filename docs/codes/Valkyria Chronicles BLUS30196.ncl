@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Senjou No Valkyria
-
+*/
 #
 AoB Max Exp On Use (go back in and out of training camp)
 0

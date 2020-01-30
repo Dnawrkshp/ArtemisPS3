@@ -27,12 +27,12 @@ jgduff1
 0 000C6244 60000000
 0 000C6254 60000000
 #
-Memory Instantly Full + Infinite Musu
+Memory Instantly Full + Infinite Musou
 0
 jgduff1
 0 00EB1E58 03030000
 #
-ASM Instantly Full + Infinite Musu
+ASM Instantly Full + Infinite Musou
 0
 jgduff1
 0 000C3A98 98830008

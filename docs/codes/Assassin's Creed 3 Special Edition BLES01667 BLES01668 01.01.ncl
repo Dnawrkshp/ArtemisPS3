@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\scimitar_final.self
+*/
+#
 Money 999999999 After Pickup + Steal
 0
 vosman

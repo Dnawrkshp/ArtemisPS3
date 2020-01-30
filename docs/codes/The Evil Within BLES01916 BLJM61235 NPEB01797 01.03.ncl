@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Psycho Break
-
+*/
 #
 God Mode
 0

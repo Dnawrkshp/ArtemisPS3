@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Shirokishi Monogatari Inishie No Kodou
-
+*/
 #
 HP + MP Recover When Drawing Weapon
 0
@@ -8,12 +11,12 @@ hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
 0 00512424 8009005C
 0 00512428 2F800001
 #
-Gain Or Loss Items To Get 255
+Gain Or Lose Items To Get 255
 0
 hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
 0 003BDDB8 380000FF
 #
-AC Max When Attacking Enemies
+AC Max When Attacking Enemies (Not Combo)
 0
 hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
 0 00519A40 3C0042C8
@@ -30,11 +33,11 @@ Max Gold On Gain Or Loss
 xilium
 0 003CC66C 48000008
 #
-AoB Max Gold On Gain Or Loss
+AoB HP + MP Recover When Drawing Weapon
 0
-xilium
+hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
 B 00010000 04000000
-B 7F805800409D000891630080 48000008409D000891630080
+B C009005CFF80E800 8009005C2F800001
 #
 AoB Max Item After Second Item (Storage)
 0
@@ -48,17 +51,11 @@ hyper2k
 B 00010000 04000000
 B 801B02F87C004A14901B02F8 3C0005F56000E0FF901B02F8
 #
-AoB HP And MP Recovery After Withdrawing Weapon
+AoB Gain Or Lose Items To Get 255
 0
 hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
 B 00010000 04000000
-B C009005CFF80E800 8009005C2F800001
-#
-AoB Gain Or Loss Items To Get 255
-0
-hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50
-B 00010000 04000000
-B 880B00007C1C0050 880B0000380000ff 
+B 880B00007C1C0050 880B0000380000FF
 #
 AoB AC Max When Attacking Enemies (Not Combo)
 0
@@ -73,6 +70,12 @@ B 00010000 04000000
 B 2B800004409D000838000004 2B8000046000000038000004
 B 00010000 04000000
 B 5400043E7F9D0040409D00087C1D0378 5400043E7F9D0040600000007C1D0378
+#
+AoB Max Gold On Gain Or Loss
+0
+xilium
+B 00010000 04000000
+B 7F805800409D000891630080 48000008409D000891630080
 #
 AoB 1 Kill Max Exp
 0

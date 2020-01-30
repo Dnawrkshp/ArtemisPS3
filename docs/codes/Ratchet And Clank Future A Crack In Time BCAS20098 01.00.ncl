@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ratchet & Clank Future 2
-
+*/
 #
 Max Money
 0

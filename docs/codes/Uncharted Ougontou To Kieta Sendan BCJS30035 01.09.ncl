@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Uncharted 2 Among Thieves
-
+*/
 #
 Max Money
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ni No Kuni Wrath Of The White Witch
-
+*/
 #
 Level Up on Every Battle
 0

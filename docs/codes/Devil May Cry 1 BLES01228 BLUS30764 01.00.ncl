@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+DMC1.PPU.SELF
+*/
+#
 Max + Infinite Red Orbs
 0
 Medo
@@ -12,6 +21,16 @@ Max Blue Orbs
 0
 Medo
 0 01D50BA8 00000004
+#
+Memory Infinite Health
+0
+jgduff1
+0 01D67524 000006A4
+#
+ASM Infinite Health
+0
+jgduff1
+0 00038410 60000000
 #
 AoB Max + Infinite Red Orbs
 0

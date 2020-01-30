@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Warriors Orochi 3
-
+*/
 #
 1 Hit Kill Enemy
 0

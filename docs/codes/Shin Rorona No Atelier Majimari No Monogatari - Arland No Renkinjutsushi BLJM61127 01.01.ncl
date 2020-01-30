@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Atelier Rorona Plus The Alchemist Of Arland
-
+*/
 #
 Infinite Money
 0

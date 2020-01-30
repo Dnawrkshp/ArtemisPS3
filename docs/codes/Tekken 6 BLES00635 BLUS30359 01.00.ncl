@@ -19,6 +19,11 @@ Hit Anywhere [01.03]
 xtatu
 0 001C27D8 419E0228
 #
+Max Money After Battle
+0
+Skiller
+0 004654EC 7CC03378
+#
 AoB Max Money After Battle
 0
 Skiller

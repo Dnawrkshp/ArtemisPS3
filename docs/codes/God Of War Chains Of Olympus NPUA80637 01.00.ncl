@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 God Of War Rakujitsu No Hisoukyoku
-
+*/
 #
 Max Orbs
 0
@@ -11,8 +14,8 @@ Hiei-YYH
 /*
 Please activate cheat
 only after the 1st saving.
-Deactive cheat to ensure
-some scenes are occuring.
+Deactivate cheat to ensure
+some scenes are occurring.
 */
 #
 Infinite HP
@@ -25,8 +28,8 @@ Hiei-YYH
 /*
 Please activate cheat
 only after the 1st saving.
-Deactive cheat to ensure
-some scenes are occuring.
+Deactivate cheat to ensure
+some scenes are occurring.
 */
 #
 Infinite MP
@@ -38,7 +41,7 @@ Hiei-YYH
 /*
 Please activate cheat
 only after the 1st saving.
-Deactive cheat to ensure
-some scenes are occuring.
+Deactivate cheat to ensure
+some scenes are occurring.
 */
 #

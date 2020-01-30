@@ -25,13 +25,73 @@ Max Spd (999)
 xilium
 0 001E9394 409D0120
 #
-Max All Stats
+Max Strength
 0
 xilium
 0 001E933C 3BE02710
+#
+Max Magic
+0
+xilium
 0 001E9340 3BA02710
+#
+Max Defense
+0
+xilium
 0 001E9344 3B802710
+#
+Max Speed
+0
+xilium
 0 001E9348 3BC02710
+#
+Max Strength
+0
+Skiller
+0 001E9ACC 3BE02710
+/*
+It is likely for a
+different version of the
+game, and the address is
+possibly +0x10000 higher
+than it should be.
+*/
+#
+Max Magic
+0
+Skiller
+0 001E9AD0 3BA02710
+/*
+It is likely for a
+different version of the
+game, and the address is
+possibly +0x10000 higher
+than it should be.
+*/
+#
+Max Defense
+0
+Skiller
+0 001E9AD4 3B802710
+/*
+It is likely for a
+different version of the
+game, and the address is
+possibly +0x10000 higher
+than it should be.
+*/
+#
+Max Speed
+0
+Skiller
+0 001E9AD8 3BC02710
+/*
+It is likely for a
+different version of the
+game, and the address is
+possibly +0x10000 higher
+than it should be.
+*/
 #
 Quick LV Up Change Equip Before Battle Always
 0
@@ -113,4 +173,16 @@ AoB Max Class + Money On Money Gain
 Skiller
 B 00010000 04000000
 B 800B00087C6302147F8348002F030000906B0008409D0010 38600006906B0000906B00042F030000906B0008409C0010
+#
+AoB All 4 Stat Codes At The Same Time
+0
+xillium
+B 00010000 04000000
+B 419D018057A0043E2B8003E7419D015C 409DFE804BFFFFD47D29521480090240
+B 00010000 04000000
+B 409DFEA44BFFFFD4380003E7B0040014 409DFEC84BFFFFE0380003E7B0040016
+B 00010000 04000000
+B 4800018057A0043E2B8003E7419D015C 4BFFFFD84BFFFFD47D29521480090240
+B 00010000 04000000
+B 4BFFFFD84BFFFFD4380003E7B0040014 4BFFFFE44BFFFFE0380003E7B0040016
 #

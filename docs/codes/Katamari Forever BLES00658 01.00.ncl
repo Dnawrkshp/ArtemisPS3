@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Katamari Damacy Tribute
-
+*/
 #
 Picked Up Objects Weight Multiplier
 0

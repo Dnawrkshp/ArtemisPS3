@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Senjou No Valkyria
-
+*/
 #
 Exp 99,999,999
 0

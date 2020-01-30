@@ -159,6 +159,11 @@ GuitarMan
 0 00CF27CC 4803E8D6
 0 0003E8D0 48CF27C2
 #
+Unlock All Items
+0
+GuitarMan
+0 00128AF4 60000000
+#
 50 Scarabs
 0
 GuitarMan

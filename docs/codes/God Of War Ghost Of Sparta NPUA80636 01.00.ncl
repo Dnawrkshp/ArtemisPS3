@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 God Of War Koutan No Kokuin
-
+*/
 #
 Unlock God (Very Hard) Costume + Treasures
 0

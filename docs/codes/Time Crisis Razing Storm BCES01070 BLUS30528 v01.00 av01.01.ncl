@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Big 3 Gun Shooting
+*/
+#
 File Info
 0
 Eboot.Elf

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Persona 4 Ultimate In Mayonaka Arena
-
+*/
 #
 Infinite Health + 1 Hit Kill
 0

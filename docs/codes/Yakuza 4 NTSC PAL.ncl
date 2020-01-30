@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ryu Ga Gotoku 4 Densetsu O Tsugumono
-
+*/
 #
 AoB Max Infinite Money Use Or Gain (Uses Trophy Walking Bank (Bronze) Obtain 10,000,000 yen)
 0

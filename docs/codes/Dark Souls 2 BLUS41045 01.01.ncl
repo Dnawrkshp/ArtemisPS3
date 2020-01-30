@@ -1,20 +1,24 @@
-Max Items on Gain
+Max Items On Gain
 0
 Medo
 0 00530724 48000008
 0 0053072C 38000063
 #
-Max Items on Use + Discard + Deposit
+Max Items On Use + Discard + Deposit
 0
 Medo
 0 0053A7F8 38000063
+/*
+Do not use with Items
+Never Decrease.
+*/
 #
-Max Souls
+Max Souls On Gain
 0
 Medo
 0 008669D8 419D0104
 #
-Max Souls on Buy
+Max Souls On Buy
 0
 Medo
 0 00866054 7D405378
@@ -31,10 +35,15 @@ Medo
 0 01C1AAAC 484BB6DB
 0 004BB6D4 49C1AA97
 #
-Status Immunity (Petrification etc.)
+Status Immunity
 0
 Medo
 0 004878F4 60000000
+/*
+It is for things like
+preventing you from being
+pretrified.
+*/
 #
 Infinite Stamina
 0
@@ -67,11 +76,16 @@ Souls Do Not Disappear After Death
 dron_3
 0 00665094 60000000
 #
-Items Never Decrease (You can not use it with Max Items)
+Items Never Decrease
 0
 games24
 0 0053A7D0 60000000
 0 0053A7F8 60000000
+/*
+Do not use with Max Items
+On Use + Discard +
+Deposit.
+*/
 #
 Infinite Buff Time
 0
@@ -87,6 +101,11 @@ Medo
 0 01C1AAB8 91F800FC
 0 01C1AABC 4E800020 
 0 00A315FC 49C1AB03
+/*
+Do no use with
+Target(Lock-on) Enemy for
+1 Hit Kill.
+*/
 #
 Target(Lock-on) Enemy for 1 Hit Kill
 0
@@ -96,6 +115,11 @@ Medo
 0 01C1AAB8 91F800FC
 0 01C1AABC 4E800020
 0 00A315FC 49C1AB03
+/*
+Do not use with
+Target(Lock-on) Enemy to
+Kill It.
+*/
 #
 Jump Height Modifier
 0

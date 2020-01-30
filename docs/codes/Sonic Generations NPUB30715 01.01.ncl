@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Sonic Generations Shiro No Jikuu
-
+*/
 #
 Free Super Sonic
 0

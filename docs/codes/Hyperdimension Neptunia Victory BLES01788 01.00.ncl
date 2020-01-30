@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Kami Jigen Game Neptune V
-
+*/
 #
 Damager 999,999,999
 xtatu

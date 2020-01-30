@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ryu Ga Gotoku 4 Densetsu O Tsugumono
-
+*/
 #
 Money
 0

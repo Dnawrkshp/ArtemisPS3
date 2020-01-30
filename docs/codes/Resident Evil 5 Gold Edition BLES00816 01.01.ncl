@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Biohazard 5 Alternative Edition
-
+*/
 #
 Max Money
 0

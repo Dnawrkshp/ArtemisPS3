@@ -38,17 +38,17 @@ Infinite Movement
 games24.blog.fc2.com/blog-entry-189.html
 0 0009C250 60840000
 #
-MAX-vis Increases
+Max Energy
 0
 games24.blog.fc2.com/blog-entry-189.html
 0 0009F9A0 60000000
 #
-Not Increase The Number Of Turns
+Turns Do Not Increase
 0
 games24.blog.fc2.com/blog-entry-189.html
 0 00064F08 60000000
 #
-Not Increase The Total Number Of Turns
+Total Turns Do Not Decrease
 0
 games24.blog.fc2.com/blog-entry-189.html
 0 00064F64 60000000
@@ -131,19 +131,19 @@ games24.blog.fc2.com/blog-entry-189.html
 B 00010000 04000000
 B 608401009083019C4E80002060640000 608400009083019C4E80002060640000
 #
-AoB MAX-vis Increases
+AoB Max Energy
 0
 games24.blog.fc2.com/blog-entry-189.html
 B 00010000 04000000
 B 4081000863DC000063850000B0BF01D8 6000000063DC000063850000B0BF01D8
 #
-AoB Not Increase The Number Of Turns
+AoB Turns Do Not Increase
 0
 games24.blog.fc2.com/blog-entry-189.html
 B 00010000 04000000
 B 30A5000154A6043E2C060063FBC100B0 6000000054A6043E2C060063FBC100B0
 #
-AoB Not Increase The Total Number Of Turns
+AoB Total Turns Do Not Increase
 0
 games24.blog.fc2.com/blog-entry-189.html
 B 00010000 04000000

@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Agarest Generations Of War Zero
 Agarest Senki Zero
-
+*/
 #
 SP 500
 0

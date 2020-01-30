@@ -1,20 +1,23 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Hyperdimension Neptunia mk2
-
+*/
 #
 Max Gold on Gain
 0
-Medo
+Fullcodes
 0 001C6744 4800000C
 #
 Max EXP on Gain
 0
-Medo
+Fullcodes
 0 001BF430 939C0028
 #
 Max Status On Level Up
 0
-Medo
+Fullcodes
 0 001BF5C8 3B40270F
 0 001BF5FC 3B4000C8
 0 001BF630 3B40012C

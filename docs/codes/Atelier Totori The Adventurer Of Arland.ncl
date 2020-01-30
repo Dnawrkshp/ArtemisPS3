@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Totori No Atelier Arland No Renkinjutsushi
-
+*/
 #
 999 HP
 0

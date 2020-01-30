@@ -28,9 +28,9 @@ Freeze Gold Amount but Each New Item will be Maxed on Drop/get if used together 
 JorgeFFC
 0 00295730 60000000
 #
-Max Money on Change (Buy/Sell)
+Max Money On Change (Buy/Sell)
 0
-JorgeFFC
+Hiei-YYH
 0 00295730 618CE0FF
 0 00295734 918A2A88
 0 0029573C 4BFFFFBC
@@ -933,6 +933,12 @@ Rami Total EXP
 0
 JorgeFFC
 0 3217E448 3B9AC9FF
+#
+AoB Max Money On Change (Buy/Sell)
+0
+Hiei-YYH
+B 00010000 04000000
+B 906A2A88618AE0FF7F8A1840409CFFBC 618CE0FF918A2A887F8A18404BFFFFBC
 #
 AoB Infinite SP
 0

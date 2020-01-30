@@ -10,10 +10,15 @@ CodeFreak/PS3UserCheat
 6 3076C36C 00000008
 0 00000000 05F5E0FF
 #
-Infinite Skill Point
+Infinite Skill Points
 0
 CodeFreak/PS3UserCheat
 6 3076BEF4 0000001C
 6 00000000 00000008
 0 00000000 05F5E0FF
+#
+ASM Unknown Code 1
+0
+jgduff1
+0 00028D68 60000000
 #

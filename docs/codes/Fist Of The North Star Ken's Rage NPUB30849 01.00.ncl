@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Hokuto Musou
 Hokuto Musou International
-
+*/
 #
 AoB Quick Health Recover
 0

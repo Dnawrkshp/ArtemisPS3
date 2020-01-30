@@ -36,4 +36,10 @@ AoB Dev Menu
 dron_3 + HdHereidme
 B 00010000 04000000
 B 2F800000419E00A4839E8078 38000001980B2163839E8078
+/*
+L3 + Start = Dev Menu
+L3 + Select = Quick Menu
+L3 + Triangle = Debug Text
+L2 + R2 = Debug Fly
+*/
 #

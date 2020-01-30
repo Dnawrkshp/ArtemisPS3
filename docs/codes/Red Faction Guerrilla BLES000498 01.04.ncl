@@ -3,7 +3,7 @@ Infinite Ammo + No Reload
 DANNY G
 0 0051FB24 60000000
 #
-Max Salvage on Gain
+Max Salvage On Gain
 0
 dron_3
 0 006D04F0 48000020
@@ -31,7 +31,7 @@ DANNY G
 B 00010000 04000000
 B 3929FFFF913F0204 3929FFFF60000000
 #
-AoB Max Salvage on Gain
+AoB Max Salvage On Gain
 0
 dron_3
 B 00010000 04000000

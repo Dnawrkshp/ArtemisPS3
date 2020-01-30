@@ -1,5 +1,11 @@
-These may be for 2 different versions of the game
-
+File Info
+0
+bungholio
+/*
+These may be for 2
+different versions of the
+game.
+*/
 #
 Infinite Bullets
 0

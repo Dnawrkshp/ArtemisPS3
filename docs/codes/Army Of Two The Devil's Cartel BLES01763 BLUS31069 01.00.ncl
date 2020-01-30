@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Army Of Two Le Cartel Du Diable
+*/
+#
 Infinite Ammo + Grenades
 0
 dron_3

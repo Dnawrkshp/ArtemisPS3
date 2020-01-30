@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors 7
-
+*/
 #
 Gold 999999
 0

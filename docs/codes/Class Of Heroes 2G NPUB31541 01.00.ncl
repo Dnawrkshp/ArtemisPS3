@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ken To Mahou To Gakuen Mono. 2G
-
+*/
 #
 All Max XP
 0

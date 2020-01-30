@@ -1,3 +1,14 @@
+File Info
+0
+bungholio
+/*
+These do no match
+BLUS30439 v01.00 av01.02,
+so these might be for a
+different version than in
+the title.
+*/
+#
 Infinite Health
 0
 xtatu
@@ -10,7 +21,7 @@ xtatu
 0 00128200 60000000
 0 0035B5A4 D1A300F4
 #
-Enemy Kill Max
+Max Zombie Kills
 0
 Skiller
 0 00177B0C 90090038
@@ -21,7 +32,7 @@ Skiller
 0 00177B20 81290038
 0 00177B24 60000000
 #
-AoB Enemy Kill Max
+AoB Max Zombie Kills
 0
 Skiller
 B 00010000 04000000

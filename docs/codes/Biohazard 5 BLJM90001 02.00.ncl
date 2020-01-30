@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Resident Evil 5
-
+*/
 #
 Money 9999999
 0

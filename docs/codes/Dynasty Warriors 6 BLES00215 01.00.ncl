@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Shin Sangoku Musou 5
+*/
+#
 Instant Max + Infinite Musou (Hold O)
 0
 jgduff1

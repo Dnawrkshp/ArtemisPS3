@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Meikyuu Touro Legasista
-
+*/
 #
 Infinite Equips Durability (Invincibility)
 0

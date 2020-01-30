@@ -65,7 +65,7 @@ Disable it when fighting
 legendary ships or they
 will be invincible.
 */
-?#
+#
 Max + Infinite Health For Allies V1
 0
 FBML
@@ -77,7 +77,7 @@ the harpooning and stalker
 presence at sequence 3
 memory 2.
 */
-?#
+#
 Max + Infinite Health For Allies V2
 0
 FBML
@@ -151,7 +151,7 @@ AoB Infinite Puckele Gun For PLayer Ship
 FBML
 B 00010000 04000000
 B 409E00084BFF80A9813D000C382100908129000893E9003C 813D000C382100908129000883E9003C93E9003C60000000
-?#
+#
 AoB Player Ship Is Never Wanted
 0
 FBML
@@ -182,7 +182,7 @@ Disable it when fighting
 legendary ships or they
 will be invincible.
 */
-?#
+#
 AoB Max + Infinite Health For Allies V1
 0
 FBML
@@ -194,7 +194,7 @@ the harpooning and stalker
 presence at sequence 3
 memory 2.
 */
-?#
+#
 AoB Max + Infinite Health For Allies V2
 0
 FBML

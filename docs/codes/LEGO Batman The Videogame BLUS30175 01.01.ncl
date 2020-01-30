@@ -1,3 +1,13 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+LEGO Batman Das Videospiel
+LEGO Batman El Videojuego
+LEGO Batman Il Videogioco
+LEGO Batman Le Jeu Video
+*/
+#
 Infinite Health
 0
 CodeFreak/PS3UserCheat

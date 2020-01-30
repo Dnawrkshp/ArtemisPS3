@@ -284,3 +284,31 @@ Medo
 0 3051E12C 270F270F
 0 3051E130 012C012C
 #
+AoB Unlimited Skill Points (Have at least 1)
+0
+hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50, kaede132
+B 00010000 04000000
+B 2B800004409D000838000004 2B8000046000000038000004
+B 00010000 04000000
+B 7F9D0040409D00087C1D0378 7F9D0040600000007C1D0378
+B 00010000 04000000
+B 7F9D0040409D00087C1D0378 7F9D0040600000007C1D0378
+#
+AoB Gain + Loss of item gets 255 (Discard only from Storage & Quest I)
+0
+hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50, kaede132
+B 00010000 04000000
+B 880B00007C1C0050 880B0000380000FF
+#
+AoB HP + MP Recovery when drawing weapon
+0
+hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50, kaede132
+B 00010000 04000000
+B C009005CFF80E800 8009005C2F800001
+#
+AoB Normal Attacks Restore AC
+0
+hnop.blog11.fc2.com, yuzuru.2ch.net/test/read.cgi/gameurawaza/1296550258/l50, kaede132
+B 00010000 04000000
+B EC0D002AD0091560 3C0042C890091560
+#

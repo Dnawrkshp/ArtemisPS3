@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Shin Sangoku Musou 5 Empires
+*/
+#
 ASM Max + Infinite Money
 0
 jgduff1

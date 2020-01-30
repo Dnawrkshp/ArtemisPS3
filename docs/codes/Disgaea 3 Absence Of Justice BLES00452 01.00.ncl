@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Makai Senki Disgaea 3
-
+*/
 #
 Infinite Actions In Battle
 0

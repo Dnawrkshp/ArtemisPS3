@@ -70,6 +70,7 @@ knowing the source
 of the codes, so
 here they are
 
+Max Exp
 Max Z Crystals On Buy Or Sell
 Max Money
 Max Or Infinite Tag Tension

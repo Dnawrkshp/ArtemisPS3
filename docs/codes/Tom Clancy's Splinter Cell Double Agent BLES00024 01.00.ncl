@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\sc4_offline.self
+*/
+#
 Ammo Never Decreases
 0
 dron_3

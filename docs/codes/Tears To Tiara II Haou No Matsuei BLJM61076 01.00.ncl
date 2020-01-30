@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Tears To Tiara II Heir Of The Overlord
-
+*/
 #
 Infinite MP
 0

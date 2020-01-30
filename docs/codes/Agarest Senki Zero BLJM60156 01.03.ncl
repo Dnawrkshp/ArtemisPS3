@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Agarest Generations Of War Zero
 Record Of Agarest War Zero
-
+*/
 #
 Gold 999999999
 0

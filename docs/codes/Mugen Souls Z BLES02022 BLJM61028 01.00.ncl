@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Attouteki Yuugi Mugen Souls Z
-
+*/
 #
 All Moneys
 0
@@ -109,4 +112,20 @@ AoB Max Movement
 games24.blog.fc2.com/blog-entry-164.html
 B 00010000 04000000
 B EBC900904BFD30D1600000005464063E 3BC0270F4BFD30D1600000005464063E
+#
+AoB Exp Multiplier
+0
+games24.blog.fc2.com/blog-entry-164.html
+B 00010000 04000000
+B 7FE3FA14480000284BFDBC1960000000 4873AA35480000284BFDBC1960000000
+/*
+The OGP to the area to
+place the code is
+entirely zeros, so it
+will not work. You will
+need to manually do it or
+find an empty place of
+your own and adjust the
+branch as needed.
+*/
 #

@@ -6,11 +6,13 @@ Skiller
 0 0028FEAC 60000000
 #
 Stamina Does Not Decrease
+0
 lukeluo
 F2 016DCF4C 016DCF60
 F2 016DCF4C 016DCF4E
 #
 Energy Does Not Decrease
+0
 lukeluo
 F2 016DCF72 016DCF70
 #
@@ -25,6 +27,27 @@ Speed Multiplier
 xtatu
 0 01356594 Z
 [Z]3F800000=Normal;3F700000=0.9375x;3F900000=1.125x[/Z]
+#
+Infinite Health
+0
+vosman
+0 002A2664 38600000
+/*
+You might need to add
++0x10000 to the address
+to make it work, and it
+might work for everything
+too.
+
+A few lines below is
+another thing you can use
+to do 1 hit kills if it
+works on everything too,
+but the address might
+need +0x10000 too.
+
+0 002A267C 60000000
+*/
 #
 AoB Max Money On Pickup
 0

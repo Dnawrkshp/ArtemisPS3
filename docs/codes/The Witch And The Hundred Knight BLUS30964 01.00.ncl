@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Majo To Hyakkihei
-
+*/
 #
 Infinite Gigacals
 0

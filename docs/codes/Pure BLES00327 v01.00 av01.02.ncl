@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Extreme Racing Pure
+*/
+#
 Memory Infinite Boost
 0
 jgduff1

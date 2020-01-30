@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Chou Jigen Game Neptune mk2
-
+*/
 #
 Max Gold On Gain
 0

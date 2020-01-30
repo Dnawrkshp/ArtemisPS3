@@ -29,7 +29,7 @@ Infinite Health
 optantic
 0 0009A838 60000000
 #
-Add Charged Attack to Firepower   
+Add Charged Attack To Firepower   
 0
 optantic
 0 0009DF50 D13F0D8C
@@ -46,7 +46,7 @@ optantic
 B 00010000 04000000
 B 7C00F0502B800003D00B0028 7C00F0502B80000360000000
 #
-AoB Add Charged Attack to Firepower   
+AoB Add Charged Attack To Firepower   
 0
 optantic
 B 00010000 04000000

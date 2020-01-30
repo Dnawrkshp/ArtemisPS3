@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Anubis Zone Of The Enders
+*/
+#
 File Info
 0
 Eboot.Elf

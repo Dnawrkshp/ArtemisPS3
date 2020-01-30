@@ -13,7 +13,7 @@ puzzle, xtatu
 99999999 Attack Damage
 0
 puzzle, xtatu
-0 0012E820 3F000000
+0 0012E520 3F000000
 #
 1P Invincible + Can Use Magic
 0

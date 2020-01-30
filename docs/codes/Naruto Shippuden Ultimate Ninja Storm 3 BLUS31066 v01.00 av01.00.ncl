@@ -20,7 +20,7 @@ Max Level Hero On Gain
 Medo
 0 000A9F84 7C040378
 #
-Max Ryo on Buy
+Max Ryo On Buy
 0
 Hiei-YYH
 0 00BA20A4 60000000
@@ -45,13 +45,21 @@ Fast Partner Recharge
 0
 Hiei-YYH
 0 00865AB8 60000000
+/*
+This also works for
+enemies.
+*/
 #
 Infinite Item Usage
 0
 Hiei-YYH
 0 00985E20 3B7B0000
+/*
+This also works for
+enemies.
+*/
 #
-Max Item Lv. After Battle
+Max Item Level After Battle
 0
 Hiei-YYH
 0 000A9F8C 60000000

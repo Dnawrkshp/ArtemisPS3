@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Virtua Tennis 3
-
+*/
 #
 1P Win Quickly in Tournament + Exhibition
 0

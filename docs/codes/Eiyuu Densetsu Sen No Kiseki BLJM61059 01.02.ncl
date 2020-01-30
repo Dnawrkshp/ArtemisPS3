@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 The Legend Of Heroes Trails Of Cold Steel
-
+*/
 #
 Max EP
 0

@@ -24,3 +24,22 @@ Zombies Do Not Grab
 xtatu
 0 0077DB58 4E800020
 #
+Developer Menu
+0
+dron_3
+0 01027FC4 9BE3CA81
+/*
+Apply the code before the
+1st logo appears.
+*/
+#
+AoB Developer Menu
+0
+dron_3
+B 00010000 04000000
+B 8863CA812C03000040820008 9BE3CA812C03000040820008
+/*
+Apply the code before the
+1st logo appears.
+*/
+#

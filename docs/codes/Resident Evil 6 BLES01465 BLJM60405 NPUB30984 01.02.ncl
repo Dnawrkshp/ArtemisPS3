@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Biohazard 6
-
+*/
 #
 Invincible Mode
 0
@@ -51,7 +54,7 @@ xtatu
 Infinite Ammo + No Reload + Grenade
 0
 vosman
-0 00B7F0CC 60000000
+0 00B7F0C0 60000000
 #
 Zombies Can Not Grab
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ar Tonelico 3 Sekai Shuuen No Hikigane wa Shoujo No Uta Ga Hiku
-
+*/
 #
 Max DP
 0

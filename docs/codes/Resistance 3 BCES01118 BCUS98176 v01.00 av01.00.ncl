@@ -1,3 +1,11 @@
+File Info
+0
+bungholio
+/*
+The below codes modify
+game.self.
+*/
+#
 Primary Ammo Never Decreases
 0
 bungholio

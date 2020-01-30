@@ -19,17 +19,13 @@ xtatu
 0 00A4A1A4 C0030008
 0 00A4A1A8 60000000
 #
-Infinite AP On
+Infinite AP
 0
 xtatu
-0 00B32128 60000000
+0 00B32128 
+[Z]60000000=On;EC010828=Off[/Z]
 /*
 Doors can not be
 destroyed with this on.
 */
-#
-Infinite AP Off
-0
-xtatu
-0 00B32128 EC010828
 #

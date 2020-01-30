@@ -45,8 +45,8 @@ bungholio
 /*
 The blue visual bar for
 the timer will still
-decrease, but it will just
-loop back to full.
+decrease, but it will
+just loop back to full.
 */
 #
 AoB Route Tracing Unlimited Boosts
@@ -105,7 +105,7 @@ B C1A90000EC006828D01F0B6C C1A90000EC00682860000000
 /*
 The blue visual bar for
 the timer will still
-decrease, but it will just
-loop back to full.
+decrease, but it will
+just loop back to full.
 */
 #

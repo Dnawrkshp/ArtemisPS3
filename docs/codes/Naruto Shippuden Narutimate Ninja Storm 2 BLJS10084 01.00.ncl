@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Naruto Shippuden Ultimate Storm 2
-
+*/
 #
 Battle Time 99 in Battle
 0

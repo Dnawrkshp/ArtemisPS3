@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Resident Evil 4
-
+*/
 #
 PTAS 99999999
 0

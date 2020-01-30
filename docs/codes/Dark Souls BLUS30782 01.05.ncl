@@ -3,7 +3,7 @@ Max Souls + Infinite Souls
 Medo, Skiller
 0 00AF14E4 3D403E80
 #
-Reduce all Damage taken to 0
+Reduce all Damage Taken To 0
 0
 Medo
 0 0199C790 60000000

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Kamisama To Unmei Kakusei No Cross Thesis
-
+*/
 #
 HP Value Modifier
 0

@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Agarest Senki Zero
 Record Of Agarest War Zero
-
+*/
 #
 SP 500
 0

@@ -1,7 +1,8 @@
 Invincible
 0
 xtatu
-0 0030B378 60000000
+0 0030B378 Z
+[Z]60000000=On;40820008=Off[/Z]
 #
 Energy Max
 0

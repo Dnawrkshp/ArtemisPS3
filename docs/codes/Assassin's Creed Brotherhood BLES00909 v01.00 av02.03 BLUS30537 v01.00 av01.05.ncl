@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\scimitar_final.self
+*/
+#
 Infinite Items
 0
 ciao1102

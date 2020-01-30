@@ -8,3 +8,8 @@ SP Points
 flynhigh09
 0 31398A5C 00000FFF
 #
+Fans
+0
+flynhigh09
+0 3139E720 000083CF
+#

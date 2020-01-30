@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Naruto Shippuden Ultimate Ninja Storm 3
-
+*/
 #
 Infinite Items
 0

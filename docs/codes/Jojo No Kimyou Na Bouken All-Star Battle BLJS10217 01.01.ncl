@@ -1,8 +1,11 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 JoJo's Bizarre Adventure All-Star Battle
-
+*/
 #
-Max Money 
+Max Gold
 0
 games24.blog.fc2.com/blog-entry-190.html
 0 004A9E74 2F9F0000
@@ -17,7 +20,7 @@ Infinite Special
 games24.blog.fc2.com/blog-entry-190.html
 0 0070D454 48000010
 #
-AoB Max Money 
+AoB Max Gold
 0
 games24.blog.fc2.com/blog-entry-190.html
 B 00010000 04000000

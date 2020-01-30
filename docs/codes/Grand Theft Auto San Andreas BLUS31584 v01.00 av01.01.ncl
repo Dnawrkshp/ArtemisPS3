@@ -37,6 +37,54 @@ jgduff1
 0 002816E8 60000000
 0 002816F4 EC220828
 #
+Infinite Health
+0
+Azagthoth
+0 00364690 D0230540
+#
+Memory Max Money
+0
+Azagthoth
+0 00A78850 05F5E0FF
+0 00A78854 05F5E0FF
+#
+Infinite Ammo
+0
+Azagthoth
+0 006241E8 60000000
+0 00624240 60000000
+#
+Infinite Ammo In Car
+0
+Azagthoth
+0 006251D4 60000000
+0 0062522C 60000000
+#
+Memory Wanted Level Modifier
+0
+Azagthoth
+6 00A7879C 0000002C
+0 00000000 0000000Z
+[Z]
+0=0 Stars;1=1 Stars;2=2 Stars;3=3 Stars;4=4 Stars;5=5 Stars;6=6 Stars[/Z]
+#
+Tires Never Pop
+0
+Azagthoth
+0 0057E6E0 60000000
+#
+Memory Your Car Has Infinite Health
+0
+Azagthoth
+6 008A2ED0 000004C8
+0 00000000 447A0000
+#
+Memory Your Car Doesn't Visually Take Damage From Collisions
+0
+Azagthoth
+6 008A2ED0 000000F8
+0 00000000 00000000
+#
 AoB Infinite Ammo
 0
 JgDuff

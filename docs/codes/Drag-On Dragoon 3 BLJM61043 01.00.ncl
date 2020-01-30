@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Drakengard 3
-
+*/
 #
 Auto Play Song of The D Branch Final Mission
 0

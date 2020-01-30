@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ratchet & Clank 3 Totsugeki! Galactic Rangers
-
+*/
 #
 1P Invincible Mode
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Darksiders Shinpan No Toki
-
+*/
 #
 AoB Infinite Health
 0

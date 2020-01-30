@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Atelier Shallie Alchemists Of The Dusk Sea
+*/
+#
 Does not decrease MP
 0
 games24

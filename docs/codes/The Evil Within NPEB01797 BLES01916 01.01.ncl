@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Psycho Break
-
+*/
 #
 Infinite Medikits, Items, Ammo, No Reload
 0
@@ -44,6 +47,7 @@ Max Brain Upgrade Points + Syringe + Medical Kit + Parts On Use
 0
 Ammar-A1
 0 0049FF94 911F0008
+0 0049FFC4 60000000
 #
 Infinite Sprint Stamina
 0

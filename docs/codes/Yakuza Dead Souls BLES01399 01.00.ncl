@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ryu Ga Gotoku Of The End
-
+*/
 #
 Infinite Money
 0

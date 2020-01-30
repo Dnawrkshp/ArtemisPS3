@@ -7,7 +7,7 @@ Decrypt this file instead.
 doom.self
 */
 #
-Infinite Ammo
+Memory Infinite Ammo
 0
 jgduff1
 0 346FC7D6 010C
@@ -39,7 +39,7 @@ Max Health On Medkit Gain
 jgduff1
 0 00103B68 396000C8
 #
-Infinite Health + Armor
+Memory Infinite Health + Armor
 0
 jgduff1
 0 346FC75A 00C8

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Chou Jigen Game Neptune
-
+*/
 #
 Infinite HP
 0

@@ -3,3 +3,9 @@ Infinite Ammo
 games24.blog.fc2.com/blog-entry-222.html
 0 000876D8 60000000
 #
+AoB Infinite Ammo
+0
+games24.blog.fc2.com/blog-entry-222.html
+B 00010000 04000000
+B 3084FFFF2C0400004180000860870000 600000002C0400004180000860870000
+#

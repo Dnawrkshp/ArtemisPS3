@@ -1,33 +1,42 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors 7 Empires
-
+*/
 #
 SP 99999 While Changing
 0
+CodeUnique3
 0 002D8EC8 90030A50
 #
 Food Gold 999
 0
+CodeUnique3
 0 002DB27C 38A003E7
 #
 Fame Max
 0
+CodeUnique3
 0 002D7EBC 60000000
 #
 Military 9999
 0
+CodeUnique3
 0 002D7F88 3860270F
+0 002D7FA0 3860270F
 #
 Merit 99999
 0
-0 002D7FA0 3860270F
+CodeUnique3
+0 002D8074 60000000
 #
 Player 9999 KO In Battle
 0
-0 002D8074 60000000
+CodeUnique3
 0 00258A54 60000000
 #
-P1 HP + Musou + Offence + Defence Max, Mega Speed + Jump, Always Activate Time Effect
+P1 Max HP
 0
 CodeUnique3
 6 00FA61B4 00000008
@@ -38,6 +47,10 @@ CodeUnique3
 6 00000000 00000004
 6 00000000 000001FC
 0 00000000 447A0000
+#
+P1 Max Musou
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 00000204
@@ -46,22 +59,42 @@ CodeUnique3
 6 00000000 00000004
 6 00000000 00000208
 0 00000000 447A0000
+#
+P1 Max Offense
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 00000210
 0 00000000 47C35000
+#
+P1 Max Defense
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 00000214
 0 00000000 47C35000
+#
+P1 Mega Speed
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 00000218
 0 00000000 42480000
+#
+P1 Mega Jump
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 00000220
 0 00000000 42480000
+#
+P1 Always Activate Time Effects
+0
+CodeUnique3
 6 00FA61B4 00000008
 6 00000000 00000004
 6 00000000 000000F0
@@ -86,10 +119,20 @@ CodeUnique3
 6 00000000 00000004
 6 00000000 0000010C
 0 00000000 44E10000
+#
+Parameter 65535
+0
+Nanashi tamae.2ch.net/test/read.cgi/gameurawaza/1395654864/710-n
+0 3567C794 FFFFFFFF
+0 3867C798 FFFFFFFF
 /*
-Somebody needs to sort
-these, each code is sets of
-4 lines but I don't know
-which sets are what exactly
+The 1st address starts
+with 35 but the 2nd
+starts with 38 while the
+rest of it only increases
+by 4 bytes?
+One of those addresses
+might have been 35 or 38
+instead.
 */
 #

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 The Legend Of Heroes Trails Of Cold Steel 2
-
+*/
 #
 Max Mira On Sell (Money)
 0
@@ -62,19 +65,19 @@ B 7C6340147C0338404181000860670000 7C6340147C0338404081000860670000
 #
 AoB No Reduce Brave Points
 0
-blog.livedoor.jp/games_cheat/
+blog.livedoor.jp/games_cheat/archives/15461568.html
 B 00010000 04000000
 B 7C8430107CC400D07CC6FE767CC42038 388000057CC400D07CC6FE767CC42038
 #
 AoB Max Sepith on Change
 0
-blog.livedoor.jp/games_cheat/
+blog.livedoor.jp/games_cheat/archives/15461568.html
 B 00010000 04000000
 B 4180001038600000906600004800000C 3C6000016063869F906600004800000C
 #
 AoB TP Never Decreases
 0
-blog.livedoor.jp/games_cheat/
+blog.livedoor.jp/games_cheat/archives/15461568.html
 B 00010000 04000000
 B 7C6320147C7EE32E33BD0010337B0001 386000007C7EE32E33BD0010337B0001
 #

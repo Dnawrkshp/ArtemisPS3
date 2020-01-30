@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\scimitar_final.self
+*/
+#
 Infinite Money
 0
 CodeFreak/PS3UserCheat

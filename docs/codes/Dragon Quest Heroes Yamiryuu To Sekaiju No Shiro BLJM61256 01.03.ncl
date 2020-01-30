@@ -1,4 +1,4 @@
-Max Gold On Spend
+Max Gold After Spending
 0
 games24.blog.fc2.com/blog-entry-248.html
 0 002858FC 60000000
@@ -13,17 +13,17 @@ Combo 999
 games24.blog.fc2.com/blog-entry-248.html
 0 000CBB7C 48000014
 #
-Movement speed UP
+Movement Speed Up
 0
 games24.blog.fc2.com/blog-entry-248.html
 0 000CDB68 40000000
 #
-MP Does Not Decrease
+MP Never Decreases
 0
 games24.blog.fc2.com/blog-entry-248.html
 0 0008F47C 60000000
 #
-Maximum tension fluctuation
+Max Tension After Change
 0
 games24.blog.fc2.com/blog-entry-248.html
 0 000CA614 60000000
@@ -33,7 +33,7 @@ Max Exp After Combat
 games24.blog.fc2.com/blog-entry-248.html
 0 000EA090 7C663010
 #
-AoB Max Gold On Spend
+AoB Max Gold After Spending
 0
 games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
@@ -51,19 +51,19 @@ games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 4185001460E600002C06000040800008 4800001460E600002C06000040800008
 #
-AoB Movement speed UP
+AoB Movement Speed Up
 0
 games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 3F80000042C80000A06302987C630734 4000000042C80000A06302987C630734
 #
-AoB MP Does Not Decrease
+AoB MP Never Decreases
 0
 games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B FC401890FC20101ED0440200D821FFF0 60000000FC20101ED0440200D821FFF0
 #
-AoB Maximum tension fluctuation
+AoB Max Tension After Change
 0
 games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000

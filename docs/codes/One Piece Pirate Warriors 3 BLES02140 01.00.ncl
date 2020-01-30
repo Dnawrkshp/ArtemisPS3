@@ -1,8 +1,11 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 One Piece Kaizoku Musou 3
-
+*/
 #
-Max Beli Amount
+Memory Max Beli Amount
 0
 JorgeFFC
 0 10C6A6AC 3B9AC9FF
@@ -63,7 +66,7 @@ Fullcodes
 /*
 This will guarantee S Rank
 on ! Obtained and Max Crew
-Exp on Battle
+Exp on Battle.
 */
 #
 Max Level On Growth
@@ -157,6 +160,44 @@ FullCodes
 0 0071B0F8 7C9CE814
 0 0071B0FC 4E800020
 0 002F1E80 48429251
+#
+Memory Buggy Level 50
+0
+Vampirzocker
+0 10C60058 000F4240
+#
+Memory Ruffy Vitality
+0
+Vampirzocker
+0 10C5E72C FF
+#
+Memory Ruffy Special Attack
+0
+Vampirzocker
+0 10C5E72D FF
+#
+Memory Ruffy Attack
+0
+Vampirzocker
+0 10C5E72E FF
+#
+Memory Ruffy Defence
+0
+Vampirzocker
+0 10C5E72F FF
+#
+Memory Ruffy Bounty
+0
+Vampirzocker
+0 10C5E728 00000000
+#
+Memory Coins
+0
+Vampirzocker
+4 10C641D8 63
+4 00000030 FF
+4 10C67178 63
+4 00000030 30
 #
 AoB Never Consume Beli When Leveling Up (Growth Only)
 0

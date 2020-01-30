@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Mobile Suit Gundam Crossfire
 Mobile Suit Gundam Target In Sight
-
+*/
 #
 Point 99999
 0

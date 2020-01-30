@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Hyperdimension Neptunia Victory
-
+*/
 #
 Damage Multiplier
 0

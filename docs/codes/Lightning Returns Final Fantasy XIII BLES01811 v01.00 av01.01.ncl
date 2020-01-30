@@ -1,4 +1,4 @@
-Infinite Gil On
+Infinite Gil
 0
 Medo
 0 006418E4 Z

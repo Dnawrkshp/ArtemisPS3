@@ -1,3 +1,11 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Hunted Die Schmiede Der Finsternis
+Hunted La Nascita Del Demone
+*/
+#
 Gold 999999
 0
 CodeFreak/PS3UserCheat

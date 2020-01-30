@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\default.self
+*/
+#
 Infinite Health 
 0
 dron_3
@@ -14,4 +23,22 @@ Infinite Ammo
 0
 dron_3
 0 003B439C 386003E7
+#
+AoB Infinite Ammo
+0
+dron_3
+B 00010000 04000000
+B 806700047C632814 80670004386003E7
+#
+AoB No Reload
+0
+dron_3
+B 00010000 04000000
+B 808300007C843014 8083000038800063
+#
+AoB Infinite Health
+0
+dron_3
+B 00010000 04000000
+B 807901542C0300004081051C 386027109079015490790158
 #

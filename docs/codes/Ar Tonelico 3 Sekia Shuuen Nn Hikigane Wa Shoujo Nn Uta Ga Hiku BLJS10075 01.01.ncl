@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ar Tonelico Qoga Knell Of Ar Ciel
-
+*/
 #
 Money 9999999
 0

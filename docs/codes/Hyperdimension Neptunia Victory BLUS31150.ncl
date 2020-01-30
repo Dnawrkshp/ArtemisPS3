@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Kami Jigen Game Neptune V
-
+*/
 #
 Char 1 HP + SP in Battle
 0

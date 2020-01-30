@@ -1,5 +1,11 @@
-scimitar_final.self
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+\USRDIR\scimitar_final.self
+*/
 #
 Infinite Health
 0

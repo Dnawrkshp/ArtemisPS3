@@ -1,6 +1,9 @@
-Also known as
-Arsland The Warriors Of Legend
-
+Alternative Names
+0
+PARAM.SFO
+/*
+Arslan The Warriors Of Legend
+*/
 #
 Infinite Musou
 0

@@ -7,7 +7,7 @@ Army Of Two Le Cartel Du Diable
 #
 Infinite Ammo + Grenades
 0
-dron_3
+dron_3, games24.blog.fc2.com/blog-entry-144.html
 0 00149A6C 30A50000
 #
 Invincibility
@@ -17,7 +17,7 @@ dron_3
 #
 AoB Infinite Ammo + Grenades
 0
-dron_3
+dron_3, games24.blog.fc2.com/blog-entry-144.html
 B 00010000 04000000
 B 30A5FFFF2C0500004080000838A000002C05000090BF0108 30A500002C0500004080000838A000002C05000090BF0108
 #

@@ -1,74 +1,107 @@
-Max Money
+Max Gold After Gain
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 00285314 60000000
 #
 Experience Multiplier
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 000E9E78 1F9CZ
 [Z]000A=10x;0064=100x;03E8=1000x;2710=10000x[/Z]
 #
-Not decrease MP
+MP Never Decreases
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 000C5D78 FC041000
 #
-Max in tension fluctuation
+Max Tension After Change
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 000CA490 60000000
 #
-Not decrease high tension (released by deathblow use)
+Tension Never Decreases
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 000C3A18 60000000
+/*
+Special moves still
+reduce tension.
+*/
 #
-No high tension release even with deathblow
+Special Moves Never Decrease Tension
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 000C3434 60000000
 #
-Max in the SP change
+Max SP After Change
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 0012737C 60000000
 #
 SP Multiplier
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 0 00126218 1CC6Z
 [Z]000A=10x;0064=100x;03E8=1000x;2710=10000x[/Z]
 #
-HP Does Not Decrease (R2 + Up = On, R2 + R1 = Off)
+HP Never Decreases (R2 + Up = On, R2 + R1 = Off)
 0
-games24.blog.fc2.com/blog-entry-248.html
-0 00C34000 906600042C0500104082003464E7D00038C0000A7C0830004082000C38600000906710F03CC0001060C600027C0830004082000C38600001906710F048545B7A
-0 00C34100 5425000880A511002C050000418200107C17C00040800008480C9BFEFC032000480C9BF6
+asd from games24.blog.fc2.com/blog-entry-248.html
+/* Buttons */
+0 00C34000 90660004
+0 00C34004 2C050010
+0 00C34008 40820034
+0 00C3400C 64E7D000
+0 00C34010 38C0000A /* R2 + R1 */
+0 00C34014 7C083000
+0 00C34018 4082000C
+0 00C3401C 38600000
+0 00C34020 906710F0
+0 00C34024 3CC00010 /* ^ */
+0 00C34028 60C60002 /* R2 */
+0 00C3402C 7C083000
+0 00C34030 4082000C
+0 00C34034 38600001
+0 00C34038 906710F0
+0 00C3403C 48545B7A
 0 000C9BF0 48B6A510
+
+0 00C34100 54250008
+0 00C34104 80A51100
+0 00C34108 2C050000
+0 00C3410C 41820010
+0 00C34120 7C17C000
+0 00C34124 40800008
+0 00C34128 480C9BFE
+0 00C3412C FC032000
+0 00C34130 480C9BF6
 0 00545B74 486EE48C
 #
-AoB Infinite MP
+AoB MP Never Decreases
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B FC600890FC401890FC20101ED0440200D821FFF0 FC60089060000000FC20101ED0440200D821FFF0
 #
-AoB Quick Tension Gain
+AoB Max Tension After Change
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 408000083880000060850000B0BF02384800005C 600000003880000060850000B0BF02384800005C
 #
-AoB Tension Maintenance
+AoB Tension Never Decreases
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 60860000B0DF02244800006C2C1E000040800064 60000000B0DF02244800006C2C1E000040800064
+/*
+Special moves still
+reduce tension.
+*/
 #
-AoB Infinite Tension
+AoB Special Moves Never Decrease Tension
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 63A400004085000860C400003C60000C38C00000 600000004085000860C400003C60000C38C00000
 #
@@ -80,31 +113,31 @@ B 60830000309F0064 38600063309F0064
 #
 AoB Max Combo
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 30E400018083000054E7043E2C8703E72C070000 30E600018083000054E7043E2C8703E72C070000
 #
-AoB Max Gold On Gain
+AoB Max Gold After Gain
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 7C87301060C500007C04F800418000207CA7F814 7C86301060C500007C04F800418000207CA7F814
 #
-AoB Max EXP After Battle
+AoB Max Exp After Battle
 0
 games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 7C6730107C03E0004180002C3C6000987CC7E014 7C6630107C03E0004180002C3C6000987CC7E014
 #
-AoB Max Materials On Gain 2
+AoB Max Materials After Getting A 2nd One
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 418100142C040000408000086304000060860000 480000142C040000408000086304000060860000
 #
-AoB Max Medal On Use
+AoB Max Small Medals After Use
 0
-games24.blog.fc2.com/blog-entry-248.html
+asd from games24.blog.fc2.com/blog-entry-248.html
 B 00010000 04000000
 B 4085000C388003E7480000102C040000 60000000388003E7480000102C040000
 #

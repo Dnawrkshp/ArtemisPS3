@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Zettai Geigeki Wars
+*/
+#
 Infinite Ammo + No Reload
 0
 jgduff1

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Bladestorm The Hundred Years' War
-
+*/
 #
 Money
 0

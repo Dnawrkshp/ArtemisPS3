@@ -81,8 +81,8 @@ FBML
 0 00C9F704 90A3003C
 0 00C9F708 60000000
 /*
-Do not use with Max XP And
-Level On Gain.
+Do not use with Max XP
+And Level On Gain.
 */
 #
 1 Hit Kills

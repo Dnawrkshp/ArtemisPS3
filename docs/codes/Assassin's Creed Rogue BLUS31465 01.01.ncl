@@ -1,5 +1,11 @@
-scimitar_final.self
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+\USRDIR\scimitar_final.self
+*/
 #
 Infinite Health
 0
@@ -46,6 +52,17 @@ dron_3
 0 012B94C4 38000001
 0 010857EC 39200001
 0 010857F4 39200001
+#
+Bullets Never Decrease
+0
+games24.blog.fc2.com/blog-entry-243.html
+0 0176E528 60000000
+0 0176E52C 7C0B0378
+#
+Sleep Never Ends
+0
+games24.blog.fc2.com/blog-entry-243.html
+0 01B05668 C3BE0014
 #
 AoB Infinite Health
 0
@@ -94,4 +111,16 @@ B 00010000 04000000
 B 801F00007C09FE70 380000017C09FE70
 B 00010000 04000000
 B 55290FFE419E000839200000881E02C0 39200001419E000839200001881E02C0
+#
+AoB Bullets Never Decrease
+0
+games24.blog.fc2.com/blog-entry-243.html
+B 00010000 04000000
+B 419C00087D690050916300104800004C 600000007C0B0378916300104800004C
+#
+AoB Sleep Never Ends
+0
+games24.blog.fc2.com/blog-entry-243.html
+B 00010000 04000000
+B C3BE0010C00958FCFF9D0000409D00CC C3BE0014C00958FCFF9D0000409D00CC
 #

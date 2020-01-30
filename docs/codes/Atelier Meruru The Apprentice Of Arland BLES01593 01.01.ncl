@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Meruru No Atelier Arland No Renkinjutsushi 3
-
+*/
 #
 Max Money On Buy + Sell + Gain
 0

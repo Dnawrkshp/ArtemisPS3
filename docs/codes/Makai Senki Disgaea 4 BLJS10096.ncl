@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Disagea 4 A Promise Unforgotten
-
+*/
 #
 Max Status
 0

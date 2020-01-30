@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Yakuza 3
-
+*/
 #
 999999999 Money
 0

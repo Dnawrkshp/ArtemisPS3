@@ -5,6 +5,7 @@ PARAM.SFO
 Pac-Man And The Ghostly Adventures
 Pac-Man Et Les Aventures De Fantômes
 Pac-Man Y Las Aventuras Fantasmales
+Pac-World
 */
 #
 Memory Infinite Health

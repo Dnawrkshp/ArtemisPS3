@@ -1,0 +1,75 @@
+Infinite Ammo
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 0008A8B0 60000000
+#
+Infinite Grenades
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 0008AA8C 60000000
+#
+No Reload
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 0008A814 7D004378
+#
+Max DP On Gain
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 00087990 3D2005F5
+0 00087994 6129E0FF
+#
+Infinite Items
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 000857BC 7C040378
+#
+Camouflage (99%)
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 00076994 380000C8
+#
+Max Camo (95%)
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 0007489C 38000064
+0 000748A0 38600064
+0 000748EC 3BA00064
+#
+Infinite Psyche/Health/Battery, 0 Stress/Play Time/Alerts/Kills
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 000368E0 39600000
+0 000368E4 3800012C
+0 000368E8 B00809EA
+0 000368EC B16809E8
+0 000368F0 380007D0
+0 000368F4 B00809E4
+0 000368F8 B00809E0
+0 000368FC B1680010
+0 00036900 B1680006
+#
+Play Time/Battery, 0 Stress/Infinite Psyche
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 000368E0 B18809E8
+0 000368E4 3800012C
+0 000368E8 B00809EA
+0 000368EC 38000500
+0 000368F0 B00809E4
+0 000368F4 60000000
+0 000368F8 39600000
+0 000368FC 91680000
+#
+Subjective Zoom
+0
+games24.blog.fc2.com/blog-entry-158.html
+0 0003C5A0 380040E0
+0 0003BF14 60000000
+0 0003C5B8 A367FF8E
+0 0003C5BC 291B0780
+0 0003C5C0 C005007C
+0 0003C5C4 408A000C
+0 0003C5C8 B0070000
+0 0003C5CC 48000008
+#

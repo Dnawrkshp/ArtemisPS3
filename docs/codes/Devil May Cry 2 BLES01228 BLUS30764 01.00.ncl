@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+DMC2.PPU.SELF
+*/
+#
 Max Red Orbs on Gain
 0
 Medo

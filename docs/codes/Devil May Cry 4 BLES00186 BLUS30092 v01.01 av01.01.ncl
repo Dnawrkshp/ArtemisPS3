@@ -502,6 +502,25 @@ Royal Guard Never Decreases?
 FBML
 0 006A7AC8 FDA06890
 #
+Infinite Red Crystal Statue Duration
+0
+GuitarMan
+0 00827FD8 39290000
+0 00828180 60000000
+#
+Infinite Health All Modes
+0
+GuitarMan
+0 001D45D8 C00314F0
+0 001D45E4 D00314EC
+0 001DC690 38E00006
+0 001DC694 90FB159C
+#
+Hit Anywhere
+0
+GuitarMan
+0 00109CA4 60000000
+#
 AoB 1 Hit Kill (Tested On Boss Only)
 0
 Medo

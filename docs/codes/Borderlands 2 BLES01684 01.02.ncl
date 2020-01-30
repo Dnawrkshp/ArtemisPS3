@@ -16,7 +16,7 @@ Medo
 0 0002D7D8 380000FF
 0 0002D7DC 900B0000
 #
-Instant Level Max (No Kill + Exp Required)
+Instant Level Max (No Kill Or Exp Required)
 0
 Medo
 0 0067B06C 7BCB0020

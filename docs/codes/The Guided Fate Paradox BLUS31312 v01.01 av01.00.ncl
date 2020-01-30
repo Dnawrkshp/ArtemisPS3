@@ -5,6 +5,11 @@ PARAM.SFO
 Kamisama To Unmei Kakumei No Paradox
 */
 #
+An Equipped Item Instantly Goes Into Burst After It Is Used On An Enemy Target
+0
+Eboot Hacker Program
+0 00088DA0 60000000
+#
 Infinite EN
 0
 games24.blog.fc2.com/blog-entry-114.html, ported by JorgeFFC

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Naruto Shippuden Ultimate Ninja Storm 3
-
+*/
 #
 Max Ryo on Buy
 0
@@ -9,7 +12,7 @@ Hiei-YYH
 #
 Infinite Health + Chakra + Decoy
 0
-Medo
+Medo, Hiei-YYH
 0 010F6F20 39630008
 0 010F6F24 816B0004
 0 010F6F28 816B0000
@@ -27,13 +30,21 @@ Fast Partner Recharge
 0
 Hiei-YYH
 0 008641A0 60000000
+/*
+This also works for
+enemies.
+*/
 #
 Infinite Item Usage
 0
 Hiei-YYH
 0 00984338 3B7B0000
+/*
+This also works for
+enemies.
+*/
 #
-Max Item Lv. After Battle
+Max Item Level After Battle
 0
 Hiei-YYH
 0 000AA09C 60000000

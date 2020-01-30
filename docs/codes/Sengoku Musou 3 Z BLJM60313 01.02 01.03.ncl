@@ -1,5 +1,13 @@
-This is a mix of 01.02 and 01.03, but I have no way of determining which is which without somebody with the game to test.
-
+File Info
+0
+bungholio
+/*
+This is a mix of 01.02
+and 01.03, but I have no
+way of determining which
+is which without somebody
+with the game to test.
+*/
 #
 Gold 9999999
 0

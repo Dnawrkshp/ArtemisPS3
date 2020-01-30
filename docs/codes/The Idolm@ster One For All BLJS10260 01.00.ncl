@@ -1,0 +1,125 @@
+Max Manny On Win
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000E9EF0 4800009C
+#
+Max Voltage Gauge
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 0001727C C03A037C
+#
+Idle Level Levels Down
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000EF104 3BA0FFFF
+/*
+If the level is 1 or
+less, it freezes.
+*/
+#
+Lesson Effect Duration Never Decreases
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 00113170 38090000
+0 00113190 38090000
+0 001131B0 38090000
+#
+Back 1 Week
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000B3A58 3924FFFF
+/*
+Weeks past, freezes if
+week is less than 1.
+*/
+#
+Do Not Advance Weekly
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000B3A58 39240000
+#
+Fans Acquired Multiplier
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000EEEF4 1FC5Z
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Experience Acquired Multiplier
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000EEEDC 1FBDZ
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+999 SP After Exiting The Skill Acquisition Screen
+0
+games24.blog.fc2.com/blog-entry-237.html
+0 000E5530 38C003E7
+#
+AoB Max Manny On Win
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 4199009C4815630560000000809F0CC4 4800009C4815630560000000809F0CC4
+#
+AoB Max Voltage Gauge
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B C03A0378C01E019CFC810000408600A0 C03A037CC01E019CFC810000408600A0
+#
+AoB Idle Level Levels Down
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 3BBC00017FA407B493BB001048144F65 3BA000017FA407B493BB001048144F65
+/*
+If the level is 1 or
+less, it freezes.
+*/
+#
+AoB Lesson Effect Duration Never Decreases
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 3809FFFF2C0000009003001C40820008 380900002C0000009003001C40820008
+B 00010000 04000000
+B 3809FFFF2C8000009003002040860008 380900002C8000009003002040860008
+B 00010000 04000000
+B 3809FFFF2F80000090030024409EFE48 380900002F80000090030024409EFE48
+#
+AoB Back 1 Week
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 39240001816A000C91230038800B007C 3924FFFF816A000C91230038800B007C
+/*
+Weeks past, freezes if
+week is less than 1.
+*/
+#
+AoB Do Not Advance Weekly
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 39240001816A000C91230038800B007C 39240000816A000C91230038800B007C
+#
+AoB Fans Acquired Multiplier
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 7FDE2A147FE3F21493F8140C833B000C 1FC5Z7FE3F21493F8140C833B000C
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+AoB Experience Acquired Multiplier
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 7FA9EA14FF80EE5E7C04EA14DB810F00 1FBDZFF80EE5E7C04EA14DB810F00
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+AoB 999 SP After Exiting The Skill Acquisition Screen
+0
+games24.blog.fc2.com/blog-entry-237.html
+B 00010000 04000000
+B 80DF012898FF00267C6803A6EBC10070 38C003E798FF00267C6803A6EBC10070
+#

@@ -145,6 +145,17 @@ Mercenaries Combo Chain Timer Never Decreases
 bungholio
 0 0001E948 60000000
 #
+Mercenaries Mode Stage-Ending Kill Counter Never Increases
+0
+bungholio
+0 00022EFC 396B0000
+#
+Mercenaries Mode Limit Modifier For Enemies Killed Needed To End The Stage
+0
+bungholio
+0 000136C0 2F80Z
+[Z]0096=Default 150 Enemies;0001=The first kill wins;0009=10 Enemies;0063=100 Enemies;00C7=200 Enemies;01F3=500 Enemies;03E7=1,000 Enemies;270F=10,000 Enemies[/Z]
+#
 AoB Mercenaries Combo Increases By 10
 0
 B 00010000 04000000
@@ -175,4 +186,17 @@ AoB Mercenaries Combo Chain Timer Never Decreases
 bungholio
 B 00010000 04000000
 B 816982D4D00B0404 816982D460000000
+#
+AoB Mercenaries Mode Stage-Ending Kill Counter Never Increases
+0
+bungholio
+B 00010000 04000000
+B 816A0300396B0001916A030081390000 816A0300396B0000916A030081390000
+#
+AoB Mercenaries Mode Limit Modifier For Enemies Killed Needed To End The Stage
+0
+bungholio
+B 00010000 04000000
+B 800900582F800002409E0200800903002F800095419D0108 800900582F800002409E0200800903002F80Z419D0108
+[Z]0096=Default 150 Enemies;0001=The first kill wins;0009=10 Enemies;0063=100 Enemies;00C7=200 Enemies;01F3=500 Enemies;03E7=1,000 Enemies;270F=10,000 Enemies[/Z]
 #

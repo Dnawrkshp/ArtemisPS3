@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Assassin's Creed 3 Lady Liberty
-
+*/
 #
 Infinite Ammo + Pickup + Throw
 0
@@ -34,4 +37,10 @@ AoB Infinite Health
 dron_3
 B 00010000 04000000
 B 7D204B78B01E005A A01E005CB01E005A
+#
+AoB Items Do Not Decrease Gold
+0
+games24.blog.fc2.com/blog-entry-207.html
+B 00010000 04000000
+B 809F000C80BF0010 3880000080BF0010
 #

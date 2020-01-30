@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Rune Factory Tides Of Destiny
-
+*/
 #
 AoB Max Dragon Shrine Donations
 0

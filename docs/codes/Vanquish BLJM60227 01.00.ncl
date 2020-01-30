@@ -8,7 +8,7 @@ predprey, xtatu
 0 00118F54 60000000
 0 00118F58 60000000
 #
-Infnite Health
+Infinite Health
 0
 xtatu
 0 001A8A24 60000000

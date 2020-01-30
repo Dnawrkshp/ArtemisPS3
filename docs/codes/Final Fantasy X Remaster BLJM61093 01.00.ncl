@@ -1,5 +1,11 @@
-Final Fantasy X (ffx_phyreApp.self)
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+ffx_phyreApp.self
+*/
 #
 Infinite HP + MP + OverDrive
 0
@@ -277,6 +283,29 @@ All Monsters Captured
 superjupi
 4 0205946C 0A0A0A0A
 4 00000004 0000001B
+#
+Memory 99 Of An Item
+0
+games24.blog.fc2.com/blog-entry-228.html
+0 0205912C 63
+#
+Memory Item Modifier
+0
+games24.blog.fc2.com/blog-entry-228.html
+0 0205912D Z
+[Z]00=Potion[/Z]
+/*
+You will need to test
+digits since none were
+provided. It supposedly
+goes up to value 6F.
+*/
+#
+APn Multiplier
+0
+games24.blog.fc2.com/blog-entry-228.html
+0 00257A58 54A6Z3E
+[Z]08=2x;10=3x;18=4x[/Z]
 #
 AoB Infinite HP + MP + OverDrive
 0

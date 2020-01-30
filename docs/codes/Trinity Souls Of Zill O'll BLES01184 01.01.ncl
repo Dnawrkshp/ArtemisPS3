@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Trinity Zill O'll Zero
-
+*/
 #
 Gold 9999999
 0

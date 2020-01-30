@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 How To Survive Zombie Island
-
+*/
 #
 No Reload
 0

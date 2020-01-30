@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Shin Rorona No Atelier Hajimari No Monogatari - Arland No Renkinjutsushi
-
+*/
 #
 Infinite Gold
 0

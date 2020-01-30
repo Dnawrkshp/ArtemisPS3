@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Senjou No Valkyria
-
+*/
 #
 Infinite HP + Can Always Act
 0

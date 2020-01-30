@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Escha & Logy No Atelier Tasogare No Sora No Renkinjutsushi
-
+*/
 #
 Infinite Items In Battle
 0

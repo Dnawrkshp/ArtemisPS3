@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 SIREN Blood Curse
-
+*/
 #
 Infinite Ammo Usage
 0

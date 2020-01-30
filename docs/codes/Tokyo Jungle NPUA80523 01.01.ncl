@@ -1,4 +1,4 @@
-Infinite LIFE, HUNGER, stamina .9E1 
+Infinite Life, Hunger, Stamina
 0
 jijibecali
 0 003D09C4 4B18967F

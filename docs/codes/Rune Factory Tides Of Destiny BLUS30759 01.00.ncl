@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Rune Factory Oceans
-
+*/
 #
 Max Dragon Shrine Donations
 0
@@ -12,12 +15,12 @@ Max Money When Buying + Selling
 ChaosZage, kaede132
 0 00135990 40810010
 #
-Max RP 9999 on Level Up
+Max RP 9999 On Level Up
 0
 ChaosZage
 0 003B6F68 38A0270F
 #
-Max HP 9999 on Level Up
+Max HP 9999 On Level Up
 0
 ChaosZage
 0 003B6EFC 3880270F

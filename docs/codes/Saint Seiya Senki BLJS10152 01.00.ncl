@@ -1,8 +1,11 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Saint Seiya Sanctuary Battle
 Los Caballeros Del Zodiaco La Batalla Del Santuario
 Os Cavaleiros Do Zodiaco A Batalha Do Santuario
-
+*/
 #
 Infinite Health
 0

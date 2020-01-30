@@ -1,18 +1,25 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Sleeping Dogs Hong Kong Himitsu Keisatsu
-
+*/
 #
-Max Everything
+Max Everything After Restarting From A Checkpoint Or Beating A Mission
 0
 Medo
 0 00593D30 3CA07FFF
+/*
+Works for Exp, Money,
+Statistics, more.
+*/
 #
 Max Money
 0
 Medo
 0 00581D14 3C607FFF
 #
-Max Money on Buy in Stores Only
+Max Money On Buy In Stores Only
 0
 Medo
 0 005B5094 3D003B9A

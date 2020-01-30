@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ratchet & Clank QForce
 Ratchet & Clank Ginga Sentai QForce
-
+*/
 #
 1P Invincible Mode
 0

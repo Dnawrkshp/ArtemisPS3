@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Way Of The Samurai 3
-
+*/
 #
 Gold 99999
 0

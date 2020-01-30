@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Resident Evil Code Veronica X
-
+*/
 #
 Always Low Time
 0

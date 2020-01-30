@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Battle Princess Of Arcadias
-
+*/
 #
 Infinite Items
 0

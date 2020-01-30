@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ar Tonelico 3 Sekai Shuuen No Hikigane wa Shoujo No Uta Ga Hiku
-
+*/
 #
 Max DP
 0
@@ -11,6 +14,7 @@ Max Money After Buy + Gain
 0
 Skiller
 0 0035A80C 60000000
+0 0035A810 913F0000
 #
 All Super Skills
 0

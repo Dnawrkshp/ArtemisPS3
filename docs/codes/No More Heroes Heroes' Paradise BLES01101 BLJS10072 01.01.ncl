@@ -1,6 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 No More Heroes Eiyuutachi No Rakuen
-
+No More Heroes Red Zone Edition
+*/
 #
 Travis Infinite Health
 0

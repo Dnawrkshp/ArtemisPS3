@@ -35,3 +35,30 @@ Remove Upgrade Available on Screen
 Hiei-YYH
 0 00AFC204 38A00000
 #
+Infinite Health
+0
+GuitarMan
+0 00B5C220 90A44900
+#
+Invincibility
+0
+GuitarMan
+0 00A3F858 38600001
+#
+1,000 Combo
+0
+GuitarMan
+0 00ADBDDC 386003E8
+0 00ADBDE8 60000000
+0 00ADBD18 392003E8
+#
+Can Upgrade Tech Upgrade
+0
+GuitarMan
+0 00FCF2B4 60000000
+#
+Can Upgrade Character Upgrade
+0
+GuitarMan
+0 00AF13D0 60000000
+#

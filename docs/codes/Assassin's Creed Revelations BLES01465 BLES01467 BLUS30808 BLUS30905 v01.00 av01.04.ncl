@@ -4,7 +4,7 @@ Eboot.Elf
 /*
 Decrypt this file instead.
 
-scimitar_final.self
+\USRDIR\scimitar_final.self
 */
 #
 Max Money On Gain

@@ -1,0 +1,33 @@
+Successful Defense
+0
+abc from medaka.5ch.net/test/read.cgi/gameurawaza/1395654864/l50
+0 00123ECC 60000000
+0 00123EE4 60000000
+#
+Critical Attacks
+0
+abc from medaka.5ch.net/test/read.cgi/gameurawaza/1395654864/l50
+0 00124120 60000000
+0 00124150 60000000
+0 00124270 60000000
+0 00124288 60000000
+#
+Critical Skills
+0
+abc from medaka.5ch.net/test/read.cgi/gameurawaza/1395654864/l50
+0 001243AC 60000000
+0 001244B4 60000000
+0 001244D4 60000000
+#
+Max Power On Change
+0
+abc from medaka.5ch.net/test/read.cgi/gameurawaza/1395654864/l50
+0 01164000 7CC62014
+0 01164004 80830298
+0 01164008 548437FE
+0 0116400C 2C040000
+0 01164010 41820008
+0 01164014 38C00064
+0 01164018 4810ABB6
+0 0010ABB0 49059450
+#

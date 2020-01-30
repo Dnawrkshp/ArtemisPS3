@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Fist Of The North Star Ken's Rage 2
-
+*/
 #
 Enemies Can Not Move
 0

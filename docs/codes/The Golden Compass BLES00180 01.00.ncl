@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Lyra No Bouken Ougon No Rashinban
-
+*/
 #
 Infinite HP
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Tokitowa
-
+*/
 #
 AoB Freeze Playtime 
 0
@@ -22,7 +25,7 @@ replaced, so activate
 this code twice.
 */
 #
-AoB Max Money after Battle
+AoB Max Money After Battle
 0
 Medo
 B 00010000 04000000

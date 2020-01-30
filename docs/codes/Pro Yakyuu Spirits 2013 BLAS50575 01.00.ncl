@@ -1,9 +1,9 @@
-Strikes
+Strike Count Does Not Increase
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 002A2358 7CA42B78
 #
-Balls
+Ball Count Does Not Increase
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 002A237C 7CA42B78
@@ -13,17 +13,7 @@ games24.blog.fc2.com/blog-entry-143.html
 games24.blog.fc2.com/blog-entry-143.html
 0 005D1F30 38A0270F
 #
-Strikes
-0
-games24.blog.fc2.com/blog-entry-143.html
-0 002A2358 7CA42B78
-#
-Balls
-0
-games24.blog.fc2.com/blog-entry-143.html
-0 002A237C 7CA42B78
-#
-Outs
+Outs Do Not Increase
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 002A23A0 7CA42B78
@@ -33,30 +23,30 @@ games24.blog.fc2.com/blog-entry-143.html
 games24.blog.fc2.com/blog-entry-143.html
 0 0067D258 3880270F
 #
-99999 VP
+999,999 VP
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 0039B874 3C80000F
 0 0039B878 6084423F
 0 006A0F98 2C040000
 #
-Money Management 999999
+Money Management 999,999
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 006AF9B0 3C8005F5
 0 006AF9BC 6084E0FF
 #
-255 Reliability
+255 Confidence
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 006ACDB0 388000FF
 #
-255 Personnel Force
+255 Human Resource Ability
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 006AC49C 388000FF
 #
-255 Talent
+255 Dexterity
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 006AC3F4 388000FF
@@ -66,7 +56,7 @@ games24.blog.fc2.com/blog-entry-143.html
 games24.blog.fc2.com/blog-entry-143.html
 0 006AC95C 388000FF
 #
-255 Ability To Take Action
+255 Movement Power
 0
 games24.blog.fc2.com/blog-entry-143.html
 0 006AC4F0 388000FF

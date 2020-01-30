@@ -1,3 +1,8 @@
+Max DP After Purchase
+0 
+games24.blog.fc2.com/blog-entry-232.html
+0 004054E0 60000000
+#
 Max Exp After Battle
 0
 dron_3
@@ -30,6 +35,12 @@ dron_3
 0 000FCBC4 60670000
 0 000FCBCC 60000000
 0 000FCBD8 D06706F0
+#
+AoB Max DP After Purchase
+0 
+games24.blog.fc2.com/blog-entry-232.html
+B 00010000 04000000
+B 4081000860E6000060C7000054A5063E 6000000060E6000060C7000054A5063E
 #
 AoB Max Exp After Battle
 0

@@ -1,3 +1,11 @@
+File Info
+0
+bungholio
+/*
+The below codes modify
+game.self.
+*/
+#
 Infinite HP
 0
 CodeFreak/PS3UserCheat

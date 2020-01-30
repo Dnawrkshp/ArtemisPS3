@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Mobile Suit Gundam Battlefield Record U.C. 0081
-
+*/
 #
 Power 9999999pt
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 One Piece Pirate Warriors
-
+*/
 #
 Level 50
 0

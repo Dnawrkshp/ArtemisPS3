@@ -16,8 +16,8 @@ games24.blog.fc2.com/blog-entry-179.html
 Infinite Energy
 0
 games24.blog.fc2.com/blog-entry-179.html
-0 000C431C FC201090
-0 000C43B4 FC201090
+0 000C431C FC201090 /* Boost Jump */
+0 000C43B4 FC201090 /* Boost Dash */
 #
 Infinite HP
 0
@@ -37,7 +37,7 @@ games24.blog.fc2.com/blog-entry-179.html
 0 002B94F0 38600000
 0 002B8F38 38600000
 #
-Size 0.5x + Infinite HP + Size Modifier
+Infinite HP + Size Modifier
 0
 games24.blog.fc2.com/blog-entry-179.html
 0 009D6890 C03F03F0
@@ -104,13 +104,7 @@ B 7C6418147F9C07B4281C0006907F0000 386000007F9C07B4281C0006907F0000
 B 00010000 04000000
 B 7C6418147F9C07B4281C0003907F0000 386000007F9C07B4281C0003907F0000
 #
-AoB Map giant
-0
-games24.blog.fc2.com/blog-entry-179.html
-B 00010000 04000000
-B C18300A0C3E300A4ED61207AEC8320FAC3C300A8 FD86302AFFE6302AED61207AEC8320FAFFC6302A
-#
-AoB Size 0.5x + Infinite HP
+AoB Infinite HP + Size Modifier
 0
 games24.blog.fc2.com/blog-entry-179.html
 B 00010000 04000000
@@ -118,4 +112,21 @@ B 000000000000000000000000000000000000000000000000 C03F03F03EE0Z92FF00A092FF00A4
 B 00010000 04000000
 B C03F03F43FC000F2ECA1282A63E40000 489D68933FC000F2ECA1282A63E40000
 [Z]3ED0=0.5x;4000=1.5x;4020=2x;40F0=10x[/Z]
+/*
+Do not use as it is, that
+1st OGP will crash your
+game because zeros are
+found countless times in
+every game. You will need
+to manually input the
+code or find a different
+place to put it and
+adjust the branch.
+*/
+#
+AoB Big Map
+0
+games24.blog.fc2.com/blog-entry-179.html
+B 00010000 04000000
+B C18300A0C3E300A4ED61207AEC8320FAC3C300A8 FD86302AFFE6302AED61207AEC8320FAFFC6302A
 #

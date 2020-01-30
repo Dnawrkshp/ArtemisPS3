@@ -115,3 +115,27 @@ bungholio
 0 00ADAE78 60000000
 0 00ADAE94 60000000
 #
+Inventory No Limits
+0
+dron_3
+0 00093C14 38600001
+0 00093C18 90650580
+0 00093C1C 60000000
+/*
+I am taking a slight
+guess off of dron_3's
+code, not sure if it
+works.
+*/
+#
+Invincible Vehicle With Player Inside
+0
+dron_3
+0 008E8A30 887F039A
+/*
+I am taking a slight
+guess off of dron_3's
+code, not sure if it
+works.
+*/
+#

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Shin Sangoku Musou MultiRaid Special
-
+*/
 #
 1P Multi Jump
 0

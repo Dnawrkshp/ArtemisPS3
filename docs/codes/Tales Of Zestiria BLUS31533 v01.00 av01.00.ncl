@@ -332,7 +332,7 @@ Effect Durations Modifier
 0
 bungholio
 0 000F2AC4 Z
-[Z]3F800000=Default;41200000=1x;42C80000=100x;447A0000=1,000x[/Z]
+[Z]3F800000=Default;41200000=10x;42C80000=100x;447A0000=1,000x[/Z]
 /*
 Any effect that happens in
 battle will last a very
@@ -464,17 +464,6 @@ Battle Combos Never Decrease
 0
 bungholio
 0 0010D0D8 60000000
-#
-Battle Max Damage Multiplier
-0
-bungholio
-0 00063A18 1FBD????
-/*
-Just a display thing, you
-will not be doing the
-actual amount of damage
-that pops up.
-*/
 #
 Battle Max Max Damage
 0
@@ -935,23 +924,15 @@ Hiei-YYH
 0 0015DA60 48000008
 0 0015DA64 80A40000
 #
-Ability Upgrade +32
+Ability Upgrade Modifier
 0
 Hiei-YYH
-0 001894AC 33C30020
-0 001895F8 30660020
-0 00189740 33C30020
-0 0018988C 30660020
-0 001899D4 33C30020
-#
-Ability Upgrade +2000
-0
-Hiei-YYH
-0 001894AC 3BC007D0
-0 001895F8 386007D0
-0 00189740 3BC007D0
-0 0018988C 386007D0
-0 001899D4 3BC007D0
+0 001894AC 33C3Z
+0 001895F8 3066Z
+0 00189740 33C3Z
+0 0018988C 3066Z
+0 001899D4 33C3Z
+[Z]0064=100;03E8=1,000;2710=10,000[/Z]
 #
 Infinite HP
 0

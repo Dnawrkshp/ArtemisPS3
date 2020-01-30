@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Castlevania Lords Of Shadow - Sadame No Makyou
-
+*/
 #
 Infinite Health
 0

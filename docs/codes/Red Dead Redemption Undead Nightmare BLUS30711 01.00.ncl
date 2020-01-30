@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+RDR2.self
+*/
+#
 Infinite Health
 0
 Hiei-YYH

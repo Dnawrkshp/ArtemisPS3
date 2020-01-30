@@ -48,6 +48,7 @@ and reload.
 #
 Max Coins On Load
 0
+Medo
 0 0027D7E4 3C607FFF
 #
 Max Blue Coins After Save

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors 8
-
+*/
 #
 1P Movement Speed Modifier
 0

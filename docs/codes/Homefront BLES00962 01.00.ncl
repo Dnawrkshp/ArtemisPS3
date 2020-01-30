@@ -1,4 +1,4 @@
-Infinite Grenade + C4
+Infinite Grenades + C4
 0
 bitcopa
 0 00B73588 388000FF
@@ -24,7 +24,7 @@ bitcopa
 B 00010000 04000000
 B 418200589065028880 3860000F9065028880
 #
-AoB Infinite Grenade + C4
+AoB Infinite Grenades + C4
 0
 bitcopa
 B 00010000 04000000

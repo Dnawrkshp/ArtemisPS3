@@ -7,7 +7,8 @@ xtatu
 Infinite AP
 0
 xtatu
-0 006FE5F8 60000000
+0 006FE5F8 Z
+[Z]60000000=On;EC010828=Off[/Z]
 /*
 Doors can not be
 destroyed with this on.

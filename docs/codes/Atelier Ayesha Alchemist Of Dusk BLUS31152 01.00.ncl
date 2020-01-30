@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ayehsa No Atelier Tasogare No Daichi No Renkinjutsushi
-
+*/
 #
 Synthesis Does Not Decrease Materials
 0

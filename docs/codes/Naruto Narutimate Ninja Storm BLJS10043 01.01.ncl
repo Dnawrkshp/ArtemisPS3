@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Naruto Ultimate Ninja Storm
-
+*/
 #
 Gold 9999999
 0

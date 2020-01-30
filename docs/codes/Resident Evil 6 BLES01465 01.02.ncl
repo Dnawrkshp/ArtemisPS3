@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Biohazard 6
-
+*/
 #
 Invincible Mode
 0

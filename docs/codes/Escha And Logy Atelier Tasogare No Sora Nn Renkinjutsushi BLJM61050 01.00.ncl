@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Atelier Escha & Logy Alchemists Of The Dusk Sky
-
+*/
 #
 Infinite Items In Battle
 0

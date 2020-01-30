@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\default.self
+*/
+#
 Infinite Health
 0
 dron_3

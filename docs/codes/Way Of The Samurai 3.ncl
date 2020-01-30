@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Samurai Dou 3
 Samurai Dou 3 Plus
-
+*/
 #
 AoB 0 Villain Act
 0

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Atelier Rorona The Alchemist Of Arland
-
+*/
 #
 Gold 9999999
 0

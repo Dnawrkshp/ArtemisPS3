@@ -1,6 +1,11 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
+Uncharted 2 El Reino De Los Ladrones
+Uncharted 2 Il Covo Dei Ladri
 Uncharted Ougontou To Kieta Sendan
-
+*/
 #
 Infinite Health
 0

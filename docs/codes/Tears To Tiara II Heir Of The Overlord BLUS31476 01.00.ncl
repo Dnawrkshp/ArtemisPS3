@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Tears To Tiara II Haoh No Matsuei
-
+*/
 #
 Max Money
 0

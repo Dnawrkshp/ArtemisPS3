@@ -1,13 +1,13 @@
+Infinite Health
+0
+xtatu
+0 0060F94C 801F005C
+#
 Money 999999
 0
 xtatu
 0 00A3B2F4 60000000
 0 00A4539C 913F0010
-#
-Infinite Health
-0
-xtatu
-0 0060F94C 801F005C
 #
 AoB Infinite Health
 0

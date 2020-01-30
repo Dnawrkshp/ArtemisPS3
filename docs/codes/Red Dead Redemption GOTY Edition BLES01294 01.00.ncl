@@ -1,6 +1,18 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Red Dead Redemption Complete Edition
+*/
+#
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+RDR2.self
+*/
 #
 Infinite Health
 0
@@ -75,4 +87,19 @@ AoB Infinite Horse Stamina
 Hiei-YYH
 B 00010000 04000000
 B FFC5F12ED3DF001457C4063E2C04000041820018EC261828 C3DF0014D3DF001057C4063E2C04000041820018EC261828
+#
+AoB Max Money On Gain + Use
+0
+Hiei-YYH
+B 00010000 04000000
+B 7CA3212E7CC903A64E80042088BC000163C3000054A5103A 4843C0587CC903A64E80042088BC000163C3000054A5103A
+/*
+Somebody forgot the
+function part of the OGP,
+so you will need to input
+that part manually or
+find your own place to
+put it and adjust the
+branch as necessary.
+*/
 #

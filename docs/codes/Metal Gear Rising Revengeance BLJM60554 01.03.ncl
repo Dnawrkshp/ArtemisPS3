@@ -1,4 +1,4 @@
-Max BP on Gain
+Max BP On Gain
 0
 games24.blog.fc2.com/blog-entry-165.html
 0 0092BDC0 7CE6292D
@@ -9,7 +9,7 @@ games24.blog.fc2.com/blog-entry-165.html
 0 005CC1D0 60000000
 0 005CE030 7C882378
 #
-AoB Max BP on Gain
+AoB Max BP On Gain
 0
 games24.blog.fc2.com/blog-entry-165.html
 B 00010000 04000000

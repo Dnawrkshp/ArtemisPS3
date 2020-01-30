@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors Gundam 3
-
+*/
 #
 Max Money On Item Sell
 0

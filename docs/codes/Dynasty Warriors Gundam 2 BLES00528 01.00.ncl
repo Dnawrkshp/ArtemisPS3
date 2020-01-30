@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Gundam Musou 2
-
+*/
 #
 Player Armor Max in Mission
 0

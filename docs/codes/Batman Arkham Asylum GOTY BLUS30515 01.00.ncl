@@ -10,3 +10,8 @@ CodeFreak/PS3UserCheat
 6 00000000 000002A4
 0 00000000 00007FFF
 #
+Debug Menu (R1 + Start)
+0
+dron_3
+0 0121DBAC 38600000
+#

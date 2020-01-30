@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Naruto Shippuden Narutimate Ninja Storm 3
-
+*/
 #
 Max Ryo On Buy + Sell
 0
@@ -19,7 +22,7 @@ Medo
 #
 Max Money
 0
-Hiei-YYH
+Hiei-YYH, games24.blog.fc2.com/blog-entry-135.html
 0 00BA3FCC 60000000
 #
 Max Money Alt
@@ -63,4 +66,10 @@ Max Item Lv. After Battle
 Hiei-YYH
 0 000A9F8C 60000000
 0 000A9FD4 60000000
+#
+AoB Max Money
+0
+Hiei-YYH, games24.blog.fc2.com/blog-entry-135.html
+B 00010000 04000000
+B 409900087D4B53787D6958F87D29FE70 600000007D4B53787D6958F87D29FE70
 #

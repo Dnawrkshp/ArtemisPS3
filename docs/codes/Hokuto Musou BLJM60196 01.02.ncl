@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Fist Of The North Star Ken's Rage
 Hokuto Musou International
-
+*/
 #
 All Characters Skill Points Max
 0

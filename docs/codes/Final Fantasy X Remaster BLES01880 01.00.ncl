@@ -1,5 +1,11 @@
-Final Fantasy X (ffx_phyreApp.self)
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+ffx_phyreApp.self
+*/
 #
 Max Items On Gain + Use
 0

@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Hokuto Musou
 Hokuto Musou International
-
+*/
 #
 AoB Gain Skill Points for Max
 0
@@ -110,7 +113,7 @@ B 00010000 04000000
 B 3C0000017CCB385083E500007884002054C30FFE391F1AB46005869F 3C0000007CCB385083E500007884002054C30FFE391F1AB460050001
 /*
 Use also the Damage taken
-9999 with this and it will
-set it to 0001
+9999 with this and it
+will set it to 0001.
 */
 #

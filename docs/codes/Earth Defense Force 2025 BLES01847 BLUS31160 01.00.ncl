@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Chikyuu Boueigun 4
-
+*/
 #
 AoB Infinite Ammo
 0

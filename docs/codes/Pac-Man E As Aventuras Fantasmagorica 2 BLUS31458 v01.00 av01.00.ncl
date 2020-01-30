@@ -5,6 +5,7 @@ PARAM.SFO
 Pac-Man And The Ghostly Adeventures 2
 Pac-Man Et Les Aventures De Fantômes 2
 Pac-Man Y Las Aventuras Fantasmales 2
+Pac-World 2
 */
 #
 Memory Infinite Life

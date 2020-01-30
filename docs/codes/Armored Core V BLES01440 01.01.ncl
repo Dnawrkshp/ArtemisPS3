@@ -10,8 +10,10 @@ Medo
 0 001BD4F8 6084C9FF
 0 001BD4FC 90890040
 /*
-Only works after workshop
-unlock. First misson done.
-Save game and restart.
+This will only work after
+you unlock the workshop
+by completing the 1st
+mission. Save the game
+and then restart it.
 */
 #

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Bladestorm Hyajunen Sensou
-
+*/
 #
 AoB 99,999,999 Money
 0

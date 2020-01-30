@@ -28,12 +28,12 @@ JorgeFFC
 JorgeFFC
 0 0012A3A4 388003E7
 #
-Max Character Experience
+Memory Max Character Experience
 0
 JorgeFFC
 0 0061D40C 05F5E0FF
 #
-Max Character Base Attack
+Memory Max Character Base Attack
 0
 JorgeFFC
 0 0061D408 000F423F
@@ -42,7 +42,7 @@ Use after max level to
 keep the value
 */
 #
-Max Character Base Defense
+Memory Max Character Base Defense
 0
 JorgeFFC
 0 0061D404 000F423F

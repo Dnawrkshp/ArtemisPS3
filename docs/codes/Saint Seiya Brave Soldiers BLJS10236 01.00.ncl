@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Os Cavaleiros Do Zodiaco Bravos Soldados
-
+*/
 #
 Max Orbs On Buy
 0

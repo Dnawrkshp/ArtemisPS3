@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 FolksSoul Ushinawareta Denshou
-
+*/
 #
 Infinite HP
 0
@@ -25,7 +28,8 @@ JorgeFFC
 Absorb Max ID Easy Karma Release
 0
 JorgeFFC
-0 0006BC38 3BE00063
+0 0006BC38 Z
+[Z]3BE00063=On;7C0007B4=Off[/Z]
 /*
 r31 seems to be added
 amount, but freezes on
@@ -37,36 +41,38 @@ you leave a map with it
 on.
 */
 #
-Absorb Max ID Easy Karma Release Off
-0
-JorgeFFC
-0 0006BC38 7C0007B4
-#
 HP Amount
+0
 JorgeFFC
 0 10146C1C 00AA
 #
 Offset HP Area
+0
 JorgeFFC
 0 001448C0 B1630000
 #
 MP Amount
+0
 JorgeFFC
 0 10146C20 0064
 #
 Offset MP Area
+0
 JorgeFFC
 0 0014490C B1630004
 #
 Pulse Tree Nut
+0
 JorgeFFC
 0 101477EB 63
 #
 Appointed Item Area
+0
 JorgeFFC
 0 00171BB0 7FEB492E
 #
 Appointed Pouke ID
+0
 JorgeFFC
 0 100F762F 01
 #
@@ -87,4 +93,10 @@ AoB Max Item On Gain
 JorgeFFC
 B 00010000 04000000
 B 7C1F07B42F9F0063409D000C3BE000633B600000 7C1F07B42F9F0063600000003BE000633B600000
+#
+AoB Max Item On Change
+0
+JorgeFFC
+B 00010000 04000000
+B 2F830005419E00548162D19C57C0402E 2F830005409E00548162D19C57C0402E
 #

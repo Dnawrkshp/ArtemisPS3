@@ -1,3 +1,11 @@
+File Info
+0
+bungholio
+/*
+The below codes modify
+sh2game.ppu.self.
+*/
+#
 Pick Up 999
 0
 xtatu

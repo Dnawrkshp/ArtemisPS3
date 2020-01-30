@@ -21,9 +21,9 @@ dron_3
 Level Up Points Never Decrease
 0
 dron_3
-0 00E40F54 60000000
 0 00E3FE54 60000000
 0 00E3FE6C 60000000
+0 00E40F54 60000000
 #
 Infinite Strength + Dexterity + Stamina + Will After Using Point
 0

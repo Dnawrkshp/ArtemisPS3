@@ -5,15 +5,73 @@ PARAM.SFO
 Biohazard 5 Alternative Edition
 */
 #
-File Info
+Max + Unlimited Health For Both Players
 0
-bungholio
+Randy97Killa
+0 0085FFEC 39202710
+0 00860030 A13F14A8
+0 00860034 B13F14A0
+#
+Infinite Health Player 1
+0
+Randy97Killa
+6 38825C10 000014A4
+0 00000000 03E803E8
+#
+Infinite Health Player 2
+0
+Randy97Killa
+6 38825C14 000014A4
+0 00000000 03E803E8
+#
+Max + Unlimited Items (Ammo + Herbs + Eggs + Grenades + Mines)
+0
+Randy97Killa
+0 001ACA30 60000000
+0 001A8448 3AE003E7
+0 001A8AC0 3A8003E7
+0 009DA144 60000000
+0 009D9B9C 380003E7
+#
+9,999 Ammo Never Need To Reload
+0
+Randy97Killa
+0 009D4C50 38002710
+#
+Max Money On Buy Or Sell (9,999,999)
+0
+Randy97Killa
+0 00AECC44 3C800098
+0 00AEE018 3D200098
+0 00AEE01C 6129967F
+#
+Low Play Times + Make Total Kills (Result)
+0
+Randy97Killa
+0 009BDE00 38A02710
+0 009BDECC 60000000
+#
+Stage Modifiers
+0
+Randy97Killa
+0 009BE788 3B40Z
 /*
-Since these are all just
-patterns, they likely
-work on the gold edition
-or any update and region.
+No values were listed,
+you will need to figure
+them out on your own.
 */
+#
+9,999,9999 Score On Gain (Lost In NightMare + Desperate Escape)
+0
+Randy97Killa
+0 001AFB4C 3C000098
+0 001AFB54 6000967F
+#
+AoB Max Money On Gain
+0
+Skiller
+B 00010000 04000000
+B 409D00087D204B78901B2F5C881F00202F800000409E0010881700002F800000419EFC98 3C0000986000967F901B2F5C881F00202F800000409E0010881700002F800000419EFC98
 #
 AoB Infinite Ammo
 0
@@ -39,7 +97,7 @@ Skiller
 B 00010000 04000000
 B 800300D86129967F7C840214 800300D86129967F7D244B78
 #
-AoB Max Exchange Points on Gain
+AoB Max Exchange Points On Gain
 0
 Skiller
 B 00010000 04000000

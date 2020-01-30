@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+ICO.self
+*/
+#
 Enemy 1 Hit Kill
 0
 bitcopa

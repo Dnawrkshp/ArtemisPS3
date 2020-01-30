@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Uncharted 3 Sabaku Ni Nemuru Atlantis
-
+*/
 #
 Infinite HP
 0

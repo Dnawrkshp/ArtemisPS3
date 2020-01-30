@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Agarest Generations Of War 2
 Record Of Agarest War 2
-
+*/
 #
 Possession Fri, PP, TP, Gold Max
 0

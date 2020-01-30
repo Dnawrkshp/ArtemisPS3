@@ -1,47 +1,107 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Atelier Escha & Logy Alchemists Of The Dusk Sky
-
+*/
 #
 Infinite Items
 0
-games24.blog.fc2.com/blog-entry-180.html
-0 0024D814 60000000
-0 00287130 60000000
-0 0024D714 7D054378
+games24.blog.fc2.com/blog-entry-181.html
+0 0024D814 60000000 /* In battle */
+0 00287130 60000000 /* Outside of battle */
+0 0024D714 7D054378 /* Synthesis */
 #
 Infinite MP
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 00128AD4 60000000
 #
 Days Do Not Progress
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 002A6610 7CC53378
 #
 Day 1?
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 002A6610 7CA53010
 #
-Max Effect
+Max Effect On Synthesis
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 002B937C D3DC0004
 #
-Field Event Gauge
+Field Event Gauge Max
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 0022B160 7D064378
 #
-Support Gauge
+Infinite Support Gauge
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 0011E908 38A00384
 0 0010D77C 7C641B78
 #
-50 PP
+50 PP On Change
 0
-games24.blog.fc2.com/blog-entry-180.html
+games24.blog.fc2.com/blog-entry-181.html
 0 002D07C8 38800032
+#
+AoB Infinite Items
+0
+games24.blog.fc2.com/blog-entry-181.html
+/* In battle */
+B 00010000 04000000
+B 33BDFFFF63E30000B3BE001CE80100A0 6000000063E30000B3BE001CE80100A0
+/* Outside of battle */
+B 00010000 04000000
+B 33FFFFFFB3E3001C7FE307342C030000 60000000B3E3001C7FE307342C030000
+/* Synthesis */
+B 00010000 04000000
+B 7CA82814FBC100702C05000040800008 7D054378FBC100702C05000040800008
+#
+AoB Infinite MP
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7CDF30102C0600004180000860C50000 600000002C0600004180000860C50000
+#
+AoB Days Do Not Progress
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7CA628142C0500004180000860A40000 7CC533782C0500004180000860A40000
+#
+AoB Day 1?
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7CA628142C0500004180000860A40000 7CA530102C0500004180000860A40000
+#
+AoB Max Effect On Synthesis
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B D3FC0004631E0000C3FA0008637D0000 D3DC0004631E0000C3FA0008637D0000
+#
+AoB Field Event Gauge Max
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7CDE2014610500002C0600C841810008 7D064378610500002C0600C841810008
+#
+AoB Infinite Support Gauge
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7C8418102C04038441810008609D0000 7C641B782C04038441810008609D0000
+B 00010000 04000000
+B 608500003083037090A30D6078860020 38A003843083037090A30D6078860020
+#
+AoB 50 PP On Change
+0
+games24.blog.fc2.com/blog-entry-181.html
+B 00010000 04000000
+B 7C8428107C043800909F08A480660034 388000327C043800909F08A480660034
 #

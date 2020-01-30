@@ -18,3 +18,8 @@ after a level has
 started.
 */
 #
+Memory Infinite HP
+0
+Ghost9
+0 034FD588 00000064
+#

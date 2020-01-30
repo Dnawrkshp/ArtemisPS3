@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Shin Hokuto Musou
-
+*/
 #
 Enemies Can Not Move
 0

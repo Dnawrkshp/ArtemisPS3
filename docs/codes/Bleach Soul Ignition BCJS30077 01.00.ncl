@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Bleach Soul Resurreccion
-
+*/
 #
 Infinite Health
 0

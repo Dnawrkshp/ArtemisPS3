@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Samurai Warriors 4
-
+*/
 #
 Enemy Freezer Attack
 0
@@ -50,6 +53,53 @@ shimasoku.com/namalog/read2/gameurawaza/1395654864/
 0 0005FD28 6066423F
 0 0005FD2C 7C833014
 #
+Battle Screen Bottom Right Gauge Does Not Decrease
+0
+games24.blog.fc2.com/blog-entry-235.html
+0 0005E1E0 60000000
+#
+Magic Multiplier
+0
+games24.blog.fc2.com/blog-entry-236.html
+0 0080A000 1C84Z
+0 0080A004 7CC62014
+0 0080A008 4805EDDE
+0 0005EDD8 487AB228
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Max Items On Change
+0
+games24.blog.fc2.com/blog-entry-236.html
+0 0080A200 2D1E00FB
+0 0080A204 40890010
+0 0080A208 2D1E0108
+0 0080A20C 40880008
+0 0080A210 60BD0000
+0 0080A214 482B88F6
+0 002B88F0 48551910
+0 002B8990 60000000
+#
+Always Protect (Protect Once After Entering All Defenses)
+0
+games24.blog.fc2.com/blog-entry-236.html
+0 0080A300 81FE0000
+0 0080A304 2D8F0003
+0 0080A308 408C0008
+0 0080A30C EC22F828
+0 0080A310 39E00000
+0 0080A314 4805BA66
+0 0005BA60 4880A302
+#
+Strength Never Decreases
+0
+games24.blog.fc2.com/blog-entry-236.html
+0 0005EA28 60000000
+#
+Defense Never Decrease
+0
+games24.blog.fc2.com/blog-entry-236.html
+0 0005AC38 60000000
+#
 AoB Enemy Freezer Attack
 0
 xtatu
@@ -95,7 +145,7 @@ shimasoku.com/namalog/read2/gameurawaza/1395654864/
 B 00010000 04000000
 B 2C0B0063408000086169000030840001 2C0B0000408000086169000030840001
 #
-AoB Kills mass
+AoB Kills Mass
 0
 shimasoku.com/namalog/read2/gameurawaza/1395654864/
 B 00010000 04000000

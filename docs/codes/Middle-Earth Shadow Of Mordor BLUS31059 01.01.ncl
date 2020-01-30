@@ -1,5 +1,11 @@
-Firebird_C.Self
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+Firebird_C.Self
+*/
 #
 Infinite Health
 0
@@ -27,6 +33,11 @@ Max Ranks On Gain
 0
 tekman
 0 00403AF0 7CC76814
+#
+Infinite Arrows
+0
+tekman
+0 0042D5F4 60A40000
 #
 AoB Infinite Health
 0

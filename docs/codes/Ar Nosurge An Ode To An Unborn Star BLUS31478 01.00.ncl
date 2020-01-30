@@ -1,16 +1,20 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Ar Nosurge Umareizuru Hoshi E Inoru Uta
-
+*/
 #
 Delta 999,999 Exp
 0
 hohowan
 0 00ABCEA4 000F423F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Delta 10 AP + Turn Number
@@ -18,10 +22,11 @@ Delta 10 AP + Turn Number
 hohowan
 0 00ABD084 0000000A
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Delta 999 Attack Power
@@ -29,10 +34,11 @@ Delta 999 Attack Power
 hohowan
 0 00ABD088 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Delta 100 Defense Power
@@ -40,10 +46,11 @@ Delta 100 Defense Power
 hohowan
 0 00ABD08C 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Delta 999 Burst Effect
@@ -51,10 +58,11 @@ Delta 999 Burst Effect
 hohowan
 0 00ABD094 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 999,999 Exp
@@ -62,10 +70,11 @@ Cass 999,999 Exp
 hohowan
 0 00ABD07C 000F423F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 9,999 HP + Endurance
@@ -73,10 +82,11 @@ Cass 9,999 HP + Endurance
 hohowan
 0 00ABCEC0 0000270F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 100 Defense Power
@@ -84,10 +94,11 @@ Cass 100 Defense Power
 hohowan
 0 00ABCEC4 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 100 Power Effect
@@ -95,10 +106,11 @@ Cass 100 Power Effect
 hohowan
 0 00ABCEC8 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 999 Fill Speed
@@ -106,10 +118,11 @@ Cass 999 Fill Speed
 hohowan
 0 00ABCECC 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Cass 999 Barrier Regen
@@ -117,10 +130,11 @@ Cass 999 Barrier Regen
 hohowan
 0 00ABCED0 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 999,999 Exp
@@ -128,10 +142,11 @@ Ion 999,999 Exp
 hohowan
 0 00ABCF90 000F423F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 9,999 HP + Endurance
@@ -139,10 +154,11 @@ Ion 9,999 HP + Endurance
 hohowan
 0 00ABCFAC 0000270F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 100 Defense Power
@@ -150,10 +166,11 @@ Ion 100 Defense Power
 hohowan
 0 00ABCFB0 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 100 Power Effect
@@ -161,10 +178,11 @@ Ion 100 Power Effect
 hohowan
 0 00ABCFB4 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 999 Fill Speed
@@ -172,10 +190,11 @@ Ion 999 Fill Speed
 hohowan
 0 00ABCFB8 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Ion 999 Barrier Regen
@@ -183,10 +202,11 @@ Ion 999 Barrier Regen
 hohowan
 0 00ABCFBC 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Earthes Exp
@@ -194,10 +214,11 @@ Earthes Exp
 hohowan
 0 00ABD168 000F423F
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Earthes 10 AP + Turn Number
@@ -205,10 +226,11 @@ Earthes 10 AP + Turn Number
 hohowan
 0 00ABD170 0000000A
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Earthes 999 Attack Power
@@ -216,10 +238,11 @@ Earthes 999 Attack Power
 hohowan
 0 00ABD174 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Earthes 100 Defense Power
@@ -227,10 +250,11 @@ Earthes 100 Defense Power
 hohowan
 0 00ABD178 00000064
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Earthes 999 Burst Effect
@@ -238,10 +262,11 @@ Earthes 999 Burst Effect
 hohowan
 0 00ABD180 000003E7
 /*
-To activate, go to the triangle
-menu, enter equipment,
-then open the "Strengthen
-Defense (RNA)" menu.
+To activate, go to the
+triangle menu, enter
+equipment, then open the
+"Strengthen Defense
+(RNA)" menu.
 */
 #
 Have 99 Of All Food Items

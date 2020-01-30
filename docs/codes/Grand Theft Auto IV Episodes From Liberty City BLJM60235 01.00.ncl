@@ -1,4 +1,4 @@
-1P Invincible Mode
+Invincible Mode
 0
 xtatu
 0 0066EC98 419EFF40

@@ -1,4 +1,4 @@
-Freeze Level Time
+ASM Freeze Level Time
 0
 Medo
 0 00056828 60000000

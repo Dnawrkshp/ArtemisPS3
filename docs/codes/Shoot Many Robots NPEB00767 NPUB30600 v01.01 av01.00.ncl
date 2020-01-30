@@ -1,4 +1,4 @@
-Juice Never Decrease
+Juice Never Decreases
 0
 dron_3
 0 001A9980 60000000
@@ -46,7 +46,7 @@ ASM Players Instant Max Level
 jgduff1
 0 001ACFE8 92E907B4
 #
-AoB Juice Never Decrease
+AoB Juice Never Decreases
 0
 dron_3
 B 00010000 04000000

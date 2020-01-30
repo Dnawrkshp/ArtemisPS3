@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Shin Sangoku Musou 6 Moushouden
-
+*/
 #
 Max Money After Buying
 0

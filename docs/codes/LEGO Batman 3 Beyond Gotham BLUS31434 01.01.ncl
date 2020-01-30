@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 LEGO Batman 3 The Game - Gotham Kara Uchuu E
-
+*/
 #
 Max Studs
 0

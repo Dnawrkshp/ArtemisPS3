@@ -46,3 +46,24 @@ jgduff1
 0 01296200 B2890000
 0 0129A2A0 60000000
 #
+Developer Menu
+0
+dron_3
+0 00614E70 38800001
+0 00614E74 98830AAD
+0 00614E78 60000000
+/*
+Apply the code before the
+1st logo appears.
+*/
+#
+AoB Developer Menu
+0
+dron_3
+B 00010000 04000000
+B 88630AAD2C0300004182002480BE0000 3880000198830AAD6000000080BE0000
+/*
+Apply the code before the
+1st logo appears.
+*/
+#

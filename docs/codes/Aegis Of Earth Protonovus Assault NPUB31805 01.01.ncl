@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Zettai Geigeki Wars
+*/
+#
 Max Money
 0
 Skiller

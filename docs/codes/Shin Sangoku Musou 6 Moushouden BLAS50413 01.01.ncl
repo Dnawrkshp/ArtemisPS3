@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Dynasty Warriors 7 Xtreme Legends
-
+*/
 #
 Max Money After Buying
 0

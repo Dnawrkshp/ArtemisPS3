@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Samurai Warriors 4-2
-
+*/
 #
 Hit Anywhere
 0

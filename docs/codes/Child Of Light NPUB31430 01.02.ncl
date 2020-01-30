@@ -1,3 +1,12 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+\USRDIR\reboot.self
+*/
+#
 Infinite Health + 1 Hit Kill
 0
 Medo
@@ -5,7 +14,7 @@ Medo
 0 00B88880 81FFFFFC
 0 00B88884 2F8F0283
 0 00B88888 419D000C
-0 00B8888C 38A00000
+0 00B8888C 38A00000 /* 60000000 to disable 1 hit kills. */
 0 00B88890 481594F7
 0 00B88894 48159503
 0 001494F0 48B9887F

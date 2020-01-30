@@ -3,7 +3,7 @@ Infinite Arrows, Bullets, Salvage, Parts
 games24.blog.fc2.com/blog-entry-169.html
 0 005F230C 7C1D0378
 #
-Infinite Ammo
+Infinite Ammo In Clip
 0
 games24.blog.fc2.com/blog-entry-169.html
 0 00628CAC 39200064
@@ -19,7 +19,7 @@ games24.blog.fc2.com/blog-entry-169.html
 B 00010000 04000000
 B 7FBD00507FBC07342F9C0000409CFCC8 7C1D03787FBC07342F9C0000409CFCC8
 #
-AoB Infinite Ammo
+AoB Infinite Ammo In Clip
 0
 games24.blog.fc2.com/blog-entry-169.html
 B 00010000 04000000

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Atelier Ayesha Alchemist Of Dusk
-
+*/
 #
 Synthesis Does Not Decrease Materials
 0

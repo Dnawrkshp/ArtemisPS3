@@ -1,5 +1,11 @@
-Final Fantasy X-2 (ffx2_phyreApp.self)
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+ffx2_phyreApp.self
+*/
 #
 Unlock All Dressphere and Main Command
 0

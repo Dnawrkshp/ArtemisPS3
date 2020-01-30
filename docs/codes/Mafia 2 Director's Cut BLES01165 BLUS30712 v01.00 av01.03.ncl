@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Mafia 2 Special Extended Edition
+*/
+#
 No Reload
 0
 crapulecorp
@@ -7,6 +14,32 @@ Max Money On Buy
 0
 crapulecorp
 0 00824504 F8250010
+#
+Infinite Health
+0
+Azagthoth
+0 01AAA910 461C4000
+0 01AAA92C 461C4000
+0 01AAA930 461C4000
+6 01AAA908 000000C0
+0 00000000 461C4000
+6 01AAA908 000000C4
+0 00000000 461C4000
+#
+Police Ignore You
+0
+Azagthoth
+0 0098F5C4 60000000
+#
+Infinite Mission Time
+0
+Azagthoth
+0 000BCD98 60000000
+#
+Infinite Vehicle Engine (Car Still Becomes Damaged)
+0
+Azagthoth
+0 00208920 D3DC001C
 #
 AoB No Reload
 0
@@ -19,4 +52,22 @@ AoB Max Money On Buy
 crapulecorp
 B 00010000 04000000
 B F8850010808300008084000C F8250010808300008084000C
+#
+AoB Police Ignore You
+0
+Azagthoth
+B 00010000 04000000
+B 807C00183B000001937C0008 807C00183B00000160000000
+#
+AoB Infinite Mission Time
+0
+Azagthoth
+B 00010000 04000000
+B EC3C107C63E30000D03F004C EC3C107C63E3000060000000
+#
+AoB Infinite Vehicle Engine (Car Still Becomes Damaged)
+0
+Azagthoth
+B 00010000 04000000
+B 4082FCF03C600021C03C001C 4082FCF03C600021D3DC001C
 #

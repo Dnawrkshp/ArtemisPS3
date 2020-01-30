@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Kagero Darkside Princess
-
+*/
 #
 Max Everything On Load
 0
@@ -8,7 +11,7 @@ Unknown
 0 00562EE0 3CA03B9A
 0 00562EE4 60A5C9FF
 #
-Max WARL + EXP
+Max WARL + Exp
 0
 jijibecali
 0 323D0A50 00FFFFFF00FFFFFF00FFFFFF00FFFFFF

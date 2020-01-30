@@ -172,6 +172,12 @@ something breaking in
 the game.
 */
 #
+AoB PMP 30000x
+0
+games24.blog.fc2.com/blog-entry-176.html
+B 00010000 04000000
+B 7C63F8147C7C07B4907D00E04800003C 386375307C7C07B4907D00E04800003C
+#
 AoB Invincibility
 0
 bungholio

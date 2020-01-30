@@ -1,6 +1,9 @@
-Also known as
-Arsland The Warriors Of Legend
-
+Alternative Names
+0
+PARAM.SFO
+/*
+Arslan The Warriors Of Legend
+*/
 #
 Infinite Musou
 0
@@ -11,4 +14,29 @@ Hit Anywhere
 0
 xtatu
 0 000ACB00 447A0000
+#
+Chain 10,000
+0
+games24.blog.fc2.com/blog-entry-293.html
+0 001BF7D0 30C42710
+0 001BFB8C 48000008
+#
+9,999 Defeats
+0
+games24.blog.fc2.com/blog-entry-293.html
+0 001BE884 48000014
+#
+AoB Chain 10,000
+0
+games24.blog.fc2.com/blog-entry-293.html
+B 00010000 04000000
+B 30C400017C05304090C301D840800050 30C427107C05304090C301D840800050
+B 00010000 04000000
+B 4080000860C400003CC0000090830000 4800000860C400003CC0000090830000
+#
+AoB 9,999 Defeats
+0
+games24.blog.fc2.com/blog-entry-293.html
+B 00010000 04000000
+B 4185001460BD00002C1D000040800008 4800001460BD00002C1D000040800008
 #

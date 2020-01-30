@@ -32,6 +32,11 @@ xtatu
 0 002C6300 7F99C000
 0 002C6304 409D0264
 #
+P2 Stand Mode
+0
+xtatu
+0 002C711C 409E0074
+#
 Aob Invincible
 0
 xtatu

@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Genji Days Of The Blade
-
+*/
 #
 Infinite Mashogane
 0

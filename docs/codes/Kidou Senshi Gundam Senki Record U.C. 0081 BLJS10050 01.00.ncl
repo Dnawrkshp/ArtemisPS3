@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Mobile Suit Gundam Battlefield Record U.C. 0081
-
+*/
 #
 AoB Max Money On Buy Or Sell
 0

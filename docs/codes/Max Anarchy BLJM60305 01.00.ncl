@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Anarchy Reigns
-
+*/
 #
 Game Speed Multiplier
 0

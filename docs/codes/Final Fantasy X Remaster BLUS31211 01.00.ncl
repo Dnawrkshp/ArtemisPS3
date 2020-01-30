@@ -1,5 +1,11 @@
-Final Fantasy X (ffx_phyreApp.self)
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
 
+ffx_phyreApp.self
+*/
 #
 Max HP + Break HP Limit
 0
@@ -235,7 +241,7 @@ work for the first 10
 slots in the Equipment
 list, put the cursor over
 the item, hold SELECT and
-press
+press:
 START = 4 slots and clear the abilities
 R3 = Maximum Weapon Power
 [] = Modify 1st ability

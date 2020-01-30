@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Wander To Kyozou
-
+*/
 #
 Shadow Of The Colossus (Shadow.self)
 

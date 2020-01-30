@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Senjou No Valkyria
-
+*/
 #
 AoB Max DCT By Opening Treasure?
 0

@@ -1,7 +1,10 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Agarest Senki
 Record Of Agarest War
-
+*/
 #
 Max Gold After Battle
 0

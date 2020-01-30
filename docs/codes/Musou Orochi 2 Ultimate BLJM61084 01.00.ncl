@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Warriors Orochi 3 Ultimate
-
+*/
 #
 1 Hit Max Level
 0

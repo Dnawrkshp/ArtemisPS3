@@ -1,6 +1,9 @@
-Also known as
+Alternative Names
+0
+PARAM.SFO
+/*
 Attouteki Yuugi Mugen Souls
-
+*/
 #
 Max G After 1 Battle
 0

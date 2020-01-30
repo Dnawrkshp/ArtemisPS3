@@ -5,6 +5,14 @@ PARAM.SFO
 Resistance Jinrui Botsuraku No Hi
 */
 #
+File Info
+0
+bungholio
+/*
+The below codes modify
+game.self.
+*/
+#
 Loaded Ammo Does Not Decrease
 0
 hyper2k

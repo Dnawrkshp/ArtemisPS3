@@ -1,12 +1,17 @@
 Max Libra On Gain
 0
-Hiei-YYH
+Hiei-YYH, games24.blog.fc2.com/blog-entry-292.html
 0 003B12FC 48000008
 #
-Not Reduce Libra
+Libra Never Decreases
 0
 games24.blog.fc2.com/blog-entry-292.html
 0 003B1324 60000000
+#
+Max Blood After Gain
+0
+games24.blog.fc2.com/blog-entry-292.html
+0 003B1490 48000008
 #
 Max Blood On Use
 0
@@ -15,7 +20,7 @@ Hiei-YYH, games24.blog.fc2.com/blog-entry-292.html
 0 003B14A0 3CA0000F
 0 003B14A4 60A5423F
 #
-Infinite HP/SP
+Infinite HP + SP
 0
 Hiei-YYH
 0 0091F2C0 806300B0
@@ -46,9 +51,16 @@ Items 999 In Change
 0
 games24.blog.fc2.com/blog-entry-292.html
 0 00144980 3CC00016
-0 00144984 60C60014
+0 00144984 60C600Z
 0 00144988 90C30000
 0 0014498C 60000000
+[Z]14=I don't know[/Z]
+/*
+Seems to have 00 to 14
+for item values, you will
+need to check what they
+are on your own.
+*/
 #
 Double Chain Combo
 0
@@ -62,7 +74,7 @@ games24.blog.fc2.com/blog-entry-292.html
 0 000CF4A0 1FFFZ
 [Z]000A=10x;0064=100x;03E8=1000x;2710=10000x[/Z]
 #
-Double Dash Movement Speedy
+Double Dash Movement Speed
 0
 Hiei-YYH
 0 00BE4000 38600000
@@ -84,6 +96,7 @@ Hiei-YYH
 0 001176F0 48ACC910 
 #
 Force Skill 999
+0
 games24.blog.fc2.com/blog-entry-292.html
 0 00AFAE1A 03E7
 0 00AFAE26 03E7
@@ -91,4 +104,49 @@ games24.blog.fc2.com/blog-entry-292.html
 0 000110F4 38A003E7
 0 00011110 38C003E7
 0 00011194 390003E7
+#
+AoB Max Libra On Gain
+0
+Hiei-YYH, games24.blog.fc2.com/blog-entry-292.html
+asdf 408000087CC4F81490C57D8041860034
+asdf 480000087CC4F81490C57D8041860034
+#
+AoB Libra Never Decreases
+0
+games24.blog.fc2.com/blog-entry-292.html
+asdf 7C84F81490837D80418600103860007D
+asdf 6000000090837D80418600103860007D
+#
+AoB Max Blood After Gain
+0
+games24.blog.fc2.com/blog-entry-292.html
+asdf 4181000860A4000038A000002C040000
+asdf 4800000860A4000038A000002C040000
+#
+AoB Ability Change Item x999 On Use
+0
+games24.blog.fc2.com/blog-entry-292.html
+asdf 4080000860DE00003CA000B7B3DF0004
+asdf 4800000860DE00003CA000B7B3DF0004
+asdf 4080000860DE00003CA000B7B3DF0004
+asdf 4800000860DE00003CA000B7B3DF0004
+#
+AoB Summon Items x999 In Use
+0
+games24.blog.fc2.com/blog-entry-292.html
+asdf 4080000830A4FFFF606600003CE000B7
+asdf 4800000830A4FFFF606600003CE000B7
+#
+AoB Items 999 In Change
+0
+games24.blog.fc2.com/blog-entry-292.html
+asdf 30C6FFFF2C0603E74080000830A4FFFF
+asdf 3CC0001660C600Z90C3000060000000
+[Z]14=I don't know[/Z]
+/*
+Seems to have 00 to 14
+for item values, you will
+need to check what they
+are on your own.
+*/
 #
