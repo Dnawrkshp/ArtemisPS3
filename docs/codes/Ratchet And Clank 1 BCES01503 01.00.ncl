@@ -1,3 +1,10 @@
+File Info
+0
+Game Directory
+/*
+Use \USRDIR\RC1.ppu.self
+*/
+#
 1P Invincible Mode
 0
 xtatu
@@ -8,4 +15,67 @@ AoB 1P Invincible Mode
 xtatu
 B 00010000 04000000
 B 41860008480000143C60005038632694C0430004 40860008480000143C60005038632694C0430004
+#
+Memory Infinite Health
+0
+jgduff1
+0 0096BF8B 08
+#
+ASM Infinite Health
+0
+jgduff1
+0 0007F558 30640000
+#
+Memory Infinite Air
+0
+jgduff1
+0 0096BF80 00002710
+#
+ASM Infinite Air
+0
+jgduff1
+0 000A2814 907F2710
+#
+Memory Infinite Ammo
+0
+jgduff1
+0 0096C0D4 00000028 /*Bomb Glove*/
+0 0096C0D8 00000014 /*Devastator*/
+0 0096C0E0 00000014 /*Visibomb*/
+0 0096C0E8 000000C8 /*Tesla Claw*/
+0 0096C0EC 000000F0 /*Pyrocitor*/
+0 0096C0F0 00000032 /*Mine Glove*/
+0 0096C0FC 0000000A /*Agents Of Doom*/
+0 0096C108 00000032 /*R.Y.N.O.*/
+0 0096C110 00000014 /*Decoy Glove*/
+#
+ASM Infinite Ammo
+0
+jgduff1
+0 000AA2DC 60000000
+#
+Memory 999,999 Bolts
+0
+jgduff1
+0 00969CA0 000F423F
+#
+ASM Many Bolts On Gain
+0
+jgduff1
+0 0024075C 7CC64814
+#
+Memory Lot + Infinite Bolt On Change
+0
+jgduff1
+0 00969CA0 00000032
+#
+ASM Lot + Infinite Bolt On Change
+0
+jgduff1
+0 0016D758 7F9F1810 
+0 0016D764 905C9CA0
+0 0016D8A4 7C7E1810 
+0 0016D8B0 905C9CA0 
+0 0024075C 7CC62014 
+0 00240764 90439CA0 
 #
