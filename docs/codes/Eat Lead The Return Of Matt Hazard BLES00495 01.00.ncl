@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Eat Lead Matt Hazard No Gyakushuu
+*/
+#
 Infinite Ammo
 0
 jgduff1

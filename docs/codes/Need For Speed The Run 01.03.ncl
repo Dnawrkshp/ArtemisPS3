@@ -10,6 +10,7 @@ jgduff1
 #
 Memory Infinite Nitro
 0
+jgduff1
 /*Value At The Beginning*/
 0 13A40F20 40400000
 0 13A41370 40400000

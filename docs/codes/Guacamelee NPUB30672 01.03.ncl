@@ -1,3 +1,10 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Fukumen Toushi Masked Warrior
+*/
+#
 Memory Unknown Code 1
 0
 jgduff1
