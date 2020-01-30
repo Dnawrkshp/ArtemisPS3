@@ -12,11 +12,14 @@ A.C.E. Another Century's Episode R.ncl
 Aarus Awakening NPEB02133 v01.01.ncl
 Abyss Odyssey NPUB31397 01.01.ncl
 Ace Combat Assault Horizon 01.00.ncl
+Ace Combat Assault Horizon BLES01392 01.00.ncl
 Adventure Time Explore The Dungeon Because I DON'T KNOW! BLES01961 01.00.ncl
 Adventure Time Secret Of The Nameless Kingdom BLUS31450 01.00.ncl
 Adventure Time The Secret Of The Nameless Kingdom BLUS31450 NPUB31523 v01.00 av01.03.ncl
+Aegis Of Earth Protonovus Assault BLUS31587.ncl
 Aegis Of Earth Protonovus Assault NPUB31805 01.01.ncl
 Afro Samurai BLUS30264 v01.00 av01.01.ncl
+After Burner Climax NPEB00175 NPUB30151 01.00.ncl
 After Burner Climax NPUB30151 01.00.ncl
 Agarest Generations Of War BLES00594 01.00.ncl
 Agarest Generations Of War BLES00594 v01.00 av01.01.ncl
@@ -43,6 +46,7 @@ Aliens Colonial Marines BLES01455 BLUS30862 01.05.ncl
 Aliens Colonial Marines BLES01770 01.05.ncl
 Aliens Vs Predator BLES00585 BLUS30340 BLUS30493 01.00.ncl
 Aliens Vs Predator BLES00585 BLUS30340 BLUS30493 v01.00 av01.00.ncl
+All Zombies Must Die NPUB30308 01.00.ncl
 Alone In the Dark BLES00422 01.02.ncl
 Alone In the Dark BLES00422 v01.00 av01.02 BLUS30232 v01.01 av01.02.ncl
 Alpha Protocol BLES00704 v01.00 av01.00.ncl
@@ -50,6 +54,7 @@ Altered Beast NPEB00526 01.00.ncl
 Amplitude NPUB31810 v01.00 av01.01.ncl
 Amy NPUB30613 01.00.ncl
 Amy NPUB30613 v01.02 av01.00.ncl
+Anarchy Reigns BLES01232.ncl
 Angry Birds Star Wars BLUS31273 01.01.ncl
 Aqua Panic NPUB30203 01.00.ncl
 Ar Nosurge An Ode To An Unborn Star BLUS31478 01.00.ncl
@@ -80,6 +85,7 @@ Army Of Two The Devil's Cartel BLES01763 BLUS31069 01.01.ncl
 Arslan Senki X Musou BLJM61308 01.00.ncl
 Arslan Senki X Musou BLJM61308 01.03.ncl
 Arslan Senki X Musou BLJM61308 01.04.ncl
+Arslan The Warriors Of Legend NPUB31797 01.00.ncl
 Asdivine Hearts NPJB00823 01.00.ncl
 Assassin's Creed 2 BLES00669 01.01.ncl
 Assassin's Creed 2 BLES00670 01.02.ncl
@@ -164,6 +170,7 @@ Battle Princess Of Arcadias NPUB31486 01.00.ncl
 Battlefield 3 BLAS50380 01.00.ncl
 Battlefield 3 BLES01275 BLUS30762 01.00.ncl
 Battlefield 3 BLUS30762 01.01.ncl
+Battlefield 4 BLES01832 BLUS31162 01.00.ncl
 Battlefield 4 BLUS31162 1.00.ncl
 Battlefield 4 BLUS31162 1.01.ncl
 Battlefield Bad Company Gold Edition BLES00261 01.00.ncl
@@ -210,6 +217,7 @@ BioShock Infinite BLUS30629 01.01.ncl
 BioShock Infinite BLUS30629 01.02.ncl
 BioShock Infinite BLUS30629 v01.01 av01.00.ncl
 BioShock NPUB30393 v01.02 av01.10.ncl
+Biohazard 0 BLJM61272 01.00.ncl
 Biohazard 0 BLJM61272 NPJB00726 v01.00 av01.00.ncl
 Biohazard 4 BLJM60372 01.01.ncl
 Biohazard 4 NPJB00084 01.00.ncl
@@ -255,6 +263,8 @@ Bleach Soul Resurreccion BLUS30769 01.02.ncl
 Blood Knight 01.02.ncl
 Blood Of The Werewolf NPUB31493 01.01.ncl
 BloodRayne Betrayal 01.00.ncl
+BloodRayne Betrayal NPUB30377 01.00.ncl
+BloodRayne Crimson Slayer NPJB00609 01.00.ncl
 Blur BLES00759 BLUS30295 v01.00 av01.02.ncl
 Blur BLES00759 v01.00 av01.02.ncl
 Bodycount BLES01314 BLUS30562 v01.00 av01.01.ncl
@@ -296,6 +306,8 @@ Call Of Duty Modern Warfare 3 BLES01428 BLUS30838 01.21.ncl
 Call Of Duty World At War BLES00354 BLES00357 v01.00 av01.00 BLUS30192 v01.01 av01.00.ncl
 Call Of Duty World At War BLES00354 BLUS30192 01.01.ncl
 Call Of Juarez Bound In Blood BLES00556 BLUS30347 v01.00 av01.01.ncl
+Call Of Juarez Bound In Blood NPEB00532 NPUB30637 av01.00.ncl
+Call Of Juarez Gunslinger NPEB01214 NPUB31079 av01.02.ncl
 Call Of Juarez Gunslinger NPEB01214 NPUB31079 v01.00 av01.00.ncl
 Call Of Juarez Gunslinger NPJB00394 v01.00 av01.00.ncl
 Call Of Juarez Gunslinger NPUB31079 01.00.ncl
@@ -362,6 +374,8 @@ Crysis 2 NPEB00653 01.00.ncl
 Crysis 2 NPEB00653 v01.00 av01.00.ncl
 Crysis 3 BLJM60530 01.03.ncl
 Crysis 3 BLUS30976 01.00.ncl
+Crysis 3 NPEB01234 01.04.ncl
+Crysis NPEB00575 NPUB30302 v01.00 av01.00.ncl
 Crysis NPUB30302 01.00.ncl
 Crysis NPUB30302 v01.00 av01.00.ncl
 Crystal Defenders NPUB30092 01.00.ncl
@@ -373,6 +387,7 @@ Dante's Inferno BLES00713 01.04.ncl
 Dante's Inferno BLES00713 BLUS30405 01.00.ncl
 Dante's Inferno Divine Edition BLES00714 BLUS30405 v01.00 av01.04.ncl
 Dante's Inferno Divine Edition BLUS30405 01.04.ncl
+Dark Mist NPJA00014 01.01.ncl
 Dark Sector BLUS30116 01.00.ncl
 Dark Sector BLUS30116 v01.01 av01.00.ncl
 Dark Souls 2 BLUS41045 01.01.ncl
@@ -391,6 +406,7 @@ Darksiders Shinpan No Toki BLJM60204 01.01.ncl
 Darksiders.ncl
 Daytona USA 01.00.ncl
 Dead Island BLES00749 01.04.ncl
+Dead Island BLES00749 BLUS30790 v01.00 av01.04 NPEB00721 av01.00.ncl
 Dead Island BLES00749 BLUS30790 v01.00 av01.04.ncl
 Dead Island BLJS10148 01.02.ncl
 Dead Island BLUS30790 01.04.ncl
@@ -428,6 +444,7 @@ Dead Space 2 BLES01040 BLUS30624 BLUS30680 v01.00 av01.00.ncl
 Dead Space 2 BLUS30624 01.00.ncl
 Dead Space 2 BLUS30624 01.02.ncl
 Dead Space 3 BLES01733 BLUS31053 01.00.ncl
+Dead Space 3 BLES01733 BLUS31053 01.01.ncl
 Dead Space 3 BLES01733 BLUS31053 01.02.ncl
 Dead Space 3 BLES01733 BLUS31053 v01.00 av01.02.ncl
 Dead Space BLES00308 BLES00309 01.00.ncl
@@ -443,6 +460,7 @@ Dead To Rights Retribution BLUS30278 v01.00 av01.01.ncl
 Deadfall Adventures Heart Of Atlantis NPUB31589 01.00.ncl
 Deadly Premonition The Director's Cut BLES01776 01.00.ncl
 Deadly Premonition The Director's Cut BLES01776 v01.00 av01.00.ncl
+Deadly Premonition The Director's Cut NPEB01352 01.00.ncl
 Deadly Premonition The Director's Cut NPUB31179 01.00.ncl
 Deadpool BLES01789 BLUS31146 01.00.ncl
 Deadstorm Pirates BCES01070 BLUS30528 v01.00 av01.01.ncl
@@ -458,6 +476,7 @@ Demon's Souls BLUS30443 01.00.ncl
 Demon's Souls.ncl
 Der Pate Die Don-Edition BLES00044 v01.01.ncl
 Der Pate Die Don-Edition BLUS30023 v01.01.ncl
+Destroy All Humans! Path Of The Furon.ncl
 Deus Ex Human Revolution BLES01150 BLES01151 BLES01152 BLES01928 BLUS30476 v01.00 av01.00 + v01.01 av01.01.ncl
 Deus Ex Human Revolution BLES01150 BLES01151 BLES01928 BLUS30476 01.00.ncl
 Deus Ex Human Revolution Director's Cut BLES01928 01.00.ncl
@@ -497,8 +516,12 @@ Disgaea D2 A Brighter Darkness BLES01939 v01.01 av01.40.ncl
 Disgaea Dimension 2 BLJS10206 01.00.ncl
 Disgaea Dimension 2 BLJS10206 01.10.ncl
 Dishonored BLES01674 01.03.ncl
+Dishonored BLES01674 BLES01675 BLUS30501 NPEB01111 NPUB30888 01.04 BLES01714 01.03.ncl
+Dishonored BLES01675 v01.01 av01.00.ncl
 Dishonored BLES01924 01.01.ncl
 Dishonored BLJM60520 01.02.ncl
+Dishonored BLUS30501 v01.00 av01.04.ncl
+Dishonored NPUB30888 v01.00 av01.00.ncl
 Disney Castle Of Illusion Starring Mickey Mouse NPEB01427 NPUB31099 v01.00 av01.00.ncl
 Disney Castle Of Illusion Starring Mickey Mouse NPUB31099 01.00.ncl
 Disney Ducktales Remastered NPEB01287 01.00.ncl
@@ -506,6 +529,8 @@ Disney Ducktales Remastered NPEB01287 01.01.ncl
 Disney Ducktales Remastered NPEB01287 v01.00 av01.01.ncl
 Disney Ducktales Remastered NPUB31126 01.00.ncl
 Disney Epic Mickey 2 The Power Of Two BLES01627 01.00.ncl
+Disney Pixar Brave BLUS30907 01.00.ncl
+Disney Universe BLUS30773 01.01.ncl
 DmC Devil May Cry BLES01698 01.00.ncl
 DmC Devil May Cry BLES01698 01.01.ncl
 DmC Devil May Cry BLES01698 BLUS30723 v01.01 av01.01.ncl
@@ -526,6 +551,7 @@ Dragon Age 2 BLUS30645 01.05.ncl
 Dragon Age Inquisition 01.09.ncl
 Dragon Age Inquisition BLUS30997 01.00.ncl
 Dragon Age Origins Ultimate Edition BLES01075 v01.00 av01.00.ncl
+Dragon Age Origins Ultimate Edition BLES01076 v01.00 av01.00.ncl
 Dragon Age Origins.ncl
 Dragon Ball Raging Blast 2 BLES00978 01.00.ncl
 Dragon Ball Raging Blast 2.ncl
@@ -533,6 +559,7 @@ Dragon Ball Raging Blast BLES00693 BLUS30431 01.00.ncl
 Dragon Ball Raging Blast BLJS10066 01.00.ncl
 Dragon Ball Xenoverse BLES02096 01.01.ncl
 Dragon Ball Xenoverse BLJS10292 01.00.ncl
+Dragon Ball Xenoverse BLJS10292 v01.00 av01.08 BLUS31507 01.08.ncl
 Dragon Ball Xenoverse BLJS10292 v01.00 av01.08.ncl
 Dragon Ball Z Battle Of Z BLES01941 01.00.ncl
 Dragon Ball Z Battle Of Z BLES01941 v01.00 av01.00.ncl
@@ -546,6 +573,7 @@ Dragon Fantasy Book I NPUB31118 01.12.ncl
 Dragon Fin Soup NPEB02096 v01.00 av01.01.ncl
 Dragon Quest Builders Alefgard O Fukkatsu Niseyo BLJM61311 NPJB00765 v01.01 av01.00.ncl
 Dragon Quest Heroes 2 Futago No Ou To Yogen No Owari BLJM61341 01.01.ncl
+Dragon Quest Heroes 2 Futago No Ou To Yogen No Owari BLJM61341 01.05.ncl
 Dragon Quest Heroes Yamiryuu To Sekaiju No Shiro BLJM61256 01.00.ncl
 Dragon Quest Heroes Yamiryuu To Sekaiju No Shiro BLJM61256 01.01.ncl
 Dragon Quest Heroes Yamiryuu To Sekaiju No Shiro BLJM61256 01.02.ncl
@@ -565,6 +593,7 @@ Dragon's Lair NPUB30217 v01.02 av01.02.ncl
 Drakengard 3 BLUS31197 01.01.ncl
 Drakengard 3 BLUS31197 NPUB31251 01.00.ncl
 Drakengard 3 BLUS31197 v01.01 av01.01.ncl
+Dream C Club Complete Edipyon!.ncl
 Driver San Fransisco BLES00891 01.01.ncl
 Duke Nukem Forever BLES01147 01.01.ncl
 Duke Nukem Forever BLES01147 BLUS30615 v01.00 av01.00.ncl
@@ -581,6 +610,7 @@ Dynasty Warriors 7 Xtreme Legends BLES01496 01.01.ncl
 Dynasty Warriors 7 Xtreme Legends BLES01496 v01.00 av01.01.ncl
 Dynasty Warriors 7 Xtreme Legends BLES01496.ncl
 Dynasty Warriors 7 Xtreme Legends BLUS30690 01.00.ncl
+Dynasty Warriors 8 BLES01865 BLUS31185 01.02.ncl
 Dynasty Warriors 8 BLUS31185 01.00.ncl
 Dynasty Warriors 8 BLUS31185 v01.01 av01.00.ncl
 Dynasty Warriors 8 Empires NPUB31656 v01.00 av01.04.ncl
@@ -598,10 +628,13 @@ Dynasty Warriors Gundam Reborn BLES02057 v01.01 av01.00.ncl
 Dynasty Warriors Strikeforce BLJM60172.ncl
 Dynasty Warriors Strikeforce.ncl
 Earth Defense Force 2025 BLES01847 BLUS31160 01.00.ncl
+Earth Defense Force 2025 NPUB31164 01.00.ncl
 Earthworm Jim NPEB00226 01.00.ncl
 Earthworm Jim NPUB30120 01.00.ncl
 Earthworm Jim NPUB30120 v01.00 av01.00.ncl
 Eat Lead The Return Of Matt Hazard BLES00495 01.00.ncl
+Eiyuu Densetsu Sen No Kiseki 2 01.01.ncl
+Eiyuu Densetsu Sen No Kiseki 2 01.02.ncl
 Eiyuu Densetsu Sen No Kiseki 2 BLJM61183 01.03.ncl
 Eiyuu Densetsu Sen No Kiseki BLJM61059 01.00.ncl
 Eiyuu Densetsu Sen No Kiseki BLJM61059 01.02.ncl
@@ -625,6 +658,7 @@ Enemy Territory Quake Wars BLUS30132 01.00.ncl
 Enslaved Odyssey To The West BLES00989 01.00.ncl
 Enslaved Odyssey To The West BLES00989 BLUS30558 v01.00 av01.00.ncl
 Enslaved Odyssey To The West BLES00989 v01.00 av01.01.ncl
+Escape Dead Island BLUS31433 v01.01 av01.00.ncl
 Escape From Dead Island BLUS31433 01.00.ncl
 Escape From Dead Island BLUS31433 v01.01 av01.00.ncl
 Escha And Logy Atelier Tasogare No Sora Nn Renkinjutsushi BLJM61050 01.00.ncl
@@ -651,6 +685,7 @@ Fairytale Fights BLUS30456 01.03.ncl
 Fallout 3 GOTY Edition BLUS30451 01.00.ncl
 Fallout New Vegas Ultimate Edition BLES01475 01.00.ncl
 Family Guy Back To The Multiverse BLES01625 01.00.ncl
+Fantastic Four Rise Of The Silver Surfer BLES00075 01.00.ncl
 Far Cry 2 BLUS30178 01.00.ncl
 Far Cry 2 BLUS30178 v01.02 av01.00.ncl
 Far Cry 3 BLES01138 01.00.ncl
@@ -660,6 +695,7 @@ Far Cry 3 NPEB01096 01.01.ncl
 Far Cry 4 BLES02011 BLUS31420 01.01.ncl
 Far Cry Classics NPUB30737 01.00.ncl
 Fast Draw NPEB00437 01.00.ncl
+Fast Draw Showdown NPEB00437 01.00.ncl
 Final Exam 01.00.ncl
 Final Exam NPEB01409 01.00.ncl
 Final Exam NPEB01409 v01.01 av01.00.ncl
@@ -701,6 +737,8 @@ Fuse BLUS31040 01.00.ncl
 Fuse BLUS31040 v01.00 av01.00.ncl
 G-Force BLES00574 01.00.ncl
 G.I. Joe The Rise Of Cobra BLAS50133 01.00.ncl
+G.I. Joe The Rise Of Cobra BLES00990 01.00.ncl
+GRID BLUS30142 v01.00 av01.02.ncl
 Galaga Legions DX NPEB00333 01.00.ncl
 Galaga Legions DX NPUB30321 01.00.ncl
 Gatling Gears NPUB30454 01.00.ncl
@@ -732,7 +770,9 @@ God Of War 3 BCES00799 BCUS98111 01.00.ncl
 God Of War 3 BCES00799 BCUS98111 v01.03 av01.00.ncl
 God Of War 3 BCJS37001 01.00.ncl
 God Of War Ascension BCAS25016 BCES01741 01.00.ncl
+God Of War Ascension BCES01741 v01.00 av01.12.ncl
 God Of War Ascension BCUS98232 01.00.ncl
+God Of War Ascension BCUS98232 v01.00 av01.12.ncl
 God Of War Chains Of Olympus BCES01277 01.00.ncl
 God Of War Chains Of Olympus BCES01277 BCUS98289 01.00.ncl
 God Of War Chains Of Olympus NPUA80637 01.00.ncl
@@ -777,6 +817,7 @@ Grand Theft Auto San Andreas BLUS31584 01.00.ncl
 Grand Theft Auto San Andreas BLUS31584 v01.00 av01.01.ncl
 Grand Theft Auto San Andreas BLUS31584 v01.02 av01.00.ncl
 Grand Theft Auto San Andreas NPEB02369 01.00.ncl
+Grand Theft Auto San Andreas.ncl
 Grand Theft Auto V BLES01807 01.00.ncl
 Grand Theft Auto V BLES01807 01.01.ncl
 Grand Theft Auto V BLES01807 01.02.ncl
@@ -788,6 +829,8 @@ Grand Theft Auto V BLUS31156 01.04.ncl
 Grand Theft Auto V BLUS31156 01.05.ncl
 Gravity Crash NPEA00154 01.02.ncl
 Green Lantern 01.00.ncl
+Green Lantern BLUS30674 01.00.ncl
+Green Lantern Rise Of The Manhunters 01.00.ncl
 Grid 2 BLES01737 01.04.ncl
 Grid Autosport BLES02038 v01.00 av01.03.ncl
 Grid Autosport BLUS31452 01.03.ncl
@@ -816,6 +859,7 @@ Hard Corps Uprising NPUB30096 01.00.ncl
 Hatsune Miku Project Diva F 2nd BLJM61079 01.00.ncl
 Hatsune Miku Project Diva F 2nd BLJM61079 01.01.ncl
 Hatsune Miku Project Diva F 2nd BLUS31431 01.00.ncl
+Hatsune Miku Project Diva F 2nd.ncl
 Hatsune Miku Project Diva F BLJM60527 01.00.ncl
 Haze BLES00157 BLES00169 v01.01 av01.36 BLUS30094 v01.00 av01.36.ncl
 Haze BLES00169 01.36.ncl
@@ -829,6 +873,8 @@ Heavy Fire Shattered Spear BLUS31000 01.00.ncl
 Heavy Rain BCUS98164 v01.00 av01.00.ncl
 Heavy Weapon Atomic Tank NPUA30004 01.00.ncl
 Hell Yeah! NPUB30750 01.00.ncl
+Hell Yeah! Wrath Of The Dead Rabbit NPUB30750 01.00.ncl
+Hellboy The Science Of Evil BLES00090 01.00.ncl
 Hellboy The Science Of Evil BLES00090 01.01.ncl
 Helldivers NPEA00505 v01.00 av01.00.ncl
 Hitman 2 Silent Assassin BLES01517 01.00.ncl
@@ -852,10 +898,13 @@ Hunted Die Schmiede Der Finsternis BLES01310 01.01.ncl
 Hunted La Nascita Del Demone BLES01310 01.01.ncl
 Hunted The Demon's Forge BLES01310 01.00.ncl
 Hunted The Demon's Forge BLES01310 01.01.ncl
+Hunter's Trophy 2 Europa.ncl
 Hydrophobia NPEB00377 01.00.ncl
+Hydrophobia Prophecy NPUB30233 01.00.ncl
 Hyperdimension Neptunia BLUS30701 01.00.ncl
 Hyperdimension Neptunia Victory BLES01788 01.00.ncl
 Hyperdimension Neptunia Victory BLUS31150.ncl
+Hyperdimension Neptunia Victory.ncl
 Hyperdimension Neptunia mk2 BLUS30901 01.00.ncl
 Hyperdimension Neptunia.ncl
 I Am Alive NPEB00476 01.00.ncl
@@ -871,6 +920,7 @@ Initial D Extreme Stage BLJM60055 01.01.ncl
 Inversion BLUS30360 01.00.ncl
 Invincible Tiger NPUB30073 01.00.ncl
 Invincible Tiger NPUB30073 v01.00 av01.00.ncl
+Invincible Tiger The Legend Of Han Tao NPUB30073 v01.00 av01.00.ncl
 Invizimals Das Verlorene Königreich BCES01700 v01.00 av01.01.ncl
 Invizimals El Reino Escondido BCES01700 v01.00 av01.01.ncl
 Invizimals Het Verloren Koninkrijk BCES01700 v01.00 av01.01.ncl
@@ -886,12 +936,14 @@ Iron Sky Invasion BLES01786 01.00.ncl
 Ironman 2 BLES00885 01.00.ncl
 JUJU NPEB02130 01.00.ncl
 Jak 2 BCUS98281 01.00.ncl
+Jak 2 BCUS98281 NPUA80707 v01.00 av01.00.ncl
 Jak 3 BCUS98281 01.00.ncl
 Jak And Daxter The Precursor Legacy NPUA80706 01.00.ncl
 James Bond 007 Blood Stone 01.00.ncl
 James Bond 007 Blood Stone BLES01017 v01.00 av01.00.ncl
 James Cameron's Avatar BLES00667 01.00.ncl
 James Cameron's Avatar BLES00667 v01.01 av01.00.ncl
+James Cameron's Avatar NPUB30566 01.00.ncl
 Jikkyou Powerful Pro Yakyuu 2013 BLJM61083 01.01.ncl
 Jikkyou Powerful Pro Yakyuu 2016 BLJM61317 01.01.ncl
 JoJo No Kimyou Na Bouken Eyes Of Heaven BLJS10318 01.00.ncl
@@ -904,18 +956,21 @@ Jojo No Kimyou Na Bouken All-Star Battle BLJS10217.ncl
 Juju NPUB31626 01.00.ncl
 Just Cause 2 BLES00517 BLUS30400 01.02.ncl
 Just Cause 2 BLES00517 BLUS30400 v01.00 av01.02.ncl
+Kagero Darkside Princess 01.00.ncl
 Kamen Rider Battride War BLJS10220 01.01.ncl
 Kamen Rider Battride War BLJS10220 v01.00 av01.00.ncl
 Kami Jigen Game Neptune V BLJM60492 01.02.ncl
 Kamisama To Unmei Kakumei No Paradox BLJS10202 01.00.ncl
 Kane & Lynch Dead Man 01.10.ncl
 Kane And Lynch 2 Dog Days BLES00604 01.00.ncl
+Kane And Lynch Dead Men.ncl
 Katamari Forever BLES00658 01.00.ncl
 Katamari Forever BLUS30336 01.00.ncl
 Katamari Forever BLUS30336 v01.00 av01.00.ncl
 Ken To Mahou To Gakuen Mono 2G BLJM60278 01.02.ncl
 Ken To Mahou To Gakuen Mono 3 BLJM60258 01.03.ncl
 Ketsui Kizuna Jigoku Tachi Extra BLJM61060 01.00.ncl
+Kidou Senshi Gundam Extreme VS Full Boost BLJS10250 01.09.ncl
 Kidou Senshi Gundam Extreme VS Full Boost BLJS10250 01.10.ncl
 Kidou Senshi Gundam Senki Record U.C. 0081 BLJS10050 01.00.ncl
 Kidou Senshi Gundam Senki Record U.C. 0081 BLJS10050 01.01.ncl
@@ -942,8 +997,10 @@ Kingdom Hearts 1.5 HD ReMIX BLJM60589 01.00.ncl
 Kingdom Hearts 1.5 HD ReMIX BLUS31212 01.00.ncl
 Kingdom Hearts 2.5 HD ReMIX BLES02070 01.00.ncl
 Kingdom Hearts 2.5 HD ReMIX BLES02070 v01.00 av01.00.ncl
+Kingdom Hearts 2.5 HD ReMIX BLES02070.ncl
 Kingdom Hearts 2.5 HD ReMIX BLJM61220 01.00.ncl
 Kingdom Hearts 2.5 HD ReMIX BLJM61220 v01.00 av01.00.ncl
+Kingdom Hearts 2.5 HD ReMIX BLJM61220.ncl
 Kingdom Hearts 2.5 HD ReMIX BLUS31460 01.00.ncl
 Kingdom Hearts 2.5 HD ReMIX BLUS31460 v01.00 av01.00.ncl
 Kingdom Hearts 2.5 ReMIX - Birth By Sleep BLUS31460 v01.00 av01.00.ncl
@@ -1050,6 +1107,9 @@ Mafia 2 BLES00521 01.01.ncl
 Mafia 2 BLES00521 v01.01 av01.03.ncl
 Mafia 2 Director's Cut BLES01165 BLUS30712 01.03.ncl
 Mafia 2 Director's Cut BLES01165 BLUS30712 v01.00 av01.03.ncl
+Mafia 2 Director's Cut BLUS30712 01.03.ncl
+Mafia 2 NPUB30656 01.03.ncl
+Mahjong Dream C Club.ncl
 Majin And The Forsaken Kingdom BLES00919 v01.00 av01.00 BLUS30472 v01.01 av01.00 - Copy.ncl
 Majin And the Forsaken Kingdom BLUS30472 01.00.ncl
 Majin En Het Verloren Koninkrijk BLES00919 v01.00 av01.00 BLUS30472 v01.01 av01.00.ncl
@@ -1080,6 +1140,7 @@ Marvel Vs. Capcom 3 Fate Of Two Worlds BLJM60256.ncl
 Marvel Vs. Capcom 3 Fate Of Two Worlds SE BLUS30714 01.00 BLJM60256 01.02.ncl
 Marvel Vs. Capcom 3 Fate Of Two Worlds.ncl
 Masquerade The Baubles Of Doom NPEB01933 01.00.ncl
+Mass Effect 1 BLES01774 01.00.ncl
 Mass Effect 2 BLES01133 v01.01 av01.00 BLUS30650 v01.00 av01.00.ncl
 Mass Effect 3 BLES01462 01.00.ncl
 Mass Effect 3 BLES01462 01.05.ncl
@@ -1119,6 +1180,7 @@ Mercenaries 2 World In Flames BLUS30056 v01.00 av01.00.ncl
 Metal Gear Rising Revengeance BLES01750 01.00.ncl
 Metal Gear Rising Revengeance BLES01750 01.01.ncl
 Metal Gear Rising Revengeance BLES01750 BLUS31045 01.04.ncl
+Metal Gear Rising Revengeance BLES01750 BLUS31045 v01.01 av01.00.ncl
 Metal Gear Rising Revengeance BLES01750 BLUS31045 v01.01 av01.04.ncl
 Metal Gear Rising Revengeance BLJM60554 01.03.ncl
 Metal Gear Solid 2 Sons Of Liberty BLES01419 BLUS30847 01.03.ncl
@@ -1129,8 +1191,10 @@ Metal Gear Solid 3 Snake Eater BLES01419 BLUS30847 01.03.ncl
 Metal Gear Solid 3 Snake Eater BLES01419 BLUS30847 v01.00 av01.03.ncl
 Metal Gear Solid 3 Snake Eater BLJM91001 01.00.ncl
 Metal Gear Solid 3 Snake Eater NPEB00684 01.00.ncl
+Metal Gear Solid 4 Guns Of The Patriots BLES00246 BLJM67001 02.00.ncl
 Metal Gear Solid 4 Guns Of The Patriots BLES00246 BLUS30109 01.01.ncl
 Metal Gear Solid 4 Guns Of The Patriots BLJM67001 01.03.ncl
+Metal Gear Solid 4 Guns Of The Patriots NPUB31633 02.00.ncl
 Metal Gear Solid 5 Ground Zeroes BLES01971 BLUS31369 NPUB31318 01.01.ncl
 Metal Gear Solid 5 Ground Zeroes BLES31369 BLUS31369 v01.00 av01.04.ncl
 Metal Gear Solid 5 Ground Zeroes BLUS31369 01.04.ncl
@@ -1174,6 +1238,12 @@ Mortal Kombat 1 NPUB30468 01.02.ncl
 Mortal Kombat 2 NPEB00002 NPUB30468 01.00.ncl
 Mortal Kombat 2 NPUB30468 01.00.ncl
 Mortal Kombat 2 NPUB30468 01.02.ncl
+Mortal Kombat 9 BLES01132 01.05.ncl
+Mortal Kombat 9 BLES01132 BLUS30522 NPUB30668 01.02.ncl
+Mortal Kombat 9 BLUS30522 01.05.ncl
+Mortal Kombat 9 BLUS30522 v01.02 av01.00.ncl
+Mortal Kombat 9 Komplete Edition BLES01508 01.05.ncl
+Mortal Kombat 9 NPEB00847 01.05.ncl
 Mortal Kombat BLES01132 01.05.ncl
 Mortal Kombat BLES01132 BLUS30522 NPUB30668 01.02.ncl
 Mortal Kombat BLUS30522 01.00.ncl
@@ -1190,6 +1260,7 @@ MotorStorm Apocalypse BCES00484 BCUS98242 v01.02 av01.00.ncl
 MotorStorm Pacific Rift BCUS98155 01.02.ncl
 MotorStorm Pacific Rift BCUS98155 v01.01 av01.00.ncl
 Motorcycle Club BLES02103 01.00.ncl
+Motorcycle Club.ncl
 Mugen Souls BLES01723 01.00.ncl
 Mugen Souls Z BLES02022 01.01.ncl
 Mugen Souls Z BLES02022 BLJM61028 01.00.ncl
@@ -1212,6 +1283,7 @@ NBA 2K15 BLUS31456 01.00.ncl
 NBA 2K16 BLES02191 01.01.ncl
 NEOGEO Station Metal Slug NPUB30258 01.00.ncl
 Narco Terror NPEB01373 01.00.ncl
+Narco Terror NPUB31225 01.00.ncl
 Naruto Narutimate Ninja Storm BLJS10043 01.01.ncl
 Naruto Shippuden Narutimate Ninja Storm 2 BLJS10084 01.00.ncl
 Naruto Shippuden Narutimate Ninja Storm 3 BLJS10200 01.00.ncl
@@ -1227,6 +1299,7 @@ Naruto Shippuden Ultimate Ninja Storm 3 Full Burst BLUS31350 01.01.ncl
 Naruto Shippuden Ultimate Ninja Storm Generations BLES01481 01.00.ncl
 Naruto Shippuden Ultimate Ninja Storm Revolution BLES02014 01.00.ncl
 Naruto Ultimate Ninja Storm BLES00371 01.00.ncl
+Natsuiro High School Seishun Hakusho BLJS10273 01.01.ncl
 Naughty Bear Gold Edition BLUS30700 01.00.ncl
 Naughty Bear Panic In Paradise NPUB30828 v01.01 av01.00.ncl
 Need For Speed Carbon 01.00.ncl
@@ -1269,6 +1342,7 @@ Ni No Kuni Wrath Of The White Witch BLUS30947 v01.00 av01.00.ncl
 Ni No Kuni Wrath Of The White Witch NPUB30932 01.00.ncl
 Ni No Kuni Wrath Of The White Witch NPUB30932 v01.00 av01.00.ncl
 Nier BLES00826 BLUS30481 v01.01 av01.01.ncl
+Nier BLUS30481 01.00.ncl
 Nier BLUS30481 01.01.ncl
 Nier Replicant BLJM60223 01.00.ncl
 Nights Into Dreams NPUB30798 01.00.ncl
@@ -1276,18 +1350,22 @@ Ninja Gaiden 3 BLES01524 01.00.ncl
 Ninja Gaiden 3 BLES01524 01.01.ncl
 Ninja Gaiden 3 BLJM60447 01.03.ncl
 Ninja Gaiden 3 Razor's Edge BLES01524 01.01.ncl
+Ninja Gaiden 3 Razor's Edge BLES01845 01.01.ncl
 Ninja Gaiden 3 Razor's Edge BLES01845 BLUS31175 v01.00 av01.00 BLJM61010 v01.01 av01.00.ncl
 Ninja Gaiden 3 Razor's Edge BLJM61010 01.00.ncl
 Ninja Gaiden 3 Razor's Edge BLUS31175 01.00.ncl
 Ninja Gaiden 3 Razor's Edge NPUB31184 01.00.ncl
+Ninja Gaiden 3 Razor's Edge NPUB31184 v01.01 av01.00.ncl
 Ninja Gaiden Sigma 2 BLAS50160 01.00.ncl
 Ninja Gaiden Sigma 2 BLES00736 01.03.ncl
 Ninja Gaiden Sigma 2 BLES00736 BLJM60168 BLUS30380 01.00.ncl
 Ninja Gaiden Sigma 2 BLES00736 BLJM60168 BLUS30380 01.01.ncl
 Ninja Gaiden Sigma 2 BLJM60168 01.01 OR 01.03.ncl
+Ninja Gaiden Sigma 2 BLUS30380 01.00.ncl
 Ninja Gaiden Sigma 2 BLUS30380 01.01.ncl
 Ninja Gaiden Sigma 2 BLUS30380 01.02.ncl
 Ninja Gaiden Sigma 2 NPUB30852 01.00.ncl
+Ninja Gaiden Sigma 2 NPUB30852 v01.00 av01.01.ncl
 Ninja Gaiden Sigma 2.ncl
 Ninja Gaiden Sigma BLES00072 01.00 BLJS10005 01.02 BLUS30036 01.01.ncl
 Ninja Gaiden Sigma BLES00072 01.00 BLUS30036 01.01 BLJS10005 01.02.ncl
@@ -1303,7 +1381,10 @@ Ninja Gaiden Sigma.ncl
 Ninokuni Shiroki Seihai No Joou BLJS10150 01.01.ncl
 Ninokuni Shiroki Seihai No Joou BLJS10150 02.00.ncl
 Ninokuni Shiroki Seihai No Joou BLJS10150 03.00.ncl
+No More Heroes Heroes' Paradise BLES01101 01.00.ncl
 No More Heroes Heroes' Paradise BLES01101 BLJS10072 01.01.ncl
+No More Heroes Red Zone Edition BLJS10114 01.00.ncl
+Nobunaga No Yabou Souzou BLJM61121 01.01.ncl
 Obcy Izolacja BLES01697 v01.01 av01.00.ncl
 Oddworld Strangers Wrath 01.02.ncl
 Oddworld Strangers Wrath NPEB00645 v01.00 av01.02 NPUB30554 v01.01 av01.02.ncl
@@ -1313,10 +1394,14 @@ Odin Sphere Leifthrasir BLES02241 v01.01 av01.01.ncl
 Odin Sphere Leifthrasir BLUS31601 v01.01 av01.00.ncl
 Of Orcs And Men 01.00.ncl
 Of Orcs And Men BLES01586 v01.01 av01.00.ncl
+Okami BLJM60467 NPUB30720 v01.01 av01.00.ncl
 Okami Zekkeihan BLJM60467 01.00.ncl
+Okami Zekkeihan BLJM60467 NPUB30720 v01.01 av01.00.ncl
 Okami Zekkeihan BLJM60467 v01.01 av01.00.ncl
 One Piece Kaizoku Musou 2 BLJM60572 01.00.ncl
 One Piece Kaizoku Musou 3 BLJM61261 01.00.ncl
+One Piece Kaizoku Musou 3 BLJM61261.ncl
+One Piece Kaizoku Musou 3.ncl
 One Piece Kaizoku Musou BLJM60416 01.00.ncl
 One Piece Pirate Warriors 2 BLES01913 01.00.ncl
 One Piece Pirate Warriors 2 BLES01913 v01.00 av01.00.ncl
@@ -1328,6 +1413,7 @@ One Piece Unlimited World Red BLES02020 01.00.ncl
 One Piece Unlimited World Red BLES02020 v01.00 av01.00.ncl
 One Piece Unlimited World Red BLJS10272 01.00.ncl
 Onechanbara Z Kagura With NoNoNo! BLJS10221 01.00.ncl
+Onechanbara Z Kagura With NoNoNo! BLJS10221 01.02.ncl
 Onechanbara Z Kagura With NoNoNo! BLJS10221 v01.03 av01.00.ncl
 Ore No Imouto Ga Konnani Kawaii Wake Ga Nai. Happy End BLJS10238 01.01.ncl
 Outland NPEB00463 01.00.ncl
@@ -1356,6 +1442,7 @@ Painkiller Hell And Damnation NPUB31259 01.01.ncl
 Parasite Eve NPUJ00662.ncl
 Pay Day 2 01.05.ncl
 Payday The Heist NPUA30073 01.00.ncl
+Peggle BLUS30852 NPUA30005 01.00.ncl
 Persona 4 Arena BLUS30985 01.00.ncl
 Persona 5 BLUS31604 01.00.ncl
 Persona 5 BLUS31604 NPEB02436 NPUB31848.ncl
@@ -1394,7 +1481,9 @@ Pro Evolution Soccer 2014 BLUS31322 01.01.ncl
 Pro Yakyuu Spirits 2011 BLJM60281 01.01.ncl
 Pro Yakyuu Spirits 2013 BLAS50575 01.00.ncl
 Pro Yakyuu Spirits 2015 01.01.ncl
+Prototype 2 BLES01532 BLES01534 BLUS30756 NPEB00917 NPUB30801.ncl
 Prototype 2 BLES01532 BLUS30756 01.00.ncl
+Prototype 2 BLES01532 BLUS30756 v01.01 av01.00.ncl
 Prototype 2 BLES01532 BLUS30756 v01.01 av01.01.ncl
 Prototype BLES00269 01.01.ncl
 Prototype BLUS30145 01.00 BLES00269 01.01.ncl
@@ -1412,6 +1501,7 @@ Quantum Theory BLES00868 v01.02 av01.00.ncl
 R-Type Dimensions NPUB31346 01.00.ncl
 R.I.P.D. The Game NPUB31221 01.01.ncl
 R.U.S.E. 01.01.ncl
+Race Driver GRID BLES00256 v01.00 av01.03.ncl
 Rage BLES01377 BLES01378 BLES01426 BLUS30485 v01.00 av01.02.ncl
 Rage BLES01426 01.00 BLUS30485 01.01.ncl
 Ragnarok Odyssey ACE BLUS31386 01.00.ncl
@@ -1431,6 +1521,7 @@ Ratchet And Clank 1 BCJS30084 BCUS98282 01.00.ncl
 Ratchet And Clank 2 Going Commando BCES01503 01.00.ncl
 Ratchet And Clank 2 Going Commando BCES01503 v01.01 av01.00.ncl
 Ratchet And Clank 2 Going Commando BCJS30084 BCUS98282 01.00.ncl
+Ratchet And Clank 2 Going Commando.ncl
 Ratchet And Clank 2 Locked And Loaded BCES01503 01.00.ncl
 Ratchet And Clank 3 Totsugeki! Galactic Rangers BCJS30084 BCUS98282 01.00.ncl
 Ratchet And Clank 3 Up Your Arsenal BCES01503 01.00.ncl
@@ -1455,12 +1546,16 @@ Ratchet And Clank Future A Crack In Time BCUS98124 01.00.ncl
 Ratchet And Clank Future A Crack In Time BCUS98124 01.02.ncl
 Ratchet And Clank Future A Crack In Time BCUS98124 v01.01 av01.00.ncl
 Ratchet And Clank Future Alla Ricerca Del Tesoro BCAS20052 BCES00301 01.00.ncl
+Ratchet And Clank Future Alla Ricerca Del Tesoro BCAS20052 BCES00301 NPUA80145 01.00.ncl
 Ratchet And Clank Future Armados Hasta Los Dientes BCES00052 v01.00 av01.00 BCUS98127 v02.00 av01.00.ncl
 Ratchet And Clank Future Armi Di Distruzione BCES00052 v01.00 av01.00 BCUS98127 v02.00 av01.00.ncl
 Ratchet And Clank Future Caça Ao Tesouro BCAS20052 BCES00301 01.00.ncl
+Ratchet And Clank Future Caça Ao Tesouro BCAS20052 BCES00301 NPUA80145 01.00.ncl
 Ratchet And Clank Future En Busca Del Tesoro BCAS20052 BCES00301 01.00.ncl
+Ratchet And Clank Future En Busca Del Tesoro BCAS20052 BCES00301 NPUA80145 01.00.ncl
 Ratchet And Clank Future Opération Destruction BCES00052 v01.00 av01.00 BCUS98127 v02.00 av01.00.ncl
 Ratchet And Clank Future Quest For Booty BCAS20052 BCES00301 01.00.ncl
+Ratchet And Clank Future Quest For Booty BCAS20052 BCES00301 NPUA80145 01.00.ncl
 Ratchet And Clank Future Tools Of Destruction BCAS20023 01.00.ncl
 Ratchet And Clank Future Tools Of Destruction BCES00052 01.00.ncl
 Ratchet And Clank Future Tools Of Destruction BCES00052 v01.00 av01.00 BCUS98127 v02.00 av01.00.ncl
@@ -1487,6 +1582,7 @@ Ratchet Deadlocked NPUA80646 01.00.ncl
 Ratchet Deadlocked NPUA80646 v01.01 av01.00.ncl
 RayStorm NPJB00034 01.00.ncl
 RayStorm NPJB00034 v01.00 av01.00.ncl
+Rayman Legends BLES01863 01.00.ncl
 Rayman Origins 01.00.ncl
 Rayman Origins BLES01386 01.00.ncl
 Rayman Origins BLES01386 BLUS30836 v01.01 av01.00.ncl
@@ -1504,6 +1600,7 @@ Red Dead Redemption BLES00680 01.04.ncl
 Red Dead Redemption BLES00680 01.08.ncl
 Red Dead Redemption BLUS30418 01.00.ncl
 Red Dead Redemption BLUS30418 01.07.ncl
+Red Dead Redemption BLUS30418 01.08.ncl
 Red Dead Redemption GOTY Edition BLES01294 01.00.ncl
 Red Dead Redemption NPEB00833 NPUB30638 v01.00 av01.02.ncl
 Red Dead Redemption Undead Nightmare BLES01179 01.00.ncl
@@ -1537,6 +1634,7 @@ Resident Evil 6 BLES01465 BLJM60405 BLUS30855 01.03.ncl
 Resident Evil 6 BLES01465 BLJM60405 NPUB30984 01.02.ncl
 Resident Evil 6 BLUS30855 01.00.ncl
 Resident Evil 6 BLUS30855 v01.00 av01.00.ncl
+Resident Evil 6 BLUS30855 v01.01 av01.06.ncl
 Resident Evil 6 NPUB30984 01.03.ncl
 Resident Evil Code Veronica X NPEB00533 01.02.ncl
 Resident Evil Code Veronica X NPEB00553 01.00.ncl
@@ -1553,6 +1651,7 @@ Resident Evil Remaster NPEB02076 NPJB00653 NPUB31552 v01.00 av01.00.ncl
 Resident Evil Remaster NPUB31552 01.00.ncl
 Resident Evil Revelations 01.00.ncl
 Resident Evil Revelations 2 BLUS31444 01.03.ncl
+Resident Evil Revelations 2 BLUS31444 NPUB31518 01.03.ncl
 Resident Evil Revelations 2 BLUS31444 v01.00 av01.04.ncl
 Resident Evil Revelations 2 NPUB31518 01.00.ncl
 Resident Evil Revelations 2 NPUB31518 v01.02 av01.00.ncl
@@ -1606,11 +1705,13 @@ Risen 2 Dark Waters BLES01398 v01.00 av01.01 BLUS30800 v01.00 av01.02.ncl
 Risen 3 Titan Lord BLUS 01.01.ncl
 Risen 3 Titan Lords BLES02010 v01.00 av01.00.ncl
 Risen 3 Titan Lords BLUS31432 v01.00 av01.01.ncl
+Rochard NPUA30061 v01.00 av01.00.ncl
 Rock Of Age NPUB30332 01.00.ncl
 Rocket Knight NPEB00186 NPUB30123 01.00.ncl
 Rogue Legacy NPEB02037 NPUB31512 v01.00 av01.03.ncl
 Rogue Legacy NPEB02037 v01.01 av01.00.ncl
 Rogue Legacy NPUB31512 01.00.ncl
+Rogue Warrior BLUS30311 v01.03 av01.00.ncl
 Rogue Warriors BLUS30311 01.00.ncl
 Rogue Warriors BLUS30311 v01.03 av01.00.ncl
 Rorona No Atelier Arland No Renkinjutsushi BLJM60154 01.01.ncl
@@ -1619,6 +1720,7 @@ Rorona No Atelier Arland No Renkinjutsushi BV BLJM55018 01.02.ncl
 Rune Factory Ocean BLES01550 01.00.ncl
 Rune Factory Ocean JPN.ncl
 Rune Factory Tides Of Destiny BLUS30759 01.00.ncl
+Rune Factory Tides Of Destiny NPUB30911 01.00.ncl
 Rush N' Attack 01.00.ncl
 Rush'N Attack Ex-Patriot NPUB30112 01.00 NPEB00299 01.01.ncl
 Ryu Ga Gotoku 3 BLJM55012 02.00.ncl
@@ -1664,6 +1766,7 @@ Saints Row The Third BLES01342 BLUS30666 v01.01 av01.00.ncl
 Saints Row The Third.ncl
 Samurai Dou 3 BLJS10039 01.01.ncl
 Samurai Dou 3 PLUS BLJS50009 01.01.ncl
+Samurai Warriors 4 Empires NPUB31799 01.00.ncl
 Samurai Warriors 4 NPUB31564 01.00.ncl
 Samurai Warriors 4 NPUB31564 01.01.ncl
 Samurai Warriors 4 NPUB31564 v01.01 av01.00.ncl
@@ -1697,6 +1800,7 @@ Sengoku Basara 4 Sumeragi BLJM61248 01.01.ncl
 Sengoku Basara 4 Sumeragi BLJM61248 v01.00 av01.01.ncl
 Sengoku Basara 4 Sumeragi NPJB00688 01.01.ncl
 Sengoku Basara Sanada Yukimura-Den BLJM61332 NPJB00805 v01.02 av01.00.ncl
+Sengoku Musou 3 Empires.ncl
 Sengoku Musou 3 Z BLJM60313 01.02 01.03.ncl
 Sengoku Musou 3 Z BLJM60313.ncl
 Sengoku Musou 4 BLJM61144 NPJB00534 01.00.ncl
@@ -1714,12 +1818,16 @@ Shadows Of The Damned BLES01276 01.00.ncl
 Shadows Of The Damned BLES01276 BLUS30653 v01.00 av01.00.ncl
 Shadows Of The Damned BLUS30653 01.00.ncl
 Shallie No Atelier Tasogare No Umi No Renkinjutsushi BLJM61192 01.01.ncl
+Shallie No Atelier Tasogare No Umi No Renkinjutsushi BLJM61192 01.03.ncl
 Shallie No Atelier Tasogare No Umi No Renkinjutsushi NPJB00619 01.01.ncl
 Shank 2 01.00.ncl
 Shank 2 v01.00 av01.00.ncl
 Shank NPUB30232 01.00.ncl
 Shank NPUB30232 v01.00 av01.00.ncl
+Shift 2 Unleashed Need For Speed BLES01066 01.01.ncl
+Shift 2 Unleashed Need For Speed BLES01066 BLUS30580 v01.00 av01.02.ncl
 Shin Gundam Musou BLJM61140 01.00.ncl
+Shin Gundam Musou BLJM61140 01.01.ncl
 Shin Hayarigami 01.00.ncl
 Shin Hokuto Musou BLJM60553 01.00.ncl
 Shin Hokuto Musou BLJM60553 01.01.ncl
@@ -1736,6 +1844,8 @@ Shin Sangoku Musou 5 Empires BLJM60126 01.01.ncl
 Shin Sangoku Musou 6 BLAS50308 01.00.ncl
 Shin Sangoku Musou 6 BLJM60291.ncl
 Shin Sangoku Musou 6 EMPIRES.ncl
+Shin Sangoku Musou 6 Empires BLJM60524 01.01.ncl
+Shin Sangoku Musou 6 Empires BLJM60524 01.02.ncl
 Shin Sangoku Musou 6 Moushouden BLAS50413 01.00.ncl
 Shin Sangoku Musou 6 Moushouden BLAS50413 01.01.ncl
 Shin Sangoku Musou 6 Moushouden BLJM61000 01.00.ncl
@@ -1775,6 +1885,7 @@ Silent Hill 3 BLES01504 01.00.ncl
 Silent Hill 3 BLJM60425 01.01.ncl
 Silent Hill 3 BLUS30810 01.00.ncl
 Silent Hill 3 BLUS30810 01.02.ncl
+Silent Hill 3 BLUS30810 v01.00 av01.00.ncl
 Silent Hill 3 BLUS30810 v01.00 av01.02.ncl
 Silent Hill Downpour BLES01446 v01.00 av01.01 BLUS30565 v01.01 av01.01.ncl
 Silent Hill Downpour BLJM60391 01.00.ncl
@@ -1801,11 +1912,13 @@ Siren New Translation BCAS20047 01.01.ncl
 Siren New Translation BCAS20047 v01.01 av01.00.ncl
 Siren New Translation BCJS30020 01.00.ncl
 Sky Fighter NPEB00192 01.00.ncl
+Sky Force Reloaded NPUB31813 01.00.ncl
 Sky Forces NPUB31813 01.00.ncl
 Sleeping Dogs BLES01661 01.00.ncl
 Sleeping Dogs BLES01661 01.01.ncl
 Sleeping Dogs BLES01661 01.02.ncl
 Sly 3 Honor Among Thieves NPUA80665.ncl
+Sly Cooper And The Thievius Raccoonus NPUA80663 v01.00 av01.00.ncl
 Sly Cooper Thieves In Time 01.00.ncl
 Smash Cars NPUB30097 01.00.ncl
 Sniper Elite 3 BLES01981 01.01.ncl
@@ -1813,6 +1926,7 @@ Sniper Elite V2 BLES01290 BLJM60503 01.00.ncl
 Sniper Ghost Warrior 2 BLES01527 01.01.ncl
 Sniper Ghost Warrior 2 BLJM60539 BLUS30919 01.00.ncl
 Sniper Ghost Warrior 2 BLUS30919 01.01.ncl
+Sniper Ghost Warrior BLES01281 BLES30796 av01.01.ncl
 Soccer Tsuku Pro Soccer Club O Tsukurou! BLJM61064 01.00.ncl
 Soldier Of Fortune Payback BLES 01.00.ncl
 Soldier Of Fortune Payback BLES00190 01.01.ncl
@@ -1868,8 +1982,10 @@ Spider-Man Edge Of Time BLUS30760 01.00.ncl
 Spider-Man Shattered Dimensions 01.00.ncl
 Spider-Man Shattered Dimensions BLUS30499 01.01.ncl
 Spider-Man Shattered Dimensions.ncl
+Spider-Man Web Of Shadows BLES00392 01.00.ncl
 Splatterhouse BLES01120 01.00.ncl
 Split Second BLUS30300 01.04.ncl
+SpongeBob Squarepants Plankton's Robotic Revenge NPUB31310 01.00.ncl
 Star Ocean 4 The Last Hope International BLUS30462 MRTC00001 01.00.ncl
 Star Ocean 4 The Last Hope International BLUS30462 MRTC00001 v01.00 av01.00.ncl
 Star Ocean 5 Integrity And Faithlessness BLJM61325 01.00.ncl
@@ -1894,12 +2010,19 @@ Strider NPUB31139 v01.00 av01.00.ncl
 Stuntman BLES00135 01.11.ncl
 Stuntman Ignition BLES00135 v01.00 av01.11.ncl
 Stuntman Ignition BLUS30073 v01.00 av01.11.ncl
+Super Heroine Chronicle Chou Heroine Senki BLJS10244 01.00.ncl
 Super Robot Taisen OG Infinite Battle BLJS10248 01.00.ncl
 Super Robot Taisen OG Infinite Battle BLJS10248 01.01.ncl
 Super Robot Taisen OG Saga Masou Kishin III - Pride Of Justice BLJS10223 01.00.ncl
+Super Robot Taisen OG The Moon Dwellers 01.00.ncl
 Super Street Fighter II Turbo Remix NPUB30054 01.00.ncl
 Super Street Fighter IV Arcade Edition BLES00770 BLUS30453 BLUS30793 01.01.ncl
+Sword Art Online The Lost Song 01.01.ncl
 Sword Art Online The Lost Song BLAS50790 01.01.ncl
+Sword Art Online The Lost Song BLAS50790 01.04.ncl
+Sword Art Online The Lost Song BLJS10312 01.03.ncl
+Sword Art Online The Lost Song BLJS10312 01.05.ncl
+Syndicate BLUS30804 v01.00 av01.00.ncl
 TMNT Depuis les Ombres NPUB31217 01.00.ncl
 TMNT Mutants In Manhatan NPUB 01.00.ncl
 Tales Of Berseria BLJS10330 v01.03 av01.00.ncl
@@ -1927,6 +2050,7 @@ Tales Of Xillia BLUS21006 01.00.ncl
 Tales Of Xillia BLUS21006 v01.00 av01.00.ncl
 Tales Of Zesteria BLES02152 NPEB02235.ncl
 Tales Of Zestieria BLJS93020.ncl
+Tales Of Zestiria 01.01.ncl
 Tales Of Zestiria BLES02152 NPEB02235 01.00.ncl
 Tales Of Zestiria BLES02152 NPEB02235 v01.00 av01.00.ncl
 Tales Of Zestiria BLES02152 NPEB02235.ncl
@@ -2019,6 +2143,8 @@ The House Of The Dead 4 NPUB30603 01.00.ncl
 The House Of The Dead Overkill BLES01326 BLUS30774 v01.01 av01.00.ncl
 The House Of The Dead Overkill BLUS30774 01.00.ncl
 The House Of The Dead Overkill Director's Cut BLES01326 01.00 BLUS30774 01.01.ncl
+The Idolm@ster 2 BLJS10083 01.02.ncl
+The Idolm@ster One For All BLJS10260 01.00.ncl
 The Incredible Hulk BLUS30152 01.00.ncl
 The King Of Fighters XII BLJS10045 01.01.ncl
 The King Of Fighters XII BLJS10045 01.02.ncl
@@ -2035,14 +2161,20 @@ The Last Of Us BCES01584 BCUS98174 01.00.ncl
 The Last Of Us BCES01584 BCUS98174 v01.00 av01.00.ncl
 The Legend Of Heroes Trail Of Cold Steel 01.01.ncl
 The Legend Of Heroes Trail Of Cold Steel 2 NPUB31836 01.00.ncl
+The Legend Of Heroes Trails Of Cold Steel 01.01.ncl
 The Legend Of Heroes Trails Of Cold Steel 2 BLES02244 v01.00 av01.00.ncl
 The Legend Of Heroes Trails Of Cold Steel 2 BLUS31572 01.02.ncl
 The Legend Of Heroes Trails Of Cold Steel 2 BLUS31572 v01.00 av01.02.ncl
+The Legend Of Heroes Trails Of Cold Steel 2 NPUB31836 01.00.ncl
+The Legend Of Korra NPEB02082 01.00.ncl
 The Legend Of Korra NPUB31537 01.00.ncl
 The Lord Of The Rings Conquest BLES00412 01.00.ncl
 The Lord Of The Rings War In The North BLES01181 01.01.ncl
 The Lord Of The Rings War In The North BLUS30421 01.02.ncl
 The Orange Box 01.10.ncl
+The Orange Box Half-Life 2 BLES00153 BLUS30055 av01.10.ncl
+The Orange Box Half-Life 2 Episodes 1 & 2 BLES00153 BLUS30055 av01.10.ncl
+The Orange Box Portal BLES00153 BLUS30055 av01.10.ncl
 The Punisher No Mercy NPEB00096 01.02.ncl
 The Punisher No Mercy NPUB30070 01.01.ncl
 The Revenge Of Shinobi NPEB00413 01.00.ncl
@@ -2056,6 +2188,7 @@ The Simpsons Game BLES00142 01.00.ncl
 The Simpsons Game BLES00142 v01.00 av01.00.ncl
 The Sims 3 BLES01016 01.03.ncl
 The Sly Trilogy BCES00968 01.00.ncl
+The Unfinished Swan NPEA00395 v02.00 av02.00.ncl
 The Walking Dead Survival Instinct BLES01779 01.00.ncl
 The Walking Dead Survival Instinct BLUS31065 01.00.ncl
 The Walking Dead Survival Instinct BLUS31065 v01.00 av01.00.ncl
@@ -2073,6 +2206,7 @@ Time Crisis 4 BCES01070 BLUS30528 v01.00 av01.01.ncl
 Time Crisis Razing Storm BCES01070 BLUS30528 v01.00 av01.01.ncl
 Time Crisis Razing Storm BLUS30528 01.01.ncl
 Timeshift 01.00.ncl
+Tokitowa.ncl
 Tokyo Jungle BCJS30069 01.00.ncl
 Tokyo Jungle NPUA80523 01.01.ncl
 Tom Clancy's Ghost Recon Future Soldier BLES00924 BLUS30521 01.05.ncl
@@ -2107,8 +2241,10 @@ Top Spin 4 BLUS30427 01.01.ncl
 Top Spin 4.ncl
 Topatoi NPUB30313 02.00.ncl
 Topatoi NPUB30313 v01.01 av02.00.ncl
+Topatoi Spinning Through The Worlds NPUB30313 v01.01 av02.00.ncl
 Totori No Atelier Arland No Renkinjutsushi 2 BLJM60241 01.02.ncl
 Totori No Atelier Arland No Renkinjutsushi 2 BLJM60241 01.03.ncl
+Toukiden 2 BLJM61344 v01.00 av01.06.ncl
 Transformers Dark Of The Moon BLES01169 01.01.ncl
 Transformers Devastation BLES02200 v01.01 av01.00.ncl
 Transformers Devastation BLUS31566 01.00.ncl
@@ -2140,6 +2276,7 @@ Trinity Universe BLUS30535 01.01.ncl
 Trinity Universe BLUS30535 v01.01 av01.00.ncl
 Trinity Zill O'll Zero BLJM60212 01.01.ncl
 Trinity Zill O'll Zero BLJM60212 02.01.ncl
+Truck Racer.ncl
 Trusty Bell Chopin No Yume Reprise BLJS10017 01.01.ncl
 Turok BLES 01.02.ncl
 Turok BLES00187 01.00.ncl
@@ -2148,6 +2285,7 @@ Twisted Metal BCES01010 01.01 BCUS98106 01.00.ncl
 Twisted Metal BCUS98106 01.00 BCES01010 01.01.ncl
 Two Worlds 2 01.02.ncl
 Two Worlds II BLES00845 01.02.ncl
+Ukiyo No Shishi BLJS10301 01.01.ncl
 Ultimate Marvel Vs Capcom 3 BLES01355 01.02.ncl
 Ultimate Marvel Vs Capcom 3 BLES01355 01.03.ncl
 Ultimate Marvel Vs Capcom 3 BLJM60383 01.00.ncl
@@ -2196,16 +2334,20 @@ Uncharted Drake's Fortune BCES00065 01.00.ncl
 Uncharted Drake's Fortune BCES00065 01.01.ncl
 Uncharted Drake's Fortune BCES00065 BCUS98103 01.10.ncl
 Uncharted Drake's Fortune BCES00065 v01.00 av01.01 BCUS98103 v01.01 av01.10.ncl
+Uncharted El Dorado No Hihou BCJS30015 01.01.ncl
 Uncharted Ougontou To Kieta Sendan BCJS30035 01.00.ncl
 Uncharted Ougontou To Kieta Sendan BCJS30035 01.09.ncl
 Under Defeat Deluxe Edition BLES01752 v01.02 av01.02.ncl
 Under Defeat Deluxe Edition BLUS31077 01.01.ncl
 Under Defeat Deluxe Edition BLUS31077 NPUB31062 v01.01 av01.01.ncl
+Under Defeat Deluxe Edition NPUB31062.ncl
 Under Defeat HD 01.00.ncl
 Under Night In-Birth Exe-Late BLJS10269 01.00.ncl
 Untold Legends Dark Kingdom BLES00019 01.00.ncl
 Untold Legends Dark Kingdom BLUS30002 01.01.ncl
 Urban Trial Freestyle NPEB01238 01.00.ncl
+Utawarerumono Futari No Hakuoro BLJM61331 01.01.ncl
+Utawarerumono Itsuwari No Kamen BLJM61288 01.02.ncl
 Valkyria Chronicles BLES00372 01.00.ncl
 Valkyria Chronicles BLUS30196 01.00.ncl
 Valkyria Chronicles BLUS30196 01.20.ncl
@@ -2264,6 +2406,9 @@ Winning Post 7 2010 BLJM60263 01.01.ncl
 Winning Post 7 2013 BLJM60576 01.01.ncl
 Winning Post 7 Maximum 2007 BLJM60019 01.01.ncl
 Winning Post 7 Maximum 2008 BLJM60067 01.01.ncl
+Winning Post 8 2015 BLJM61262 01.03.ncl
+Winning Post 8 2015 BLJM61262 01.04.ncl
+Winning Post 8 BLJM61119 01.01.ncl
 WipeOut Hd Fury BCES00664 02.51.ncl
 Wold Of The Battlefield Commando 3 NPUB30021 01.00.ncl
 Wold Of The Battlefield Commando 3 NPUB30021 01.10.ncl
@@ -2286,12 +2431,14 @@ Worms Armageddon v1.00 JG.ncl
 Worms BLES01610 NPEB01137 v01.04 av01.00.ncl
 Worms NPEB01137 01.00.ncl
 Worms Revolution Collection  2 BLES001442 01.01.ncl
+Worms Revolution Collection 2 BLES001442 01.01.ncl
 Worms Ultimate Mayhem BLES01610  NPEB01138 v01.04 av01.00.ncl
 Worms Ultimate Mayhem NPEB01138 01.00.ncl
 X-Blades BLJM60149 01.01.ncl
 X-Men Arcade NPUB30320 01.00.ncl
 X-Men Destiny BLES01351 01.00.ncl
 X-Men Destiny BLUS30746 01.00.ncl
+X-Men Origins Wolverine BLUS30268 01.00.ncl
 XCOM Enemy Within BLES01851 BLUS31180 01.01.ncl
 XCOM Enemy Within BLES01851 BLUS31180 v01.00 av01.01.ncl
 Yaiba Ninja Gaiden Z BLES01892 v01.03 av01.00.ncl
@@ -2299,6 +2446,7 @@ Yaiba Ninja Gaiden Z BLUS31203 01.01.ncl
 Yaiba Ninja Gaiden Z BLUS31203 v01.00 av01.01.ncl
 Yaiba Ninja Gaiden Z BLUS31203 v01.00 av01.02.ncl
 Yakuza 3 BLUS30494 01.00.ncl
+Yakuza 3 BLUS30494.ncl
 Yakuza 3.ncl
 Yakuza 4 BLUS30643 01.00.ncl
 Yakuza 4 JPN.ncl
@@ -2311,6 +2459,7 @@ ZX Zillions Of Enemy X - Zekkai No Crusade BLJS10195 01.00.ncl
 Zack Zero NPEB00852  01.00.ncl
 Zen Pinball 2 NPUB30573 01.00.ncl
 Zettai Geigeki Wars BLJM61238 NPJB00608 01.00.ncl
+Zettai Geigeki Wars BLJM61238 NPJB00608 01.01.ncl
 Zombeer NPEB01394 01.00.ncl
 Zombie Apocalypse NPUB30069 01.00.ncl
 Zombie Apocalypse NPUB30069 01.01.ncl
@@ -2327,4 +2476,5 @@ inFamous 2 Festival Of Blood NPUA80657 01.00.ncl
 inFamous 2 duplex BCAS20181 BCUS98125 01.00 BCES01143 01.01.ncl
 inFamous BCAS20074 01.00 BCES00220 01.01.ncl
 inFamous BCUS98119 01.00.ncl
+inFamous BCUS98119 v01.01 av01.00.ncl
 inFamous BCUS98119 v02.00 av01.00.ncl
