@@ -17,8 +17,7 @@ endif
 #  TITLE, APPID, CONTENTID, ICON0, SFOXML before ppu_rules.
 #---------------------------------------------------------------------------------
 TC_ADD		:=	`date +%d%H%M`
-ICON0		:=	$(CURDIR)/ICON0.PNG
-#ICON0		:=	$(CURDIR)/ICON0.PNG
+ICON0		:=	$(CURDIR)/pkgfiles/ICON0.PNG
 
 #ICON1		:=	$(CURDIR)/ICON1.PAM
 
@@ -40,12 +39,12 @@ include $(PSL1GHT)/ppu_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	obj
-SOURCES		:=	src libfont/source
+SOURCES		:=	src
 DATA		:=	data
-INCLUDES	:=	include libfont/include
+INCLUDES	:=	include
 PKGFILES	:=	$(CURDIR)/pkgfiles
 
-TITLE		:=	Artemis PS3 (r6.net)
+TITLE		:=	Artemis PS3 (r6.1)
 APPID		:=	ARTPS3001
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
@@ -54,15 +53,19 @@ CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-O2 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O2 -Wall -Wformat-truncation=0 -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
 
+ifdef DEBUGLOG
+CFLAGS		+=	-DARTEMIS_ENABLE_LOGGING
+endif
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	-ltiny3d -lfreetype -lgcm_sys -lrsx -lsysutil -lio -lnet -laudioplayer -lmpg123 -logg -lspu_sound -laudio -lsysmodule -lm -lssl -lhttp -lhttputil -lzip -lz -ldbglogger \
+LIBS	:=	-ltiny3d -lfreetype -lgcm_sys -lrsx -lsysutil -lio -lnet -laudioplayer -lmpg123 -logg -lspu_sound -laudio -lsysmodule -lm \
+			-lssl -lhttp -lhttputil -lzip -lz -ldbglogger \
 			-I$(PS3DEV)/portlibs/modules/lib/spu_soundmodule.bin.a -lpngdec -lpng
 
 #---------------------------------------------------------------------------------

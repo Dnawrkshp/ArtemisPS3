@@ -17,6 +17,7 @@
 #include <lv2/process.h>
 #include <time.h>
 #include <dirent.h>
+#include <ctype.h>
 
 #include <net/net.h>
 #include <net/netctl.h>
@@ -25,6 +26,7 @@
 
 #include <zlib.h>
 #include <io/pad.h>
+#include <sys/file.h>
 
 #include <sysmodule/sysmodule.h>
 #include <pngdec/pngdec.h>
@@ -95,14 +97,22 @@ void ani_callback(int index, int sel);
 void horm_callback(int index, int sel);
 void verm_callback(int index, int sel);
 void update_callback(int index, int sel);
+void plugin_callback(int index, int sel);
+void vercheck_callback(int index, int sel);
+void clearcache_callback(int index, int sel);
+
+const char* plugin_opts[] = {"< r6/CFW >", "< r5/HEN >", NULL};
 
 const option menu_options_options[] = {
-	{ .name = "Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
+	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
 	{ .name = "Sort Cheats", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = sort_callback },
 	{ .name = "Menu Animations", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = ani_callback },
+	{ .name = "Version Update Check", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = vercheck_callback },
 	{ .name = "Horizontal Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = horm_callback },
 	{ .name = "Vertical Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = verm_callback },
 	{ .name = "Update Local Cheats", .options = NULL, .type = ARTEMIS_OPTION_CALL, .callback = update_callback },
+	{ .name = "Clear Local Cache", .options = NULL, .type = ARTEMIS_OPTION_CALL, .callback = clearcache_callback },
+	{ .name = "Plugin Version", .options = (char**)plugin_opts, .type = ARTEMIS_OPTION_LIST, .callback = plugin_callback },
 	{ .name = NULL }
 };
 
@@ -115,7 +125,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r6.net";            //Artemis PS3 version (about menu)
+const char * VERSION = "r6.1";              //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -1046,6 +1056,21 @@ void ani_callback(int index, int sel)
     doAni = !sel;
 }
 
+void plugin_callback(int index, int sel)
+{
+	if (sel < 0)
+		sel = 0;
+	if (sel > 1)
+		sel = 1;
+		
+	char tmp[128];
+    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 6-sel);
+
+    sysLv2FsUnlink(ARTEMIS_PATH "artemis_ps3.sprx");
+    sysLv2FsLink(tmp, ARTEMIS_PATH "artemis_ps3.sprx");
+	menu_options_selections[index] = sel;
+}
+
 void horm_callback(int index, int sel)
 {
 	if (sel < 0)
@@ -1066,23 +1091,132 @@ void verm_callback(int index, int sel)
 	menu_options_selections[index] = sel;
 }
 
+void _unzip_cheat_db()
+{
+	if (extract_zip(ONLINE_LOCAL_CACHE "cheatdb.zip", USERLIST_PATH_HDD))
+		show_dialog(0, "Successfully installed local cheat database");
+
+	unlink_secure(ONLINE_LOCAL_CACHE "cheatdb.zip");
+}
+
 void update_callback(int index, int sel)
 {
-    if (sel)
-    {
-		if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_LOCAL_CACHE "tmp.zip", 1))
-		{
-			if (extract_zip(ONLINE_LOCAL_CACHE "tmp.zip", USERLIST_PATH_HDD))
-				show_dialog(0, "Successfully updated local cheat database");
+    if (!sel)
+        return;
 
-			unlink_secure(ONLINE_LOCAL_CACHE "tmp.zip");
+    if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_LOCAL_CACHE "cheatdb.zip", 1))
+        _unzip_cheat_db();
+
+    menu_options_selections[index] = 0;
+}
+
+void vercheck_callback(int index, int sel)
+{
+    if (sel)
+        return;
+
+	LOG("checking latest Artemis version at %s", ARTEMIS_UPDATE_URL);
+
+	if (!http_download(ARTEMIS_UPDATE_URL, "", ONLINE_LOCAL_CACHE "ver.check", 0))
+	{
+		LOG("http request to %s failed", ARTEMIS_UPDATE_URL);
+		return;
+	}
+
+	long size = getFileSize(ONLINE_LOCAL_CACHE "ver.check");
+	char *buffer = readFile(ONLINE_LOCAL_CACHE "ver.check");
+
+	if (!buffer)
+		return;
+
+	LOG("received %u bytes", size);
+	buffer[size-1] = 0;
+
+	static const char find[] = "\"name\":\"Artemis r";
+	const char* start = strstr(buffer, find);
+	if (!start)
+	{
+		LOG("no name found");
+		return;
+	}
+
+	LOG("found name");
+	start += strlen(find) - 1;
+
+	char* end = strchr(start, '"');
+	if (!end)
+	{
+		LOG("no end of name found");
+		return;
+	}
+
+	*end = 0;
+	LOG("latest version is %s", start);
+
+	if (stricmp(VERSION, start) == 0)
+	{
+		LOG("no new version found");
+		return;
+	}
+
+	start = strstr(end+1, "\"browser_download_url\":\"");
+	if (!start)
+		return;
+
+	start += 24;
+	end = strstr(start, "\"");
+	if (!end)
+	{
+		LOG("no download URL found");
+		return;
+	}
+
+	*end = 0;
+	LOG("download URL is %s", start);
+
+	if (show_dialog(1, "New version available! Download update?"))
+	{
+		if (http_download(start, "", "/dev_hdd0/packages/artemis-ps3.pkg", 1))
+			show_dialog(0, "Update downloaded!");
+		else
+			show_dialog(0, "Download error!");
+	}
+}
+
+void clearcache_callback(int index, int sel)
+{
+	DIR *d;
+	struct dirent *dir;
+	char dataPath[256];
+
+	if (!sel)
+		return;
+
+	d = opendir(ONLINE_LOCAL_CACHE);
+	if (!d)
+		return;
+
+	LOG("Cleaning folder '%s'...", ONLINE_LOCAL_CACHE);
+
+	while ((dir = readdir(d)) != NULL)
+	{
+		if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
+		{
+			snprintf(dataPath, sizeof(dataPath), "%s" "%s", ONLINE_LOCAL_CACHE, dir->d_name);
+			LOG("Removing %s", dataPath);
+			unlink_secure(dataPath);
 		}
-		menu_options_selections[index] = 0;
-    }
+	}
+	closedir(d);
+    menu_options_selections[index] = 0;
+
+	show_dialog(0, "Successfully cleaned local cache folder");
 }
 
 void ReloadUserCheats()
 {
+    init_loading_screen("Loading cheats...");
+
     if (user_game_list)
     {
         UnloadGameList(user_game_list, user_game_count);
@@ -1095,10 +1229,14 @@ void ReloadUserCheats()
     user_game_count = *gmc;
     if (doSort)
         BubbleSortGameList(user_game_list, user_game_count);
+
+    stop_loading_screen();
 }
 
 void ReloadOnlineCheats()
 {
+    init_loading_screen("Loading online cheats...");
+
     if (online_game_list)
     {
         UnloadGameList(online_game_list, online_game_count);
@@ -1111,6 +1249,8 @@ void ReloadOnlineCheats()
     online_game_count = *gmc;
     if (doSort)
         BubbleSortGameList(online_game_list, online_game_count);
+
+    stop_loading_screen();
 }
 
 void SetMenu(int id)
@@ -1136,10 +1276,12 @@ void SetMenu(int id)
             
             break;
         case 6: //Cheat View Menu
-			Draw_CheatsMenu_View_Ani_Exit();
+            if (doAni)
+	    		Draw_CheatsMenu_View_Ani_Exit();
             break;
         case 7: //Cheat Option Menu
-			Draw_CheatsMenu_Options_Ani_Exit();
+            if (doAni)
+    			Draw_CheatsMenu_Options_Ani_Exit();
             break;
     }
     
@@ -1151,26 +1293,14 @@ void SetMenu(int id)
             break;
         case 1: //Cheats Offline Menu
             if (!user_game_list)
-            {
-                int gmc[1];
-                user_game_list = ReadUserList((int *)gmc);
-                user_game_count = *gmc;
-                if (doSort)
-                    BubbleSortGameList(user_game_list, user_game_count);
-            }
-            
+                ReloadUserCheats();
+
             if (doAni)
                 Draw_UserCheatsMenu_Ani(user_game_list, user_game_count);
             break;
         case 2: //Cheats Online Menu
             if (!online_game_list)
-            {
-                int gmc[1];
-                online_game_list = ReadOnlineList((int *)gmc);
-                online_game_count = *gmc;
-                if (doSort)
-                    BubbleSortGameList(online_game_list, online_game_count);
-            }
+                ReloadOnlineCheats();
 
             if (doAni)
                 Draw_UserCheatsMenu_Ani(online_game_list, online_game_count);
@@ -1212,7 +1342,7 @@ void SetMenu(int id)
 void move_letter_back(struct game_entry * games, int game_count)
 {
 	int i;
-	char ch = games[menu_sel].name[0];
+	char ch = toupper(games[menu_sel].name[0]);
 
 	if ((ch > '\x29') && (ch < '\x40'))
 	{
@@ -1220,7 +1350,7 @@ void move_letter_back(struct game_entry * games, int game_count)
 		return;
 	}
 
-	for (i = menu_sel; (i > 0) && (ch == games[i].name[0]); i--) {}
+	for (i = menu_sel; (i > 0) && (ch == toupper(games[i].name[0])); i--) {}
 
 	menu_sel = i;
 }
@@ -1228,7 +1358,7 @@ void move_letter_back(struct game_entry * games, int game_count)
 void move_letter_fwd(struct game_entry * games, int game_count)
 {
 	int i;
-	char ch = games[menu_sel].name[0];
+	char ch = toupper(games[menu_sel].name[0]);
 
 	if (ch == 'Z')
 	{
@@ -1236,7 +1366,7 @@ void move_letter_fwd(struct game_entry * games, int game_count)
 		return;
 	}
 	
-	for (i = menu_sel; (i < game_count - 2) && (ch == games[i].name[0]); i++) {}
+	for (i = menu_sel; (i < game_count - 2) && (ch == toupper(games[i].name[0])); i++) {}
 
 	menu_sel = i;
 }
@@ -1654,6 +1784,11 @@ void drawScene()
                     SetMenu(6);
                     return;
                 }
+                else if (paddata[0].BTN_START)
+                {
+                    SetMenu(0);
+                    return;
+                }
             }
             
             Draw_CheatsMenu_Selection(menu_sel, 0xFFFFFFFF);
@@ -1813,8 +1948,6 @@ s32 main(s32 argc, const char* argv[])
 
 	//LoadGames();
     
-    //texture_mem = tiny3d_AllocTexture(64*1024*1024);
-
     videoState state;
     assert(videoGetState(0, 0, &state) == 0); // Get the state of the display
     assert(state.state == 0); // Make sure display is enabled
@@ -1825,7 +1958,10 @@ s32 main(s32 argc, const char* argv[])
     screen_width = res.width;
     screen_height = res.height;
     
-    //SND_SetVoice( 2, (effect_is_stereo) ? VOICE_STEREO_16BIT : VOICE_MONO_16BIT, effect_freq, 0, background_music, background_music_size, 255, 255, NULL);
+    // Unpack cheat database on first run
+    if (file_exists(ONLINE_LOCAL_CACHE "cheatdb.zip") == SUCCESS)
+        _unzip_cheat_db();
+
     SND_SetInfiniteVoice(2, (effect_is_stereo) ? VOICE_STEREO_16BIT : VOICE_MONO_16BIT, effect_freq, 0, background_music, background_music_size, 255, 255);
     
     //Set options

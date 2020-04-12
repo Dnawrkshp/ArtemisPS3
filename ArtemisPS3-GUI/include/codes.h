@@ -11,8 +11,9 @@
 #define USERLIST_PATH_USB		"/dev_usb000/USERLIST/"
 #define USERLIST_PATH_HDD		ARTEMIS_PATH "USERLIST/"
 
-#define ONLINE_URL				"http://artemis.nerv.gq/"
+#define ONLINE_URL				"http://artemis.psdev.tk/"
 #define ONLINE_LOCAL_CACHE		ARTEMIS_PATH "CACHE/"
+#define ARTEMIS_UPDATE_URL		"https://api.github.com/repos/bucanero/ArtemisPS3/releases/latest"
 
 #define ONLINE_CACHE_TIMEOUT    24*3600     // 1-day local cache
 

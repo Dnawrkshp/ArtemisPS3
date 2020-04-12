@@ -27,52 +27,27 @@
  */
 int parseVTID_ParseTitleID(char * text, int * length)
 {
-	int len = strlen(text), x = 0, off = 0;
+	int len = strlen(text) - 8, off = 0;
+	*length = 0;
 
-	for (off = 0; off < (len - 10); off++)
+	for (off = 0; off < len; off++)
 	{
-		if (off == 0 && text[off] == '[' && text[off + 10] == ']' &&
+		if (is_char_letter(text[off]) == SUCCESS &&
 			is_char_letter(text[off + 1]) == SUCCESS &&
 			is_char_letter(text[off + 2]) == SUCCESS &&
 			is_char_letter(text[off + 3]) == SUCCESS &&
-			is_char_letter(text[off + 4]) == SUCCESS &&
+			is_char_integer(text[off + 4]) == SUCCESS &&
 			is_char_integer(text[off + 5]) == SUCCESS &&
 			is_char_integer(text[off + 6]) == SUCCESS &&
 			is_char_integer(text[off + 7]) == SUCCESS &&
-			is_char_integer(text[off + 8]) == SUCCESS &&
-			is_char_integer(text[off + 9]) == SUCCESS)
-			break;
-		else if (text[off] == ' ' && text[off + 1] == '[' && text[off + 11] == ']' &&
-			is_char_letter(text[off + 2]) == SUCCESS &&
-			is_char_letter(text[off + 3]) == SUCCESS &&
-			is_char_letter(text[off + 4]) == SUCCESS &&
-			is_char_letter(text[off + 5]) == SUCCESS &&
-			is_char_integer(text[off + 6]) == SUCCESS &&
-			is_char_integer(text[off + 7]) == SUCCESS &&
-			is_char_integer(text[off + 8]) == SUCCESS &&
-			is_char_integer(text[off + 9]) == SUCCESS &&
-			is_char_integer(text[off + 10]) == SUCCESS)
+			is_char_integer(text[off + 8]) == SUCCESS)
 		{
-			off++;
-			break;
+			*length = 10;
+			return off;
 		}
 	}
 
-	if (off == len)
-	{
-		*length = 0;
-		return -1;
-	}
-
-	while (x < (len - off - 1))
-	{
-		if (text[off + 1 + x] == ' ')
-			break;
-		x++;
-	}
-
-	*length = x;
-	return off;
+	return -1;
 }
 
 /*
@@ -98,6 +73,12 @@ int parseVTID_ParseVersion(char * text, int * length)
 			off++;
 			break;
 		}
+		else if (text[off + 2] == '.' &&
+				is_char_integer(text[off]) == SUCCESS &&
+				is_char_integer(text[off + 1]) == SUCCESS &&
+				is_char_integer(text[off + 3]) == SUCCESS &&
+				is_char_integer(text[off + 4]) == SUCCESS)
+			break;
 	}
 
 	if (off == len)
@@ -155,12 +136,12 @@ void parseVTID(struct game_entry * in)
 	{
 		char * t = (char*)(&in->name[tOff]);
 		in->title_id = (char*)malloc(length);
-		memcpy(in->title_id, (char*)&t[1], length-1);
+		memcpy(in->title_id, t, length-1);
 		in->title_id[length - 1] = '\0';
 
-		for (x = 0; x < (name_len - tOff - length - 2); x++)
+		for (x = 0; x < (name_len - tOff - length); x++)
 		{
-			t[x] = t[x + length + 2];
+			t[x] = t[x + length];
 		}
 		t[x] = '\0';
 	}

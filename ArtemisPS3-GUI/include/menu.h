@@ -139,6 +139,10 @@ extern void DrawSelector(int x, int y, int w, int h, int hDif, u8 alpha);
 extern void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int mode);
 extern void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int ani, int div);
 extern void DrawBackgroundTexture(int x, u8 alpha);
+extern void DrawTextureRotated(png_texture tex, int x, int y, int z, int w, int h, u32 rgba, float angle);
+
+extern int init_loading_screen(const char* message);
+extern void stop_loading_screen();
 
 extern int TTFLoadFont(char * path, void * from_memory, int size_from_memory);
 extern void TTF_to_Bitmap(uint8_t chr, uint8_t * bitmap, short *w, short *h, short *y_correction);

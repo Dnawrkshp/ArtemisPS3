@@ -1,6 +1,8 @@
 #include <string.h>
 #include <tiny3d.h>
 #include <pngdec/pngdec.h>
+#include <sys/thread.h>
+#include <unistd.h>
 
 #include "libfont.h"
 #include "menu.h"
@@ -242,4 +244,72 @@ void DrawTextureCenteredY(png_texture tex, int x, int y, int z, int w, int h, u3
 		tex.texture.height, tex.texture.pitch,
 		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
 	DrawSprites2D(x, y, z, w, h, rgba);
+}
+
+void DrawTextureRotated(png_texture tex, int x, int y, int z, int w, int h, u32 rgba, float angle)
+{
+	x -= w / 2;
+	y -= h / 2;
+
+	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
+		tex.texture.height, tex.texture.pitch,
+		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
+	DrawSpritesRot2D(x, y, z, w, h, rgba, angle);
+}
+
+static int please_wait;
+
+void loading_screen_thread(void* user_data)
+{
+    float angle = 0;
+
+    while (please_wait == 1)
+    {
+        angle += 0.1f;
+    	tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
+    	tiny3d_AlphaTest(1, 0x10, TINY3D_ALPHA_FUNC_GEQUAL);
+    	tiny3d_BlendFunc(1, TINY3D_BLEND_FUNC_SRC_RGB_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_ALPHA_SRC_ALPHA,
+    		TINY3D_BLEND_FUNC_SRC_ALPHA_ONE_MINUS_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_RGB_ONE_MINUS_SRC_ALPHA,
+    		TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
+
+    	tiny3d_Project2D();
+
+		DrawBackgroundTexture(0, 0xFF);
+
+        //Loading animation
+        DrawTextureCentered(menu_textures[circle_loading_bg_png_index], 424, 256, 0, 89, 89, 0xFFFFFFFF);
+        DrawTextureRotated(menu_textures[circle_loading_seek_png_index], 424, 256, 0, 89, 89, 0xFFFFFFFF, angle);
+
+		DrawString(0, 336, (char*) user_data);		
+
+    	tiny3d_Flip();
+	}
+
+    please_wait = -1;
+    sysThreadExit (0);
+}
+
+int init_loading_screen(const char* message)
+{
+    sys_ppu_thread_t tid;
+    please_wait = 1;
+
+	SetFontAlign(1);
+	SetFontSize(14, 14);
+	SetFontColor(0x00000000 | 0xFF, 0);
+
+    int ret = sysThreadCreate (&tid, loading_screen_thread, (void*) message, 1000, 16*1024, THREAD_JOINABLE, "please_wait");
+
+    return ret;
+}
+
+void stop_loading_screen()
+{
+    if (please_wait != 1)
+        return;
+
+    please_wait = 0;
+
+    while (please_wait != -1)
+        usleep(1000);
 }
