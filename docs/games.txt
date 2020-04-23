@@ -293,6 +293,7 @@ Call Of Duty 3 BLES00016 BLES00021 v01.02.ncl
 Call Of Duty 3 BLUS30012 01.00.ncl
 Call Of Duty 4 Modern Warfare BLES00148 BLJS10013 01.00.ncl
 Call Of Duty Black Ops 2 BLES01717 01.00.ncl
+Call Of Duty Black Ops BLES01031 BLES01032 01.13.ncl
 Call Of Duty Black Ops BLES01031 BLES01032 BLUS30591 01.00.ncl
 Call Of Duty Black Ops Dubbed Edition BLJM60287 01.00.ncl
 Call Of Duty Black Ops Subtitle BLJM60286 01.13.ncl
