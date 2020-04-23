@@ -8,7 +8,7 @@ Infinite Health
 0 007DD638 4BA72DF4
 0 00250428 4858D1F8
 /*
-SP & Zombie Mode
+SP and Zombie Mode
 /*
 Invincible Again Melee Attack (Zombie Mode)
 0 0020D898 60000000
