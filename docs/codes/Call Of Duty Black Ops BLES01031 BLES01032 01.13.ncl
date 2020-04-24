@@ -1,4 +1,6 @@
 Infinite Health
+0
+Peoples00
 0 007DD620 82E91A20
 0 007DD624 2C970001
 0 007DD628 40820004
@@ -9,32 +11,45 @@ Infinite Health
 0 00250428 4858D1F8
 /*
 SP and Zombie Mode
-/*
+*/
+#
 Invincible Again Melee Attack (Zombie Mode)
+0
+Peoples00
 0 0020D898 60000000
 #
 Infinite Ammo
+0
+Peoples00
 0 00A22580 386003E7
 0 00A22584 907F0004
 0 00A22588 4B67FE00
 0 000A2384 489801FC
 #
 Infinite Ammo-No Reload + Infinite Grenades
+0
+Peoples00
 0 000A1864 48000004
 #
 Infinite Ammo-No Reload + Infinite Grenades Launcher 
+0
+Peoples00
 0 00099320 48000010
 0 0009933C 60000000
 #
 Infinite Ammo-No Reload For Launcher
+0
+Peoples00
 0 000A18BC 60000000
 /*
 Working Only On:
 Grenades Launcher 
 Rocket-Laucher/RPG-7
-/*
+*/
 #
 Improved Accuracy 
+0
+Peoples00
 0 00090DE8 38000000
 0 00090DEC 901F052C
 0 00090D2C 38000000
@@ -51,14 +66,19 @@ Improved Accuracy
 0 0006AE90 60000000
 #
 Freeze Zombie Movement
+0
+Peoples00
 0 002880B4 Z
-/*
-[Z]600000=ON;4807B5ED=0FF[/Z]
-/*
+[Z]600000=ON;4807B5ED=OFF[/Z]
 #
 Max Score On Gain Zombie Mode
+0
+Peoples00
 0 0025A504 3FA03B9A
 0 0025A534 63BDC9FF
 #
 Max Total Kills-Headshoots Zombie Mode (Result)
+0
+Peoples00
 0 00592350 91AC0000
+#
