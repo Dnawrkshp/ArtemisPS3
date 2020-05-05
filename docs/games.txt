@@ -2160,6 +2160,7 @@ The Last Bounty Hunter NPUB31162 v01.00 av01.00.ncl
 The Last Of Us BCES01584 BCES01585 BCUS98174 v01.00 av01.11.ncl
 The Last Of Us BCES01584 BCUS98174 01.00.ncl
 The Last Of Us BCES01584 BCUS98174 v01.00 av01.00.ncl
+The Last of Us BCUS98174 BCES01584 BCES01585 BCAS20270 v01.11.ncl
 The Legend Of Heroes Trail Of Cold Steel 01.01.ncl
 The Legend Of Heroes Trail Of Cold Steel 2 NPUB31836 01.00.ncl
 The Legend Of Heroes Trails Of Cold Steel 01.01.ncl
