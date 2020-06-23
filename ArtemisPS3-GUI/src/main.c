@@ -552,6 +552,7 @@ void DeleteBootHistory(void)
             unlink_secure(fullPath);
         }
     }
+    closedir(d);
     
     //Delete the other boot history files
     unlink_secure("/dev_hdd0/vsh/pushlist/game.dat");
