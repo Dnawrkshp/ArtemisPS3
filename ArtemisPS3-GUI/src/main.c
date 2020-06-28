@@ -32,14 +32,10 @@
 #include <pngdec/pngdec.h>
 
 #include <tiny3d.h>
+#include <ps3mapi.h>
 #include "libfont.h"
 
-//From NzV's MAMBA PRX Loader (https://github.com/NzV/MAMBA_PRX_Loader)
 #include "common.h"
-#include "mamba_prx_loader.h"
-#include "ps3mapi_ps3_lib.h"
-#include "lv2_utils.h"
-
 #include "codes.h"
 
 #define SC_SYS_POWER        (379)
@@ -145,7 +141,7 @@ int highlight_amount = 6;                   // Amount of alpha to inc/dec each t
 int pause_pulse = 0;                        // Counter that holds how long alpha is held in place
 int idle_time = 0;                          // Set by readPad
 
-const char * menu_main_description = "Playstation 3 Hacking System";
+const char * menu_main_description = "PlayStation 3 Hacking System";
 
 const char * menu_about_strings[] = { "Berion", "Designer",
 									"NzV", "PS3MAPI",
@@ -156,6 +152,12 @@ const char * menu_about_strings[] = { "Berion", "Designer",
 const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
 											"PS2Dragon", "Artemis Logo",
 											NULL, NULL };
+
+//Artemis plugin
+#define ARTEMIS_PLUGIN_ERROR       -1
+#define ARTEMIS_PLUGIN_NOT_LOADED   0
+#define ARTEMIS_PLUGIN_LOADED       1
+#define ARTEMIS_PLUGIN_SLOT         5
 
 //Game filtering
 #define GAMES_MOUNT_PATH		"/dev_hdd0/GAMES/"
@@ -497,43 +499,30 @@ void SaveOptions()
     fclose(fp);
 }
 
-
-#define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
-#define SYSCALL_OPCODE_UNLOAD_VSH_PLUGIN	0x364F
-int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
-{
-	lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
-	return_to_user_prog(int);
-}
-
-int cobra_mamba_syscall_unload_prx_module(uint32_t slot)
-{
-	lv2syscall2(8, SYSCALL_OPCODE_UNLOAD_VSH_PLUGIN, (uint64_t)slot);
-	return_to_user_prog(int);
-}
-
-int ps3mapi_get_core_version(void)
-{
-	lv2syscall2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
-	return_to_user_prog(int);
-}
-
-int has_ps3mapi(void)
-{
-	if (ps3mapi_get_core_version() >= PS3MAPI_CORE_MINVERSION) return SUCCESS;
-	return FAILED;
-}
-
 int isArtemisLoaded()
 {
-    char buf[100];
-    readFileBuffered("/dev_hdd0/tmp/artstate", (char *)buf);
-    if (buf[0] == 0)
-        return 0;
-    if (strstr(buf, "on") != NULL)
-        return 1;
-    
-    return 0;
+    char plugin_name[30];
+    char plugin_filename[256];
+    memset(plugin_name, 0, sizeof(plugin_name));
+    memset(plugin_filename, 0, sizeof(plugin_filename));
+    //Check if COBRA+PS3MAPI is installed
+    if (has_cobra_mamba() && has_ps3mapi())
+    {
+        LOG("COBRA/MAMBA+PS3MAPI Detected\n");
+        ps3mapi_get_vsh_plugin_info(ARTEMIS_PLUGIN_SLOT, plugin_name, plugin_filename);
+        if (strlen(plugin_filename) == 0)
+        {
+            LOG("COBRA: Artemis is not loaded yet\n");
+            return ARTEMIS_PLUGIN_NOT_LOADED;
+        }
+        else if (strcmp(plugin_filename, ARTEMIS_PATH "artemis_ps3.sprx") == 0)
+        {
+            LOG("COBRA: Artemis running\n");
+            return ARTEMIS_PLUGIN_LOADED;
+        }
+    }
+
+    return ARTEMIS_PLUGIN_ERROR;
 }
 
 void DeleteBootHistory(void)
@@ -716,8 +705,6 @@ void Draw_MainMenu_Ani()
         if (logo_a_t > 0xFF)
             logo_a_t = 0xFF;
         u8 logo_a = (u8)logo_a_t;
-        
-        
         
         //Background
 		DrawBackgroundTexture(0, bg_a);
@@ -1425,51 +1412,24 @@ void drawScene()
                             
                             free (userc);
 							free (onlinec);
-                            
-							//
-							char plugin_name[30];
-							char plugin_filename[256];
-							memset(plugin_name, 0, sizeof(plugin_name));
-							memset(plugin_filename, 0, sizeof(plugin_filename));
-							//Check if COBRA+PS3MAPI is installed
-							if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
-							{
-								LOG("COBRA+PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!(strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *) ARTEMIS_PATH "artemis_ps3.sprx") != 0))
-								{
-									LOG("COBRA: Artemis is not loaded yet\n");
-									cobra_mamba_syscall_load_prx_module(5, ARTEMIS_PATH "artemis_ps3.sprx", 0, 0);
-								}
-								LOG("COBRA: Artemis running\n");
-								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
-							}
-							//Check if MAMBA+PS3MAPI is installed
-							else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
-							{
-								LOG("MAMBA + PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!(strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *) ARTEMIS_PATH "artemis_ps3.sprx") != 0))
-								{
-									LOG("MAMBA: Artemis is not loaded yet\n");
-									cobra_mamba_syscall_load_prx_module(5, ARTEMIS_PATH "artemis_ps3.sprx", 0, 0);
-								}
-								LOG("MAMBA: Artemis running\n");
-								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
-							}
-							else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
-							{
-								LOG("None are loaded\n");
-								{ lv2syscall3(392, 0x1004, 0x4, 0x6); }  //1 Beep
-							}
-							else
-							{
-								lv2syscall3(392, 0x1004, 0xa, 0x1b6);
-							} //3 beep
-                            
-                            
-                            //So we know art is loaded if we boot up later
-                            writeFile("/dev_hdd0/tmp/artstate", "on", "");
+
+                            switch (isArtemisLoaded())
+                            {
+                            case ARTEMIS_PLUGIN_NOT_LOADED:
+                                LOG("COBRA: Loading Artemis\n");
+                                cobra_mamba_load_prx_module(ARTEMIS_PLUGIN_SLOT, ARTEMIS_PATH "artemis_ps3.sprx", 0, 0);
+                                ring_buzzer_simple(); //1 Beep
+                                break;
+
+                            case ARTEMIS_PLUGIN_LOADED:
+                                LOG("COBRA: Artemis is already running\n");
+                                ring_buzzer_simple(); //1 Beep
+                                break;
+
+                            default:
+                                ring_buzzer_triple();
+                                break;
+                            }
                             
                             //Clear boot history
                             DeleteBootHistory();
@@ -1494,29 +1454,13 @@ void drawScene()
                 {
                 	close_art = 1;
                 }
-                else if(paddata[0].BTN_SQUARE && show_dialog(1, "Remove Artemis plugin from memory?"))
+                else if(paddata[0].BTN_SQUARE && 
+                        (isArtemisLoaded() == ARTEMIS_PLUGIN_LOADED) &&
+                        show_dialog(1, "Remove Artemis plugin from memory?"))
                 {
-					//
-					char plugin_name[30];
-					char plugin_filename[256];
-					memset(plugin_name, 0, sizeof(plugin_name));
-					memset(plugin_filename, 0, sizeof(plugin_filename));
-					if (((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS)) || ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS)))
-					{
-						// printf("COBRA Detected\n");
-						{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename);}
-						if (strlen(plugin_filename) > 0 && strcmp(plugin_filename, (char *) ARTEMIS_PATH "artemis_ps3.sprx") == 0)
-						{
-							LOG("Artemis Plugin is already running!\n");
-							cobra_mamba_syscall_unload_prx_module(5);
-							{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
-						}
-						else
-						{
-							LOG("Artemis Plugin hasn't been loaded yet!\n");
-							{lv2syscall3(392, 0x1004, 0x7, 0x36); } //2 Beep
-						}
-					}
+                    LOG("Unloading Artemis Plugin\n");
+                    cobra_mamba_unload_prx_module(ARTEMIS_PLUGIN_SLOT);
+                    ring_buzzer_simple(); //1 Beep
                 }
             }
             
@@ -1879,6 +1823,7 @@ void exiting()
 s32 main(s32 argc, const char* argv[])
 {
 	dbglogger_init();
+//	dbglogger_failsafe("9999");
 
 	http_init();
 

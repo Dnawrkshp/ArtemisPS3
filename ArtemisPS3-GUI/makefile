@@ -65,7 +65,7 @@ endif
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
 LIBS	:=	-ltiny3d -lfreetype -lgcm_sys -lrsx -lsysutil -lio -lnet -laudioplayer -lmpg123 -logg -lspu_sound -laudio -lsysmodule -lm \
-			-lssl -lhttp -lhttputil -lzip -lz -ldbglogger \
+			-lssl -lhttp -lhttputil -lzip -lz -ldbglogger -lps3mapi \
 			-I$(PS3DEV)/portlibs/modules/lib/spu_soundmodule.bin.a -lpngdec -lpng
 
 #---------------------------------------------------------------------------------
