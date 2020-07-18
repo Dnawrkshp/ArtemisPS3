@@ -78,6 +78,11 @@ sysSpuImage spu_image;
        menu_textures[name##_##type##_index].size = name##_##type##_size; \
     })
 
+#define ANALOG_CENTER       0x78
+#define ANALOG_THRESHOLD    0x68
+#define ANALOG_MIN          (ANALOG_CENTER - ANALOG_THRESHOLD)
+#define ANALOG_MAX          (ANALOG_CENTER + ANALOG_THRESHOLD)
+
 //Pad stuff
 padInfo padinfo;
 padData paddata[MAX_PADS];
@@ -563,6 +568,18 @@ int readPad(int port)
     {
         ioPadGetData(port, &padA[port]);
         
+		if (padA[port].ANA_L_V < ANALOG_MIN)
+			padA[port].BTN_UP = 1;
+			
+		if (padA[port].ANA_L_V > ANALOG_MAX)
+			padA[port].BTN_DOWN = 1;
+			
+		if (padA[port].ANA_L_H < ANALOG_MIN)
+			padA[port].BTN_LEFT = 1;
+			
+		if (padA[port].ANA_L_H > ANALOG_MAX)
+			padA[port].BTN_RIGHT = 1;
+
         //new
         dpad = ((char)*(&padA[port].zeroes + off) << 8) >> 12;
         rest = ((((char)*(&padA[port].zeroes + off) & 0xF) << 8) | ((char)*(&padA[port].zeroes + off + 1) << 0));
