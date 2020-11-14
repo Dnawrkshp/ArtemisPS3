@@ -392,6 +392,7 @@ Dark Mist NPJA00014 01.01.ncl
 Dark Sector BLUS30116 01.00.ncl
 Dark Sector BLUS30116 v01.01 av01.00.ncl
 Dark Souls 2 BLUS41045 01.01.ncl
+Dark Souls 2 BLUS41045 1.10 BLES02135 BLUS31528 1.00.ncl
 Dark Souls BLES01396 01.05.ncl
 Dark Souls BLES01402 01.00.ncl
 Dark Souls BLJM60517 01.08.ncl
