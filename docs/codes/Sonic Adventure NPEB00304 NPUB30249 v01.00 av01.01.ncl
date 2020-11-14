@@ -59,10 +59,10 @@ ASM Freeze Timer(tested/working)
 jgduff1/Verified by Stinger101
 0 00215710 39290000
 #
-99 Lives(value padding fixed)
+9 Lives(value padding fixed)
 0
 veritassdg/Fixed by Stinger101
-0 04EFFDE8 63000000
+0 04EFFDE8 09000000
 #
 999 Coins(value padding fixed)
 0
