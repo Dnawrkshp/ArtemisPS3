@@ -102,7 +102,7 @@ void plugin_callback(int index, int sel);
 void vercheck_callback(int index, int sel);
 void clearcache_callback(int index, int sel);
 
-const char* plugin_opts[] = {"< r6/CFW >", "< r5/HEN >", NULL};
+const char* plugin_opts[] = {"< Artemis r5 >", "< mod/Haxxxen >", NULL};
 
 const option menu_options_options[] = {
 	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
@@ -1069,7 +1069,7 @@ void plugin_callback(int index, int sel)
 		sel = 1;
 		
 	char tmp[128];
-    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 6-sel);
+    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 5+sel);
 
     sysLv2FsUnlink(ARTEMIS_PATH "artemis_ps3.sprx");
     sysLv2FsLink(tmp, ARTEMIS_PATH "artemis_ps3.sprx");
