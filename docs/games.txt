@@ -7,6 +7,7 @@
 3D Dot Game Heroes BLES00875 01.01.ncl
 3D Dot Game Heroes BLES00875 BLJM60180 BLUS30490 01.00.ncl
 3D Dot Game Heroes BLJM60180 01.01.ncl
+99 Vidas NPU31842 v01.00.ncl
 A.C.E. Another Century's Episode R BLJS10081 01.02.ncl
 A.C.E. Another Century's Episode R.ncl
 Aarus Awakening NPEB02133 v01.01.ncl
@@ -2027,8 +2028,8 @@ Sword Art Online The Lost Song BLJS10312 01.05.ncl
 Syndicate BLUS30804 v01.00 av01.00.ncl
 TMNT Depuis les Ombres NPUB31217 01.00.ncl
 TMNT Mutants In Manhatan NPUB 01.00.ncl
+Tales Of Berseria BLJS10330 v01.02.ncl
 Tales Of Berseria BLJS10330 v01.03 av01.00.ncl
-Tales Of Beseria JPN.ncl
 Tales Of Graces F BLES01617 01.00.ncl
 Tales Of Graces F BLES01617 v01.00 av01.00.ncl
 Tales Of Graces F BLJS10093 01.00.ncl
