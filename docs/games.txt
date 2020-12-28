@@ -7,7 +7,7 @@
 3D Dot Game Heroes BLES00875 01.01.ncl
 3D Dot Game Heroes BLES00875 BLJM60180 BLUS30490 01.00.ncl
 3D Dot Game Heroes BLJM60180 01.01.ncl
-99 Vidas NPU31842 v01.00.ncl
+99 Vidas NPUB31842 v01.00.ncl
 A.C.E. Another Century's Episode R BLJS10081 01.02.ncl
 A.C.E. Another Century's Episode R.ncl
 Aarus Awakening NPEB02133 v01.01.ncl
