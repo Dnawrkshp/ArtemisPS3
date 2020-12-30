@@ -126,7 +126,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r6.1";              //Artemis PS3 version (about menu)
+const char * VERSION = "r6.2";              //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -168,6 +168,7 @@ const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
 #define GAMES_MOUNT_PATH		"/dev_hdd0/GAMES/"
 #define GAMES_PSN_PATH			"/dev_hdd0/game/"
 #define GAMES_DISC_PATH			"/app_home/PS3_GAME/PARAM.SFO"
+#define GAMES_BDVD_PATH			"/dev_bdvd/PS3_GAME/PARAM.SFO"
 
 char * * user_installed_titleids;
 int user_installed_titleids_count = 0;
@@ -187,8 +188,8 @@ int menu_sel = 0;																					// Index of selected item (use varies per 
 int menu_old_sel[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Previous menu_sel for each menu
 int last_menu_id[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Last menu id called (for returning)
 const char * menu_pad_help[] = { NULL,																//Main
-								"\x10 Select    \x13 Back    \x11 Refresh",							//User list   
-								"\x10 Select    \x13 Back    \x11 Refresh",							//Online list
+								"\x10 Select    \x13 Back    \x12 Filter    \x11 Refresh",			//User list   
+								"\x10 Select    \x13 Back    \x12 Filter    \x11 Refresh",			//Online list
 								"\x13 Back",														//About
 								"\x10 Select    \x13 Back",											//Options
 								"\x10 Enable    \x11 Toggle Mode    \x12 View Code    \x13 Back",	//Select Cheats
@@ -207,6 +208,12 @@ int user_game_count = 0;
 */
 struct game_entry * online_game_list = NULL;
 int online_game_count = 0;
+
+/*
+* Filtered code list
+*/
+int filter_user_count = 0;
+int filter_online_count = 0;
 
 struct game_entry selected_entry;
 struct code_entry selected_centry;
@@ -228,12 +235,6 @@ void release_all() {
         SND_End();
 
     if(inited & INITED_SPU) {
-        //tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
-        //SetFontSize(12, 24);
-        //SetFontColor(0xffffffff, 0x00000000);
-        //DrawFormatString(0, 0, "Destroying SPU... ");
-        //tiny3d_Flip();
-        //sleep(1);
         sysSpuRawDestroy(spu);
         sysSpuImageClose(&spu_image);
     }
@@ -246,7 +247,6 @@ static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
 
      switch (status) {
         case SYSUTIL_EXIT_GAME: //0x0101
-                
             release_all();
             sysProcessExit(1);
             break;
@@ -276,7 +276,7 @@ char ** LoadGames_ReadDirectory(char * path, const char * param, int * ret_count
 
 	if ((d = opendir(path)))
 	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
+		while ((dir = readdir(d)) != NULL && dir->d_name != NULL && count < 1000)
 		{
 			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
 			{
@@ -298,9 +298,11 @@ char ** LoadGames_ReadDirectory(char * path, const char * param, int * ret_count
 
 void LoadGames()
 {
-	int id_count[3];
-	char ** id_path[3];
+	int id_count[4];
+	char ** id_path[4];
 	int count = 0, x = 0, y = 0;
+
+	init_loading_screen("Scanning installed games...");
 
 	//Free old array if exists
 	if (user_installed_titleids)
@@ -316,15 +318,26 @@ void LoadGames()
 	id_path[0] = LoadGames_ReadDirectory(GAMES_MOUNT_PATH, "/PS3_GAME/PARAM.SFO", &id_count[0]);
 	id_path[1] = LoadGames_ReadDirectory(GAMES_PSN_PATH, "/PARAM.SFO", &id_count[1]);
 	id_path[2] = (char **)malloc(1 * sizeof(char*));
-	id_path[2][0] = (char*)malloc(512);
-	strcpy(id_path[2][0], GAMES_DISC_PATH);
-	if (file_exists(id_path[2][0]) == SUCCESS)
+	if (file_exists(GAMES_DISC_PATH) == SUCCESS)
+	{
+		asprintf(&id_path[2][0], GAMES_DISC_PATH);
 		id_count[2] = 1;
+	}
 	else
 	{
 		id_count[2] = 0;
-		free(id_path[2][0]);
 		id_path[2][0] = NULL;
+	}
+	id_path[3] = (char **)malloc(1 * sizeof(char*));
+	if (file_exists(GAMES_BDVD_PATH) == SUCCESS)
+	{
+		asprintf(&id_path[3][0], GAMES_BDVD_PATH);
+		id_count[3] = 1;
+	}
+	else
+	{
+		id_count[3] = 0;
+		id_path[3][0] = NULL;
 	}
 
 	count = id_count[0] + id_count[1] + id_count[2];
@@ -343,10 +356,15 @@ void LoadGames()
 
 						int fSize = getFileSize(id_path[x][y]);
 						char * fullFile = readFile(id_path[x][y]);
-						strcpy((char*)user_installed_titleids[user_installed_titleids_count], (char*)&fullFile[fSize - 0x18]);
+						strncpy((char*)user_installed_titleids[user_installed_titleids_count], (char*)&fullFile[fSize - 0x18], 10);
 						free(fullFile);
 						fullFile = NULL;
-						user_installed_titleids_count++;
+
+						LOG("Read %s -> (%s)", id_path[x][y], user_installed_titleids[user_installed_titleids_count]);
+						if (strlen(user_installed_titleids[user_installed_titleids_count]) == 9)
+							user_installed_titleids_count++;
+						else
+							free(user_installed_titleids[user_installed_titleids_count]);
 
 						free(id_path[x][y]);
 					}
@@ -355,90 +373,9 @@ void LoadGames()
 			}
 		}
 	}
+	LOG("Detected %d titles", user_installed_titleids_count);
 
-	/*
-	//Mountable disc games
-	if ((d = opendir(GAMES_MOUNT_PATH)))
-	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
-		{
-			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
-			{
-				sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_MOUNT_PATH, dir->d_name);
-				printf("%s :: ", (char*)fullPath);
-				if (file_exists(fullPath) == SUCCESS)
-				{
-					int fSize = getFileSize(fullPath);
-					fullFile = readFile(fullPath);
-					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-					free(fullFile);
-					fullFile = NULL;
-					printf("%s", (char*)FullID);
-
-					titleIDs[count] = (char*)malloc(strlen(FullID));
-					strcpy(titleIDs[count], (char*)FullID);
-
-					count++;
-				}
-				else
-					printf("doesn't exist");
-				printf("\n");
-			}
-		}
-		closedir(d);
-	}
-
-	//PSN games
-	if ((d = opendir(GAMES_PSN_PATH)))
-	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
-		{
-			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
-			{
-				sprintf(fullPath, "%s%s/PARAM.SFO", GAMES_PSN_PATH, dir->d_name);
-				printf("%s :: ", (char*)fullPath);
-				if (file_exists(fullPath) == SUCCESS)
-				{
-					int fSize = getFileSize(fullPath);
-					fullFile = readFile(fullPath);
-					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-					free(fullFile);
-					fullFile = NULL;
-					printf("%s", (char*)FullID);
-
-					titleIDs[count] = (char*)malloc(strlen(FullID));
-					strcpy(titleIDs[count], (char*)FullID);
-
-					count++;
-				}
-				else
-					printf("doesn't exist");
-				printf("\n");
-			}
-		}
-		closedir(d);
-	}
-
-	sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_DISC_PATH, dir->d_name);
-	printf("%s :: ", (char*)fullPath);
-	if (file_exists(fullPath) == SUCCESS)
-	{
-		int fSize = getFileSize(fullPath);
-		fullFile = readFile(fullPath);
-		strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-		free(fullFile);
-		fullFile = NULL;
-		printf("%s", (char*)FullID);
-
-		titleIDs[count] = (char*)malloc(strlen(FullID));
-		strcpy(titleIDs[count], (char*)FullID);
-
-		count++;
-	}
-	else
-		printf("doesn't exist");
-	printf("\n");
-	*/
+	stop_loading_screen();
 }
 
 char * ParseOptionName(char * buffer, char * ret)
@@ -506,23 +443,23 @@ void SaveOptions()
 
 int isArtemisLoaded()
 {
-    char plugin_name[30];
-    char plugin_filename[256];
-    memset(plugin_name, 0, sizeof(plugin_name));
-    memset(plugin_filename, 0, sizeof(plugin_filename));
     //Check if COBRA+PS3MAPI is installed
     if (has_cobra_mamba() && has_ps3mapi())
     {
         LOG("COBRA/MAMBA+PS3MAPI Detected\n");
-        ps3mapi_get_vsh_plugin_info(ARTEMIS_PLUGIN_SLOT, plugin_name, plugin_filename);
-        if (strlen(plugin_filename) == 0)
+        if (!ps3mapi_get_vsh_plugin_slot_by_name("ART"))
         {
             LOG("COBRA: Artemis is not loaded yet\n");
             return ARTEMIS_PLUGIN_NOT_LOADED;
         }
-        else if (strcmp(plugin_filename, ARTEMIS_PATH "artemis_ps3.sprx") == 0)
+        else if (ps3mapi_get_vsh_plugin_slot_by_filename(ARTEMIS_PATH "artemis_ps3.sprx") == ARTEMIS_PLUGIN_SLOT)
         {
             LOG("COBRA: Artemis running\n");
+            return ARTEMIS_PLUGIN_SLOT;
+        }
+        else
+        {
+            LOG("COBRA: Artemis running (external)");
             return ARTEMIS_PLUGIN_LOADED;
         }
     }
@@ -1233,7 +1170,7 @@ void ReloadUserCheats()
     user_game_list = ReadUserList((int *)gmc);
     user_game_count = *gmc;
     if (doSort)
-        BubbleSortGameList(user_game_list, user_game_count);
+        QSortGameList(user_game_list, user_game_count);
 
     stop_loading_screen();
 }
@@ -1253,9 +1190,52 @@ void ReloadOnlineCheats()
     online_game_list = ReadOnlineList((int *)gmc);
     online_game_count = *gmc;
     if (doSort)
-        BubbleSortGameList(online_game_list, online_game_count);
+        QSortGameList(online_game_list, online_game_count);
 
     stop_loading_screen();
+}
+
+void FilterUserGames()
+{
+    if (filter_user_count)
+    {
+        user_game_count = filter_user_count;
+        filter_user_count = 0;
+    }
+    else
+    {
+        if (!user_installed_titleids_count)
+            LoadGames();
+
+        filter_user_count = user_game_count;
+        user_game_count = FilterInstalledGameList(user_game_list, user_game_count, user_installed_titleids, user_installed_titleids_count);
+    }
+    LOG("Filter complete (%d games)", user_game_count);
+
+    if (doSort)
+        QSortGameList(user_game_list, user_game_count);
+}
+
+void FilterOnlineGames()
+{
+    if (filter_online_count)
+    {
+        online_game_count = filter_online_count;
+        filter_online_count = 0;
+    }
+    else
+    {
+        if (!user_installed_titleids_count)
+            LoadGames();
+
+        filter_online_count = online_game_count;
+        online_game_count = FilterInstalledGameList(online_game_list, online_game_count, user_installed_titleids, user_installed_titleids_count);
+
+    }
+    LOG("Filter complete (%d games)", online_game_count);
+
+    if (doSort)
+        QSortGameList(online_game_list, online_game_count);
 }
 
 void SetMenu(int id)
@@ -1438,6 +1418,7 @@ void drawScene()
                                 ring_buzzer_simple(); //1 Beep
                                 break;
 
+                            case ARTEMIS_PLUGIN_SLOT:
                             case ARTEMIS_PLUGIN_LOADED:
                                 LOG("COBRA: Artemis is already running\n");
                                 ring_buzzer_simple(); //1 Beep
@@ -1472,7 +1453,7 @@ void drawScene()
                 	close_art = 1;
                 }
                 else if(paddata[0].BTN_SQUARE && 
-                        (isArtemisLoaded() == ARTEMIS_PLUGIN_LOADED) &&
+                        (isArtemisLoaded() == ARTEMIS_PLUGIN_SLOT) &&
                         show_dialog(1, "Remove Artemis plugin from memory?"))
                 {
                     LOG("Unloading Artemis Plugin\n");
@@ -1535,10 +1516,14 @@ void drawScene()
 						user_game_list[menu_sel].code_count = sz;
 					}
                     if (doSort)
-                        user_game_list[menu_sel] = BubbleSortCodeList(user_game_list[menu_sel]);
+                        user_game_list[menu_sel] = QSortCodeList(user_game_list[menu_sel]);
                     selected_entry = user_game_list[menu_sel];
                     SetMenu(5);
                     return;
+                }
+                else if (paddata[0].BTN_TRIANGLE)
+                {
+                    FilterUserGames();
                 }
                 else if (paddata[0].BTN_SQUARE)
                 {
@@ -1599,7 +1584,7 @@ void drawScene()
 						online_game_list[menu_sel].code_count = sz;
 					}
                     if (doSort)
-                        online_game_list[menu_sel] = BubbleSortCodeList(online_game_list[menu_sel]);
+                        online_game_list[menu_sel] = QSortCodeList(online_game_list[menu_sel]);
                     selected_entry = online_game_list[menu_sel];
                     SetMenu(5);
                     return;
@@ -1607,6 +1592,10 @@ void drawScene()
                 else if (paddata[0].BTN_SQUARE)
                 {
                     ReloadOnlineCheats();
+                }
+                else if (paddata[0].BTN_TRIANGLE)
+                {
+                    FilterOnlineGames();
                 }
             }
 
@@ -1840,7 +1829,6 @@ void exiting()
 s32 main(s32 argc, const char* argv[])
 {
 	dbglogger_init();
-//	dbglogger_failsafe("9999");
 
 	http_init();
 
@@ -1909,8 +1897,6 @@ s32 main(s32 argc, const char* argv[])
     
     LoadOptions();
 
-	//LoadGames();
-    
     videoState state;
     assert(videoGetState(0, 0, &state) == 0); // Get the state of the display
     assert(state.state == 0); // Make sure display is enabled
@@ -1933,7 +1919,7 @@ s32 main(s32 argc, const char* argv[])
 
     SetMenu(0);
     
-    while (1)
+    while (!close_art)
     {       
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
@@ -1945,10 +1931,6 @@ s32 main(s32 argc, const char* argv[])
             TINY3D_BLEND_FUNC_SRC_ALPHA_ONE_MINUS_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_RGB_ONE_MINUS_SRC_ALPHA,
             TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
                     
-        // Check the pads.
-        if (close_art)
-            return 0;
-        
         drawScene();
         
         //Draw help
@@ -1993,5 +1975,6 @@ s32 main(s32 argc, const char* argv[])
         }
     }
     
+    release_all();
     return 0;
 }
