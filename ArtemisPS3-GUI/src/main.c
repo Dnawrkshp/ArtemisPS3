@@ -810,24 +810,6 @@ void Draw_MainMenu()
 	DrawString(450 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
 
 	SetFontAlign(0);
-
-    //------------ Text Descriptors
-    
-    //Start
-    //c = 10;
-    //DrawTexture(menu_textures[c], 100 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 0) ? highlight_alpha : 0xFF));
-    
-    //Cheats
-    //c = 9;
-    //DrawTexture(menu_textures[c], 200 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 1) ? highlight_alpha : 0xFF));
-    
-    //Options
-    //c = 2;
-    //DrawTexture(menu_textures[c], 300 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 2) ? highlight_alpha : 0xFF));
-    
-    //About
-    //c = 1;
-    //DrawTexture(menu_textures[c], 400 + 150, 390 - 3, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 3) ? highlight_alpha : 0xFF));
 }
 
 // Used only in initialization. Allocates 64 mb for textures and loads the font
@@ -1524,6 +1506,7 @@ void drawScene()
                 else if (paddata[0].BTN_TRIANGLE)
                 {
                     FilterUserGames();
+                    menu_sel = 0;
                 }
                 else if (paddata[0].BTN_SQUARE)
                 {
@@ -1596,6 +1579,7 @@ void drawScene()
                 else if (paddata[0].BTN_TRIANGLE)
                 {
                     FilterOnlineGames();
+                    menu_sel = 0;
                 }
             }
 
