@@ -37,7 +37,6 @@ Screenshots
 Status
 -------
 
-- [X] Install MAMBA and PS3MAPI payload (if not already installed)
 - [X] Load artemis_ps3.sprx into VSH
 - [X] Access codes from an online database
 - [X] Access user codes
