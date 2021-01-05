@@ -1524,7 +1524,7 @@ Ratchet And Clank 1 BCJS30084 BCUS98282 01.00.ncl
 Ratchet And Clank 2 Going Commando BCES01503 01.00.ncl
 Ratchet And Clank 2 Going Commando BCES01503 v01.01 av01.00.ncl
 Ratchet And Clank 2 Going Commando BCJS30084 BCUS98282 01.00.ncl
-Ratchet And Clank 2 Going Commando.ncl
+Ratchet And Clank 2 Going Commando NPEA00386 NPUA80644 01.00.ncl
 Ratchet And Clank 2 Locked And Loaded BCES01503 01.00.ncl
 Ratchet And Clank 3 Totsugeki! Galactic Rangers BCJS30084 BCUS98282 01.00.ncl
 Ratchet And Clank 3 Up Your Arsenal BCES01503 01.00.ncl
