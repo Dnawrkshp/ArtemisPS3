@@ -175,6 +175,7 @@ Battlefield 4 BLES01832 BLUS31162 01.00.ncl
 Battlefield 4 BLUS31162 1.00.ncl
 Battlefield 4 BLUS31162 1.01.ncl
 Battlefield Bad Company Gold Edition BLES00261 01.00.ncl
+Battlefield Hardline BLES02039 NPEB02038 01.00.ncl
 Battleship BLES01520 01.00.ncl
 Battleship BLES01520 v01.01 av01.00.ncl
 Bayonetta BLES00599 BLUS30367 01.00.ncl
@@ -1813,6 +1814,7 @@ Sengoku Musou 4-2 BLJM61257 01.00.ncl
 Senjou No Valkyria BLJM55008 01.00.ncl
 Senjou No Valkyria BLJM60063 01.01.ncl
 Senjou No Valkyria BLJM60063 01.20.ncl
+Serious Sam 3 BFE NPUB31165 01.00.ncl
 Shadow Of The Colossus BCES01097 01.00.ncl
 Shadow Of The Colossus BCES01097 01.01.ncl
 Shadow Of The Colossus BCES01097 BCES01115 BCUS98259 NPEA00280 v01.00 av01.01.ncl
@@ -2007,6 +2009,7 @@ Street Fighter III Third Strike NPUB30301 01.00.ncl
 Street Fighter IV BLUS30265 01.02.ncl
 Street Fighter X Tekken BLES01252 BLJM60350 BLUS30722 01.00.ncl
 Street Fighter X Tekken NPEB01792 01.00.ncl
+Streets of Rage 2 NPEB00508.ncl
 Strength Of The Sword 3 NPEB01269 01.00.ncl
 Strider NPUB31139 01.00.ncl
 Strider NPUB31139 v01.00 av01.00.ncl
