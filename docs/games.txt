@@ -869,7 +869,7 @@ Haze BLES00157 BLES00169 v01.01 av01.36 BLUS30094 v01.00 av01.36.ncl
 Haze BLES00169 01.36.ncl
 Heavenly Sword BCAS20016 01.00.ncl
 Heavenly Sword BCES00078 01.00.ncl
-Heavenly Sword BCES00078 01.10.ncl
+Heavenly Sword BCES00078 BCUS98132 01.10.ncl
 Heavenly Sword BCES00078 v01.00.ncl
 Heavenly Sword BCUS98132 01.00.ncl
 Heavy Fire Afghanistan BLES01602 01.00.ncl
@@ -1468,7 +1468,7 @@ Prince Of Persia 2 War Within BLES01092 01.00.ncl
 Prince Of Persia 2 Warriors Within BLES01092 01.01.ncl
 Prince Of Persia 3 The Two Thrones BLES01092 01.00.ncl
 Prince Of Persia 3 The Two Thrones BLES01092 01.01.ncl
-Prince Of Persia BLES00389 01.01.ncl
+Prince Of Persia BLES00389 BLUS30214 01.01.ncl
 Prince Of Persia Classic NPUB30031 01.00.ncl
 Prince Of Persia Las Arenas Olvidadas BLES00839 BLUS30401 v01.01 av01.00 BLES00840 v01.00 av01.00.ncl
 Prince Of Persia Le Sabbie Dimenticate BLES00839 BLUS30401 v01.01 av01.00 BLES00840 v01.00 av01.00.ncl
