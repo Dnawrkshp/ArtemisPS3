@@ -860,6 +860,7 @@ Gunstar Heroes NPUB30078 v01.00 av01.02.ncl
 Hard Corps Uprising NPEB00332 NPJB00081 01.00.ncl
 Hard Corps Uprising NPEB00332 v01.01 av01.00 NPJB00081 NPUB30096 v01.00 av01.00.ncl
 Hard Corps Uprising NPUB30096 01.00.ncl
+Hatsune Miku Project DIVA Dreamy Theater NPJB00047 01.01.ncl
 Hatsune Miku Project Diva F 2nd BLJM61079 01.00.ncl
 Hatsune Miku Project Diva F 2nd BLJM61079 01.01.ncl
 Hatsune Miku Project Diva F 2nd BLUS31431 01.00.ncl
@@ -1082,6 +1083,7 @@ Lightning Returns Final Fantasy XIII BLJM60558 01.01.ncl
 Lightning Returns Final Fantasy XIII NPJB00326 01.01.ncl
 LittleBigPlanet 2 BCAS20113 01.00.ncl
 LittleBigPlanet 2 BCES00850 01.00.ncl
+LittleBigPlanet 2 NPUA80662 01.33.ncl
 LittleBigPlanet 3 01.02.ncl
 LittleBigPlanet BCAS20058 02.00.ncl
 LittleBigPlanet BCAS20078 01.30.ncl
@@ -2301,6 +2303,7 @@ Ultimate Marvel Vs Capcom 3 BLUS30787 01.00.ncl
 Ultimate Marvel Vs Capcom 3 BLUS30787 v01.00 av01.00.ncl
 Ultimate Mortal Kombat 3 NPUB30468 01.00.ncl
 Ultimate Mortal Kombat 3 NPUB30468 01.02.ncl
+Ultra Street Fighter 4 BLJM61147 01.00.ncl
 Ultra Street Fighter 4 BLUS30453 01.08.ncl
 Uncharted 2 Among Thieves BCAS20097 BCES00509 01.00.ncl
 Uncharted 2 Among Thieves BCES00509 01.09.ncl
