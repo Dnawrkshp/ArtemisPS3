@@ -1,0 +1,23 @@
+Infinite Health
+0
+jgduff1
+0 002667D4 7CD82050
+0 002667D8 909F01C8
+#
+Infinite Ammo + No Reload
+0
+jgduff1
+0 001153D0 396B0000
+0 001153E4 60000000
+#
+Infinite Ammo
+0
+jgduff1
+0 00115F1C 60000000
+#
+Infinite Grenade
+0
+jgduff1
+0 0011955C 39750000
+0 00119570 917D000C
+#

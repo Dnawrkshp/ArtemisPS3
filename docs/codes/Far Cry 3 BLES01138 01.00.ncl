@@ -1,0 +1,83 @@
+Invincibility
+0
+FBML
+0 0013DE20 48000024
+0 0013DE60 60000000
+#
+Invincible Vehicles
+0
+FBML
+0 00BC3C38 4182000C
+#
+Invisible To All Predators
+0
+FBML
+0 005B84BC 48000028
+#
+Undetectable By Enemy Soldiers
+0
+FBML
+0 007F0498 60000000
+/*
+Do not use it until after
+drowning in the river at
+the beginning of the game.
+*/
+#
+Infinite Armor
+0
+FBML
+0 0013D724 48000024
+#
+Infinite Stamina
+0
+FBML
+0 0013BD60 60000000
+0 0013BE4C 60000000
+#
+Max Money On Buy Or Sell
+0
+FBML
+0 00A6E4D8 60000000
+0 00A6E5B0 60A40000
+#
+Max Skill Points On Gain
+0
+FBML
+0 00388920 48000018
+0 00388CD0 60000000
+#
+Infinite Ammo And No Reload
+0
+FBML
+0 00A577CC 48000018
+0 00C0A83C 60000000
+#
+Infinite Throwable Weapons
+0
+FBML
+0 009EF490 48000010
+#
+Infinite Syringes
+0
+FBML
+0 00B77F08 4800000C
+0 00B78940 48000114
+#
+AoB Invisible To All Predators
+0
+FBML
+B 00010000 04000000
+B 4082002880BFFFF8 4800002880BFFFF8
+#
+AoB Undetectable By Enemy Soldiers
+0
+FBML
+B 00010000 04000000
+B C03F001CEC421EFAEC44177AFC401210D05F0024 C03F001CEC421EFAEC44177AFC40121060000000
+/*
+Do not use it until after
+drowning in the river at
+the beginning of the game.
+*/
+#

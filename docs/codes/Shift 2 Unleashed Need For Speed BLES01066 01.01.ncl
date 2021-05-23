@@ -1,0 +1,6 @@
+Cash
+0
+CodeFreak/PS3UserCheat
+0 33E093FC 05F5E0FF
+0 33E09400 05F5E0FF
+#

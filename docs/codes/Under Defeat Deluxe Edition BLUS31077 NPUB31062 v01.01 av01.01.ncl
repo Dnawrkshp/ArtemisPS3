@@ -1,0 +1,65 @@
+Infinite Credits (New Order Mode)
+0
+jgduff1, tekman
+0 000116B4 30630000
+#
+Infinite Lives (New Order Mode)
+0
+jgduff1, tekman
+0 000B3ED4 30C60000
+#
+Infinite Bombs (New Order Mode)
+0
+jgduff1, tekman
+0 0001A8FC 30630000
+#
+High Score (New Order Mode)
+0
+tekman
+0 0001CCF4 3C803B9A
+0 0001CCF8 6084C9FF
+#
+Memory Infinite Lives (New Order Mode)
+0
+jgduff1
+0 004107CE 05
+#
+Memory Infinite Bombs (New Order Mode)
+0
+jgduff1
+0 004107D5 03
+#
+Memory Infinite Credits (New Order Mode)
+0
+jgduff1
+0 00312CB7 02
+#
+Memory Max Score (New Order Mode)
+0
+jgduff1
+0 004107C8 0000138C
+#
+AoB Infinite Credits
+0
+tekman
+B 00010000 04000000
+B 38E000003063FFFF98E6B74490652CB4 38E000003063000098E6B74490652CB4
+#
+AoB Infinite Lives
+0
+tekman
+B 00010000 04000000
+B 6383000030C6FFFF98C5000E4BF6EE5D 6383000030C6000098C5000E4BF6EE5D
+#
+AoB Infinite Bombs
+0
+tekman
+B 00010000 04000000
+B 408200443063FFFF38A000283CC0004A 408200443063000038A000283CC0004A
+#
+AoB High Score
+0
+tekman
+B 00010000 04000000
+B 7C86201460A5967F7C04284090830008 7C8620143C803B9A6084C9FF90830008
+#

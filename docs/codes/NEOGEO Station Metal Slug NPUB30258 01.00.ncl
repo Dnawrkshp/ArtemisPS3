@@ -1,0 +1,30 @@
+Infinite Lives + Bombs
+0
+cagao123
+0 009A9490 9A8A0001
+0 0026F1B0 2B850120
+0 0026F1B4 409E0008
+0 0026F1B8 3A80FFFF
+0 0026F1BC 9A8B04C0
+0 0026F1C0 489E9956
+0 009E9950 4826F1B2
+/*
+Bombs will show 0
+but are infinite.
+*/
+#
+Infinite Arms
+0
+cagao123
+0 009A95F4 B0AB0000
+#
+Infinite Health For Tanks
+0
+cagao123
+0 009AAEFC B00905E6
+#
+P1 Invincible
+0
+cagao123
+0 31019E84 00420000
+#

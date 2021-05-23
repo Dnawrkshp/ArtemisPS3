@@ -1,0 +1,238 @@
+God Mode
+0
+dron_3
+0 005352EC 39000001
+0 005352FC 9103002C
+0 00432A8C 60000000
+/*
+This does not affect
+your ally.
+*/
+#
+Health Never Decreases For Newkid And Ally
+0
+bungholio
+0 00C873E4 83BF000C
+0 00C873E8 807D0032
+0 00C873EC 3C005F6E
+0 00C873F0 48000020
+0 00C87410 60006577
+0 00C87414 7F830040
+0 00C87418 409E0058
+0 00C8741C 48000020
+0 00C8743C 807D0036
+0 00C87440 3C006B69
+0 00C87444 60006400
+0 00C87448 48000020
+0 00C87468 7F830040
+0 00C8746C 419E0054
+0 00C87470 3C005F62
+0 00C87474 48000020
+0 00C87494 60006666
+0 00C87498 7F830040
+0 00C8749C 409E002C
+0 00C874A0 48000020
+0 00C874C0 C3DF001C
+0 00C874C4 48000028
+0 00C874C8 60000000
+0 00C874CC 48000020
+0 00C874EC D3DF0018
+0 00C874F0 4847A932
+0 0047A92C 48C873E6
+/*
+dron_3's god mode is
+better and also saves, but
+does not affect your ally.
+These specifically search
+for text that is always
+present. There is
+"combat_newkid" being the
+player you control and
+"combat_bff" being your
+ally no matter which of
+the 6 you choose.
+*/
+#
+Summoned Characters Never Disappear From Summons Menu
+0
+bungholio
+0 0047DB20 4E800020
+/*
+You can go your whole game
+using Mr Slave to sit
+everyone from battle to
+battle or whatever, you
+do not need to go back and
+find them and ask them
+again.
+*/
+#
+Button Timers Never Increase
+0
+bungholio
+0 004F33E8 60000000
+/*
+Has various bad effects
+and good effects. If you
+were using the toilet or
+something like Kyle's 3rd
+special with the arrows or
+maybe just doing a normal
+attack with Butters, you
+can take all day to do it
+and Butter's will get a
+perfect hit. If you were
+doing the newkid's 5th
+special and lighting the
+matches, the game might
+kind of stop if you are
+too slow and you will need
+to press Start and reload
+your game.
+*/
+#
+Max Items On Buy, Never Decrease
+0
+bungholio
+0 0047FA88 60000000
+0 0047FB50 60000000
+#
+Max Net Worth
+0
+dron_3
+0 00464C04 83BC0004
+#
+Infinite PP + Mana
+0
+dron_3
+0 0049F4EC C0250004
+0 005EDC9C 60000000
+#
+Max XP After Battle
+0
+dron_3
+0 003F73D0 38842710
+#
+Upgrade Points Never Decrease
+0
+dron_3
+0 003F7174 60A60000
+#
+Perk Points Never Decrease
+0
+dron_3
+0 003F7100 60A60000
+#
+AoB God Mode
+0
+dron_3
+B 00010000 04000000
+B 60000000FFE00890636300004BF43B7D60000000 39000001FFE00890636300004BF43B7D9103002C
+B 00010000 04000000
+B 480468492C03000040820090 480468492C03000060000000
+/*
+This does not affect
+your ally.
+*/
+#
+AoB Health Never Decreases For Newkid And Ally
+0
+bungholio
+B 00010000 04000000
+B 000000000000000000000000000000002C00000100090016000000000000000000C86E6800C86FA400DC6010000000000000000000000000000000002C00000100090009000000000000000000C86E7400C86FFC00DC60B8000000000000000000000000000000002C0000010009001E000000000000000000C86E8400C8702000DC5F98000000000000000000000000000000002C00000100090002000000000000000000C86E9400C8709800DC5EE8000000000000000000000000000000002C0000010009000B000000000000000000C86EA800C870A000DC61C0000000000000000000000000000000002C00000100090004000000000000000000C86EB400C870CC00DC5E980000000000000000 83BF000C807D00323C005F6E480000202C00000100090016000000000000000000C86E6800C86FA400DC6010600065777F830040409E0058480000202C00000100090009000000000000000000C86E7400C86FFC00DC60B8807D00363C006B6960006400480000202C0000010009001E000000000000000000C86E8400C8702000DC5F987F830040419E00543C005F62480000202C00000100090002000000000000000000C86E9400C8709800DC5EE8600066667F830040409E002C480000202C0000010009000B000000000000000000C86EA800C870A000DC61C0C3DF001C4800002860000000480000202C00000100090004000000000000000000C86EB400C870CC00DC5E98D3DF00184847A932
+B 00010000 04000000
+B EC62F028D3DF0018 EC62F02848C873E6
+/*
+dron_3's god mode is
+better and also saves, but
+does not affect your ally.
+These specifically search
+for text that is always
+present. There is
+"combat_newkid" being the
+player you control and
+"combat_bff" being your
+ally no matter which of
+the 6 you choose.
+*/
+#
+AoB Summoned Characters Never Disappear From Summons Menu
+0
+bungholio
+B 00010000 04000000
+B F821FF617C0802A6F80100B0FBA10088FBE1009860BF0000 4E8000207C0802A6F80100B0FBA10088FBE1009860BF0000
+/*
+You can go your whole game
+using Mr Slave to sit
+everyone from battle to
+battle or whatever, you
+do not need to go back and
+find them and ask them
+again.
+*/
+#
+AoB Button Timers Never Increase
+0
+bungholio
+B 00010000 04000000
+B 41850048C03F00C8EC21F82AD03F00C8 41850048C03F00C8EC21F82A60000000
+/*
+Has various bad effects
+and good effects. If you
+were using the toilet or
+something like Kyle's 3rd
+special with the arrows or
+maybe just doing a normal
+attack with Butters, you
+can take all day to do it
+and Butter's will get a
+perfect hit. If you were
+doing the newkid's 5th
+special and lighting the
+matches, the game might
+kind of stop if you are
+too slow and you will need
+to press Start and reload
+your game.
+*/
+#
+AoB Max Items On Buy, Never Decrease
+0
+bungholio
+B 00010000 04000000
+B 57C4043E7C04180040810008 57C4043E7C04180060000000
+B 00010000 04000000
+B 54A5043E7C03280040810008 54A5043E7C03280060000000
+#
+AoB Max Net Worth
+0
+dron_3
+B 00010000 04000000
+B 7F7BE81093BC0000 83BC000493BC0000
+#
+AoB Infinite PP + Mana
+0
+dron_3
+B 00010000 04000000
+B 41820044EFE11028 41820044C0250004
+B 00010000 04000000
+B 41860008480000F863830000 60000000480000F863830000
+#
+AoB Max XP After Battle
+0
+dron_3
+B 00010000 04000000
+B 7C84F014909D0024 38842710909D0024
+#
+AoB Upgrade Points Never Decrease
+0
+dron_3
+B 00010000 04000000
+B 7CC4281063E3000090DF002C 60A6000063E3000090DF002C
+#
+AoB Perk Points Never Decrease
+0
+dron_3
+B 00010000 04000000
+B 7CC4281063E3000090DF0030 60A6000063E3000090DF0030
+#

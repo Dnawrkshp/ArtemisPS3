@@ -1,0 +1,27 @@
+ASM Infinite Boost
+0
+jgduff1
+0 00018CAC 60000000
+0 00054588 60000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 0008D920 60000000
+0 0008D924 60000000
+#
+ASM Infinite Missiles
+0
+jgduff1
+0 00091AD8 60000000
+#
+ASM Infinite Lure
+0
+jgduff1
+0 000B181C 60000000
+#
+ASM Infinite I.V.C.
+0
+jgduff1
+0 0001670C 60000000
+#

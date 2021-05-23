@@ -1,0 +1,53 @@
+Memory Max Health On Medkit Gain
+0
+jgduff1
+0 380549BC 42C80000
+0 381F0548 42C80000
+0 38C0347C 42F40000 /*Murray*/
+0 397B011C 42C80000
+0 39CC816C 42C80000
+0 3A3A967C 42C80000
+0 3A564A7C 42C80000
+#
+ASM Max Health On Medkit Gain
+0
+jgduff1
+0 000E1864 60000000
+0 000E18BC EC01F828
+#
+ASM Max Healts On Refill
+0
+jgduff1
+0 0073777C EC41102A
+0 007377C4 D023015C
+#
+Memory Max + Infinite Money On Gain
+0
+jgduff1
+0 334198E0 0000055D
+#
+ASM Max + Infinite Money On Gain
+0
+jgduff1
+0 00483340 90830020
+#
+Memory Max Bottles On Gain
+0
+jgduff1
+0 308D7AB8 00000004
+#
+ASM Max Bottles On Gain
+0
+jgduff1
+0 002E73BC 90FF0038
+#
+Memory Infinite Plane Turtle Chair
+0
+jgduff1
+0 3341A94C 42C80000
+#
+ASM Infinite Plane Turtle Chair
+0
+jgduff1
+0 0014F768 60000000
+#

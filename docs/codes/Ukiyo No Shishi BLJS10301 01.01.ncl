@@ -1,0 +1,36 @@
+Money Multiplier
+0
+games24.blog.fc2.com/blog-entry-246.html
+0 002430C0 1C84Z
+0 002430C4 7CA02214
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Items Never Decrease
+0
+games24.blog.fc2.com/blog-entry-246.html
+0 000E069C 380B0000
+#
+Materials Never Decrease
+0
+games24.blog.fc2.com/blog-entry-246.html
+0 000E0C10 60000000
+#
+AoB Money Multiplier
+0
+games24.blog.fc2.com/blog-entry-246.html
+B 00010000 04000000
+B 7C8402147CA5221490A90000813F0004 1C84Z7CA0221490A90000813F0004
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+AoB Items Never Decrease
+0
+games24.blog.fc2.com/blog-entry-246.html
+B 00010000 04000000
+B 380BFFFF7D234B783880000190090004 380B00007D234B783880000190090004
+#
+AoB Materials Never Decrease
+0
+games24.blog.fc2.com/blog-entry-246.html
+B 00010000 04000000
+B 7C1D00502F800000419CFFC87D435378 600000002F800000419CFFC87D435378
+#

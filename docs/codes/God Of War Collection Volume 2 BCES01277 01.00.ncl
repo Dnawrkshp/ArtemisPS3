@@ -1,0 +1,18 @@
+Invincible
+0
+jgduff1
+0 3AFA1B74 42BF
+#
+Max + Infinite Magic
+0
+jgduff1
+0 00651F44 FFFFFFF5
+0 3AE21B38 42C80000
+#
+Max + Infinite Orbs
+0
+jgduff1
+0 3AD2B27C 3B9AC9FF
+0 3AE669F4 3B9AC9FF
+0 3B02CB58 0001869D
+#

@@ -1,0 +1,31 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Prince Of Persia Boukyaku No Suna
+*/
+#
+Infinite Health
+0
+Hiei-YYH
+0 01203D60 81030028
+0 01203D64 91030044
+0 01203D68 4B404808
+0 00619D0C 48BEA054
+#
+Infinite Rewind
+0
+Hiei-YYH
+0 00796F28 39440000
+#
+Max Upgrade Points After Level Up
+0
+Hiei-YYH
+0 003A2D84 38000063
+#
+Exp Multiplier
+0
+Hiei-YYH
+0 003A2D4C 1FA4Z
+[Z]000A=10x;0064=100x;03E8=1000x;2710=10000x[/Z]
+#

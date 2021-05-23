@@ -1,0 +1,68 @@
+Memory Infinite Health
+0
+jgduff1
+0 305C0018 00000001
+0 305C001C 00000000
+0 305C0020 00000001
+0 305C00CC 02408CDE
+0 305C01CC 40000000
+0 305C0394 BC8885F3
+0 305C0398 00000000
+0 305C61DC 40000000
+0 305C61E0 00020000
+#
+ASM Infinite Health V1
+0
+jgduff1
+0 000A3968 60000000
+0 000A3970 60000000
+/*
+It also affects enemies.
+*/
+#
+ASM Infinite Health V2
+0
+jgduff1
+0 00282CF4 D03D0454 
+0 00282CE4 EC22E828 
+/*
+No details on whether
+this works or if it also
+affects enemies.
+*/
+#
+Memory Max Gold On Gain
+0
+jgduff1
+0 305BFF40 000000AC
+#
+ASM Max Gold On Gain
+0
+jgduff1
+0 0028E824 7D00F814
+0 0028E838 901E05C0
+#
+Memory Invincible
+0
+jgduff1
+0 305BFDD4 3F84444C
+#
+ASM Invincible
+0
+jgduff1
+0 00282C90 EC21182A
+0 00282C94 EC42202A
+0 00282CA8 D04100AC
+0 00282CB8 EC22E828
+0 00282CC0 D03D07BC
+0 00282CE4 EC22E828
+0 00282CEC EC42E828
+0 00282CF4 60000000
+0 00282CFC D3DD0458
+/*
+You will need to take
+damage 1st to trigger
+invincibility, and then
+it will stay on.
+*/
+#

@@ -1,0 +1,2646 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Okami Zekkeihan
+*/
+#
+Files Info
+0
+bungholio
+/*
+Most of the codes need
+to be applied to the
+decrypted
+\USRDIR\prx\main.ppu.sprx
+file, except for a few
+which are instead for
+\USRDIR\prx\stage.ppu.sprx
+and one for
+\USRDIR\prx\event.ppu.sprx
+
+If you are going to
+modify the files, you
+will need to subtract
+these amounts from the
+addresses to get the
+correct address in the
+decrypted prx files:
+
+-0x00250000 = wolves_kernel.prx
+-0x004BFF10 = event.ppu.prx
+-0x004DFF00 = main.ppu.prx
+-0x0111FF10 = stage.ppu.prx
+*/
+#
+Max Money
+0
+JorgeFFC
+0 00FE7754 05F5E0FF
+0 00FE9ED0 05F5E0FF
+#
+Max Demon Fangs
+0
+JorgeFFC
+0 00FE9F5C 0000270F
+#
+Max Praise
+0
+JorgeFFC
+0 00FE8430 0000270F
+0 01016FF8 0000270F
+#
+Button Enable Code + Warp Menus
+0
+bungholio
+/* Button Enable Code */
+0 00AE84D0 3D200046
+0 00AE84D4 881D0001
+0 00AE84D8 9809F000
+0 00AE84DC 881D0003
+0 00AE84E0 9809F001
+0 00AE84E4 A089F000
+0 00AE84E8 70800012
+0 00AE84EC A0A9F002
+0 00AE84F0 B009F002
+0 00AE84F4 2B800012
+0 00AE84F8 409E0018
+0 00AE84FC 7F850040
+0 00AE8500 419E0010
+0 00AE8504 8809F00A
+0 00AE8508 68000001
+0 00AE850C 9809F00A
+0 00AE8510 70800022
+0 00AE8514 A0A9F004
+0 00AE8518 B009F004
+0 00AE851C 2B800022
+0 00AE8520 409E0018
+0 00AE8524 7F850040
+0 00AE8528 419E0010
+0 00AE852C 8809F00A
+0 00AE8530 68000002
+0 00AE8534 9809F00A
+0 00AE8538 70800042
+0 00AE853C A0A9F006
+0 00AE8540 B009F006
+0 00AE8544 2B800042
+0 00AE8548 409E0018
+0 00AE854C 7F850040
+0 00AE8550 419E0010
+0 00AE8554 8809F00A
+0 00AE8558 68000004
+0 00AE855C 9809F00A
+0 00AE8560 70800082
+0 00AE8564 A0A9F008
+0 00AE8568 B009F008
+0 00AE856C 2B800082
+0 00AE8570 409E0018
+0 00AE8574 7F850040
+0 00AE8578 419E0010
+0 00AE857C 8809F00A
+0 00AE8580 68000008
+0 00AE8584 9809F00A
+0 00AE8588 70800014
+0 00AE858C A0A9F00E
+0 00AE8590 B009F00E
+0 00AE8594 2B800014
+0 00AE8598 409E0024
+0 00AE859C 7F850040
+0 00AE85A0 419E001C
+0 00AE85A4 88A9F00B
+0 00AE85A8 38A50001
+0 00AE85AC 2B850002
+0 00AE85B0 409D0008
+0 00AE85B4 38A00000
+0 00AE85B8 98A9F00B
+0 00AE85BC 70800024
+0 00AE85C0 A0A9F010
+0 00AE85C4 B009F010
+0 00AE85C8 2B800024
+0 00AE85CC 409E0024
+0 00AE85D0 7F850040
+0 00AE85D4 419E001C
+0 00AE85D8 88A9F012
+0 00AE85DC 38A50001
+0 00AE85E0 2B850002
+0 00AE85E4 409D0008
+0 00AE85E8 38A00000
+0 00AE85EC 98A9F012
+0 00AE85F0 801D0000
+0 00AE85F4 4E800020
+0 0051816C 48AE84D3
+/* Tiny necessary cheap hack to make the menus appear */
+0 00AE85F8 3CA00046
+0 00AE85FC 80A5F01C
+0 00AE8600 2B850000
+0 00AE8604 4D9E0020
+0 00AE8608 38600001
+0 00AE860C 4E800020
+0 0097E780 48AE85FB
+0 0097E9E4 48AE85FB
+/* The buttons and menus and teleporting */
+0 00AE8610 F821FFF1
+0 00AE8614 7C0802A6
+0 00AE8618 F8010008
+0 00AE861C 3F800046
+0 00AE8620 A3BCF000
+/* Mermaid Spring Menu */
+0 00AE8624 73A00110
+0 00AE8628 A3DCF01C
+0 00AE862C B3BCF01C
+0 00AE8630 2B800110
+0 00AE8634 409E002C
+0 00AE8638 7F9DF040
+0 00AE863C 419E0024
+0 00AE8640 806286D8
+0 00AE8644 80838000
+0 00AE8648 8063806C
+0 00AE864C 80630000
+0 00AE8650 38000000
+0 00AE8654 7CA400AE
+0 00AE8658 4897E733
+0 00AE865C 48000080
+0 00AE8660 73A00120
+0 00AE8664 A3DCF01E
+0 00AE8668 B3BCF01E
+0 00AE866C 2B800120
+0 00AE8670 409E006C
+0 00AE8674 7F9DF040
+0 00AE8678 419E0064
+/* Mist Warp Menu */
+0 00AE867C 83C2866C
+0 00AE8680 813E8018
+0 00AE8684 38800000
+0 00AE8688 80690000
+0 00AE868C 48887B9B
+0 00AE8690 38600000
+0 00AE8694 4873F367
+0 00AE8698 813E8050
+0 00AE869C 809E8000
+0 00AE86A0 88A30000
+0 00AE86A4 80690000
+0 00AE86A8 4897E997
+0 00AE86AC 807E8038
+0 00AE86B0 38800000
+0 00AE86B4 38A0000A
+0 00AE86B8 38C00000
+0 00AE86BC 38E0FFFF
+0 00AE86C0 78E70220
+0 00AE86C4 39000000
+0 00AE86C8 650880FF
+0 00AE86CC 6108FFFF
+0 00AE86D0 39200001
+0 00AE86D4 48873503
+0 00AE86D8 48000094
+/* Teleport to chosen Mist Warp location */
+0 00AE86DC 73A00180
+0 00AE86E0 A3DCF020
+0 00AE86E4 B3BCF020
+0 00AE86E8 2B800180
+0 00AE86EC 409E0080
+0 00AE86F0 7F9DF040
+0 00AE86F4 419E001C
+0 00AE86F8 83C2866C
+0 00AE86FC 813E8054
+0 00AE8700 38810070
+0 00AE8704 80690000
+0 00AE8708 488AF693
+0 00AE870C 2F830000
+0 00AE8710 419E005C
+0 00AE8714 807E8038
+0 00AE8718 38800000
+0 00AE871C 38A00008
+0 00AE8720 38C00000
+0 00AE8724 38E00000
+0 00AE8728 64E780FF
+0 00AE872C 60E7FFFF
+0 00AE8730 3900FFFF
+0 00AE8734 79080220
+0 00AE8738 3920001E
+0 00AE873C 48873503
+0 00AE8740 80810070
+0 00AE8744 2F8400FF
+0 00AE8748 409E0008
+0 00AE874C 38800000
+0 00AE8750 813E8024
+0 00AE8754 38600000
+0 00AE8758 8009009C
+0 00AE875C 60000002
+0 00AE8760 9009009C
+0 00AE8764 4873F72F
+0 00AE8768 48000080
+/* Teleport to chosen Mermaid Spring location */
+0 00AE876C 73A00140
+0 00AE8770 A3DCF022
+0 00AE8774 B3BCF022
+0 00AE8778 2B800140
+0 00AE877C 409E006C
+0 00AE8780 7F9DF040
+0 00AE8784 419E001C
+0 00AE8788 83C286D8
+0 00AE878C 813E8070
+0 00AE8790 38810070
+0 00AE8794 80690000
+0 00AE8798 488AF693
+0 00AE879C 2F830000
+0 00AE87A0 419E0048
+0 00AE87A4 807E8074
+0 00AE87A8 38800000
+0 00AE87AC 38A00008
+0 00AE87B0 38C00000
+0 00AE87B4 38E00000
+0 00AE87B8 64E780FF
+0 00AE87BC 60E7FFFF
+0 00AE87C0 3900FFFF
+0 00AE87C4 79080220
+0 00AE87C8 3920001E
+0 00AE87CC 48873503
+0 00AE87D0 80810070
+0 00AE87D4 2F8400FF
+0 00AE87D8 409E0008
+0 00AE87DC 38800000
+0 00AE87E0 38600000
+0 00AE87E4 4874B133
+0 00AE87E8 E8010008
+0 00AE87EC 7C0803A6
+0 00AE87F0 38210010
+0 00AE87F4 E80100B0
+0 00AE87F8 4E800020
+0 005181F4 48AE8613
+/*
+0001 = Select
+0002 = L3
+0004 = R3
+0008 = Start
+0010 = ^
+0020 = >
+0040 = \/
+0080 = <
+0100 = L2
+0200 = R2
+0400 = L1
+0800 = R1
+1000 = △
+2000 = O
+4000 = X
+8000 = □
+
+
+L2 + ^ = Access Mermaid Spring Menu
+L2 + > = Access Mist Warp Menu
+L2 + \/ = Teleport to chosen Mermaid Spring location
+L2 + < = Teleport to chosen Mist Warp location
+
+
+The menus will only have
+what you have currently
+unlocked for location
+choices. Use the code to
+unlock all of those
+locations if you need it.
+
+
+If you choose a location
+from 1 menu but press
+the button combo for
+teleporting to the other,
+you might get odd
+results.
+
+
+If you enter and exit 1
+of the 2 menus but do not
+want to teleport, you
+will have a white screen.
+To fix it, just press
+Start to enter the normal
+pause menu, and Start
+again to have things back
+to normal.
+*/
+#
+Can Access All Mermaid Spring And Mirror Locations
+0
+bungholio
+0 008DE680 7C840214
+0 008DE684 38600001
+0 008DE688 90640008
+0 0097E828 7D000378
+0 0097E82C 9009000C
+0 0097E830 60000000
+0 0097EA94 7D000378
+0 0097EA98 9009000C
+0 0097EA9C 60000000
+/* Dragon Palace Mirror */
+0 0073F4F4 7C004B78
+0 0073F4F8 900B000C
+0 0073F4FC 7C09FE70
+0 0073F500 7D2B0278
+0 0073F504 7D6B4850
+0 0073F508 79630FE2
+/* Kamui + Wep'keer + Inner Yoshpet */
+0 00AE83A0 80030D1C
+0 00AE83A4 64000200
+0 00AE83A8 90030D1C
+0 00AE83AC 488CA5EA
+0 008CA5E4 48AE83A2
+/* Agata Forest */
+0 00AE83B0 80030C5C
+0 00AE83B4 64001000
+0 00AE83B8 90030C5C
+0 00AE83BC 488CA5BA
+0 008CA5B4 48AE83B2
+/* Shinsu Field */
+0 00AE83C0 80030C3C
+0 00AE83C4 64000400
+0 00AE83C8 90030C3C
+0 00AE83CC 488CA52A
+0 008CA524 48AE83C2
+/* Ryoshima Coast + Sei-an City (Aristocratic Qtr.) */
+0 00AE83D0 80030CBC
+0 00AE83D4 64001000
+0 00AE83D8 90030CBC
+0 00AE83DC 488CA4EA
+0 008CA4E4 48AE83D2
+/* Taka Pass */
+0 00AE83E0 80030C9C
+0 00AE83E4 60001000
+0 00AE83E8 90030C9C
+0 00AE83EC 488CA49E
+0 008CA498 48AE83E2
+/* Sasa Sanctuary + N. Ryoshima Coast + Catcall Tower + Dragon Palace */
+0 00AE83F0 800904A0
+0 00AE83F4 64000800
+0 00AE83F8 900904A0
+0 00AE83FC 488CD94E
+0 008CD948 48AE83F2
+#
+Press R3 + ^ To Cycle Between Normal, Can Jump In The Air, And Climbing Anywhere
+0
+bungholio
+0 00AE8180 57800738
+0 00AE8184 3D200046
+0 00AE8188 8929F00B
+0 00AE818C 2B890002
+0 00AE8190 4C9E0020
+0 00AE8194 488414EA
+0 00AE8198 801F0F08
+0 00AE819C 3D600046
+0 00AE81A0 896BF00B
+0 00AE81A4 2B8B0002
+0 00AE81A8 409E0008
+0 00AE81AC 60000008
+0 00AE81B0 4E800020
+0 00AE81B4 F861FFF8
+0 00AE81B8 F881FFF0
+0 00AE81BC F8A1FFE8
+0 00AE81C0 3C600046
+0 00AE81C4 A083F000
+0 00AE81C8 70804000
+0 00AE81CC A0A3F00C
+0 00AE81D0 B003F00C
+0 00AE81D4 2B804000
+0 00AE81D8 409E002C
+0 00AE81DC 7F850040
+0 00AE81E0 419E0024
+0 00AE81E4 8803F00B
+0 00AE81E8 2B800001
+0 00AE81EC 419C0018
+0 00AE81F0 419D000C
+0 00AE81F4 3800Z
+0 00AE81F8 48000008
+0 00AE81FC 38000003
+0 00AE8200 981F0DE6
+0 00AE8204 E861FFF8
+0 00AE8208 E881FFF0
+0 00AE820C E8A1FFE8
+0 00AE8210 881F0DE6
+0 00AE8214 4E800020
+0 00841300 48AE8183
+0 00841160 48AE819B
+0 0083FC48 48AE81B7
+[Z]0000=Normal Jump;0008=Flora Sprouting Jump;0009=Possibly Identical Normal Jump[/Z]
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+The value starts at 0 and neither effect is active.
+R3 + ^ increases it to 1, you can do jumps in the air.
+R3 + ^ again increases it to 2, you now can climb anywhere without a sruface or even a wall.
+R3 + ^ again resets it to 0.
+*/
+#
+Toggle Disabling Time Progression With L3 + \/
+0
+bungholio
+0 00AF3510 7C840214
+0 00AF3514 3CE00046
+0 00AF3518 88E7F00A
+0 00AF351C 70E70004
+0 00AF3520 2B870004
+0 00AF3524 4C9E0020
+0 00AF3528 60040000
+0 00AF352C 4E800020
+0 00986DFC 48AF3513
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+This will disable the use
+of toggling the sun or
+moon by using the Sunrise
+or Crescent brush
+techniques.
+*/
+#
+Toggle Day Or Night Behavior With R3 + >
+0
+bungholio
+0 00B196A4 3C600046
+0 00B196A8 8863F012
+0 00B196AC 2B830001
+0 00B196B0 419E0010
+0 00B196B4 419D0014
+0 00B196B8 7C8307B4
+0 00B196BC 48000008
+0 00B196C0 38600001
+0 00B196C4 48000008
+0 00B196C8 38600000
+0 00B196CC 4E800020
+0 00988334 48B196A7
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+The value starts at 0
+making the game behave
+like normal.
+
+Press R3 + > and it
+becomes 1 and makes day
+stuff appear, so if it
+were night and you were
+standing next to buried
+treasure, it will no
+longer have the glow that
+makes it very easy to
+spot.
+
+Press R3 + > again, it
+becomes 2 and you see
+night things. You will
+see treasures sticking
+out of the ground and
+stuff easily even during
+the day.
+
+Press R3 + > again, it
+becomes 0 and things
+behave like normal.
+*/
+#
+Toggle Day Or Night Behavior With R3 + >
+0
+bungholio
+B 00010000 04000000
+B 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000255350555253204A4F4220494E464F250000608000000040FFFFFFFFFFFFFFFF 3C6000468863F0122B830001419E0010419D00147C8307B4480000083860000148000008386000004E800020255350555253204A4F4220494E464F250000608000000040FFFFFFFFFFFFFFFF
+B 00010000 04000000
+B 419E0028813E8004808902604BFFE5297FE31A787C60FE707C091A787D2048503929FFFF55240FFEE80100907C8307B4 419E0028813E8004808902604BFFE5297FE31A787C60FE707C091A787D2048503929FFFF55240FFEE801009048B196A7
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+The value starts at 0
+making the game behave
+like normal.
+
+Press R3 + > and it
+becomes 1 and makes day
+stuff appear, so if it
+were night and you were
+standing next to buried
+treasure, it will no
+longer have the glow that
+makes it very easy to
+spot.
+
+Press R3 + > again, it
+becomes 2 and you see
+night things. You will
+see treasures sticking
+out of the ground and
+stuff easily even during
+the day.
+
+Press R3 + > again, it
+becomes 0 and things
+behave like normal.
+*/
+#
+Toggle Disabling Battles With Scrolls With L3 + >
+0
+bungholio
+0 00AF3538 3C600046
+0 00AF353C 8863F00A
+0 00AF3540 70630002
+0 00AF3544 2B830002
+0 00AF3548 409E0010
+0 00AF354C 38600001
+0 00AF3550 2B830000
+0 00AF3554 4E800020
+0 00AF3558 FF8D0000
+0 00AF355C 4E800020
+0 00628AC8 48AF353B
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+*/
+#
+Escapes Are Always Open In Battles
+0
+bungholio
+0 007373DC 60000000
+0 00737464 480000A8
+/*
+You now do not need to
+attack the holes to get
+through them.
+*/
+#
+Toggle Going Through Everything With L3 + ^
+0
+bungholio
+0 00AE82C0 3D000046
+0 00AE82C4 8908F00A
+0 00AE82C8 71080001
+0 00AE82CC 2B880001
+0 00AE82D0 811B0088
+0 00AE82D4 409E0008
+0 00AE82D8 39000000
+0 00AE82DC 4E800020
+0 00AE82E0 3FE00046
+0 00AE82E4 8BFFF00A
+0 00AE82E8 73FF0001
+0 00AE82EC 2B9F0001
+0 00AE82F0 83FA0088
+0 00AE82F4 409E0008
+0 00AE82F8 3BE00000
+0 00AE82FC 4E800020
+0 00AE8300 3D000046
+0 00AE8304 8908F00A
+0 00AE8308 71080001
+0 00AE830C 2B880001
+0 00AE8310 811D0088
+0 00AE8314 409E0008
+0 00AE8318 39000000
+0 00AE831C 4E800020
+0 00AE8320 3D600046
+0 00AE8324 896BF00A
+0 00AE8328 716B0001
+0 00AE832C 2B8B0001
+0 00AE8330 817B0088
+0 00AE8334 409E0008
+0 00AE8338 39600000
+0 00AE833C 4E800020
+0 00AE8340 3D400046
+0 00AE8344 894AF00A
+0 00AE8348 714A0001
+0 00AE834C 2B8A0001
+0 00AE8350 815B0088
+0 00AE8354 409E0008
+0 00AE8358 39400000
+0 00AE835C 4E800020
+0 00914918 48AE82C3
+0 00919F00 48AE82E3
+0 0091B210 48AE8303
+0 0091C38C 48AE8323
+0 0091ED50 48AE8343
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+*/
+#
+Unlock Presents from Issun
+0
+bungholio
+0 00989500 8069009C
+0 00989504 60630001
+0 00989508 Z
+[Z]9069009C=Make it saveable;60000000=Not saveable[/Z]
+#
+Unlock Both Videos In The Video Treasure Chest
+0
+bungholio
+0 009894AC 806900A0
+0 009894B0 68631000
+0 009894B4 Z
+[Z]906900A0=Make it saveable;60000000=Not saveable[/Z]
+#
+Can Skip Cutscenes
+0
+bungholio
+0 004D4CDC 7C0B4B78
+/*
+It is in event.ppu.sprx.
+
+Normally you need to
+complete the game and
+make a new save at the
+beginning that allows you
+to skip all of the
+movies. Now you do not
+need to beat the game for
+it.
+*/
+#
+Can Skip Any Skippable Text
+0
+bungholio
+0 0057E264 60000000
+/*
+There is various text in
+the game that can be
+triggered more than once,
+and the 1st time the game
+will make you go through
+it without allowing you
+to press Start to skip
+it. This makes the game
+always give you the
+option of pressing Start
+to skip it.
+*/
+#
+0 Deaths
+0
+bungholio
+0 0083A798 39200000
+/*
+Trigger it by dying.
+*/
+#
+0 Saves
+0
+bungholio
+0 0056C2DC 39200000
+/*
+Trigger it by saving.
+*/
+#
+9,999 Days Passed
+0
+bungholio
+0 00986BDC 3920270F
+/*
+It is triggered by night
+ending and the sun coming
+up.
+*/
+#
+100 Hours Play Time
+0
+bungholio
+0 0098FDA4 3C000149
+0 0098FDA8 60009700
+/*
+Every 0x60 is 1 second,
+60 seconds = 1 minute,
+and 60 minutes = 1 hour.
+60 * 60 * 60 * 100 = 21,600,000
+21,600,000 = 0x1499700.
+
+
+This does not affect days
+passed, which you can use
+brush techniques to
+rapidly increase.
+*/
+#
+9,999 Praise Earned
+0
+bungholio
+0 008E3228 3800270F
+/*
+Earn praise to trigger
+it.
+*/
+#
+999,999,999 Money Gained
+0
+bungholio
+0 00962A40 3C003B9A
+0 00962A44 6000C9FF
+/*
+Gain money to trigger it.
+*/
+#
+999,999,999 Demon Fangs Gained
+0
+bungholio
+0 00962D38 3C003B9A
+0 00962D3C 6000C9FF
+/*
+Gain a demon fang to
+trigger it.
+*/
+#
+999,999,999 Enemies Defeated
+0
+bungholio
+0 0088DDB4 3C003B9A
+0 0088DDB8 6000C9FF
+/*
+Kill an enemy to trigger
+it.
+*/
+#
+Invincibility
+0
+bungholio
+0 00AE8250 8122856C
+0 00AE8254 81298024
+0 00AE8258 8129037C
+0 00AE825C 7F891840
+0 00AE8260 409E0008
+0 00AE8264 48712B92
+0 00AE8268 5720056A
+0 00AE826C 4E800020
+0 00712F90 48AE8253
+0 00714C84 48715206
+0 006AFF9C 60000000
+0 00714B60 4E800020
+0 007E58C0 4BFFFF80
+0 00686548 4BFFFF60
+/*
+The 5th to last line is
+for various things, and
+is put at this address so
+you can still shoot using
+Rosaries as sub weapons.
+Tested it with all 5
+Rosaries as sub weapons,
+and tested all brush
+techniques and verified
+they are all still
+working. This should
+hopefully work for all
+enemy attacks that go
+through this routine.
+
+
+The 4th to last line is
+for the tornado attack
+Poltergeists do so they
+cannot initiate the
+scripted animated team
+attack on you with their
+tornado.
+
+
+The 3rd to last line is
+for while on Oni Island
+in The Labyrinth of
+Torment. It prevents the
+Heat Rays of Hell from
+harming you.
+
+
+The 2nd to last line is
+for the tornado attack
+Great Tengus do so it
+does not toss you into
+the air.
+
+
+The last line prevents
+Lechku and Nechku from
+grabbing you.
+
+
+If I missed more attacks,
+these lines were usually
+common to them:
+0070DA1C 38000006
+0070DA24 981D0DE4
+
+
+The 5th and 3rd to last
+lines are so close
+together, and I found
+them at different times,
+that only 1 is probably
+needed.
+*/
+#
+Karmic Godhood Max On Damage
+0
+bungholio
+0 008E2668 48000030
+#
+Solar Energy Refills From Damage
+0
+bungholio
+/* Being attacked */
+0 008E2300 60000000
+/* Falling into lava or poison pits or wherever */
+0 008E3780 60000000
+#
+Ink Fully Regenerates
+0
+bungholio
+0 0096282C 48000010
+/*
+Works in cursed zones
+too so they do not
+decrease it.
+*/
+#
+Ink Never Decreases
+0
+bungholio
+0 00963290 48000014
+#
+Astral Pouch Full On Gain
+0
+bungholio
+0 008E23E0 60000000
+#
+Astral Pouch Full On Decrease
+0
+bungholio
+0 00828838 60000000
+#
+Unlimited Swimming
+0
+bungholio
+0 0082A188 39200000
+#
+Cursed Zones Do Not Harm You
+0
+bungholio
+0 0082A0F0 39200000
+#
+Always Instantly Start Running At Full Speed
+0
+bungholio
+0 00842AFC 60000000
+0 00843244 480002B8
+#
+Fishing Meter Doesn't Decrease
+0
+bungholio
+0 0095C3A8 60000000
+#
+Can Use The Same Weapons As A Main And Sub Weapon
+0
+bungholio
+/* Visual thing so they don't visually switch at the main or sub equip menu */
+0 008A9CD8 60000000
+0 008AA014 4BFFFCD4
+/* Main Weapon can be the same as sub */
+0 008AA15C 4BFFFFEC
+/* Sub Weapon can be the same weapon as main */
+0 008AA234 4BFFFF14
+#
+Always Have Vengeance Slip Active
+0
+bungholio
+0 0085B360 60000000
+0 0085B39C 60000000
+0 0053545C 60000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+Always Have Steel Fist Sake Active
+0
+bungholio
+0 0085B478 60000000
+0 0085B484 60000000
+0 0085B490 60000000
+0 0085B49C 60000000
+0 0053545C 60000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+Always Have Steel Soul Sake Active
+0
+bungholio
+0 0085B584 60000000
+0 0085B598 60000000
+0 0085B5A4 60000000
+0 0053545C 60000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+Non Brushed-Based Attack Damage Multiplier
+0
+bungholio
+0 00AF3580 1FBDZ
+0 00AF3584 7FA307B4
+0 00AF3588 4E800020
+0 0070F08C 48AF3583
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+#
+Brush-Based Attack Damage Multiplier
+0
+bungholio
+0 006211B0 1C63Z
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+#
+Deflected Enemy Attacks Damage Multiplier
+0
+bungholio
+0 01226CD8 1C84Z
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+/*
+Many bosses will throw
+fireballs or ice or
+whatever at you that you
+will need to power slash
+and deflect back at them.
+This affects the amount
+of damage those
+deflected projectiles do
+to the enemy.
+*/
+#
+Have All Celestial Brush Techniques
+0
+bungholio
+0 00AF3620 7CA50378
+0 00AF3624 Z
+0 00AF3628 60A30000
+0 00AF362C 484FA4FE
+0 004FA4EC 38A00001
+0 004FA4F0 7CA52030
+0 004FA4F4 78A50020
+0 004FA4F8 48AF3622
+[Z]F8A30068=Make it saveable;60000000=Not saveable[/Z]
+/*
+00000002 = Sunrise
+00000004 = Bloom drawing circles around things, like dead patches of ground
+00000008 = unknown, but I have it
+00000010 = Bloom can restore dead trees
+00000020 = Water Lily
+00000040 = Galestorm
+00000080 = Galestorm Whirlwind
+00000100 = Thunderstorm
+00000200 = Thunderstorm Thunderbolt
+00000400 = Inferno
+00000800 = Inferno Fireburst
+00001000 = Power Slash
+00002000 = Waterspout
+00008000 = Waterspout Fountain
+00010000 = Veil Of Mist
+00020000 = Mist Warp
+00040000 = Crescent
+00080000 = Vine
+00100000 = unknown, but I have it
+00400000 = Rejuvenation
+00800000 = Blizzard
+01000000 = Blizzard Icestorm
+02000000 = Cherry Bomb
+08000000 = unknown, but I have it
+40000000 = Catwalk
+*/
+#
+Have All Moves
+0
+bungholio
+0 00AF3600 7C004B78
+0 00AF3604 Z
+0 00AF3608 488E27A2
+0 008E279C 48AF3602
+[Z]900B0010=Make it saveable;60000000=Not saveable[/Z]
+/*
+00001000 = God Technique Holy Falcon
+00002000 = God Technique Hardhead
+00004000 = God Technique Brown Rage
+00008000 = God Technique Golden Fury
+00010000 = God Technique Holy Eagle
+00040000 = God Technique Digging Champ
+00080000 = God Technique Counter Dodge
+00100000 = God Technique Fleetfoot
+00200000 = God Technique Sword Dance
+00400000 = God Technique Bead String
+00800000 = God Technique Wailing Mirror
+01000000 = Glaive Technique 4 Shears
+02000000 = Glaive Technique 3 Shears
+08000000 = Rosary Technique Spriti Armageddon
+10000000 = Rosary Technique Spirit Storm
+20000000 = Reflector Technique 5 Winds
+40000000 = Reflector Technique 4 Winds
+*/
+#
+Cherry Bomb Level Modifier
+0
+bungholio
+0 004FB9C4 3800Z
+0 004FB9CC Y
+[Z]0001=Cherry Bomb 1;0002=Cherry Bomb 2;0003=Cherry Bomb 3[/Z]
+[Y]98030091=Make it saveable;60000000=Not saveable[/Y]
+/*
+When you go to any area
+that requires a load
+screen, this is triggered
+and also saves the value
+at 0x2070(r3) which is
+the address the game uses
+on the spot to determine
+if another Cherry Bomb
+should be allowed to
+spawn.
+*/
+#
+Instant Cherry Bomb Level Modifier
+0
+bungholio
+0 004FEE8C 3920Z
+0 004FEE90 91232070
+0 004FEE94 61230000
+[Z]0001=Cherry Bomb 1;0002=Cherry Bomb 2;0003=Cherry Bomb 3[/Z]
+/*
+The game normally has
+only 3, and if you go
+higher the game will
+freeze. This is the
+instant modifier that
+does not save.
+*/
+#
+Power Slash Level Modifier
+0
+bungholio
+0 004FB7C8 4E108382
+0 004FB7CC 38840070
+0 004FB7D0 7C8407B4
+0 004FB7D4 7C832214
+0 004FB7D8 3860Z
+0 004FB7DC Y
+[Z]0001=Power Slash 1;0002=Power slash 2;0003=Power Slash 3[/Z]
+[Y]98640008=Make it saveable;60000000=Not saveable[/Y]
+#
+Always Have At Least 1 Of Every Item
+0
+bungholio
+0 00AF35A8 7C69222E
+0 00AF35AC 2F830000
+0 00AF35B0 419D000C
+0 00AF35B4 38600001
+0 00AF35B8 Z
+0 00AF35BC 48962792
+0 0096278C 48AF35AA
+[Z]7C69232E=Make it saveable;60000000=Not saveable[/Z]
+/*
+This has items, weapons,
+fish, treasures, food,
+costumes, everything
+except for stray beads.
+*/
+#
+Max Items On Gain Or Sell Or Use
+0
+bungholio
+0 00962BC0 60000000
+0 00AF34A0 3C400046
+0 00AF34A4 9862F014
+0 00AF34A8 E8410028
+0 00AF34AC 4E800020
+0 00AF34B0 2B9A0126
+0 00AF34B4 409E0018
+0 00AF34B8 3D200046
+0 00AF34BC 8929F014
+0 00AF34C0 2B890000
+0 00AF34C4 419E0008
+0 00AF34C8 60050000
+0 00AF34CC 381A0060
+0 00AF34D0 4E800020
+0 011A894C 48AF34A3 /* This specific line is in stage.ppu.sprx at 0x88A3C. */
+0 00962BC8 48AF34B3
+/*
+The 1st line does the
+effect, but everything
+else is added
+specifically for Catcall
+Tower because shortly
+before you get to the top
+to the cat, the game
+starts checking how much
+Fish you have. It keeps
+checking and waiting for
+the amount of Fish to
+decrease, and once it
+decreases, it triggers
+the scene where you get
+the brush technique. The
+1st line without all of
+this would always save
+99 Fish so the game would
+never see a decrease and
+nothing would happen after
+you feed the cat which
+breaks the game.
+
+
+If at some point you used
+my old code to have max
+items from change and
+broke your game at
+Catcall Tower and saved,
+you can use this code
+with this to fix it:
+
+0 008B84B0 38000000
+
+
+Make sure the code to
+have all animals fed is
+not active while using
+this, because it tricks
+the game into thinking no
+animal is fed. With that
+above line, you should be
+able to go to the top of
+Catcall Tower and feed
+the cat again, and that
+should instantly fix the
+code so it triggers the
+scene where you acquire
+the brush technique.
+*/
+#
+Max Yen On Gain
+0
+bungholio
+0 00962A08 60000000
+#
+Max Demon Fangs On Gain
+0
+bungholio
+0 00962D5C 60000000
+#
+Max Praise On Gain
+0
+bungholio
+0 008E321C 48000078
+#
+Prevent Various Timers From Decreasing
+0
+bungholio
+0 008A1E3C 81230068
+0 008A1E40 91230070
+/*
+This is for multiple
+things.
+
+This helps when you
+finish Tsuta Ruins and
+meet Kokari by the broken
+bridge to Taka Pass.
+Susano will come crashing
+through on a tree, and
+you will need to make 6
+vines to grab the tree to
+stop from going down the
+waterfall.
+
+This works for the
+underground water
+minigames and treasure
+hunts.
+
+This also works for when
+you run through Yoshpet
+with Kai guiding you, and
+through Inner Yoshpet
+with Issun guiding you.
+*/
+#
+Mermaid Springs Are Always Open
+0
+bungholio
+0 00AE8280 2B8B0002
+0 00AE8284 409D000C
+0 00AE8288 39600000
+0 00AE828C 997D0DE6
+0 00AE8290 4E800020
+0 0074B278 897D0DE6
+0 0074B27C 48AE8283
+0 0074B2B8 3920012C
+0 0074C278 38000001
+0 0074C27C 98090DE5
+0 0074C284 48000034
+#
+Unlimited Brush Uses To Stop Susano's Tree Trunk Down The River
+0
+bungholio
+0 01293A9C 39290000
+/*
+This is for when you
+finish Tsuta Ruins and
+meet Kokari by the broken
+bridge to Taka Pass.
+Susano will come crashing
+through on a tree, and
+you will need to make 6
+vines to grab the tree to
+stop from going down the
+waterfall.
+
+The game gives you 15 for
+the 1st try, and then
+gives you 5 more for each
+time you fail. At attempt
+7 it will give you the
+max amount of attempts
+which is 50. If you want
+to modify the code for
+that, it is here:
+
+This is the part that
+sets how many brush
+attempts you start with:
+01293370 800B0140 lwz r0,0x140(r11)
+01293374 5409103A slwi r9,r0,2 = Multiply attempt by 4.
+01293378 7D290214 add r9,r9,r0 = Add 1 of the amount of failures, making this and the above line the same as just multiplying by 5.
+0129337C 3929000F addi r9,r9,0xF = Add the 15 you always start with.
+01293380 5520063E clrlwi r0,r9,24
+01293384 992B00FF stb r9,0xFF(r11)
+01293388 2B800032 cmplwi cr7,r0,0x32 = Compare amount you start with to 50.
+0129338C 409D000C ble cr7,0x01293398 = If less than or equal to 50, skip the next 2 lines. Force this branch to stop the limit from being enforced, and you can reach a max of 255 attempts.
+01293390 38000032 li r0,0x32 = Set the amount to 50 since it is currently higher than 50.
+01293394 980B00FF stb r0,0xFF(r11)
+
+This is the part that
+increases by 1 each time
+you fail:
+01291CE0 812A0140 lwz r9,0x140(r10)
+01291CE8 39290001 addi r9,r9,0x1
+01291CEC 912A0140 stw r9,0x140(r10)
+
+Using this with the
+actual code if you want
+to be picky, you could
+make it read the attempt
+counter, multiply by 5,
+add 15, and if greater
+than 50 just set the
+amount to 50.
+*/
+#
+Ryoshima Coast's Ankoku Temple Bell Drops Everything From 1 Strike
+0
+bungholio
+0 012B6FC8 60000000
+#
+Any Divine Spring Offering Amount Gets A Brush Upgrade
+0
+bungholio
+0 009780C0 60000000
+#
+Lightning Floor Panels Activate Without A Lightning Key
+0
+bungholio
+0 005F7598 38600397
+0 005F759C 4800002C
+0 005F7888 60000000
+/*
+There is never a need for
+this. The game requires
+you to be able to
+deactivate these floor
+panels by dropping the
+lightning key in places
+or you will not be able
+to progress in the game.
+I still found it, maybe
+somebody might need it
+for something.
+*/
+#
+Ice Platforms Never Shatter
+0
+bungholio
+0 011E234C 4BFFFF6C
+/*
+It is in stage.ppu.sprx.
+
+There are only a few of
+them in the Wawku Shrine.
+*/
+#
+Created Ice Platform Duration Modifier
+0
+bungholio
+0 011DD27C 3920Z
+[Z]01F4=Default 500;02EE=1.5x;03E8=2x[/Z]
+/*
+It is in stage.ppu.sprx.
+*/
+#
+Created Ice Platforms Never Disappear
+0
+bungholio
+0 011DD2B0 38090000
+/*
+It is in stage.ppu.sprx.
+*/
+#
+Fire Spider Freeze Duration Modifier
+0
+bungholio
+0 011E074C 3800Z
+[Z]012C=Default 300(10 seconds made of 30 frames per second);01C2=1.5x duration;0258=2x duration[/Z]
+/*
+It is in stage.ppu.sprx.
+*/
+#
+Fire Spiders Stay Frozen Forever
+0
+bungholio
+0 011E0AEC 39290000
+/*
+It is in stage.ppu.sprx.
+
+You will encounter them
+in the Wawku Shrine, and
+by that point in the
+game, you should be able
+to use the Inferno or
+Fireburst, or at least be
+very close to acquiring
+the Solar Flare Reflector
+which you can use to set
+them on fire to unfreeze
+them.
+*/
+#
+Rotating Flaming Wheels Freeze Duration Modifier
+0
+bungholio
+0 00970E60 3960Z
+[Z]0258=Default 600 (10 seconds;0384=1.5x;04B0=2x[/Z]
+#
+Never Alert Nami In The Water
+0
+bungholio
+0 011C19D8 48000048
+/*
+It is in stage.ppu.sprx.
+*/
+#
+Complete All Wanted Lists
+0
+bungholio
+0 008DD934 7C005B78
+0 008DD938 90090008
+0 008DD93C 7C09FE70
+0 008DD940 7D230278
+0 008DD944 7C634850
+0 008DD948 54630FFE
+#
+Have All Travel Guides
+0
+bungholio
+0 008C355C 7D400378
+0 008C3560 90090000
+0 008C3564 60000000
+0 008C356C 7D490378
+0 008C3570 Z
+0 008C3574 60000000
+[Z]912B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+Complete Entire Bestiary
+0
+bungholio
+0 008BB514 7D6B0378
+0 008BB518 Z
+0 008BB51C 60000000
+0 008BB8FC 7D490378
+0 008BB900 ZZ
+0 008BB904 60000000
+[Z]91690000=Make it saveable;60000000=Not saveable[/Z]
+[ZZ]912B0000=Make it saveable;60000000=Not saveable[/ZZ]
+#
+Complete Entire Fish Tome
+0
+bungholio
+0 008BE0B4 7C004B78
+0 008BE0C8 Z
+0 008BE240 7C004B78
+0 008BE254 Z
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+Complete Entire Animal Tome
+0
+bungholio
+0 008B85B4 7C004B78
+0 008B85C8 Z
+0 008B8604 7C004B78
+0 008B8618 Z
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+Have All Animals Fed
+0
+bungholio
+0 008B84B0 7D404B78
+0 008B84B4 Z
+0 008B84B8 60000000
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+/*
+You cannot get praise
+from them that you would
+normally get from feeding
+them.
+*/
+#
+Complete Entire Treasure Tome
+0
+bungholio
+0 008C37E4 7C004B78
+0 008C37F8 Z
+0 008C3970 7C004B78
+0 008C3984 Z
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+Complete Entire Move List
+0
+bungholio
+0 008C30E0 7D400378
+0 008C30E4 Z
+0 008C30E8 60000000
+0 008C30F0 7D400378
+0 008C30F4 ZZ
+0 008C30F8 60000000
+[Z]90090000=Make it saveable;60000000=Not saveable[/Z]
+[ZZ]900B0000=Make it saveable;60000000=Not saveable[/ZZ]
+/*
+This does not give you
+the moves, just the list.
+*/
+#
+Have All Stray Beads
+0
+bungholio
+0 008C23F4 7C004B78
+0 008C23F8 Z
+0 008C23FC 7C09FE70
+0 008C2400 7D230278
+0 008C2404 7C634850
+0 008C2408 54630FFE
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+/*
+You can unlock the String
+of Beads with this by
+checking your list before
+you complete your game.
+*/
+#
+AoB Button Enable Code + Warp Menus
+0
+bungholio
+B 00010000 04000000
+B 000000000000000C00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 000000000000000C00000000000000003D200046881D00019809F000881D00039809F001A089F00070800012A0A9F002B009F0022B800012409E00187F850040419E00108809F00A680000019809F00A70800022A0A9F004B009F0042B800022409E00187F850040419E00108809F00A680000029809F00A70800042A0A9F006B009F0062B800042409E00187F850040419E00108809F00A680000049809F00A70800082A0A9F008B009F0082B800082409E00187F850040419E00108809F00A680000089809F00A70800014A0A9F00EB009F00E2B800014409E00247F850040419E001C88A9F00B38A500012B850002409D000838A0000098A9F00B70800024A0A9F010B009F0102B800024409E00247F850040419E001C88A9F01238A500012B850002409D000838A0000098A9F012801D00004E8000203CA0004680A5F01C2B8500004D9E0020386000014E800020F821FFF17C0802A6F80100083F800046A3BCF00073A00110A3DCF01CB3BCF01C2B800110409E002C7F9DF040419E0024806286D8808380008063806C80630000380000007CA400AE4897E7334800008073A00120A3DCF01EB3BCF01E2B800120409E006C7F9DF040419E006483C2866C813E8018388000008069000048887B9B386000004873F367813E8050809E800088A30000806900004897E997807E80383880000038A0000A38C0000038E0FFFF78E7022039000000650880FF6108FFFF39200001488735034800009473A00180A3DCF020B3BCF0202B800180409E00807F9DF040419E001C83C2866C813E80543881007080690000488AF6932F830000419E005C807E80383880000038A0000838C0000038E0000064E780FF60E7FFFF3900FFFF790802203920001E48873503808100702F8400FF409E000838800000813E8024386000008009009C600000029009009C4873F72F4800008073A00140A3DCF022B3BCF0222B800140409E006C7F9DF040419E001C83C286D8813E80703881007080690000488AF6932F830000419E0048807E80743880000038A0000838C0000038E0000064E780FF60E7FFFF3900FFFF790802203920001E48873503808100702F8400FF409E000838800000386000004874B133E80100087C0803A638210010E80100B04E800020
+/* Button Enable Code */
+B 00010000 04000000
+B 2F8900FF409D00E8394000FFB1410072817E8004991F0048995F0049801D0000 2F8900FF409D00E8394000FFB1410072817E8004991F0048995F004948AE84D3
+/* Tiny necessary cheap hack to make the menus appear */
+B 00010000 04000000
+B 600000005463063E380000002F830000419E010C38A00000835E800C38C00000 48AE85FB5463063E380000002F830000419E010C38A00000835E800C38C00000
+B 00010000 04000000
+B 600000005463063E380000002F830000419E011438A00000835E800C38E00000 48AE85FB5463063E380000002F830000419E011438A00000835E800C38E00000
+/* Teleport to chosen Mist Warp or Mermaid Spring location */
+B 00010000 04000000
+B 812B00445520018C2F800000419E0010881F00487C0000F8981F0048E80100B0 812B00445520018C2F800000419E0010881F00487C0000F8981F004848AE8613
+/*
+0001 = Select
+0002 = L3
+0004 = R3
+0008 = Start
+0010 = ^
+0020 = >
+0040 = \/
+0080 = <
+0100 = L2
+0200 = R2
+0400 = L1
+0800 = R1
+1000 = △
+2000 = O
+4000 = X
+8000 = □
+
+
+L2 + ^ = Access Mermaid Spring Menu
+L2 + > = Access Mist Warp Menu
+L2 + \/ = Teleport to chosen Mermaid Spring location
+L2 + < = Teleport to chosen Mist Warp location
+
+
+The menus will only have
+what you have currently
+unlocked for location
+choices. Use the code to
+unlock all of those
+locations if you need it.
+
+
+If you choose a location
+from 1 menu but press
+the button combo for
+teleporting to the other,
+you might get odd
+results.
+
+
+If you enter and exit 1
+of the 2 menus but do not
+want to teleport, you
+will have a white screen.
+To fix it, just press
+Start to enter the normal
+pause menu, and Start
+again to have things back
+to normal.
+*/
+#
+AoB Can Access All Mermaid Spring And Mirror Locations
+0
+bungholio
+B 00010000 04000000
+B 1C8400E438840090801E8004EBC1FFF07C8407B47C84021480640008786307E0 1C8400E438840090801E8004EBC1FFF07C8402143860000190640008786307E0
+B 00010000 04000000
+B 39450001419E001C813A00007D295A148009000C7D0900382C0900004182FF80 39450001419E001C813A00007D295A148009000C7D0003789009000C60000000
+B 00010000 04000000
+B 7D45537898C30005995F00243884000138E000005480063E2B80000E409DFF58 7D45537898C30005995F00243884000138E000007D0003789009000C60000000
+/* Dragon Palace Mirror */
+B 00010000 04000000
+B 812B000C7C0048387C09FE707D2B02787D6B485079630FE27C6307B44E800020 812B000C7C004B78900B000C7C09FE707D2B02787D6B485079630FE24E800020
+/* Routine for various below codes */
+B 00010000 04000000
+B 0000000000000000C000030400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000C00003040000000080030D1C6400020090030D1C488CA5EA80030C5C6400100090030C5C488CA5BA80030C3C6400040090030C3C488CA52A80030CBC6400100090030CBC488CA4EA80030C9C6000100090030C9C488CA49E800904A064000800900904A0488CD94E
+/* Kamui + Wep'keer + Inner Yoshpet */
+B 00010000 04000000
+B 80030D1C78033FE22F830000419E004438000F12B00400007C601B784BFFFEB4 48AE83A278033FE22F830000419E004438000F12B00400007C601B784BFFFEB4
+/* Agata Forest */
+B 00010000 04000000
+B 80030C5C780327E22F830000419E006438000F04B00400007C601B784BFFFEE4 48AE83B2780327E22F830000419E006438000F04B00400007C601B784BFFFEE4
+/* Shinsu Field */
+B 00010000 04000000
+B 80030C3C780337E22F830000419E00E438000F02B00400007C601B784BFFFF74 48AE83C2780337E22F830000419E00E438000F02B00400007C601B784BFFFF74
+/* Ryoshima Coast + Sei-an City (Aristocratic Qtr.) */
+B 00010000 04000000
+B 80030CBC780327E22F830000419E011438000F0AB00400007C601B784BFFFFB4 48AE83D2780327E22F830000419E011438000F0AB00400007C601B784BFFFFB4
+/* Taka Pass */
+B 00010000 04000000
+B 419C007080030C9C7803A7E22F830000419E013038000F08B00400007C601B78818100087C0307B4E8010010 419C007048AE83E27803A7E22F830000419E013038000F08B00400007C601B78818100087C0307B4E8010010
+/* Sasa Sanctuary + N. Ryoshima Coast + Catcall Tower + Dragon Palace */
+B 00010000 04000000
+B 800904A0540001082F800000419EFF28881F010A2F800000419E0010881F01092F800000 48AE83F2540001082F800000419EFF28881F010A2F800000419E0010881F01092F800000
+#
+AoB Press R3 + ^ To Cycle Between Normal, Can Jump In The Air, And Climbing Anywhere
+0
+bungholio
+B 00010000 04000000
+B FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000578007383D2000468929F00B2B8900024C9E0020488414EA801F0F083D600046896BF00B2B8B0002409E0008600000084E800020F861FFF8F881FFF0F8A1FFE83C600046A083F00070804000A0A3F00CB003F00C2B804000409E002C7F850040419E00248803F00B2B800001419C0018419D000C3800Z4800000838000003981F0DE6E861FFF8E881FFF0E8A1FFE8881F0DE64E800020
+B 00010000 04000000
+B E81A0248540007382FA00000419E0010897F10952B8B0001409D06FC57800738 E81A0248540007382FA00000419E0010897F10952B8B0001409D06FC48AE8183
+B 00010000 04000000
+B 60000000D03F00B44BFFEE58E81A0248540007382FA00000419EFCF8801F0F08 60000000D03F00B44BFFEE58E81A0248540007382FA00000419EFCF848AE819B
+B 00010000 04000000
+B 91631050B0030F8A910100707C194C2EEDAD0032D1A300B8419E13AC881F0DE6 91631050B0030F8A910100707C194C2EEDAD0032D1A300B8419E13AC48AE81B7
+[Z]0000=Normal Jump;0008=Flora Sprouting Jump;0009=Possibly Identical Normal Jump[/Z]
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+The value starts at 0 and neither effect is active.
+R3 + ^ increases it to 1, you can do jumps in the air.
+R3 + ^ again increases it to 2, you now can climb anywhere without a sruface or even a wall.
+R3 + ^ again resets it to 0.
+*/
+#
+AoB Toggle Disabling Time Progression With L3 + \/
+0
+bungholio
+B 00010000 04000000
+B 3DEA73AF3E9F539B3E9F539C3DEA73B30000000000000000000000000000000000000000000000000000000000000000 3DEA73AF3E9F539B3E9F539C3DEA73B37C8402143CE0004688E7F00A70E700042B8700044C9E0020600400004E800020
+B 00010000 04000000
+B 83C28ECCF8010090813E8004800902607C840214788400204BFFFCC5E8010090EBC10070382100807C0803A64E800020 83C28ECCF8010090813E80048009026048AF3513788400204BFFFCC5E8010090EBC10070382100807C0803A64E800020
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+
+This will disable the use
+of toggling the sun or
+moon by using the Sunrise
+or Crescent brush
+techniques.
+*/
+#
+AoB Toggle Disabling Battles With Scrolls With L3 + >
+0
+bungholio
+B 00010000 04000000
+B 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000003C7DD63D3D929F683E4B63C0 3C6000468863F00A706300022B830002409E0010386000012B8300004E800020FF8D00004E800020000000003C7DD63D3D929F683E4B63C0
+B 00010000 04000000
+B 60000000C1B70040C01E8104FF8D0000D037003C409CF278C01E806CFF8D0000 60000000C1B70040C01E810448AF353BD037003C409CF278C01E806CFF8D0000
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+*/
+#
+AoB Escapes Are Always Open In Battles
+0
+bungholio
+B 00010000 04000000
+B B13F0000B01B0E1A3BFF0002409AFFB8A01B0E1A540006302F800000419EFF54 B13F0000B01B0E1A3BFF0002409AFFB8A01B0E1A540006302F80000060000000
+B 00010000 04000000
+B 409E0054A01B112E2F800000409E0014A01A00007C0007342F800000409D00A8 409E0054A01B112E2F800000409E0014A01A00007C0007342F800000480000A8
+/*
+You now do not need to
+attack the holes to get
+through them.
+*/
+#
+AoB Toggle Going Through Everything With L3 + ^
+0
+bungholio
+B 00010000 04000000
+B 0000000000000000000C005C0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0000000000000000000C005C000000003D0000468908F00A710800012B880001811B0088409E0008390000004E8000203FE000468BFFF00A73FF00012B9F000183FA0088409E00083BE000004E8000203D0000468908F00A710800012B880001811D0088409E0008390000004E8000203D600046896BF00A716B00012B8B0001817B0088409E0008396000004E8000203D400046894AF00A714A00012B8A0001815B0088409E0008394000004E800020
+B 00010000 04000000
+B FBA10478FBE1048890C1035490610344918104B87C0802A6F80104C0811B0088 FBA10478FBE1048890C1035490610344918104B87C0802A6F80104C048AE82C3
+B 00010000 04000000
+B 90030E0891430F088009000078630020817E8000F84100287C0903A68049000483FA0088 90030E0891430F088009000078630020817E8000F84100287C0903A68049000448AE82E3
+B 00010000 04000000
+B 7C6F1B78FA6103C8DBC104307CB32B78DBE10438F9C103A0811D0088FA0103B0 7C6F1B78FA6103C8DBC104307CB32B78DBE10438F9C103A048AE8303FA0103B0
+B 00010000 04000000
+B FB8103507C0802A6FBA10358FBE10368F80103D0918103C8F8810250817B0088 FB8103507C0802A6FBA10358FBE10368F80103D0918103C8F881025048AE8323
+B 00010000 04000000
+B 813E8000C1BE8010C3BE800890C1029C815B008890E102A02F8A0000D1A30F60D3A30F64D1A30F6890030F84 813E8000C1BE8010C3BE800890C1029C48AE834390E102A02F8A0000D1A30F60D3A30F64D1A30F6890030F84
+/*
+Requires the button
+enable code to be
+activated or nothing will
+happen when you press the
+button combo.
+*/
+#
+AoB Unlock Presents from Issun
+0
+bungholio
+B 00010000 04000000
+B 380000015463063E2F830000409E0010813E80048009009C540007FE7C0307B4 380000015463063E2F830000409E0010813E80048069009C60630001Z
+#
+AoB Unlock Both Videos In The Video Treasure Chest
+0
+bungholio
+B 00010000 04000000
+B 380000015463063E2F830000409E0010813E8004800900A0780027E27C0307B4 380000015463063E2F830000409E0010813E8004806900A068631000Z
+#
+AoB Can Skip Cutscenes
+0
+bungholio
+B 00010000 04000000
+B 552BE8FA552906FE396B00207C004C307D6B07B4810A00007D28582E7C0B4838 552BE8FA552906FE396B00207C004C307D6B07B4810A00007D28582E7C0B4B78
+/*
+It is in event.ppu.sprx.
+
+Normally you need to
+complete the game and
+make a new save at the
+beginning that allows you
+to skip all of the
+movies. Now you do not
+need to beat the game for
+it.
+*/
+#
+AoB Can Skip Any Skippable Text
+0
+bungholio
+B 00010000 04000000
+B 915F008C915F0090915F0094915F008090FF007448360FC5600000005463063E2F830000419E0044813E806880690000 915F008C915F0090915F0094915F008090FF007448360FC5600000005463063E2F83000060000000813E806880690000
+/*
+There is various text in
+the game that can be
+triggered more than once,
+and the 1st time the game
+will make you go through
+it without allowing you
+to press Start to skip
+it. This makes the game
+always give you the
+option of pressing Start
+to skip it.
+*/
+#
+AoB 0 Deaths
+0
+bungholio
+B 00010000 04000000
+B 814B0000812A004039290001912A0040A13F0DEC3929FFFF7D200734B13F0DEC 814B0000812A004039200000912A0040A13F0DEC3929FFFF7D200734B13F0DEC
+/*
+Trigger it by dying.
+*/
+#
+AoB 0 Saves
+0
+bungholio
+B 00010000 04000000
+B FBA10098FBE100A8FB410080816A0000FB610088A12B000039290001B12B0000 FBA10098FBE100A8FB410080816A0000FB610088A12B000039200000B12B0000
+/*
+Trigger it by saving.
+*/
+#
+AoB 9,999 Days Passed
+0
+bungholio
+B 00010000 04000000
+B 5463063E2F830000419EFF74A13F0264E801009039290001EBC100707C0803A6B13F0264 5463063E2F830000419EFF74A13F0264E80100903920270FEBC100707C0803A6B13F0264
+/*
+It is triggered by night
+ending and the sun coming
+up.
+*/
+#
+AoB 100 Hours Play Time
+0
+bungholio
+B 00010000 04000000
+B 60000000816F0000893C001D800B00787C004A14900B0078813000042F890000409E0270 60000000816F0000893C001D3C00014960009700900B0078813000042F890000409E0270
+/*
+Every 0x60 is 1 second,
+60 seconds = 1 minute,
+and 60 minutes = 1 hour.
+60 * 60 * 60 * 100 = 21,600,000
+21,600,000 = 0x1499700.
+
+
+This does not affect days
+passed, which you can use
+brush techniques to
+rapidly increase.
+*/
+#
+AoB 9,999 Praise Earned
+0
+bungholio
+B 00010000 04000000
+B 2F897FFF419D0078A00B000CB12B000A7C0A02147C090734B00B000C2F890000419C007C 2F897FFF419D0078A00B000CB12B000A3800270F7C090734B00B000C2F890000419C007C
+/*
+Earn praise to trigger
+it.
+*/
+#
+AoB 999,999,999 Money Gained
+0
+bungholio
+B 00010000 04000000
+B 600000007F84E3787BA300204BF3924160000000813B0000800911887C1F021490091188E80100B0EB610078EB810080 600000007F84E3787BA300204BF3924160000000813B00003C003B9A6000C9FF90091188E80100B0EB610078EB810080
+/*
+Gain money to trigger it.
+*/
+#
+AoB 999,999,999 Demon Fangs Gained
+0
+bungholio
+B 00010000 04000000
+B 6000000038A000004BFFFE9C2F850000409D0010800A118C7C050214900A118C 6000000038A000004BFFFE9C2F850000409D00103C003B9A6000C9FF900A118C
+/*
+Gain a demon fang to
+trigger it.
+*/
+#
+AoB 999,999,999 Enemies Defeated
+0
+bungholio
+B 00010000 04000000
+B 815F01402F8A0000409E000C39400001915F0140813E800481690000800B11907C0A0214900B1190 815F01402F8A0000409E000C39400001915F0140813E8004816900003C003B9A6000C9FF900B1190
+/*
+Kill an enemy to trigger
+it.
+*/
+#
+AoB Invincibility
+0
+bungholio
+B 00010000 04000000
+B 0000000000000000000000000000000000000000000000000000000000000000000000000000000003E0000300000000 8122856C812980248129037C7F891840409E000848712B925720056A4E800020000000000000000003E0000300000000
+B 00010000 04000000
+B 600000005463063E2F830000419EF7F45739907EC3BE80683AE000005739703E4BFFF7F45720056A2F800000419E0010 600000005463063E2F830000419EF7F45739907EC3BE80683AE000005739703E4BFFF7F448AE82532F800000419E0010
+B 00010000 04000000
+B E84100282F830100419E0640801D03705400077A2F800000419E000C56A0083C E84100282F830100419E0640487152065400077A2F800000419E000C56A0083C
+B 00010000 04000000
+B C1810084EDAD0372C0010088ED8C6B3AEC00603AEC00002CFF80E000419C0260 C1810084EDAD0372C0010088ED8C6B3AEC00603AEC00002CFF80E00060000000
+B 00010000 04000000
+B 600000004E1083827D80002638000220F821FD217FE101CEFBC102C083C2856CDBC102D0FFC00890F9C10240F9E10248FA010250FA210258FA410260FAA10278 4E8000204E1083827D80002638000220F821FD217FE101CEFBC102C083C2856CDBC102D0FFC00890F9C10240F9E10248FA010250FA210258FA410260FAA10278
+B 00010000 04000000
+B 600000005460077A987F10502F800000419EFF807F63DB783880000438A0000038C00000 600000005460077A987F10502F8000004BFFFF807F63DB783880000438A0000038C00000
+B 00010000 04000000
+B C1810094EDAD0372C0010098ED8C6B3AEC00603AEC00002CFF805800409CFF60 C1810094EDAD0372C0010098ED8C6B3AEC00603AEC00002CFF8058004BFFFF60
+/*
+The 5th to last line is
+for various things, and
+is put at this address so
+you can still shoot using
+Rosaries as sub weapons.
+Tested it with all 5
+Rosaries as sub weapons,
+and tested all brush
+techniques and verified
+they are all still
+working. This should
+hopefully work for all
+enemy attacks that go
+through this routine.
+
+
+The 4th to last line is
+for the tornado attack
+Poltergeists do so they
+cannot initiate the
+scripted animated team
+attack on you with their
+tornado.
+
+
+The 3rd to last line is
+for while on Oni Island
+in The Labyrinth of
+Torment. It prevents the
+Heat Rays of Hell from
+harming you.
+
+
+The 2nd to last line is
+for the tornado attack
+Great Tengus do so it
+does not toss you into
+the air.
+
+
+The last line prevents
+Lechku and Nechku from
+grabbing you.
+
+
+If I missed more attacks,
+these lines were usually
+common to them:
+0070DA1C 38000006
+0070DA24 981D0DE4
+
+
+The 5th and 3rd to last
+lines are so close
+together, and I found
+them at different times,
+that only 1 is probably
+needed.
+*/
+#
+AoB Karmic Godhood Max On Damage
+0
+bungholio
+B 00010000 04000000
+B 7D0007347F805800409D00087CE93B787C091A147C0907742F09000341990030 7D0007347F805800409D00087CE93B787C091A147C0907742F09000348000030
+#
+AoB Solar Energy Refills From Damage
+0
+bungholio
+/* Being attacked */
+B 00010000 04000000
+B F8010090811E8000A1680000A14800027C635A147D4907347C6007347C6B1B787F804800B0680000409D000C F8010090811E8000A1680000A14800027C635A147D4907347C6007347C6B1B787F804800B068000060000000
+/* Falling into lava or poison pits or wherever */
+B 00010000 04000000
+B A14800027C635A147D4907347C6007347C6B1B787F804800B0680000409D000C A14800027C635A147D4907347C6007347C6B1B787F804800B068000060000000
+#
+AoB Ink Fully Regenerates
+0
+bungholio
+B 00010000 04000000
+B 800900087C8402142F840000419C00148009000C7C8B23787F840000419D0010 800900087C8402142F840000419C00148009000C7C8B23787F84000048000010
+/*
+Works in cursed zones
+too so they do not
+decrease it.
+*/
+#
+AoB Ink Never Decreases
+0
+bungholio
+B 00010000 04000000
+B 419C0040817E80047C8A2378812B00008009000C7F840000419D0014812B0000 419C0040817E80047C8A2378812B00008009000C7F84000048000014812B0000
+#
+AoB Astral Pouch Full On Gain
+0
+bungholio
+B 00010000 04000000
+B A00A0004A16A00067C6302147D6907347C600734B06A00047F804800409D0008 A00A0004A16A00067C6302147D6907347C600734B06A00047F80480060000000
+#
+AoB Astral Pouch Full On Decrease
+0
+bungholio
+B 00010000 04000000
+B A00A0004A16A00067C8402147D6907347C800734B08A00047F804800409D0008 A00A0004A16A00067C8402147D6907347C800734B08A00047F80480060000000
+#
+AoB Unlimited Swimming
+0
+bungholio
+B 00010000 04000000
+B 552000422F800000409E001C552000842F800000409E0010A13F10A639290001 552000422F800000409E001C552000842F800000409E0010A13F10A639200000
+#
+AoB Cursed Zones Do Not Harm You
+0
+bungholio
+B 00010000 04000000
+B 540000422F0B00002F800000409EFFC0409AFFBCA13F10A8E801009039290001 540000422F0B00002F800000409EFFC0409AFFBCA13F10A8E801009039200000
+#
+AoB Always Instantly Start Running At Full Speed
+0
+bungholio
+B 00010000 04000000
+B A13F10C4A01F0DEC392900017C0007347D2B0734B13F10C47F805800409C000C A13F10C4A01F0DEC392900017C0007347D2B0734B13F10C47F80580060000000
+B 00010000 04000000
+B 800100E0817A07207D2902147D2007347D2A4B787F805800B13F10C4419D02B8 800100E0817A07207D2902147D2007347D2A4B787F805800B13F10C4480002B8
+#
+AoB Fishing Meter Doesn't Decrease
+0
+bungholio
+B 00010000 04000000
+B 7D600774390000002F80000239200000895D0020997F00627C6A1850907F00AC 7D600774390000002F80000239200000895D0020997F00627C6A185060000000
+#
+AoB Can Use The Same Weapons As A Main And Sub Weapon
+0
+bungholio
+/* Visual thing so they don't visually switch at the main or sub equip menu */
+B 00010000 04000000
+B 600000007F99B80038A0000198BF002798BF0025419E05087F99C0003B5B0004419E0520 600000007F99B80038A0000198BF002798BF0025600000007F99C0003B5B0004419E0520
+B 00010000 04000000
+B 600000007F99B800380000029BBF0025981F0027419E01647F99C0003B5B0004409EFCD4 600000007F99B800380000029BBF0025981F0027419E01647F99C0003B5B00044BFFFCD4
+/* Main Weapon can be the same as sub */
+B 00010000 04000000
+B 88BF00252F850000409EFFEC38A0000298BF00254BFFFFE07B5D00207B250020 88BF00252F8500004BFFFFEC38A0000298BF00254BFFFFE07B5D00207B250020
+/* Sub Weapon can be the same weapon as main */
+B 00010000 04000000
+B 600000007FA3EB787AE50020388000114BFFFF6888BF00252F850000419EFF14 600000007FA3EB787AE50020388000114BFFFF6888BF00252F8500004BFFFF14
+#
+AoB Always Have Vengeance Slip Active
+0
+bungholio
+B 00010000 04000000
+B 419E0110817E827C3809FFFFB01B00287C0A0378812B0000812907FC552000842F800000419E0010552000C62F800000419E00E0555D06FE2F9D0000409E00D4 60000000817E827C3809FFFFB01B00287C0A0378812B0000812907FC552000842F800000419E0010552000C62F800000419E00E0555D06FE2F9D000060000000
+B 00010000 04000000
+B 419E032C2F990002419E01C84192001480170048540007382F800000409E017C 419E032C2F990002419E01C84192001480170048540007382F80000060000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+AoB Always Have Steel Fist Sake Active
+0
+bungholio
+B 00010000 04000000
+B 419A1F38A13B002A2F890000419E00F83809FFFFB01B002A419A00EC541D06FE2F9D0000409E00E0 60000000A13B002A2F890000600000003809FFFFB01B002A60000000541D06FE2F9D000060000000
+B 00010000 04000000
+B 419E032C2F990002419E01C84192001480170048540007382F800000409E017C 419E032C2F990002419E01C84192001480170048540007382F80000060000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+AoB Always Have Steel Soul Sake Active
+0
+bungholio
+B 00010000 04000000
+B 419E010C881500003929FFFF2F800000B13B002C419E0118553D06FE2F9D0000409E00F8 60000000881500003929FFFF2F800000B13B002C60000000553D06FE2F9D000060000000
+B 00010000 04000000
+B 419E032C2F990002419E01C84192001480170048540007382F800000409E017C 419E032C2F990002419E01C84192001480170048540007382F80000060000000
+/*
+These 3 codes to have
+these 3 items always
+active share 1 common
+line of code to prevent
+the game from crashing.
+It is the last line in
+all 3 of these, so don't
+B 00010000 04000000
+B COP because
+you might have already
+applied it.
+/*
+#
+AoB Non Brushed-Based Attack Damage Multiplier
+0
+bungholio
+B 00010000 04000000
+B 000000003C7DD63D3D929F683E4B63C03EA962D63EA962D63E4B63C33D929F6C000000000000000000000000 000000003C7DD63D3D929F683E4B63C03EA962D63EA962D63E4B63C33D929F6C1FBDZ7FA307B44E800020
+B 00010000 04000000
+B FD605E9CFC005818FC00001E7C004FAE800100707FBD0214E80100C07FA307B4 FD605E9CFC005818FC00001E7C004FAE800100707FBD0214E80100C048AF3583
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+#
+AoB Brush-Based Attack Damage Multiplier
+0
+bungholio
+B 00010000 04000000
+B CBE100A87C0803A6FC00001E7C004FAE80610070382100B07C6307B44E800020 CBE100A87C0803A6FC00001E7C004FAE80610070382100B01C63Z4E800020
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+#
+AoB Deflected Enemy Attacks Damage Multiplier
+0
+bungholio
+B 00010000 04000000
+B 7C8407B438A00000813D000081690078800B0000F84100287C0903A6804B0004 1C84Z38A00000813D000081690078800B0000F84100287C0903A6804B0004
+[Z]0002=2x;0005=5x;000A=10x;0064=100x;03E8=1,000x;271 0=10,000x[/Z]
+/*
+Many bosses will throw
+fireballs or ice or
+whatever at you that you
+will need to power slash
+and deflect back at them.
+This affects the amount
+of damage those
+deflected projectiles do
+to the enemy.
+*/
+#
+AoB Have All Celestial Brush Techniques
+0
+bungholio
+B 00010000 04000000
+B 00000000000000000000000000000000000000003C7DD63B3CC981B73D1A282F 7CA50378F8A3006860A30000484FA4FE000000003C7DD63B3CC981B73D1A282F
+B 00010000 04000000
+B 4E108382E8030068548406FE386000017C632030786300207C6300387C6300D078630FE04E800020 4E108382E8030068548406FE38A000017CA5203078A5002048AF36227C6300D078630FE04E800020
+[Z]F8A30068=Make it saveable;60000000=Not saveable[/Z]
+/*
+00000002 = Sunrise
+00000004 = Bloom drawing circles around things, like dead patches of ground
+00000008 = unknown, but I have it
+00000010 = Bloom can restore dead trees
+00000020 = Water Lily
+00000040 = Galestorm
+00000080 = Galestorm Whirlwind
+00000100 = Thunderstorm
+00000200 = Thunderstorm Thunderbolt
+00000400 = Inferno
+00000800 = Inferno Fireburst
+00001000 = Power Slash
+00002000 = Waterspout
+00008000 = Waterspout Fountain
+00010000 = Veil Of Mist
+00020000 = Mist Warp
+00040000 = Crescent
+00080000 = Vine
+00100000 = unknown, but I have it
+00400000 = Rejuvenation
+00800000 = Blizzard
+01000000 = Blizzard Icestorm
+02000000 = Cherry Bomb
+08000000 = unknown, but I have it
+40000000 = Catwalk
+*/
+#
+AoB Have All Moves
+0
+bungholio
+B 00010000 04000000
+B 3E636D143E11EAC53DA17E873D1A2834000000000000000000000000 3E636D143E11EAC53DA17E873D1A28347C004B78900B0010488E27A2
+B 00010000 04000000
+B 801E8000EBC1FFF07D6B02143C008000796B00207C001C30812B00107C004838 801E8000EBC1FFF07D6B02143C008000796B00207C001C30812B001048AF3602
+[Z]900B0010=Make it saveable;60000000=Not saveable[/Z]
+/*
+00001000 = God Technique Holy Falcon
+00002000 = God Technique Hardhead
+00004000 = God Technique Brown Rage
+00008000 = God Technique Golden Fury
+00010000 = God Technique Holy Eagle
+00040000 = God Technique Digging Champ
+00080000 = God Technique Counter Dodge
+00100000 = God Technique Fleetfoot
+00200000 = God Technique Sword Dance
+00400000 = God Technique Bead String
+00800000 = God Technique Wailing Mirror
+01000000 = Glaive Technique 4 Shears
+02000000 = Glaive Technique 3 Shears
+08000000 = Rosary Technique Spriti Armageddon
+10000000 = Rosary Technique Spirit Storm
+20000000 = Reflector Technique 5 Winds
+40000000 = Reflector Technique 4 Winds
+*/
+#
+AoB Cherry Bomb Level Modifier
+0
+bungholio
+B 00010000 04000000
+B 600000004E108382880300912F8000022F000003419E0014419A001038000001900320704E800020 3800Z4E108382Y2F8000022F000003419E0014419A001038000001900320704E800020
+[Z]0001=Cherry Bomb 1;0002=Cherry Bomb 2;0003=Cherry Bomb 3[/Z]
+[Y]98030091=Make it saveable;60000000=Not saveable[/Y]
+/*
+When you go to any area
+that requires a load
+screen, this is triggered
+and also saves the value
+at 0x2070(r3) which is
+the address the game uses
+on the spot to determine
+if another Cherry Bomb
+should be allowed to
+spawn.
+*/
+#
+AoB Instant Cherry Bomb Level Modifier
+0
+bungholio
+B 00010000 04000000
+B 2F840000FBC1FFF07C88237883C280A87C6B1B78419E00C8806320702F830000409D0060 2F840000FBC1FFF07C88237883C280A87C6B1B78419E00C83920Z9123207061230000
+[Z]0001=Cherry Bomb 1;0002=Cherry Bomb 2;0003=Cherry Bomb 3[/Z]
+/*
+The game normally has
+only 3, and if you go
+higher the game will
+freeze. This is the
+instant modifier that
+does not save.
+*/
+#
+AoB Power Slash Level Modifier
+0
+bungholio
+B 00010000 04000000
+B 600000004E108382388400707C8407B47C632214886300084E800020600000004E10838238840070 4E108382388400707C8407B47C8322143860ZY4E800020600000004E10838238840070
+[Z]0001=Power Slash 1;0002=Power slash 2;0003=Power Slash 3[/Z]
+[Y]98640008=Make it saveable;60000000=Not saveable[/Y]
+#
+AoB Always Have At Least 1 Of Every Item
+0
+bungholio
+B 00010000 04000000
+B 0000000000000000000000000000000000000000000000000000000000000000000000003C7DD63D3D1A282F 7C69222E2F830000419D000C38600001Z489627920000000000000000000000003C7DD63D3D1A282F
+B 00010000 04000000
+B 388400607C8407B4817E8004EBC1FFF0812B00007C69222E7C6307344E800020 388400607C8407B4817E8004EBC1FFF0812B000048AF35AA7C6307344E800020
+[Z]7C69232E=Make it saveable;60000000=Not saveable[/Z]
+/*
+This has items, weapons,
+fish, treasures, food,
+costumes, everything
+except for stray beads.
+*/
+#
+AoB Max Items On Gain Or Sell Or Use
+0
+bungholio
+B 00010000 04000000
+B 000000003C7DD63D3E7F28543E7F285100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 000000003C7DD63D3E7F28543E7F28513C4000469862F014E84100284E8000202B9A0126409E00183D2000468929F0142B890000419E000860050000381A00604E800020
+B 00010000 04000000
+B 7CA500387C05E2147C8A222E7C0907347C0503787F892000409D00087C852378381A0060 7CA500387C05E2147C8A222E7C0907347C0503787F892000600000007C85237848AF34B3
+B 00010000 04000000
+B */ E84100285463063E2F830000419E0030813B00008969003F8809003E7F805840
+SET COP=48AF34A35463063E2F830000419E0030813B00008969003F8809003E7F805840
+/*
+The 1st line does the
+effect, but everything
+else is added
+specifically for Catcall
+Tower because shortly
+before you get to the top
+to the cat, the game
+starts checking how much
+Fish you have. It keeps
+checking and waiting for
+the amount of Fish to
+decrease, and once it
+decreases, it triggers
+the scene where you get
+the brush technique. The
+1st line without all of
+this would always save
+99 Fish so the game would
+never see a decrease and
+nothing would happen after
+you feed the cat which
+breaks the game.
+
+
+If at some point you used
+my old code to have max
+items from change and
+broke your game at
+Catcall Tower and saved,
+you can use this code
+with this to fix it:
+
+0 008B84B0 38000000
+
+
+Make sure the code to
+have all animals fed is
+not active while using
+this, because it tricks
+the game into thinking no
+animal is fed. With that
+above line, you should be
+able to go to the top of
+Catcall Tower and feed
+the cat again, and that
+should instantly fix the
+code so it triggers the
+scene where you acquire
+the brush technique.
+*/
+#
+AoB Max Yen On Gain
+0
+bungholio
+B 00010000 04000000
+B 817B0000800B00107C1F02142F800000419C00107F8300007C691B78419D0068 817B0000800B00107C1F02142F800000419C00107F8300007C691B7860000000
+#
+AoB Max Demon Fangs On Gain
+0
+bungholio
+B 00010000 04000000
+B 900A118C817E80007C05E2147C0907347C050378A00B01747F890000409DFE6C 900A118C817E80007C05E2147C0907347C050378A00B01747F89000060000000
+#
+AoB Max Praise On Gain
+0
+bungholio
+B 00010000 04000000
+B 3860FFFF419C0074817E8000A00B000A7C0007347D20FA142F897FFF419D0078 3860FFFF419C0074817E8000A00B000A7C0007347D20FA142F897FFF48000078
+#
+AoB Prevent Various Timers From Decreasing
+0
+bungholio
+B 00010000 04000000
+B 800300745409001E2F890000409EFFEC880B001D812300707D2048502F890000 800300745409001E2F890000409EFFEC880B001D81230068912300702F890000
+/*
+This is for multiple
+things.
+
+This helps when you
+finish Tsuta Ruins and
+meet Kokari by the broken
+bridge to Taka Pass.
+Susano will come crashing
+through on a tree, and
+you will need to make 6
+vines to grab the tree to
+stop from going down the
+waterfall.
+
+This works for the
+underground water
+minigames and treasure
+hunts.
+
+This also works for when
+you run through Yoshpet
+with Kai guiding you, and
+through Inner Yoshpet
+with Issun guiding you.
+*/
+#
+AoB Mermaid Springs Are Always Open
+0
+bungholio
+B 00010000 04000000
+B 000000000000000003E00003000000000000000000000000000000000000000000000000 000000000000000003E00003000000002B8B0002409D000C39600000997D0DE64E800020
+B 00010000 04000000
+B 60000000897D0DE6380000FFC00300802F8B0001C1A30084C18300887FBFEB78 897D0DE648AE8283380000FFC00300802F8B0001C1A30084C18300887FBFEB78
+B 00010000 04000000
+B A13D0FDC7D2007343929FFFF2F800000B13D0FDC419C03BC2B8B0001409C0044 3920012C7D2007343929FFFF2F800000B13D0FDC419C03BC2B8B0001409C0044
+B 00010000 04000000
+B 60000000A17F0FDC4BFFFE00600000004E1083827C691B787C0802A6F821FF81F801009088090DE52F8000012B000001419E0034 60000000A17F0FDC4BFFFE00600000004E1083827C691B787C0802A6F821FF81F80100903800000198090DE52B00000148000034
+#
+AoB Unlimited Brush Uses To Stop Susano's Tree Trunk Down The River
+0
+bungholio
+B 00010000 04000000
+B 2F890000419EFB904BFFFD94888900FF4BFFFD18807C00003AF70001786B00203863010C78630020892B00FF3929FFFF79240620992B00FF 2F890000419EFB904BFFFD94888900FF4BFFFD18807C00003AF70001786B00203863010C78630020892B00FF3929000079240620992B00FF
+/*
+This is for when you
+finish Tsuta Ruins and
+meet Kokari by the broken
+bridge to Taka Pass.
+Susano will come crashing
+through on a tree, and
+you will need to make 6
+vines to grab the tree to
+stop from going down the
+waterfall.
+
+The game gives you 15 for
+the 1st try, and then
+gives you 5 more for each
+time you fail. At attempt
+7 it will give you the
+max amount of attempts
+which is 50. If you want
+to modify the code for
+that, it is here:
+
+This is the part that
+sets how many brush
+attempts you start with:
+01293370 800B0140 lwz r0,0x140(r11)
+01293374 5409103A slwi r9,r0,2 = Multiply attempt by 4.
+01293378 7D290214 add r9,r9,r0 = Add 1 of the amount of failures, making this and the above line the same as just multiplying by 5.
+0129337C 3929000F addi r9,r9,0xF = Add the 15 you always start with.
+01293380 5520063E clrlwi r0,r9,24
+01293384 992B00FF stb r9,0xFF(r11)
+01293388 2B800032 cmplwi cr7,r0,0x32 = Compare amount you start with to 50.
+0129338C 409D000C ble cr7,0x01293398 = If less than or equal to 50, skip the next 2 lines. Force this branch to stop the limit from being enforced, and you can reach a max of 255 attempts.
+01293390 38000032 li r0,0x32 = Set the amount to 50 since it is currently higher than 50.
+01293394 980B00FF stb r0,0xFF(r11)
+
+This is the part that
+increases by 1 each time
+you fail:
+01291CE0 812A0140 lwz r9,0x140(r10)
+01291CE8 39290001 addi r9,r9,0x1
+01291CEC 912A0140 stw r9,0x140(r10)
+
+Using this with the
+actual code if you want
+to be picky, you could
+make it read the attempt
+counter, multiply by 5,
+add 15, and if greater
+than 50 just set the
+amount to 50.
+*/
+#
+AoB Ryoshima Coast's Ankoku Temple Bell Drops Everything From 1 Strike
+0
+bungholio
+B 00010000 04000000
+B 5563063E2F800000409E000C3B40000138600005800A10407F801800409EFF1C 5563063E2F800000409E000C3B40000138600005800A10407F80180060000000
+#
+AoB Any Divine Spring Offering Amount Gets A Brush Upgrade
+0
+bungholio
+B 00010000 04000000
+B 60000000813F0050817F0044800900007F805800419C020C817E800C812B000039290020 60000000813F0050817F0044800900007F80580060000000817E800C812B000039290020
+#
+AoB Lightning Floor Panels Activate Without A Lightning Key
+0
+bungholio
+B 00010000 04000000
+B EFE0603A419E02042B8A0001409C0120813E8004816900142F8B0000419E0034 EFE0603A419E02042B8A0001409C0120813E800481690014386003974800002C
+B 00010000 04000000
+B 409EFE1438000000981C0DE74BFFFE08813E8004800900142F800000419E0010 409EFE1438000000981C0DE74BFFFE08813E8004800900142F80000060000000
+/*
+There is never a need for
+this. The game requires
+you to be able to
+deactivate these floor
+panels by dropping the
+lightning key in places
+or you will not be able
+to progress in the game.
+I still found it, maybe
+somebody might need it
+for something.
+*/
+#
+AoB Ice Platforms Never Shatter
+0
+bungholio
+B 00010000 04000000
+B 419EFF8C813800A4C1BE8028C1980F74C0090004EC006828FF8060004FDCF382409EFF6C38000001981A10324BFFFF60 419EFF8C813800A4C1BE8028C1980F74C0090004EC006828FF8060004FDCF3824BFFFF6C38000001981A10324BFFFF60
+/*
+It is in stage.ppu.sprx.
+
+There are only a few of
+them in the Wawku Shrine.
+*/
+#
+AoB Created Ice Platform Duration Modifier
+0
+bungholio
+B 00010000 04000000
+B E8410028392001F438000001B13F0DEC981F0DE5C1BF0D1CC01E8004FF8D0000419C0108 E84100283920Z38000001B13F0DEC981F0DE5C1BF0D1CC01E8004FF8D0000419C0108
+[Z]01F4=Default 500;02EE=1.5x;03E8=2x[/Z]
+/*
+It is in stage.ppu.sprx.
+*/
+#
+AoB Created Ice Platforms Never Disappear
+0
+bungholio
+B 00010000 04000000
+B 2F800001419E00DCA13F0DEC3809FFFF7C090378B01F0DEC7D2007342F800000419DFF7C 2F800001419E00DCA13F0DEC380900007C090378B01F0DEC7D2007342F800000419DFF7C
+/*
+It is in stage.ppu.sprx.
+*/
+#
+AoB Fire Spider Freeze Duration Modifier
+0
+bungholio
+B 00010000 04000000
+B E84100287FE9FB78C01E80F83800012CC1BE80A4907B0FD4901B106838000002 E84100287FE9FB78C01E80F83800ZC1BE80A4907B0FD4901B106838000002
+[Z]012C=Default 300(10 seconds made of 30 frames per second);01C2=1.5x duration;0258=2x duration[/Z]
+/*
+It is in stage.ppu.sprx.
+*/
+#
+AoB Fire Spiders Stay Frozen Forever
+0
+bungholio
+B 00010000 04000000
+B 813B10683929FFFF913B10684BFFFF1C2B80003CC01E80CCD01B0EDC419DFEF8 813B106839290000913B10684BFFFF1C2B80003CC01E80CCD01B0EDC419DFEF8
+/*
+It is in stage.ppu.sprx.
+
+You will encounter them
+in the Wawku Shrine, and
+by that point in the
+game, you should be able
+to use the Inferno or
+Fireburst, or at least be
+very close to acquiring
+the Solar Flare Reflector
+which you can use to set
+them on fire to unfreeze
+them.
+*/
+#
+AoB Rotating Flaming Wheels Freeze Duration Modifier
+0
+bungholio
+B 00010000 04000000
+B 546003E02FA00000419E00602FA30000419C005856C0063E80FE805439600258 546003E02FA00000419E00602FA30000419C005856C0063E80FE80543960Z
+[Z]0258=Default 600 (10 seconds;0384=1.5x;04B0=2x[/Z]
+#
+AoB Never Alert Nami In The Water
+0
+bungholio
+B 00010000 04000000
+B E8410028813E80087C7A1B7881690000800B095C540001CE2F800000419E0048 E8410028813E80087C7A1B7881690000800B095C540001CE2F80000048000048
+/*
+It is in stage.ppu.sprx.
+*/
+#
+AoB Complete All Wanted Lists
+0
+bungholio
+B 00010000 04000000
+B 792900207C002C30816900087C0058387C09FE707D2302787C63485054630FFE 792900207C002C307C0058387C09FE707D2302787C63485054630FFE7C6307B4
+#
+AoB Have All Travel Guides
+0
+bungholio
+B 00010000 04000000
+B 3800001E390000003CC080007C0903A680BE801C38E500047D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D4900382C09000041820014800B00007D4900382C09000041820018 3800001E390000003CC080007C0903A680BE801C38E500047D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D4003789009000060000000800B00007D490378Z60000000
+[Z]912B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+AoB Complete Entire Bestiary
+0
+bungholio
+B 00010000 04000000
+B 7D291A147C8B5C30792900207CA72B78800900007D6900382C09000041820050 7D291A147C8B5C30792900207CA72B78800900007D6B0378Z60000000
+B 00010000 04000000
+B 38E5000C7D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D4900382C09000041820014800B00007D4900382C09000041820018 38E5000C7D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D4900382C09000041820014800B00007D490378ZZ60000000
+[Z]91690000=Make it saveable;60000000=Not saveable[/Z]
+[ZZ]912B0000=Make it saveable;60000000=Not saveable[/ZZ]
+#
+AoB Complete Entire Fish Tome
+0
+bungholio
+B 00010000 04000000
+B 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D68548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E108382FBC1FFF083C28D68 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D68548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B787C09FE707D2302787C63485054630FFEZ4E800020600000004E108382FBC1FFF083C28D68
+B 00010000 04000000
+B E801009038600000EBC10070382100807C6307B47C0803A64E800020600000004E108382FBC1FFF083C28D68548BE8FA548406FE801E8004EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E108382F821FF817C0802A6FBC10070 E801009038600000EBC10070382100807C6307B47C0803A64E800020600000004E108382FBC1FFF083C28D68548BE8FA548406FE801E8004EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B787C09FE707D2302787C63485054630FFEZ4E800020600000004E108382F821FF817C0802A6FBC10070
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+AoB Complete Entire Animal Tome
+0
+bungholio
+B 00010000 04000000
+B 7C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E108382FBC1FFF083C28D60548BE8FA548406FE801E8018EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B4 7C004B787C09FE707D2302787C63485054630FFEZ4E800020600000004E108382FBC1FFF083C28D60548BE8FA548406FE801E8018EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B787C09FE707D2302787C63485054630FFEZ
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+AoB Have All Animals Fed
+0
+bungholio
+B 00010000 04000000
+B 7C6A5430780700207905002038C60001812B00007D4048382C0000004182FFC8 7C6A5430780700207905002038C60001812B00007D404B78Z60000000
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+/*
+You cannot get praise
+from them that you would
+normally get from feeding
+them.
+*/
+#
+AoB Complete Entire Treasure Tome
+0
+bungholio
+B 00010000 04000000
+B 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D88548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E108382FBC1FFF083C28D88 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D88548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B787C09FE707D2302787C63485054630FFEZ4E800020600000004E108382FBC1FFF083C28D88
+B 00010000 04000000
+B 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D88548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E108382FBC1FFF083C28D88 7C0803A6EBE10098382100A04E800020600000004E108382FBC1FFF083C28D88548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B787C09FE707D2302787C63485054630FFEZ4E800020600000004E108382FBC1FFF083C28D88
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+#
+AoB Complete Entire Move List
+0
+bungholio
+B 00010000 04000000
+B 38000011390000003CC080007C0903A680BE801C38E500047D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D4900382C09000041820014800B00007D4900382C090000418200184200FFBC38600000EBC1FFF07C6307B44E800020 38000011390000003CC080007C0903A680BE801C38E500047D004378390800015409E8FA540006FE7D693A147D292A147CCA043079290020796B0020800900007D400378Z60000000800B00007D400378ZZ600000004200FFBC38600000EBC1FFF07C6307B44E800020
+[Z]90090000=Make it saveable;60000000=Not saveable[/Z]
+[ZZ]900B0000=Make it saveable;60000000=Not saveable[/ZZ]
+/*
+This does not give you
+the moves, just the list.
+*/
+#
+AoB Have All Stray Beads
+0
+bungholio
+B 00010000 04000000
+B 600000004E108382386000004E800020600000004E108382FBC1FFF083C28D7C548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C0048387C09FE707D2302787C63485054630FFE7C6307B44E800020600000004E1083823863FFC048000004 600000004E108382386000004E800020600000004E108382FBC1FFF083C28D7C548BE8FA548406FE801E8000EBC1FFF07D6B02143C008000796B00207C002430812B00007C004B78Z7C09FE707D2302787C63485054630FFE4E800020600000004E1083823863FFC048000004
+[Z]900B0000=Make it saveable;60000000=Not saveable[/Z]
+/*
+You can unlock the String
+of Beads with this by
+checking your list before
+you complete your game.
+*/
+#

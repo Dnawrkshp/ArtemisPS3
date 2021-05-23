@@ -81,47 +81,12 @@ int Open_Log(char *file)
 #endif
 
 //----------------------------------------
-//COBRA/MAMBA
-//----------------------------------------
-
-#define SYSCALL8_OPCODE_GET_VERSION         0x7000ULL
-#define SYSCALL8_OPCODE_GET_MAMBA           0x7FFFULL
-
-int sys8_get_version(u32 *version)
-{
-    lv2syscall2(8, SYSCALL8_OPCODE_GET_VERSION, (u64)version);
-    return_to_user_prog(int);
-}
-
-int sys8_get_mamba(void)
-{
-    lv2syscall1(8, SYSCALL8_OPCODE_GET_MAMBA);
-    return_to_user_prog(int);
-}
-
-int is_cobra(void)
-{
-    u32 version = 0x99999999;
-    if (sys8_get_version(&version) < 0) return FAILED;
-    if (version != 0x99999999 && sys8_get_mamba() != 0x666) return SUCCESS;
-    return FAILED;
-}
-
-int is_mamba(void)
-{
-    u32 version = 0x99999999;
-    if (sys8_get_version(&version) < 0) return FAILED;
-    if (version != 0x99999999 && sys8_get_mamba() == 0x666) return SUCCESS;
-    return FAILED;
-}
-
-//----------------------------------------
 //GAME UTILS
 //----------------------------------------
 
 int game_exists(const char *name, const char *id)
 {
-
+    return 0;
 }
 
 //----------------------------------------
@@ -130,35 +95,21 @@ int game_exists(const char *name, const char *id)
 
 int file_exists(const char *path)
 {
-	/*
-    int ret = sysLv2FsStat(path, &stat1);
-    if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return FAILED;
-    return ret;
-	*/
-
-	FILE *f = fopen(path, "r");
-	if (f == NULL)
-		return FAILED;
-
-	fclose(f);
-	return SUCCESS;
+    struct stat sb;
+    if ((stat(path, &sb) == 0) && S_ISREG(sb.st_mode)) {
+    	return SUCCESS;
+    }
+    
+	return FAILED;
 }
 
 int dir_exists(const char *path)
 {
-	/*
-    int ret = sysLv2FsStat(path, &stat1);
-    if(ret == SUCCESS && S_ISDIR(stat1.st_mode)) return SUCCESS;
+    struct stat sb;
+    if ((stat(path, &sb) == 0) && S_ISDIR(sb.st_mode)) {
+        return SUCCESS;
+    }
     return FAILED;
-	*/
-	DIR *d;
-	d = opendir(path);
-
-	if (d <= 0)
-		return FAILED;
-
-	closedir(d);
-	return SUCCESS;
 }
 
 int unlink_secure(void *path)

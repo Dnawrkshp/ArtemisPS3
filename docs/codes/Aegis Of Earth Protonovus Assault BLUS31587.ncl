@@ -1,0 +1,87 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Zettai Geigeki Wars
+*/
+#
+Memory 9,999,999 Money
+0
+vdsl
+6 01B8E498 0000060C
+0 00000000 0098967F
+#
+Memory Max Battle Exp
+0
+vdsl
+6 01B8EF10 000021C8
+0 00000000 10000000
+#
+Memory Battle Level 99
+0
+vdsl
+6 01B8EF10 000021CC
+0 00000000 00000063
+#
+Memory City Level 99
+0
+vdsl
+6 01B8F8AC FFFFFE88
+0 00000000 00000063
+6 01B8F8AC FFFFFD28
+0 00000000 00000063
+#
+Memory 99,999 Illuminite
+0
+vdsl
+6 01B918A4 00000F10
+0 00000000 0001869F
+#
+Memory 9,999 Residence Requests
+0
+vdsl
+6 01B8B934 00001D04
+0 00000000 0000270F
+#
+Memory 999 Processing Plant Yellow
+0
+vdsl
+6 01B918A4 00000F14
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Red
+0
+vdsl
+6 01B918A4 00000F18
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Blue
+0
+vdsl
+6 01B918A4 00000F1C
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Green
+0
+vdsl
+6 01B918A4 00000F20
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Purple
+0
+vdsl
+6 01B918A4 00000F24
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Pure
+0
+vdsl
+6 01B918A4 00000F28
+0 00000000 000003E7
+#
+Memory 999 Processing Plant Colorless
+0
+vdsl
+6 01B918A4 00000F2C
+0 00000000 000003E7
+#

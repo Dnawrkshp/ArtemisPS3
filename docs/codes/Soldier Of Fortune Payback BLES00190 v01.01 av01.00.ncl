@@ -1,0 +1,64 @@
+Memory Infinite Ammo + No Reload
+0
+jgduff1
+0 55828570 0000001E
+#
+ASM Infinite Ammo + No Reload
+0
+jgduff1
+0 0022F8D8 39290000
+0 0022F8DC 60000000
+#
+Memory Infinite Ammo + Grenades
+0
+jgduff1
+0 532CC698 0000012C
+#
+ASM Infinite Ammo + Grenades
+0
+jgduff1
+0 00210490 60000000
+0 00210498 60000000
+#
+Memory Infinite Health
+0
+jgduff1
+0 5579BBF8 42C80000
+0 55C8AC68 42C80000
+#
+ASM Infinite Health
+0
+jgduff1
+0 004D2850 D01F0008
+0 004D2D04 EFE0E828
+0 004D2D14 60000000
+/*
+It also affects enemies.
+*/
+#
+Memory Fast Health Regeneration
+0
+jgduff1
+0 5579BBF8 42C80000
+0 55C8AC68 42C80000
+#
+ASM Fast Health Regeneration
+0
+jgduff1
+0 004D2838 60000000
+0 004D283C EC1F6B3A
+0 004D2840 EC0C002A
+0 004D2848 D3BF0008
+#
+Memory Infinite Sprint
+0
+jgduff1
+0 55FB0760 41F00000
+#
+ASM Infinite Sprint
+0
+jgduff1
+0 0016C1AC 60000000
+0 0016C1B8 60000000
+0 0016C1C4 60000000
+#

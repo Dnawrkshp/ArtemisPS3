@@ -17,6 +17,7 @@
 #include <lv2/process.h>
 #include <time.h>
 #include <dirent.h>
+#include <ctype.h>
 
 #include <net/net.h>
 #include <net/netctl.h>
@@ -25,23 +26,16 @@
 
 #include <zlib.h>
 #include <io/pad.h>
+#include <sys/file.h>
 
 #include <sysmodule/sysmodule.h>
 #include <pngdec/pngdec.h>
 
-#include <ft2build.h>
-#include <freetype/freetype.h> 
-#include <freetype/ftglyph.h>
-
 #include <tiny3d.h>
+#include <ps3mapi.h>
 #include "libfont.h"
 
-//From NzV's MAMBA PRX Loader (https://github.com/NzV/MAMBA_PRX_Loader)
 #include "common.h"
-#include "mamba_prx_loader.h"
-#include "ps3mapi_ps3_lib.h"
-#include "lv2_utils.h"
-
 #include "codes.h"
 
 #define SC_SYS_POWER        (379)
@@ -54,7 +48,6 @@
 #include "menu_options.h"
 #include "menu_cheats.h"
 
-
 //Font
 #include "comfortaa_bold_ttf.h"
 #include "comfortaa_light_ttf.h"
@@ -64,7 +57,7 @@
 #include "spu_soundmodule_bin.h"
 #include "spu_soundlib.h"
 #include "audioplayer.h"
-#include "background_music_mp3_bin.h"
+#include "background_music_mp3.h"
 
 // SPU
 u32 inited;
@@ -78,6 +71,17 @@ sysSpuImage spu_image;
 
 #define SPU_SIZE(x) (((x)+127) & ~127)
 
+#define load_menu_texture(name, type) \
+    ({ extern const uint8_t name##_##type []; \
+       extern const uint32_t name##_##type##_size; \
+       menu_textures[name##_##type##_index].buffer = (const void*) name##_##type; \
+       menu_textures[name##_##type##_index].size = name##_##type##_size; \
+    })
+
+#define ANALOG_CENTER       0x78
+#define ANALOG_THRESHOLD    0x68
+#define ANALOG_MIN          (ANALOG_CENTER - ANALOG_THRESHOLD)
+#define ANALOG_MAX          (ANALOG_CENTER + ANALOG_THRESHOLD)
 
 //Pad stuff
 padInfo padinfo;
@@ -86,20 +90,30 @@ padData padA[MAX_PADS];
 padData padB[MAX_PADS];
 
 //Options
-const char * options_path = "/dev_hdd0/game/ARTPS3001/USRDIR/opt.ini";
+const char * options_path = ARTEMIS_PATH "opt.ini";
 
 void music_callback(int index, int sel);
 void sort_callback(int index, int sel);
 void ani_callback(int index, int sel);
 void horm_callback(int index, int sel);
 void verm_callback(int index, int sel);
+void update_callback(int index, int sel);
+void plugin_callback(int index, int sel);
+void vercheck_callback(int index, int sel);
+void clearcache_callback(int index, int sel);
+
+const char* plugin_opts[] = {"< Artemis r5 >", "< mod/Haxxxen >", NULL};
 
 const option menu_options_options[] = {
-	{ .name = "Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
+	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
 	{ .name = "Sort Cheats", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = sort_callback },
 	{ .name = "Menu Animations", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = ani_callback },
+	{ .name = "Version Update Check", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = vercheck_callback },
 	{ .name = "Horizontal Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = horm_callback },
 	{ .name = "Vertical Margin", .options = NULL, .type = ARTEMIS_OPTION_INC, .callback = verm_callback },
+	{ .name = "Update Local Cheats", .options = NULL, .type = ARTEMIS_OPTION_CALL, .callback = update_callback },
+	{ .name = "Clear Local Cache", .options = NULL, .type = ARTEMIS_OPTION_CALL, .callback = clearcache_callback },
+	{ .name = "Plugin Version", .options = (char**)plugin_opts, .type = ARTEMIS_OPTION_LIST, .callback = plugin_callback },
 	{ .name = NULL }
 };
 
@@ -112,7 +126,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r5";                //Artemis PS3 version (about menu)
+const char * VERSION = "r6.2";              //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -122,7 +136,7 @@ const int MENU_SPLIT_OFF = 200;				//Offset from left of sub/split menu to start
 int close_art = 0;
 
 png_texture * menu_textures;           // png_texture array for main menu, initialized in LoadTexture
-const int menu_size = 33;              // Size of menu png_texture array
+const int menu_size = 34;              // Size of menu png_texture array
 
 int screen_width = 0, screen_height = 0;    // Set to dimensions of the screen in main()
 
@@ -132,21 +146,29 @@ int highlight_amount = 6;                   // Amount of alpha to inc/dec each t
 int pause_pulse = 0;                        // Counter that holds how long alpha is held in place
 int idle_time = 0;                          // Set by readPad
 
-const char * menu_main_description = "Playstation 3 Hacking System";
+const char * menu_main_description = "PlayStation 3 Hacking System";
 
 const char * menu_about_strings[] = { "Berion", "Designer",
 									"NzV", "PS3MAPI",
 									"Dnawrkshp", "Programmer",
+									"Bucanero", "Network code",
 									NULL, NULL };
 
 const char * menu_about_strings_project[] = { "Lazy Bastard", "Project Founder",
 											"PS2Dragon", "Artemis Logo",
 											NULL, NULL };
 
+//Artemis plugin
+#define ARTEMIS_PLUGIN_ERROR       -1
+#define ARTEMIS_PLUGIN_NOT_LOADED   0
+#define ARTEMIS_PLUGIN_LOADED       1
+#define ARTEMIS_PLUGIN_SLOT         5
+
 //Game filtering
 #define GAMES_MOUNT_PATH		"/dev_hdd0/GAMES/"
 #define GAMES_PSN_PATH			"/dev_hdd0/game/"
 #define GAMES_DISC_PATH			"/app_home/PS3_GAME/PARAM.SFO"
+#define GAMES_BDVD_PATH			"/dev_bdvd/PS3_GAME/PARAM.SFO"
 
 char * * user_installed_titleids;
 int user_installed_titleids_count = 0;
@@ -166,8 +188,8 @@ int menu_sel = 0;																					// Index of selected item (use varies per 
 int menu_old_sel[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Previous menu_sel for each menu
 int last_menu_id[] = { 0, 0, 0, 0, 0, 0, 0, 0 };													// Last menu id called (for returning)
 const char * menu_pad_help[] = { NULL,																//Main
-								"\x10 Select    \x13 Back    \x11 Refresh",							//User list   
-								"\x10 Select    \x13 Back    \x11 Refresh",							//Online list
+								"\x10 Select    \x13 Back    \x12 Filter    \x11 Refresh",			//User list   
+								"\x10 Select    \x13 Back    \x12 Filter    \x11 Refresh",			//Online list
 								"\x13 Back",														//About
 								"\x10 Select    \x13 Back",											//Options
 								"\x10 Enable    \x11 Toggle Mode    \x12 View Code    \x13 Back",	//Select Cheats
@@ -187,6 +209,12 @@ int user_game_count = 0;
 struct game_entry * online_game_list = NULL;
 int online_game_count = 0;
 
+/*
+* Filtered code list
+*/
+int filter_user_count = 0;
+int filter_online_count = 0;
+
 struct game_entry selected_entry;
 struct code_entry selected_centry;
 int option_index = 0;
@@ -194,8 +222,6 @@ int option_index = 0;
 // Set to dimensions of the screen in main()
 int screen_width;
 int screen_height;
-
-void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba);
 
 void release_all() {
     
@@ -209,12 +235,6 @@ void release_all() {
         SND_End();
 
     if(inited & INITED_SPU) {
-        //tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
-        //SetFontSize(12, 24);
-        //SetFontColor(0xffffffff, 0x00000000);
-        //DrawFormatString(0, 0, "Destroying SPU... ");
-        //tiny3d_Flip();
-        //sleep(1);
         sysSpuRawDestroy(spu);
         sysSpuImageClose(&spu_image);
     }
@@ -227,7 +247,6 @@ static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
 
      switch (status) {
         case SYSUTIL_EXIT_GAME: //0x0101
-                
             release_all();
             sysProcessExit(1);
             break;
@@ -244,25 +263,24 @@ static void sys_callback(uint64_t status, uint64_t param, void* userdata) {
     }
 }
 
-char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
+char ** LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
 {
 	DIR *d;
 	struct dirent *dir;
 
 	char fullPath[1024];
-	char FullID[20];
 
 	char * * files = (char**)malloc(1000 * sizeof(char*));
 
-	int count = 0, x = 0;
+	int count = 0;
 
 	if ((d = opendir(path)))
 	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
+		while ((dir = readdir(d)) != NULL && dir->d_name != NULL && count < 1000)
 		{
 			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
 			{
-				sprintf(fullPath, "%s%s%s", path, dir->d_name, param);
+				snprintf(fullPath, sizeof(fullPath)-1, "%s%s%s", path, dir->d_name, param);
 				if (file_exists(fullPath) == SUCCESS)
 				{
 					files[count] = (char*)malloc(strlen(fullPath));
@@ -280,10 +298,11 @@ char * LoadGames_ReadDirectory(char * path, const char * param, int * ret_count)
 
 void LoadGames()
 {
-	char * titleIDs[1000];
-	int id_count[3];
-	char ** id_path[3];
+	int id_count[4];
+	char ** id_path[4];
 	int count = 0, x = 0, y = 0;
+
+	init_loading_screen("Scanning installed games...");
 
 	//Free old array if exists
 	if (user_installed_titleids)
@@ -299,15 +318,26 @@ void LoadGames()
 	id_path[0] = LoadGames_ReadDirectory(GAMES_MOUNT_PATH, "/PS3_GAME/PARAM.SFO", &id_count[0]);
 	id_path[1] = LoadGames_ReadDirectory(GAMES_PSN_PATH, "/PARAM.SFO", &id_count[1]);
 	id_path[2] = (char **)malloc(1 * sizeof(char*));
-	id_path[2][0] = (char*)malloc(512);
-	strcpy(id_path[2][0], GAMES_DISC_PATH);
-	if (file_exists(id_path[2][0]) == SUCCESS)
+	if (file_exists(GAMES_DISC_PATH) == SUCCESS)
+	{
+		asprintf(&id_path[2][0], GAMES_DISC_PATH);
 		id_count[2] = 1;
+	}
 	else
 	{
 		id_count[2] = 0;
-		free(id_path[2][0]);
 		id_path[2][0] = NULL;
+	}
+	id_path[3] = (char **)malloc(1 * sizeof(char*));
+	if (file_exists(GAMES_BDVD_PATH) == SUCCESS)
+	{
+		asprintf(&id_path[3][0], GAMES_BDVD_PATH);
+		id_count[3] = 1;
+	}
+	else
+	{
+		id_count[3] = 0;
+		id_path[3][0] = NULL;
 	}
 
 	count = id_count[0] + id_count[1] + id_count[2];
@@ -326,10 +356,15 @@ void LoadGames()
 
 						int fSize = getFileSize(id_path[x][y]);
 						char * fullFile = readFile(id_path[x][y]);
-						strcpy((char*)user_installed_titleids[user_installed_titleids_count], (char*)&fullFile[fSize - 0x18]);
+						strncpy((char*)user_installed_titleids[user_installed_titleids_count], (char*)&fullFile[fSize - 0x18], 10);
 						free(fullFile);
 						fullFile = NULL;
-						user_installed_titleids_count++;
+
+						LOG("Read %s -> (%s)", id_path[x][y], user_installed_titleids[user_installed_titleids_count]);
+						if (strlen(user_installed_titleids[user_installed_titleids_count]) == 9)
+							user_installed_titleids_count++;
+						else
+							free(user_installed_titleids[user_installed_titleids_count]);
 
 						free(id_path[x][y]);
 					}
@@ -338,90 +373,9 @@ void LoadGames()
 			}
 		}
 	}
+	LOG("Detected %d titles", user_installed_titleids_count);
 
-	/*
-	//Mountable disc games
-	if ((d = opendir(GAMES_MOUNT_PATH)))
-	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
-		{
-			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
-			{
-				sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_MOUNT_PATH, dir->d_name);
-				printf("%s :: ", (char*)fullPath);
-				if (file_exists(fullPath) == SUCCESS)
-				{
-					int fSize = getFileSize(fullPath);
-					fullFile = readFile(fullPath);
-					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-					free(fullFile);
-					fullFile = NULL;
-					printf("%s", (char*)FullID);
-
-					titleIDs[count] = (char*)malloc(strlen(FullID));
-					strcpy(titleIDs[count], (char*)FullID);
-
-					count++;
-				}
-				else
-					printf("doesn't exist");
-				printf("\n");
-			}
-		}
-		closedir(d);
-	}
-
-	//PSN games
-	if ((d = opendir(GAMES_PSN_PATH)))
-	{
-		while ((dir = readdir(d)) != NULL && dir->d_name != NULL)
-		{
-			if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
-			{
-				sprintf(fullPath, "%s%s/PARAM.SFO", GAMES_PSN_PATH, dir->d_name);
-				printf("%s :: ", (char*)fullPath);
-				if (file_exists(fullPath) == SUCCESS)
-				{
-					int fSize = getFileSize(fullPath);
-					fullFile = readFile(fullPath);
-					strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-					free(fullFile);
-					fullFile = NULL;
-					printf("%s", (char*)FullID);
-
-					titleIDs[count] = (char*)malloc(strlen(FullID));
-					strcpy(titleIDs[count], (char*)FullID);
-
-					count++;
-				}
-				else
-					printf("doesn't exist");
-				printf("\n");
-			}
-		}
-		closedir(d);
-	}
-
-	sprintf(fullPath, "%s%s/PS3_GAME/PARAM.SFO", GAMES_DISC_PATH, dir->d_name);
-	printf("%s :: ", (char*)fullPath);
-	if (file_exists(fullPath) == SUCCESS)
-	{
-		int fSize = getFileSize(fullPath);
-		fullFile = readFile(fullPath);
-		strcpy((char*)FullID, (char*)&fullFile[fSize - 0x18]);
-		free(fullFile);
-		fullFile = NULL;
-		printf("%s", (char*)FullID);
-
-		titleIDs[count] = (char*)malloc(strlen(FullID));
-		strcpy(titleIDs[count], (char*)FullID);
-
-		count++;
-	}
-	else
-		printf("doesn't exist");
-	printf("\n");
-	*/
+	stop_loading_screen();
 }
 
 char * ParseOptionName(char * buffer, char * ret)
@@ -457,7 +411,7 @@ void LoadOptions()
                 char tName[strlen(menu_options_options[i].name) + 1];
                 if (strcmp(ParseOptionName(menu_options_options[i].name, (char *)tName), name) == 0)
                 {
-                    printf ("LoadOptions() :: %s = %d\n", name, val);
+                    LOG("LoadOptions() :: %s = %d\n", name, val);
                     menu_options_selections[i] = val;
                     break;
                 }
@@ -487,36 +441,30 @@ void SaveOptions()
     fclose(fp);
 }
 
-
-#define SYSCALL_OPCODE_LOAD_VSH_PLUGIN      0x1EE7
-int cobra_mamba_syscall_load_prx_module(uint32_t slot, char * path, void * arg, uint32_t arg_size)
-{
-	lv2syscall5(8, SYSCALL_OPCODE_LOAD_VSH_PLUGIN, (uint64_t)slot, (uint64_t)path, (uint64_t)arg, (uint64_t)arg_size);
-	return_to_user_prog(int);
-}
-
-int ps3mapi_get_core_version(void)
-{
-	lv2syscall2(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_CORE_VERSION);
-	return_to_user_prog(int);
-}
-
-int has_ps3mapi(void)
-{
-	if (ps3mapi_get_core_version() >= PS3MAPI_CORE_MINVERSION) return SUCCESS;
-	return FAILED;
-}
-
 int isArtemisLoaded()
 {
-    char buf[100];
-    readFileBuffered("/dev_hdd0/tmp/artstate", (char *)buf);
-    if (buf[0] == 0)
-        return 0;
-    if (strstr(buf, "on") != NULL)
-        return 1;
-    
-    return 0;
+    //Check if COBRA+PS3MAPI is installed
+    if (has_cobra_mamba() && has_ps3mapi())
+    {
+        LOG("COBRA/MAMBA+PS3MAPI Detected\n");
+        if (!ps3mapi_get_vsh_plugin_slot_by_name("ART"))
+        {
+            LOG("COBRA: Artemis is not loaded yet\n");
+            return ARTEMIS_PLUGIN_NOT_LOADED;
+        }
+        else if (ps3mapi_get_vsh_plugin_slot_by_filename(ARTEMIS_PATH "artemis_ps3.sprx") == ARTEMIS_PLUGIN_SLOT)
+        {
+            LOG("COBRA: Artemis running\n");
+            return ARTEMIS_PLUGIN_SLOT;
+        }
+        else
+        {
+            LOG("COBRA: Artemis running (external)");
+            return ARTEMIS_PLUGIN_LOADED;
+        }
+    }
+
+    return ARTEMIS_PLUGIN_ERROR;
 }
 
 void DeleteBootHistory(void)
@@ -531,395 +479,15 @@ void DeleteBootHistory(void)
     {
         if (strstr(dir->d_name, ".") == NULL && strstr(dir->d_name, "..") == NULL)
         {
-            sprintf(fullPath, "%s%s%s", "/dev_hdd0/home/", dir->d_name, "/etc/boot_history.dat");
+            snprintf(fullPath, sizeof(fullPath)-1, "%s%s%s", "/dev_hdd0/home/", dir->d_name, "/etc/boot_history.dat");
             unlink_secure(fullPath);
         }
     }
+    closedir(d);
     
     //Delete the other boot history files
     unlink_secure("/dev_hdd0/vsh/pushlist/game.dat");
     unlink_secure("/dev_hdd0/vsh/pushlist/patch.dat");
-}
-
-/******************************************************************************************************************************************************/
-/* TTF functions to load and convert fonts         
- * From fonts_from_ttf Tiny3D sample                                                                                                    */
- /*****************************************************************************************************************************************************/
-
-int ttf_inited = 0;
-
-FT_Library freetype;
-FT_Face face;
-
-/* TTFLoadFont can load TTF fonts from device or from memory:
-path = path to the font or NULL to work from memory
-from_memory = pointer to the font in memory. It is ignored if path != NULL.
-size_from_memory = size of the memory font. It is ignored if path != NULL.
-*/
-int TTFLoadFont(char * path, void * from_memory, int size_from_memory)
-{
-   
-    if(!ttf_inited)
-        FT_Init_FreeType(&freetype);
-    ttf_inited = 1;
-
-    if(path) {
-        if(FT_New_Face(freetype, path, 0, &face)) return -1;
-    } else {
-        if(FT_New_Memory_Face(freetype, from_memory, size_from_memory, 0, &face)) return -1;
-        }
-
-    return 0;
-}
-
-/* release all */
-void TTFUnloadFont()
-{
-   FT_Done_FreeType(freetype);
-   ttf_inited = 0;
-}
-
-/* function to render the character
-chr : character from 0 to 255
-bitmap: u8 bitmap passed to render the character character (max 256 x 256 x 1 (8 bits Alpha))
-*w : w is the bitmap width as input and the width of the character (used to increase X) as output
-*h : h is the bitmap height as input and the height of the character (used to Y correction combined with y_correction) as output
-y_correction : the Y correction to display the character correctly in the screen
-*/
-
-/*
-So basically libfont sucks (Not the TTF library).
-If a character is greater than the set width (I'm talking to you W) then it just cuts it off... Which looks ugly.
-So I've gone ahead and done a hackish patch to make it shrink it down so that it looks like a regular character.
-- Dnawrkshp
-*/
-int doShrinkChar = 0;
-void TTF_to_Bitmap(u8 chr, u8 * bitmap, short *w, short *h, short *y_correction)
-{
-    int width = *w;
-    
-    TTF_to_Bitmap_loop: ;
-    FT_Set_Pixel_Sizes(face, (width), (*h));
-    
-    FT_GlyphSlot slot = face->glyph;
-
-    if(FT_Load_Char(face, (char) chr, FT_LOAD_RENDER )) {(*w) = 0; return;}
-    
-    if (slot->bitmap.width > *w && width == *w)
-    {
-        width = (int)((float)*w * ((float)*w / (float)slot->bitmap.width)) - 1;
-        goto TTF_to_Bitmap_loop;
-    }
-    
-    memset(bitmap, 0, (*w) * (*h));
-    
-    int n, m, ww, mm;
-
-    *y_correction = (*h) - 1 - slot->bitmap_top;
-    
-    ww = 0;
-    
-    if (doShrinkChar)
-    {
-        float mRatio = 0;
-        for(n = 0; n < slot->bitmap.rows; n++) {
-            for (m = 0; m < slot->bitmap.width; m++) {
-                
-                mRatio = (float)(slot->bitmap.width+1) / (float)(*w);
-                if (mRatio > 1)
-                {
-                    mm = (int)((float)m * mRatio);
-                    
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + mm];
-                }
-                else
-                {
-                    mm = m;
-                    //if(m >= (*w) || n >= (*h)) continue;
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + mm];
-                }
-            }
-        
-            bitmap += *w;
-            ww += slot->bitmap.width;
-        }
-        
-        int width = ((slot->advance.x + 31) >> 6) + ((slot->bitmap_left < 0) ? -slot->bitmap_left : 0) - 1;
-        *h = slot->bitmap.rows;
-        
-        if (width < *w)
-            *w = width;
-    }
-    else
-    {
-        for(n = 0; n < slot->bitmap.rows; n++) {
-            for (m = 0; m < slot->bitmap.width; m++) {
-                    
-                    if(m >= (*w) || n >= (*h)) continue;
-                    
-                    bitmap[m] = (u8) slot->bitmap.buffer[ww + m];
-                }
-        
-            bitmap += *w;
-            ww += slot->bitmap.width;
-        }
-        
-        *w = ((slot->advance.x + 31) >> 6) + ((slot->bitmap_left < 0) ? -slot->bitmap_left : 0) - 1;
-        *h = slot->bitmap.rows;
-    }
-}
-
-/*
-    From sprite2D source
-    I'm not going to document them for that reason
-*/
-
-// draw one background color in virtual 2D coordinates
-void DrawBackground2D(u32 rgba)
-{
-	/*
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(0  , 0  , 65535);
-    tiny3d_VertexColor(rgba);
-
-    tiny3d_VertexPos(847, 0  , 65535);
-
-    tiny3d_VertexPos(847, 511, 65535);
-
-    tiny3d_VertexPos(0  , 511, 65535);
-    tiny3d_End();
-	*/
-
-	tiny3d_SetPolygon(TINY3D_QUADS);
-
-	tiny3d_VertexPos(-marginHorizontal, -marginVertical, 65535);
-	tiny3d_VertexColor(rgba);
-
-	tiny3d_VertexPos(847 + marginHorizontal, -marginVertical, 65535);
-
-	tiny3d_VertexPos(847 + marginHorizontal, 511 + marginVertical, 65535);
-
-	tiny3d_VertexPos(-marginHorizontal, 511 + marginVertical, 65535);
-	tiny3d_End();
-}
-
-void DrawSprites2D(float x, float y, float layer, float dx, float dy, u32 rgba)
-{
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(x     , y     , layer);
-    tiny3d_VertexColor(rgba);
-    tiny3d_VertexTexture(0.01f, 0.01f);
-
-    tiny3d_VertexPos(x + dx, y     , layer);
-    tiny3d_VertexTexture(0.99f, 0.01f);
-
-    tiny3d_VertexPos(x + dx, y + dy, layer);
-    tiny3d_VertexTexture(0.99f, 0.99f);
-
-    tiny3d_VertexPos(x     , y + dy, layer);
-    tiny3d_VertexTexture(0.01f, 0.99f);
-
-    tiny3d_End();
-}
-
-void DrawSpritesRot2D(float x, float y, float layer, float dx, float dy, u32 rgba, float angle)
-{
-    dx /= 2.0f; dy /= 2.0f;
-
-    MATRIX matrix;
-    
-    // rotate and translate the sprite
-    matrix = MatrixRotationZ(angle);
-    matrix = MatrixMultiply(matrix, MatrixTranslation(x + dx, y + dy, 0.0f));
-    
-    // fix ModelView Matrix
-    tiny3d_SetMatrixModelView(&matrix);
-   
-    tiny3d_SetPolygon(TINY3D_QUADS);
-
-    tiny3d_VertexPos(-dx, -dy, layer);
-    tiny3d_VertexColor(rgba);
-    tiny3d_VertexTexture(0.0f , 0.0f);
-
-    tiny3d_VertexPos(dx , -dy, layer);
-    tiny3d_VertexTexture(0.99f, 0.0f);
-
-    tiny3d_VertexPos(dx , dy , layer);
-    tiny3d_VertexTexture(0.99f, 0.99f);
-
-    tiny3d_VertexPos(-dx, dy , layer);
-    tiny3d_VertexTexture(0.0f , 0.99f);
-
-    tiny3d_End();
-
-    tiny3d_SetMatrixModelView(NULL); // set matrix identity
-
-}
-
-void DrawSelector(int x, int y, int w, int h, int hDif, u8 alpha)
-{
-	int i = 0;
-	for (i = 0; i < 848; i++)
-		DrawTexture(menu_textures[mark_line_png_index], i, y, 0, menu_textures[mark_line_png_index].texture.width, menu_textures[mark_line_png_index].texture.height + hDif, 0xFFFFFF00 | alpha);
-
-	DrawTextureCentered(menu_textures[mark_arrow_png_index], x, y, 0, w, h, 0xFFFFFF00 | alpha);
-}
-
-void DrawHeader_Ani(png_texture icon, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int ani, int div)
-{
-	u8 icon_a = (u8)(((ani * 2) > 0xFF) ? 0xFF : (ani * 2));
-	int w, h, c;
-
-	//------------ Backgrounds
-	
-	//Background
-	DrawBackgroundTexture(0, (u8)bgrgba);
-
-	//------------- Menu Bar
-
-	c = header_line_png_index;
-	int cnt, cntMax = ((ani * div) > 800) ? 800 : (ani * div);
-	for (cnt = MENU_ICON_OFF; cnt < cntMax; cnt++)
-	{
-		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
-		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
-	}
-	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffff00 | icon_a);
-
-	//header mini icon
-	DrawTextureCenteredX(icon, MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffff00 | icon_a);
-
-	//header title string
-	SetFontColor(rgba | icon_a, 0x00000000);
-	SetCurrentFont(font_comfortaa_regular);
-	if (headerTitle)
-	{
-		SetFontSize(24, 24);
-		DrawString(MENU_ICON_OFF + 10, 31, headerTitle);
-	}
-
-	//header sub title string
-	if (headerSubTitle)
-	{
-		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
-		SetFontSize(20, 20);
-		char * tName = malloc(strlen(headerSubTitle) + 1);
-		strcpy(tName, headerSubTitle);
-		while (WidthFromStr((u8*)tName) > width)
-		{
-			tName[strlen(tName) - 1] = 0;
-		}
-		SetFontAlign(2);
-		DrawString(800, 35, tName);
-		free(tName);
-		SetFontAlign(0);
-	}
-}
-
-void DrawHeader(png_texture icon, int xOff, char * headerTitle, char * headerSubTitle, u32 rgba, u32 bgrgba, int mode)
-{
-	int c, w, h;
-
-	//Background
-	DrawBackgroundTexture(xOff, (u8)bgrgba);
-
-	//------------ Menu Bar
-	c = header_line_png_index;
-	int cnt = 0;
-	for (cnt = xOff + MENU_ICON_OFF; cnt < 800; cnt++)
-	{
-		w = menu_textures[c].texture.width; h = menu_textures[c].texture.height / 2;
-		DrawTexture(menu_textures[c], cnt, 40, 0, w, h, 0xffffffff);
-	}
-	DrawTexture(menu_textures[header_dot_png_index], cnt - 4, 40, 0, menu_textures[header_dot_png_index].texture.width / 2, menu_textures[header_dot_png_index].texture.height / 2, 0xffffffff);
-
-	//header mini icon
-	if (mode)
-		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 12, 40, 0, 32, 32, 0xffffffff);
-	else
-		DrawTextureCenteredX(icon, xOff + MENU_ICON_OFF - 20, 32, 0, 48, 48, 0xffffffff);
-
-	//header title string
-	SetFontColor(rgba, 0x00000000);
-	SetCurrentFont(font_comfortaa_regular);
-	if (mode)
-	{
-		SetFontSize(20, 20);
-		if (headerTitle)
-			DrawString(xOff + MENU_ICON_OFF + 10, 35, headerTitle);
-	}
-	else
-	{
-		SetFontSize(24, 24);
-		if (headerTitle)
-			DrawString(xOff + MENU_ICON_OFF + 10, 31, headerTitle);
-	}
-
-	//header sub title string
-	if (headerSubTitle)
-	{
-		int width = 800 - (MENU_ICON_OFF + MENU_TITLE_OFF + WidthFromStr((u8*)headerTitle)) - 30;
-		SetFontSize(20, 20);
-		char * tName = malloc(strlen(headerSubTitle) + 1);
-		strcpy(tName, headerSubTitle);
-		while (WidthFromStr((u8*)tName) > width)
-		{
-			tName[strlen(tName) - 1] = 0;
-		}
-		SetFontAlign(2);
-		DrawString(800, 35, tName);
-		free(tName);
-		SetFontAlign(0);
-	}
-}
-
-void DrawBackgroundTexture(int x, u8 alpha)
-{
-	if (x == 0)
-		DrawTexture(menu_textures[bgimg_png_index], x - marginHorizontal, -marginVertical, 0, 848 - x + (marginHorizontal * 2), 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
-	else
-		DrawTexture(menu_textures[bgimg_png_index], x, -marginVertical, 0, 848 - x + marginHorizontal, 512 + (marginVertical * 2), 0xFFFFFF00 | alpha);
-}
-
-void DrawTexture(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-    tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-        tex.texture.height, tex.texture.pitch,  
-        TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-    DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCentered(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	x -= w / 2;
-	y -= h / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCenteredX(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	x -= w / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
-}
-
-void DrawTextureCenteredY(png_texture tex, int x, int y, int z, int w, int h, u32 rgba)
-{
-	y -= h / 2;
-
-	tiny3d_SetTexture(0, tex.texture_off, tex.texture.width,
-		tex.texture.height, tex.texture.pitch,
-		TINY3D_TEX_FORMAT_A8R8G8B8, TEXTURE_LINEAR);
-	DrawSprites2D(x, y, z, w, h, rgba);
 }
 
 int pad_time = 0, rest_time = 0, pad_held_time = 0, rest_held_time = 0;
@@ -937,6 +505,18 @@ int readPad(int port)
     {
         ioPadGetData(port, &padA[port]);
         
+		if (padA[port].ANA_L_V < ANALOG_MIN)
+			padA[port].BTN_UP = 1;
+			
+		if (padA[port].ANA_L_V > ANALOG_MAX)
+			padA[port].BTN_DOWN = 1;
+			
+		if (padA[port].ANA_L_H < ANALOG_MIN)
+			padA[port].BTN_LEFT = 1;
+			
+		if (padA[port].ANA_L_H > ANALOG_MAX)
+			padA[port].BTN_RIGHT = 1;
+
         //new
         dpad = ((char)*(&padA[port].zeroes + off) << 8) >> 12;
         rest = ((((char)*(&padA[port].zeroes + off) & 0xF) << 8) | ((char)*(&padA[port].zeroes + off + 1) << 0));
@@ -1080,8 +660,6 @@ void Draw_MainMenu_Ani()
             logo_a_t = 0xFF;
         u8 logo_a = (u8)logo_a_t;
         
-        
-        
         //Background
 		DrawBackgroundTexture(0, bg_a);
         
@@ -1144,16 +722,19 @@ void Draw_MainMenu_Ani()
         //------------ Icons
         
         //Start game
-		DrawTexture(menu_textures[titlescr_ico_xmb_png_index], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_xmb_png_index], 50 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Cheats
-		DrawTexture(menu_textures[titlescr_ico_cht_png_index], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_cht_png_index], 150 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+
+        //Online cheats
+		DrawTexture(menu_textures[titlescr_ico_net_png_index], 250 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //Options
-		DrawTexture(menu_textures[titlescr_ico_opt_png_index], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_opt_png_index], 350 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         //About
-		DrawTexture(menu_textures[titlescr_ico_abt_png_index], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
+		DrawTexture(menu_textures[titlescr_ico_abt_png_index], 450 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | icon_a);
         
         tiny3d_Flip();
 
@@ -1200,47 +781,35 @@ void Draw_MainMenu()
 
     //Start game
 	c = titlescr_ico_xmb_png_index;
-	DrawTexture(menu_textures[c], 100 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 0) ? 0xFF : 32));
+	DrawTexture(menu_textures[c], 50 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 0) ? 0xFF : 32));
 	SetFontColor(0x00000000 | ((menu_sel == 0) ? 0xFF : 32), 0x00000000);
-	DrawString(100 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "Start game");
+	DrawString(50 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "Start game");
 
     //Cheats
 	c = titlescr_ico_cht_png_index;
-	DrawTexture(menu_textures[c], 200 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 1) ? 0xFF : 32));
+	DrawTexture(menu_textures[c], 150 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 1) ? 0xFF : 32));
 	SetFontColor(0x00000000 | ((menu_sel == 1) ? 0xFF : 32), 0x00000000);
-	DrawString(200 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Cheats");
+	DrawString(150 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Cheats");
+
+    //Online Cheats
+	c = titlescr_ico_net_png_index;
+	DrawTexture(menu_textures[c], 250 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 2) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 2) ? 0xFF : 32), 0x00000000);
+	DrawString(250 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 5, 390, "Online DB");
 
     //Options
 	c = titlescr_ico_opt_png_index;
-	DrawTexture(menu_textures[c], 300 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 2) ? 0xFF : 32));
-	SetFontColor(0x00000000 | ((menu_sel == 2) ? 0xFF : 32), 0x00000000);
-	DrawString(300 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 14, 390, "Options");
+	DrawTexture(menu_textures[c], 350 + 150 + 5, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 3) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 3) ? 0xFF : 32), 0x00000000);
+	DrawString(350 + 150 + (MENU_MAIN_ICON_WIDTH / 2) + 14, 390, "Options");
 
     //About
 	c = titlescr_ico_abt_png_index;
-	DrawTexture(menu_textures[c], 400 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 3) ? 0xFF : 32));
-	SetFontColor(0x00000000 | ((menu_sel == 3) ? 0xFF : 32), 0x00000000);
-	DrawString(400 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
+	DrawTexture(menu_textures[c], 450 + 150, 320, 0, MENU_MAIN_ICON_WIDTH, 64, 0xffffff00 | ((menu_sel == 4) ? 0xFF : 32));
+	SetFontColor(0x00000000 | ((menu_sel == 4) ? 0xFF : 32), 0x00000000);
+	DrawString(450 + 150 + (MENU_MAIN_ICON_WIDTH / 2), 390, "About");
 
 	SetFontAlign(0);
-
-    //------------ Text Descriptors
-    
-    //Start
-    //c = 10;
-    //DrawTexture(menu_textures[c], 100 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 0) ? highlight_alpha : 0xFF));
-    
-    //Cheats
-    //c = 9;
-    //DrawTexture(menu_textures[c], 200 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 1) ? highlight_alpha : 0xFF));
-    
-    //Options
-    //c = 2;
-    //DrawTexture(menu_textures[c], 300 + 150, 390, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 2) ? highlight_alpha : 0xFF));
-    
-    //About
-    //c = 1;
-    //DrawTexture(menu_textures[c], 400 + 150, 390 - 3, 0, menu_textures[c].texture.width, menu_textures[c].texture.height, 0xffffff00 | ((menu_sel == 3) ? highlight_alpha : 0xFF));
 }
 
 // Used only in initialization. Allocates 64 mb for textures and loads the font
@@ -1271,39 +840,40 @@ void LoadTexture()
         menu_textures = (png_texture *)malloc(sizeof(png_texture) * menu_size);
     
     //Init Main Menu textures
-	menu_textures[bgimg_png_index].buffer = (const void*)bgimg_png; menu_textures[bgimg_png_index].size = (u32)bgimg_png_size;
-	menu_textures[cheat_png_index].buffer = (const void*)cheat_png; menu_textures[cheat_png_index].size = (u32)cheat_png_size;
-	menu_textures[circle_error_dark_png_index].buffer = (const void*)circle_error_dark_png; menu_textures[circle_error_dark_png_index].size = (u32)circle_error_dark_png_size;
-	menu_textures[circle_error_light_png_index].buffer = (const void*)circle_error_light_png; menu_textures[circle_error_light_png_index].size = (u32)circle_error_light_png_size;
-	menu_textures[circle_loading_bg_png_index].buffer = (const void*)circle_loading_bg_png; menu_textures[circle_loading_bg_png_index].size = (u32)circle_loading_bg_png_size;
-	menu_textures[circle_loading_seek_png_index].buffer = (const void*)circle_loading_seek_png; menu_textures[circle_loading_seek_png_index].size = (u32)circle_loading_seek_png_size;
-	menu_textures[edit_ico_add_png_index].buffer = (const void*)edit_ico_add_png; menu_textures[edit_ico_add_png_index].size = (u32)edit_ico_add_png_size;
-	menu_textures[edit_ico_del_png_index].buffer = (const void*)edit_ico_del_png; menu_textures[edit_ico_del_png_index].size = (u32)edit_ico_del_png_size;
-	menu_textures[edit_shadow_png_index].buffer = (const void*)edit_shadow_png; menu_textures[edit_shadow_png_index].size = (u32)edit_shadow_png_size;
-	menu_textures[footer_ico_circle_png_index].buffer = (const void*)footer_ico_circle_png; menu_textures[footer_ico_circle_png_index].size = (u32)footer_ico_circle_png_size;
-	menu_textures[footer_ico_cross_png_index].buffer = (const void*)footer_ico_cross_png; menu_textures[footer_ico_cross_png_index].size = (u32)footer_ico_cross_png_size;
-	menu_textures[footer_ico_lt_png_index].buffer = (const void*)footer_ico_lt_png; menu_textures[footer_ico_lt_png_index].size = (u32)footer_ico_lt_png_size;
-	menu_textures[footer_ico_rt_png_index].buffer = (const void*)footer_ico_rt_png; menu_textures[footer_ico_rt_png_index].size = (u32)footer_ico_rt_png_size;
-	menu_textures[footer_ico_square_png_index].buffer = (const void*)footer_ico_square_png; menu_textures[footer_ico_square_png_index].size = (u32)footer_ico_square_png_size;
-	menu_textures[footer_ico_triangle_png_index].buffer = (const void*)footer_ico_triangle_png; menu_textures[footer_ico_triangle_png_index].size = (u32)footer_ico_triangle_png_size;
-	menu_textures[header_dot_png_index].buffer = (const void*)header_dot_png; menu_textures[header_dot_png_index].size = (u32)header_dot_png_size;
-	menu_textures[header_ico_abt_png_index].buffer = (const void*)header_ico_abt_png; menu_textures[header_ico_abt_png_index].size = (u32)header_ico_abt_png_size;
-	menu_textures[header_ico_cht_png_index].buffer = (const void*)header_ico_cht_png; menu_textures[header_ico_cht_png_index].size = (u32)header_ico_cht_png_size;
-	menu_textures[header_ico_opt_png_index].buffer = (const void*)header_ico_opt_png; menu_textures[header_ico_opt_png_index].size = (u32)header_ico_opt_png_size;
-	menu_textures[header_ico_xmb_png_index].buffer = (const void*)header_ico_xmb_png; menu_textures[header_ico_xmb_png_index].size = (u32)header_ico_xmb_png_size;
-	menu_textures[header_line_png_index].buffer = (const void*)header_line_png; menu_textures[header_line_png_index].size = (u32)header_line_png_size;
-	menu_textures[help_png_index].buffer = (const void*)help_png; menu_textures[help_png_index].size = (u32)help_png_size;
-	menu_textures[mark_arrow_png_index].buffer = (const void*)mark_arrow_png; menu_textures[mark_arrow_png_index].size = (u32)mark_arrow_png_size;
-	menu_textures[mark_line_png_index].buffer = (const void*)mark_line_png; menu_textures[mark_line_png_index].size = (u32)mark_line_png_size;
-	menu_textures[opt_off_png_index].buffer = (const void*)opt_off_png; menu_textures[opt_off_png_index].size = (u32)opt_off_png_size;
-	menu_textures[opt_on_png_index].buffer = (const void*)opt_on_png; menu_textures[opt_on_png_index].size = (u32)opt_on_png_size;
-	menu_textures[scroll_bg_png_index].buffer = (const void*)scroll_bg_png; menu_textures[scroll_bg_png_index].size = (u32)scroll_bg_png_size;
-	menu_textures[scroll_lock_png_index].buffer = (const void*)scroll_lock_png; menu_textures[scroll_lock_png_index].size = (u32)scroll_lock_png_size;
-	menu_textures[titlescr_ico_abt_png_index].buffer = (const void*)titlescr_ico_abt_png; menu_textures[titlescr_ico_abt_png_index].size = (u32)titlescr_ico_abt_png_size;
-	menu_textures[titlescr_ico_cht_png_index].buffer = (const void*)titlescr_ico_cht_png; menu_textures[titlescr_ico_cht_png_index].size = (u32)titlescr_ico_cht_png_size;
-	menu_textures[titlescr_ico_opt_png_index].buffer = (const void*)titlescr_ico_opt_png; menu_textures[titlescr_ico_opt_png_index].size = (u32)titlescr_ico_opt_png_size;
-	menu_textures[titlescr_ico_xmb_png_index].buffer = (const void*)titlescr_ico_xmb_png; menu_textures[titlescr_ico_xmb_png_index].size = (u32)titlescr_ico_xmb_png_size;
-	menu_textures[titlescr_logo_png_index].buffer = (const void*)titlescr_logo_png; menu_textures[titlescr_logo_png_index].size = (u32)titlescr_logo_png_size;
+    load_menu_texture(bgimg, png);
+    load_menu_texture(cheat, png);
+    load_menu_texture(circle_error_dark, png);
+    load_menu_texture(circle_error_light, png);
+    load_menu_texture(circle_loading_bg, png);
+    load_menu_texture(circle_loading_seek, png);
+    load_menu_texture(edit_ico_add, png);
+    load_menu_texture(edit_ico_del, png);
+    load_menu_texture(edit_shadow, png);
+    load_menu_texture(footer_ico_circle, png);
+    load_menu_texture(footer_ico_cross, png);
+    load_menu_texture(footer_ico_lt, png);
+    load_menu_texture(footer_ico_rt, png);
+    load_menu_texture(footer_ico_square, png);
+    load_menu_texture(footer_ico_triangle, png);
+    load_menu_texture(header_dot, png);
+    load_menu_texture(header_ico_abt, png);
+    load_menu_texture(header_ico_cht, png);
+    load_menu_texture(header_ico_opt, png);
+    load_menu_texture(header_ico_xmb, png);
+    load_menu_texture(header_line, png);
+    load_menu_texture(help, png);
+    load_menu_texture(mark_arrow, png);
+    load_menu_texture(mark_line, png);
+    load_menu_texture(opt_off, png);
+    load_menu_texture(opt_on, png);
+    load_menu_texture(scroll_bg, png);
+    load_menu_texture(scroll_lock, png);
+    load_menu_texture(titlescr_ico_abt, png);
+    load_menu_texture(titlescr_ico_cht, png);
+    load_menu_texture(titlescr_ico_opt, png);
+    load_menu_texture(titlescr_ico_xmb, png);
+    load_menu_texture(titlescr_ico_net, png);
+    load_menu_texture(titlescr_logo, png);
 }
 
 void LoadTextures_Menu()
@@ -1332,7 +902,7 @@ void LoadTextures_Menu()
 	}
 
 	u32 tBytes = texture_pointer - texture_mem;
-	printf("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
+	LOG("LoadTextures_Menu() :: Allocated %db (%.02fkb, %.02fmb) for textures\n", tBytes, tBytes / (float)1024, tBytes / (float)(1024 * 1024));
 }
 
 short *background_music = NULL;
@@ -1367,10 +937,10 @@ void LoadSounds()
     background_music   = (short *) malloc(background_music_size);
 
 
-    //s_printf("Decoding Effect\n");
+    //printf("Decoding Effect\n");
 
     // decode the mp3 effect file included to memory. It stops by EOF or when samples exceed size_effects_samples
-    DecodeAudio( (void *) background_music_mp3_bin, background_music_mp3_bin_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
+    DecodeAudio( (void *) background_music_mp3, background_music_mp3_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
 
     // adjust the sound buffer sample correctly to the background_music_size
     {
@@ -1410,6 +980,21 @@ void ani_callback(int index, int sel)
     doAni = !sel;
 }
 
+void plugin_callback(int index, int sel)
+{
+	if (sel < 0)
+		sel = 0;
+	if (sel > 1)
+		sel = 1;
+		
+	char tmp[128];
+    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 5+sel);
+
+    sysLv2FsUnlink(ARTEMIS_PATH "artemis_ps3.sprx");
+    sysLv2FsLink(tmp, ARTEMIS_PATH "artemis_ps3.sprx");
+	menu_options_selections[index] = sel;
+}
+
 void horm_callback(int index, int sel)
 {
 	if (sel < 0)
@@ -1430,8 +1015,132 @@ void verm_callback(int index, int sel)
 	menu_options_selections[index] = sel;
 }
 
+void _unzip_cheat_db()
+{
+	if (extract_zip(ONLINE_LOCAL_CACHE "cheatdb.zip", USERLIST_PATH_HDD))
+		show_dialog(0, "Successfully installed local cheat database");
+
+	unlink_secure(ONLINE_LOCAL_CACHE "cheatdb.zip");
+}
+
+void update_callback(int index, int sel)
+{
+    if (!sel)
+        return;
+
+    if (http_download(ONLINE_URL, "cheatdb.zip", ONLINE_LOCAL_CACHE "cheatdb.zip", 1))
+        _unzip_cheat_db();
+
+    menu_options_selections[index] = 0;
+}
+
+void vercheck_callback(int index, int sel)
+{
+    if (sel)
+        return;
+
+	LOG("checking latest Artemis version at %s", ARTEMIS_UPDATE_URL);
+
+	if (!http_download(ARTEMIS_UPDATE_URL, "", ONLINE_LOCAL_CACHE "ver.check", 0))
+	{
+		LOG("http request to %s failed", ARTEMIS_UPDATE_URL);
+		return;
+	}
+
+	long size = getFileSize(ONLINE_LOCAL_CACHE "ver.check");
+	char *buffer = readFile(ONLINE_LOCAL_CACHE "ver.check");
+
+	if (!buffer)
+		return;
+
+	LOG("received %u bytes", size);
+	buffer[size-1] = 0;
+
+	static const char find[] = "\"name\":\"Artemis r";
+	const char* start = strstr(buffer, find);
+	if (!start)
+	{
+		LOG("no name found");
+		return;
+	}
+
+	LOG("found name");
+	start += strlen(find) - 1;
+
+	char* end = strchr(start, '"');
+	if (!end)
+	{
+		LOG("no end of name found");
+		return;
+	}
+
+	*end = 0;
+	LOG("latest version is %s", start);
+
+	if (stricmp(VERSION, start) == 0)
+	{
+		LOG("no new version found");
+		return;
+	}
+
+	start = strstr(end+1, "\"browser_download_url\":\"");
+	if (!start)
+		return;
+
+	start += 24;
+	end = strstr(start, "\"");
+	if (!end)
+	{
+		LOG("no download URL found");
+		return;
+	}
+
+	*end = 0;
+	LOG("download URL is %s", start);
+
+	if (show_dialog(1, "New version available! Download update?"))
+	{
+		if (http_download(start, "", "/dev_hdd0/packages/artemis-ps3.pkg", 1))
+			show_dialog(0, "Update downloaded!");
+		else
+			show_dialog(0, "Download error!");
+	}
+}
+
+void clearcache_callback(int index, int sel)
+{
+	DIR *d;
+	struct dirent *dir;
+	char dataPath[256];
+
+	if (!sel)
+		return;
+
+	d = opendir(ONLINE_LOCAL_CACHE);
+	if (!d)
+		return;
+
+	LOG("Cleaning folder '%s'...", ONLINE_LOCAL_CACHE);
+
+	while ((dir = readdir(d)) != NULL)
+	{
+		if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
+		{
+			snprintf(dataPath, sizeof(dataPath), "%s" "%s", ONLINE_LOCAL_CACHE, dir->d_name);
+			LOG("Removing %s", dataPath);
+			unlink_secure(dataPath);
+		}
+	}
+	closedir(d);
+    menu_options_selections[index] = 0;
+
+	show_dialog(0, "Successfully cleaned local cache folder");
+}
+
 void ReloadUserCheats()
 {
+    init_loading_screen("Loading cheats...");
+
     if (user_game_list)
     {
         UnloadGameList(user_game_list, user_game_count);
@@ -1443,7 +1152,72 @@ void ReloadUserCheats()
     user_game_list = ReadUserList((int *)gmc);
     user_game_count = *gmc;
     if (doSort)
-        BubbleSortGameList(user_game_list, user_game_count);
+        QSortGameList(user_game_list, user_game_count);
+
+    stop_loading_screen();
+}
+
+void ReloadOnlineCheats()
+{
+    init_loading_screen("Loading online cheats...");
+
+    if (online_game_list)
+    {
+        UnloadGameList(online_game_list, online_game_count);
+        online_game_count = 0;
+        online_game_list = NULL;
+    }
+
+    int gmc[1];
+    online_game_list = ReadOnlineList((int *)gmc);
+    online_game_count = *gmc;
+    if (doSort)
+        QSortGameList(online_game_list, online_game_count);
+
+    stop_loading_screen();
+}
+
+void FilterUserGames()
+{
+    if (filter_user_count)
+    {
+        user_game_count = filter_user_count;
+        filter_user_count = 0;
+    }
+    else
+    {
+        if (!user_installed_titleids_count)
+            LoadGames();
+
+        filter_user_count = user_game_count;
+        user_game_count = FilterInstalledGameList(user_game_list, user_game_count, user_installed_titleids, user_installed_titleids_count);
+    }
+    LOG("Filter complete (%d games)", user_game_count);
+
+    if (doSort)
+        QSortGameList(user_game_list, user_game_count);
+}
+
+void FilterOnlineGames()
+{
+    if (filter_online_count)
+    {
+        online_game_count = filter_online_count;
+        filter_online_count = 0;
+    }
+    else
+    {
+        if (!user_installed_titleids_count)
+            LoadGames();
+
+        filter_online_count = online_game_count;
+        online_game_count = FilterInstalledGameList(online_game_list, online_game_count, user_installed_titleids, user_installed_titleids_count);
+
+    }
+    LOG("Filter complete (%d games)", online_game_count);
+
+    if (doSort)
+        QSortGameList(online_game_list, online_game_count);
 }
 
 void SetMenu(int id)
@@ -1469,10 +1243,12 @@ void SetMenu(int id)
             
             break;
         case 6: //Cheat View Menu
-			Draw_CheatsMenu_View_Ani_Exit();
+            if (doAni)
+	    		Draw_CheatsMenu_View_Ani_Exit();
             break;
         case 7: //Cheat Option Menu
-			Draw_CheatsMenu_Options_Ani_Exit();
+            if (doAni)
+    			Draw_CheatsMenu_Options_Ani_Exit();
             break;
     }
     
@@ -1484,19 +1260,17 @@ void SetMenu(int id)
             break;
         case 1: //Cheats Offline Menu
             if (!user_game_list)
-            {
-                int gmc[1];
-                user_game_list = ReadUserList((int *)gmc);
-                user_game_count = *gmc;
-                if (doSort)
-                    BubbleSortGameList(user_game_list, user_game_count);
-            }
-            
+                ReloadUserCheats();
+
             if (doAni)
-                Draw_UserCheatsMenu_Ani();
+                Draw_UserCheatsMenu_Ani(user_game_list, user_game_count);
             break;
         case 2: //Cheats Online Menu
-            
+            if (!online_game_list)
+                ReloadOnlineCheats();
+
+            if (doAni)
+                Draw_UserCheatsMenu_Ani(online_game_list, online_game_count);
             break;
         case 3: //About Menu
             if (doAni)
@@ -1532,6 +1306,56 @@ void SetMenu(int id)
     menu_sel = menu_old_sel[menu_id];
 }
 
+void move_letter_back(struct game_entry * games, int game_count)
+{
+	int i;
+	char ch = toupper(games[menu_sel].name[0]);
+
+	if ((ch > '\x29') && (ch < '\x40'))
+	{
+		menu_sel = 0;
+		return;
+	}
+
+	for (i = menu_sel; (i > 0) && (ch == toupper(games[i].name[0])); i--) {}
+
+	menu_sel = i;
+}
+
+void move_letter_fwd(struct game_entry * games, int game_count)
+{
+	int i;
+	char ch = toupper(games[menu_sel].name[0]);
+
+	if (ch == 'Z')
+	{
+		menu_sel = game_count - 1;
+		return;
+	}
+	
+	for (i = menu_sel; (i < game_count - 2) && (ch == toupper(games[i].name[0])); i++) {}
+
+	menu_sel = i;
+}
+
+void move_selection_back(int game_count, int steps)
+{
+    menu_sel -= steps;
+	if ((menu_sel == -1) && (steps == 1))
+		menu_sel = game_count - 1;
+    else if (menu_sel < 0)
+		menu_sel = 0;
+}
+
+void move_selection_fwd(int game_count, int steps)
+{
+	menu_sel += steps;
+	if ((menu_sel == game_count) && (steps == 1))
+		menu_sel = 0;
+	else if (menu_sel >= game_count)
+    	menu_sel = game_count - 1;
+}
+
 // Resets new frame
 void drawScene()
 {   
@@ -1549,17 +1373,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_LEFT)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = 3;
+					move_selection_back(5, 1);
                 }
                 else if(paddata[0].BTN_RIGHT)
                 {
-                    if (menu_sel < 3)
-                        menu_sel++;
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(5, 1);
                 }
                 else if (paddata[0].BTN_CROSS)
                 {
@@ -1573,51 +1391,25 @@ void drawScene()
                             
                             free (userc);
 							free (onlinec);
-                            
-							//
-							char plugin_name[30];
-							char plugin_filename[256];
-							memset(plugin_name, 0, sizeof(plugin_name));
-							memset(plugin_filename, 0, sizeof(plugin_filename));
-							//Check if COBRA+PS3MAPI is installed
-							if ((is_cobra() == SUCCESS) && (has_ps3mapi() == SUCCESS))
-							{
-								printf("COBRA+PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
-								{
-									printf("COBRA: Artemis is not loaded yet\n");
-									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
-								}
-								printf("COBRA: Artemis running\n");
-								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
-							}
-							//Check if MAMBA+PS3MAPI is installed
-							else if ((is_mamba() == SUCCESS) && (has_ps3mapi() == SUCCESS))
-							{
-								printf("MAMBA + PS3MAPI Detected\n");
-								{lv2syscall5(8, SYSCALL8_OPCODE_PS3MAPI, PS3MAPI_OPCODE_GET_VSH_PLUGIN_INFO, 5, (uint64_t)plugin_name, (uint64_t)plugin_filename); }
-								if (!plugin_filename || strlen(plugin_filename) <= 0 || strcmp(plugin_filename, (char *)"/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx") != 0)
-								{
-									printf("MAMBA: Artemis is not loaded yet\n");
-									cobra_mamba_syscall_load_prx_module(5, "/dev_hdd0/game/ARTPS3001/USRDIR/artemis_ps3.sprx", 0, 0);
-								}
-								printf("MAMBA: Artemis running\n");
-								{lv2syscall3(392, 0x1004, 0x4, 0x6); } //1 Beep
-							}
-							else if ((is_cobra() != SUCCESS) && (is_mamba() != SUCCESS) && (mamba_prx_loader(0, 0) == SUCCESS))
-							{
-								printf("None are loaded\n");
-								{ lv2syscall3(392, 0x1004, 0x4, 0x6); }  //1 Beep
-							}
-							else
-							{
-								lv2syscall3(392, 0x1004, 0xa, 0x1b6);
-							} //3 beep
-                            
-                            
-                            //So we know art is loaded if we boot up later
-                            writeFile("/dev_hdd0/tmp/artstate", "on", "");
+
+                            switch (isArtemisLoaded())
+                            {
+                            case ARTEMIS_PLUGIN_NOT_LOADED:
+                                LOG("COBRA: Loading Artemis\n");
+                                cobra_mamba_load_prx_module(ARTEMIS_PLUGIN_SLOT, ARTEMIS_PATH "artemis_ps3.sprx", 0, 0);
+                                ring_buzzer_simple(); //1 Beep
+                                break;
+
+                            case ARTEMIS_PLUGIN_SLOT:
+                            case ARTEMIS_PLUGIN_LOADED:
+                                LOG("COBRA: Artemis is already running\n");
+                                ring_buzzer_simple(); //1 Beep
+                                break;
+
+                            default:
+                                ring_buzzer_triple();
+                                break;
+                            }
                             
                             //Clear boot history
                             DeleteBootHistory();
@@ -1627,13 +1419,28 @@ void drawScene()
                         case 1: //Cheats menu
                             SetMenu(1);
                             return;
-                        case 2: //Options menu
+                        case 2: //Online Cheats menu
+                            SetMenu(2);
+                            return;
+                        case 3: //Options menu
                             SetMenu(4);
                             return;
-                        case 3: //About menu
+                        case 4: //About menu
                             SetMenu(3);
                             return;
                     }
+                }
+                else if(paddata[0].BTN_CIRCLE && show_dialog(1, "Exit to XMB?"))
+                {
+                	close_art = 1;
+                }
+                else if(paddata[0].BTN_SQUARE && 
+                        (isArtemisLoaded() == ARTEMIS_PLUGIN_SLOT) &&
+                        show_dialog(1, "Remove Artemis plugin from memory?"))
+                {
+                    LOG("Unloading Artemis Plugin\n");
+                    cobra_mamba_unload_prx_module(ARTEMIS_PLUGIN_SLOT);
+                    ring_buzzer_simple(); //1 Beep
                 }
             }
             
@@ -1647,31 +1454,35 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = user_game_count - 1;
+					move_selection_back(user_game_count, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (user_game_count-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(user_game_count, 1);
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-                    menu_sel -= 5;
-                    if (menu_sel < 0)
-                        menu_sel = 0;
+					move_selection_back(user_game_count, 5);
+                }
+                else if (paddata[0].BTN_L1)
+                {
+					move_selection_back(user_game_count, 25);
+                }
+                else if (paddata[0].BTN_L2)
+                {
+					move_letter_back(user_game_list, user_game_count);
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
-                    menu_sel += 5;
-                    if (menu_sel >= user_game_count)
-                        menu_sel = user_game_count - 1;
+					move_selection_fwd(user_game_count, 5);
+                }
+                else if (paddata[0].BTN_R1)
+                {
+					move_selection_fwd(user_game_count, 25);
+                }
+                else if (paddata[0].BTN_R2)
+                {
+					move_letter_fwd(user_game_list, user_game_count);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1687,10 +1498,15 @@ void drawScene()
 						user_game_list[menu_sel].code_count = sz;
 					}
                     if (doSort)
-                        user_game_list[menu_sel] = BubbleSortCodeList(user_game_list[menu_sel]);
+                        user_game_list[menu_sel] = QSortCodeList(user_game_list[menu_sel]);
                     selected_entry = user_game_list[menu_sel];
                     SetMenu(5);
                     return;
+                }
+                else if (paddata[0].BTN_TRIANGLE)
+                {
+                    FilterUserGames();
+                    menu_sel = 0;
                 }
                 else if (paddata[0].BTN_SQUARE)
                 {
@@ -1698,10 +1514,76 @@ void drawScene()
                 }
             }
             
-            Draw_UserCheatsMenu(menu_sel, 0xFF);
+            Draw_UserCheatsMenu(user_game_list, user_game_count, menu_sel, 0xFF);
             break;
         case 2: //Online Cheats Menu
             
+            // Check the pads.
+            if (readPad(0))
+            {
+                if(paddata[0].BTN_UP)
+                {
+					move_selection_back(online_game_count, 1);
+                }
+                else if(paddata[0].BTN_DOWN)
+                {
+					move_selection_fwd(online_game_count, 1);
+                }
+                else if (paddata[0].BTN_LEFT)
+                {
+					move_selection_back(online_game_count, 5);
+                }
+                else if (paddata[0].BTN_L1)
+                {
+					move_selection_back(online_game_count, 25);
+                }
+                else if (paddata[0].BTN_L2)
+                {
+					move_letter_back(online_game_list, online_game_count);
+                }
+                else if (paddata[0].BTN_RIGHT)
+                {
+					move_selection_fwd(online_game_count, 5);
+                }
+                else if (paddata[0].BTN_R1)
+                {
+					move_selection_fwd(online_game_count, 25);
+                }
+                else if (paddata[0].BTN_R2)
+                {
+					move_letter_fwd(online_game_list, online_game_count);
+                }
+                else if (paddata[0].BTN_CIRCLE)
+                {
+                    SetMenu(0);
+                    return;
+                }
+                else if (paddata[0].BTN_CROSS)
+                {
+					if (!online_game_list[menu_sel].codes)
+					{
+						int sz = 0;
+						online_game_list[menu_sel].codes = ReadOnlineNCL(online_game_list[menu_sel].path, &sz);
+						online_game_list[menu_sel].code_count = sz;
+					}
+                    if (doSort)
+                        online_game_list[menu_sel] = QSortCodeList(online_game_list[menu_sel]);
+                    selected_entry = online_game_list[menu_sel];
+                    SetMenu(5);
+                    return;
+                }
+                else if (paddata[0].BTN_SQUARE)
+                {
+                    ReloadOnlineCheats();
+                }
+                else if (paddata[0].BTN_TRIANGLE)
+                {
+                    FilterOnlineGames();
+                    menu_sel = 0;
+                }
+            }
+
+            Draw_UserCheatsMenu(online_game_list, online_game_count, menu_sel, 0xFF);
             break;
         case 3: //About Menu
             
@@ -1724,17 +1606,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = menu_options_maxopt - 1;
+					move_selection_back(menu_options_maxopt, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (menu_options_maxopt - 1))
-                        menu_sel++;
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(menu_options_maxopt, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1771,6 +1647,8 @@ void drawScene()
 					}
 					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_INC)
 						menu_options_selections[menu_sel]++;
+					else if (menu_options_options[menu_sel].type == ARTEMIS_OPTION_CALL)
+						menu_options_selections[menu_sel] = 1;
 					
 
 					menu_options_options[menu_sel].callback(menu_sel, menu_options_selections[menu_sel]);
@@ -1786,31 +1664,19 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = selected_entry.code_count - 1;
+					move_selection_back(selected_entry.code_count, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (selected_entry.code_count-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(selected_entry.code_count, 1);
                 }
                 else if (paddata[0].BTN_LEFT)
                 {
-                    menu_sel -= 5;
-                    if (menu_sel < 0)
-                        menu_sel = 0;
+					move_selection_back(selected_entry.code_count, 5);
                 }
                 else if (paddata[0].BTN_RIGHT)
                 {
-                    menu_sel += 5;
-                    if (menu_sel >= selected_entry.code_count)
-                        menu_sel = selected_entry.code_count - 1;
+					move_selection_fwd(selected_entry.code_count, 5);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1853,6 +1719,11 @@ void drawScene()
                     SetMenu(6);
                     return;
                 }
+                else if (paddata[0].BTN_START)
+                {
+                    SetMenu(0);
+                    return;
+                }
             }
             
             Draw_CheatsMenu_Selection(menu_sel, 0xFFFFFFFF);
@@ -1873,19 +1744,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = max - 1;
+					move_selection_back(max, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (max-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(max, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1906,19 +1769,11 @@ void drawScene()
             {
                 if(paddata[0].BTN_UP)
                 {
-                    if (menu_sel > 0)
-                        menu_sel--;
-                    else
-                        menu_sel = max - 1;
+					move_selection_back(max, 1);
                 }
                 else if(paddata[0].BTN_DOWN)
                 {
-                    if (menu_sel < (max-1))
-                    {
-                        menu_sel++;
-                    }
-                    else
-                        menu_sel = 0;
+					move_selection_fwd(max, 1);
                 }
                 else if (paddata[0].BTN_CIRCLE)
                 {
@@ -1948,6 +1803,7 @@ void drawScene()
 
 void exiting()
 {
+	http_end();
     sysModuleUnload(SYSMODULE_PNGDEC);
 }
 
@@ -1956,6 +1812,10 @@ void exiting()
 */
 s32 main(s32 argc, const char* argv[])
 {
+	dbglogger_init();
+
+	http_init();
+
     tiny3d_Init(1024*1024);
 
     ioPadInit(7);
@@ -2005,10 +1865,8 @@ s32 main(s32 argc, const char* argv[])
         menu_options_maxopt++;
     
     int selSize = menu_options_maxopt * sizeof(int);
-    menu_options_maxsel = (int *)malloc(selSize);
-    menu_options_selections = (int *)malloc(selSize);
-    memset(menu_options_maxsel, 0, selSize);
-    memset(menu_options_selections, 0, selSize);
+    menu_options_maxsel = (int *)calloc(1, selSize);
+    menu_options_selections = (int *)calloc(1, selSize);
     
     int i = 0;
     for (i = 0; i < menu_options_maxopt; i++)
@@ -2023,21 +1881,20 @@ s32 main(s32 argc, const char* argv[])
     
     LoadOptions();
 
-	//LoadGames();
-    
-    //texture_mem = tiny3d_AllocTexture(64*1024*1024);
-
     videoState state;
     assert(videoGetState(0, 0, &state) == 0); // Get the state of the display
     assert(state.state == 0); // Make sure display is enabled
     
     videoResolution res;
     assert(videoGetResolution(state.displayMode.resolution, &res) == 0);
-    printf("Resolution: %d by %d\n", res.width, res.height);
+    LOG("Resolution: %d by %d", res.width, res.height);
     screen_width = res.width;
     screen_height = res.height;
     
-    //SND_SetVoice( 2, (effect_is_stereo) ? VOICE_STEREO_16BIT : VOICE_MONO_16BIT, effect_freq, 0, background_music, background_music_size, 255, 255, NULL);
+    // Unpack cheat database on first run
+    if (file_exists(ONLINE_LOCAL_CACHE "cheatdb.zip") == SUCCESS)
+        _unzip_cheat_db();
+
     SND_SetInfiniteVoice(2, (effect_is_stereo) ? VOICE_STEREO_16BIT : VOICE_MONO_16BIT, effect_freq, 0, background_music, background_music_size, 255, 255);
     
     //Set options
@@ -2046,11 +1903,8 @@ s32 main(s32 argc, const char* argv[])
 
     SetMenu(0);
     
-    while (1)
+    while (!close_art)
     {       
-
-		
-
         tiny3d_Clear(0xff000000, TINY3D_CLEAR_ALL);
 
         // Enable alpha Test
@@ -2061,20 +1915,6 @@ s32 main(s32 argc, const char* argv[])
             TINY3D_BLEND_FUNC_SRC_ALPHA_ONE_MINUS_SRC_ALPHA | TINY3D_BLEND_FUNC_SRC_RGB_ONE_MINUS_SRC_ALPHA,
             TINY3D_BLEND_RGB_FUNC_ADD | TINY3D_BLEND_ALPHA_FUNC_ADD);
                     
-        // Check the pads.
-        ioPadGetInfo(&padinfo);
-        if(padinfo.status[0]){
-            ioPadGetData(0, &padA[0]);
-
-            if(padA[0].BTN_R3 && padA[0].BTN_L3)
-            {
-                return 0;
-            }
-        }
-        
-        if (close_art)
-            return 0;
-        
         drawScene();
         
         //Draw help
@@ -2119,5 +1959,6 @@ s32 main(s32 argc, const char* argv[])
         }
     }
     
+    release_all();
     return 0;
 }

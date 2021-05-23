@@ -1,0 +1,242 @@
+Extras Debug Menu In The Pause Menu
+0
+dron_3
+0 00732B94 3BA00001
+/*
+This gives you almost
+every possible thing you
+would want whenever you
+want it and makes almost
+all other codes worthless,
+but there are a few things
+it does not have.
+
+Pause the game while
+playing and you will see
+an option for Extras.
+*/
+#
+Hacking Attempts Never Decrease
+0
+bungholio
+0 004F1690 39200000
+#
+Experience Gained Multiplier
+0
+bungholio
+0 00437854 1D29Z
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+/*
+If 2710, you will get 100
+Praxis from your first
+takedown which will be
+more than enough to buy
+everything.
+*/
+#
+Credits Never Decrease From Buying
+0
+bungholio
+0 0044F448 60000000
+#
+Credits Gained Multiplier
+0
+bungholio
+0 00451C40 1F96Z
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#
+Unlimited Sprint
+0
+bungholio
+0 004AB274 60000000
+#
+Ammo In Clip Never Decreases
+0
+bungholio
+0 005EE240 39290000
+#
+Inventory Items + Total Ammo + Hacking Tools Never Decrease
+0
+bungholio
+0 0062FB18 60000000
+#
+Dropped Inventory Items Are Not Removed From Inventory
+0
+bungholio
+0 0062FB10 60000000
+/*
+Perfect for duplicating
+things, turn off when
+finished.
+
+You could instead give
+yourself items using the
+Extras menu though.
+*/
+#
+Battery Never Decreases
+0
+bungholio
+0 0043B8A0 4800000C
+0 0043B548 4800000C
+#
+Invincibility
+0
+bungholio
+0 00DFDA5C 81228B00
+0 00DFDA60 812980D0
+0 00DFDA64 81290000
+0 00DFDA68 48000020
+0 00DFDA88 81290000
+0 00DFDA8C 81290004
+0 00DFDA90 81290058
+0 00DFDA94 48000020
+0 00DFDAB4 81290014
+0 00DFDAB8 81290064
+0 00DFDABC 7F891480
+0 00DFDAC0 48000020
+0 00DFDAE0 4D9E0020
+0 00DFDAE4 7D800028
+0 00DFDAE8 4844B362
+0 0044B35C 48DFDA5E
+/*
+Do not use if you have at
+any point turned on the
+code for health to never
+decrease, they use the
+same addresses and will
+likely cause a crash.
+*/
+#
+Health Never Decreases
+0
+bungholio
+0 00DFDA5C 80628B00
+0 00DFDA60 806380D0
+0 00DFDA64 80630000
+0 00DFDA68 48000020
+0 00DFDA88 80630000
+0 00DFDA8C 80630004
+0 00DFDA90 80630058
+0 00DFDA94 48000020
+0 00DFDAB4 80630014
+0 00DFDAB8 80630064
+0 00DFDABC 7F9F1840
+0 00DFDAC0 48000020
+0 00DFDAE0 419E0008
+0 00DFDAE4 D03F005C
+0 00DFDAE8 4844AC0E
+0 0044AC08 48DFDA5E
+/*
+Do not use if you have at
+any point turned on
+Invincibility, they use
+the same addresses and
+will likely cause a crash.
+*/
+#
+Button Enable Code (Required To Fly And Freeze Enemies)
+0
+bungholio
+0 00DFDC6C 3D4000F7
+0 00DFDC70 893C0215
+0 00DFDC74 992A7004
+0 00DFDC78 48000020
+0 00DFDC98 893C0217
+0 00DFDC9C 992A7005
+0 00DFDCA0 A12A7004
+0 00DFDCA4 48000020
+0 00DFDCC4 71290401
+0 00DFDCC8 A10A700C
+0 00DFDCCC 7F894040
+0 00DFDCD0 48000020
+0 00DFDCF0 419E005C
+0 00DFDCF4 B12A700C
+0 00DFDCF8 2B890401
+0 00DFDCFC 48000020
+0 00DFDD1C 409E0030
+0 00DFDD20 892A7006
+0 00DFDD24 69290001
+0 00DFDD28 48000020
+0 00DFDD48 992A7006
+0 00DFDD4C A01C0214
+0 00DFDD50 481509A6
+0 001509A0 48DFDC6E
+#
+Hold X To Fly
+0
+bungholio
+0 00DFDB0C 3D2000F7
+0 00DFDB10 A0097004
+0 00DFDB14 70000040
+0 00DFDB18 48000020
+0 00DFDB38 2B800040
+0 00DFDB3C 409E0030
+0 00DFDB40 3C003F80
+0 00DFDB44 48000020
+0 00DFDB64 90097008
+0 00DFDB68 C1A97008
+0 00DFDB6C D1AB0000
+0 00DFDB70 48637202
+0 006371FC 48DFDB0E
+/*
+Requires the button enable
+code to be activated.
+*/
+#
+Freeze Enemies (L2 + R3)
+0
+bungholio
+0 00DFDB90 3D2000F7
+0 00DFDB94 88097006
+0 00DFDB98 2B800000
+0 00DFDB9C 48000020
+0 00DFDBBC 419E0088
+0 00DFDBC0 81228B00
+0 00DFDBC4 812980D0
+0 00DFDBC8 48000020
+0 00DFDBE8 81290000
+0 00DFDBEC 81290000
+0 00DFDBF0 81290004
+0 00DFDBF4 48000020
+0 00DFDC14 81290058
+0 00DFDC18 81290014
+0 00DFDC1C 7F8F4749
+0 00DFDC20 48000020
+0 00DFDC40 4C9E0020
+0 00DFDC44 F821FEE1
+0 00DFDC48 48645376
+0 00645370 48DFDB92
+/*
+Requires the button enable
+code to be activated.
+
+Enemies never see you but
+they will investigate
+sounds you make after you
+return them to normal.
+
+If you touch them they
+will be alert the instant
+you unfreeze them.
+*/
+#
+Invincible Player
+0
+FBML
+0 0044A598 48000598
+0 0044AB58 D01F005C
+0 0044AB5C D01F0060
+0 0044AB60 EC000332
+0 0044AB64 C9810120
+0 0044AB68 FD80669C
+0 0044AB6C FDA06018
+0 0044AB70 EDAD0032
+0 0044AB74 FFC05090
+0 0044AB78 FFE05090 
+#
+AoB No Alarms
+0
+FBML
+0 003E675C 480000AC
+#

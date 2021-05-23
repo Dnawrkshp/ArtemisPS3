@@ -1,0 +1,49 @@
+Memory Infinite Ammo In Clip + Never Need To Reload
+0
+jgduff1
+0 31176ACC 00100000
+#
+ASM Infinite Ammo In Clip + Never Need To Reload
+0
+jgduff1
+0 000615C0 60000000
+0 000615CC 60000000
+#
+Memory Infinite Reserve Ammo
+0
+jgduff1
+0 3109F6AC 00B40000
+#
+ASM Infinite Reserve Ammo
+0
+jgduff1
+0 00060040 60000000
+0 00060044 60000000
+#
+Memory Infinite Health
+0
+jgduff1
+0 314A68FC 42C80000
+#
+ASM Infinite Health
+0
+jgduff1
+0 001805A4 EDAC4828
+0 001805A8 ED0B6028
+0 001805AC FDAD4B2E
+0 001805B0 EC0D5828
+0 001805B4 FC006AEE
+0 001805B8 EC006028
+0 001805C4 EC004024
+0 001805C8 EC003ABA
+0 001805CC ECC60032
+0 001805D0 EC0C0332
+0 001805D4 EC0D037A
+0 00180624 60000000
+/*
+You will die the 1st time
+the game loads with this
+code, but after that it
+will work fine.
+*/
+#

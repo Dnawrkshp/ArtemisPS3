@@ -1,0 +1,24 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Kagero Darkside Princess
+*/
+#
+Max Everything On Load
+0
+Unknown
+0 00562EE0 3CA03B9A
+0 00562EE4 60A5C9FF
+#
+Max WARL + Exp
+0
+jijibecali
+0 323D0A50 00FFFFFF00FFFFFF00FFFFFF00FFFFFF
+#
+Max Life
+0
+jijibecali
+6 32557064 0000045A
+0 00000000 FFFF0000FFFF
+#

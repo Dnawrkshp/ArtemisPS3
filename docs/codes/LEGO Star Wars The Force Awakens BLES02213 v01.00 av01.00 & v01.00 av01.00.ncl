@@ -1,0 +1,6 @@
+Stud Multiplier
+0
+Hiei-YYH
+0 01390D0C 1FBDZ
+[Z]000A=10x;0064=100x;03E8=1,000x;2710=10,000x[/Z]
+#

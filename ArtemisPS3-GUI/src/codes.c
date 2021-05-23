@@ -14,8 +14,6 @@
 
 #include <sys/stat.h>
 
-#define USERLIST_PATH   "/dev_usb000/USERLIST/"
-#define USERLIST_PATH2  "/dev_hdd0/game/ARTPS3001/USRDIR/USERLIST/"
 
 /*
  * Function:		parseVTID_ParseTitleID()
@@ -29,52 +27,27 @@
  */
 int parseVTID_ParseTitleID(char * text, int * length)
 {
-	int len = strlen(text), x = 0, off = 0;
+	int len = strlen(text) - 8, off = 0;
+	*length = 0;
 
-	for (off = 0; off < (len - 10); off++)
+	for (off = 0; off < len; off++)
 	{
-		if (off == 0 && text[off] == '[' && text[off + 10] == ']' &&
+		if (is_char_letter(text[off]) == SUCCESS &&
 			is_char_letter(text[off + 1]) == SUCCESS &&
 			is_char_letter(text[off + 2]) == SUCCESS &&
 			is_char_letter(text[off + 3]) == SUCCESS &&
-			is_char_letter(text[off + 4]) == SUCCESS &&
+			is_char_integer(text[off + 4]) == SUCCESS &&
 			is_char_integer(text[off + 5]) == SUCCESS &&
 			is_char_integer(text[off + 6]) == SUCCESS &&
 			is_char_integer(text[off + 7]) == SUCCESS &&
-			is_char_integer(text[off + 8]) == SUCCESS &&
-			is_char_integer(text[off + 9]) == SUCCESS)
-			break;
-		else if (text[off] == ' ' && text[off + 1] == '[' && text[off + 11] == ']' &&
-			is_char_letter(text[off + 2]) == SUCCESS &&
-			is_char_letter(text[off + 3]) == SUCCESS &&
-			is_char_letter(text[off + 4]) == SUCCESS &&
-			is_char_letter(text[off + 5]) == SUCCESS &&
-			is_char_integer(text[off + 6]) == SUCCESS &&
-			is_char_integer(text[off + 7]) == SUCCESS &&
-			is_char_integer(text[off + 8]) == SUCCESS &&
-			is_char_integer(text[off + 9]) == SUCCESS &&
-			is_char_integer(text[off + 10]) == SUCCESS)
+			is_char_integer(text[off + 8]) == SUCCESS)
 		{
-			off++;
-			break;
+			*length = 10;
+			return off;
 		}
 	}
 
-	if (off == len)
-	{
-		*length = 0;
-		return -1;
-	}
-
-	while (x < (len - off - 1))
-	{
-		if (text[off + 1 + x] == ' ')
-			break;
-		x++;
-	}
-
-	*length = x;
-	return off;
+	return -1;
 }
 
 /*
@@ -100,6 +73,12 @@ int parseVTID_ParseVersion(char * text, int * length)
 			off++;
 			break;
 		}
+		else if (text[off + 2] == '.' &&
+				is_char_integer(text[off]) == SUCCESS &&
+				is_char_integer(text[off + 1]) == SUCCESS &&
+				is_char_integer(text[off + 3]) == SUCCESS &&
+				is_char_integer(text[off + 4]) == SUCCESS)
+			break;
 	}
 
 	if (off == len)
@@ -131,11 +110,11 @@ int parseVTID_ParseVersion(char * text, int * length)
 void parseVTID(struct game_entry * in)
 {
 	int name_len = strlen(in->name);
-	int length = 0, x = 0, y = 0;
+	int length = 0, x = 0;
 
 	//Version, starts with a v, 4/5 letters follow as ##.## or #.##
 	int vOff = parseVTID_ParseVersion(in->name, &length);
-	if (vOff >= 0 && length == 4 || length == 5)
+	if (vOff >= 0 && (length == 4 || length == 5))
 	{
 		char * v = (char*)(&in->name[vOff]);
 		in->version = (char*)malloc(length + 2);
@@ -157,12 +136,12 @@ void parseVTID(struct game_entry * in)
 	{
 		char * t = (char*)(&in->name[tOff]);
 		in->title_id = (char*)malloc(length);
-		memcpy(in->title_id, (char*)&t[1], length-1);
+		memcpy(in->title_id, t, length-1);
 		in->title_id[length - 1] = '\0';
 
-		for (x = 0; x < (name_len - tOff - length - 2); x++)
+		for (x = 0; x < (name_len - tOff - length); x++)
 		{
-			t[x] = t[x + length + 2];
+			t[x] = t[x + length];
 		}
 		t[x] = '\0';
 	}
@@ -292,7 +271,7 @@ long getDirListSize(const char * path)
         {
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
-                sprintf(fullPath, "%s%s", path, dir->d_name);
+                snprintf(fullPath, sizeof(fullPath)-1, "%s%s", path, dir->d_name);
                 if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
                     count++;
@@ -804,6 +783,38 @@ struct code_entry * ReadNCL(const char * path, int * _code_count)
 }
 
 /*
+ * Function:		ReadOnlineNCL()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Downloads an entire NCL file into an array of code_entry
+ * Arguments:
+ *	filename:		File name ncl
+ *	_count_count:	Pointer to int (set to the number of codes within the ncl)
+ * Return:			Returns an array of code_entry, null if failed to load
+ */
+struct code_entry * ReadOnlineNCL(const char * filename, int * _code_count)
+{ 
+	char path[256];
+	snprintf(path, sizeof(path)-1, ONLINE_LOCAL_CACHE "%s", filename);
+
+	if (isExist(path))
+	{
+		struct stat stats;
+		stat(path, &stats);
+		// re-download if file is +1 day old
+		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
+			http_download(ONLINE_URL "codes/", filename, path, 0);
+	}
+	else
+	{
+		if (!http_download(ONLINE_URL "codes/", filename, path, 0))
+			return NULL;
+	}
+
+    return ReadNCL(path, _code_count);
+}
+
+/*
  * Function:		UnloadGameList()
  * File:			codes.c
  * Project:			ArtemisPS3-GUI
@@ -896,35 +907,9 @@ void UnloadGameList(struct game_entry * list, int count)
  *	b:				Second code
  * Return:			1 if greater, 0 if less or equal
  */
-int BubbleSortCodeList_Compare(struct code_entry a, struct code_entry b)
+int QSortCodeList_Compare(const void* a, const void* b)
 {
-    if (!a.name || !b.name)
-        return 0;
-    
-    //Set up vars
-    int al = strlen(a.name), bl = strlen(b.name);
-    int x = 0;
-    
-    //Do comparison
-    int smallmax = (al <= bl) ? al : bl;
-    for (x = 0; x < smallmax; x++)
-    {
-        char cA = a.name[x], cB = b.name[x];
-        if (cA >= 'A' && cA <= 'Z')
-            cA += 0x20;
-        if (cB >= 'A' && cB <= 'Z')
-            cB += 0x20;
-        
-        if (cA > cB)
-            return 1;
-        else if (cA < cB)
-            return 0;
-    }
-    
-    if (al > bl)
-        return 1;
-    
-    return 0;
+    return strcasecmp(((struct code_entry*) a)->name, ((struct code_entry*) b)->name);
 }
 
 /*
@@ -936,29 +921,12 @@ int BubbleSortCodeList_Compare(struct code_entry a, struct code_entry b)
  *	game:			Game's code list to sort
  * Return:			Returns sorted game list
  */
-struct game_entry BubbleSortCodeList(struct game_entry game)
+struct game_entry QSortCodeList(struct game_entry game)
 {
     if (game.code_sorted)
         return game;
     
-    struct code_entry * swap = (struct code_entry *)malloc(sizeof(struct code_entry) * 1);
-    int c = 0, d = 0, count = game.code_count;
-    
-    for (c = 0; c < (count-1); c++)
-    {
-        int dMax = (count - c - 1);
-        for (d = 0 ; d < dMax; d++)
-        {
-            if (BubbleSortCodeList_Compare(game.codes[d], game.codes[d+1]))
-            {
-                swap[0] = game.codes[d];
-                game.codes[d]   = game.codes[d+1];
-                game.codes[d+1] = swap[0];
-            }
-        }
-    }
-    
-    free (swap);
+    qsort(game.codes, game.code_count, sizeof(struct code_entry), &QSortCodeList_Compare);
     
     game.code_sorted = 1;
     return game;
@@ -974,32 +942,9 @@ struct game_entry BubbleSortCodeList(struct game_entry game)
  *	b:				Pointer to int (set to the number of tags within the code)
  * Return:			Returns an array of option_entry and the count at *count
  */
-int BubbleSortGameList_Compare(struct game_entry a, struct game_entry b)
+int QSortGameList_Compare(const void* a, const void* b)
 {
-    //Set up vars
-    int al = strlen(a.name), bl = strlen(b.name);
-    int x = 0;
-    
-    //Do comparison
-    int smallmax = (al <= bl) ? al : bl;
-    for (x = 0; x < smallmax; x++)
-    {
-        char cA = a.name[x], cB = b.name[x];
-        if (cA >= 'A' && cA <= 'Z')
-            cA += 0x20;
-        if (cB >= 'A' && cB <= 'Z')
-            cB += 0x20;
-        
-        if (cA > cB)
-            return 1;
-        else if (cA < cB)
-            return 0;
-    }
-    
-    if (al > bl)
-        return 1;
-    
-    return 0;
+    return strcasecmp(((struct game_entry*) a)->name, ((struct game_entry*) b)->name);
 }
 
 /*
@@ -1012,27 +957,54 @@ int BubbleSortGameList_Compare(struct game_entry a, struct game_entry b)
  *	count:			Number of games in games
  * Return:			void
  */
-void BubbleSortGameList(struct game_entry * games, int count)
+void QSortGameList(struct game_entry * games, int count)
+{
+    qsort(games, count, sizeof(struct game_entry), &QSortGameList_Compare);
+}
+
+int FilterGameList_Compare(struct game_entry *game, char ** titleids, int count)
+{
+    for (int i = 0; i < count; i++)
+    {
+        if (!titleids[i])
+            continue;
+
+        if (game->title_id && (strncmp(game->title_id, titleids[i], 9) == 0))
+            return 0;
+
+        if (game->name && strstr(game->name, titleids[i]))
+            return 0;
+
+    }
+    return 1;
+}
+
+int FilterInstalledGameList(struct game_entry * games, int count, char ** installed_titleids, int installed_count)
 {
     //Allocate so we don't use the stack
     struct game_entry * swap = (struct game_entry *)malloc(sizeof(struct game_entry) * 1);
-    int c = 0, d = 0;
+    int b = 0, t = 0, i;
     
     //Bubble sort
-    for (c = 0; c < (count-1); c++)
+    for (b = (count-1); b > t; b--)
     {
-        for (d = 0 ; d < (count - c - 1); d++)
-        {
-            if (BubbleSortGameList_Compare(games[d], games[d+1]))
+        if (!FilterGameList_Compare(&games[b], installed_titleids, installed_count))
+            for (i = t; i < b; i++)
             {
-                swap[0]       = games[d];
-                games[d]   = games[d+1];
-                games[d+1] = swap[0];
+                if (FilterGameList_Compare(&games[i], installed_titleids, installed_count))
+                {
+                    swap[0]  = games[b];
+                    games[b] = games[i];
+                    games[i] = swap[0];
+
+                    t = i+1;
+                    break;
+                }
             }
-        }
     }
-    
+
     free (swap);
+    return(b);
 }
 
 /*
@@ -1047,10 +1019,10 @@ void BubbleSortGameList(struct game_entry * games, int count)
 struct game_entry * ReadUserList(int * gmc)
 {
     char * userPath;
-    if (dir_exists(USERLIST_PATH) == SUCCESS)
-        userPath = (char*)USERLIST_PATH;
+    if (dir_exists(USERLIST_PATH_USB) == SUCCESS)
+        userPath = (char*)USERLIST_PATH_USB;
     else
-        userPath = (char*)USERLIST_PATH2;
+        userPath = (char*)USERLIST_PATH_HDD;
     
     int game_count = getDirListSize(userPath);
     if (!game_count)
@@ -1072,12 +1044,12 @@ struct game_entry * ReadUserList(int * gmc)
         {
             if (strcmp(dir->d_name, ".") != 0 && strcmp(dir->d_name, "..") != 0)
             {
-                sprintf(fullPath, "%s%s", userPath, dir->d_name);
+                snprintf(fullPath, sizeof(fullPath)-1, "%s%s", userPath, dir->d_name);
                 if (file_exists(fullPath) == SUCCESS && EndsWith(dir->d_name, ".ncl"))
                 {
-                    int ccnt[1];
+                    int ccnt[1] = {0};
                     
-                    printf("ReadUserList() :: Reading %s...\t", dir->d_name);
+                    LOG("ReadUserList() :: Reading %s...", dir->d_name);
                     
                     //ret[cur_count].codes = ReadNCL(fullPath, (int *)ccnt);
 					ret[cur_count].codes = NULL;
@@ -1090,7 +1062,7 @@ struct game_entry * ReadUserList(int * gmc)
 					ret[cur_count].title_id = NULL;
 					parseVTID(&ret[cur_count]);
                     
-                    printf("Successfully read %d codes\n", ret[cur_count].code_count);
+                    //printf("Successfully read %d codes\n", ret[cur_count].code_count);
                     
                     cur_count++;
                 }
@@ -1100,6 +1072,100 @@ struct game_entry * ReadUserList(int * gmc)
         closedir(d);
     }
     
+    return ret;
+}
+
+/*
+ * Function:		ReadOnlineList()
+ * File:			codes.c
+ * Project:			ArtemisPS3-GUI
+ * Description:		Downloads the entire gamelist file into a game_entry array
+ * Arguments:
+ *	gmc:			Set as the number of games read
+ * Return:			Pointer to array of game_entry, null if failed
+ */
+struct game_entry * ReadOnlineList(int * gmc)
+{
+    const char* path = ONLINE_LOCAL_CACHE "games.txt";
+
+	if (isExist(path))
+	{
+		struct stat stats;
+		stat(path, &stats);
+		// re-download if file is +1 day old
+		if ((stats.st_mtime + ONLINE_CACHE_TIMEOUT) < time(NULL))
+			http_download(ONLINE_URL, "games.txt", path, 0);
+	}
+	else
+	{
+		if (!http_download(ONLINE_URL, "games.txt", path, 0))
+			return NULL;
+	}
+	
+	long fsize = getFileSize(path);
+	char *data = readFile(path);
+	
+	char *ptr = data;
+	char *end = data + fsize + 1;
+
+    int game_count = 0;
+
+    while (ptr < end && *ptr)
+    {
+    	if (*ptr == '\n')
+    	{
+    		game_count++;
+    	}
+    	ptr++;
+	}
+    
+    if (!game_count)
+        return NULL;
+    struct game_entry * ret = (struct game_entry *)malloc(sizeof(struct game_entry) * game_count);
+    *gmc = game_count;
+
+    int cur_count = 0;    
+    ptr = data;
+    
+    while (ptr < end && *ptr && cur_count < game_count)
+    {
+    	char* content = ptr;
+
+        while (ptr < end && *ptr != '\n' && *ptr != '\r')
+        {
+        	ptr++;
+        }
+        *ptr++ = 0;
+
+        int ccnt[1] = {0};
+
+//        printf("ReadUserList() :: Reading %s...", content);
+
+		ret[cur_count].codes = NULL;
+//			ret[cur_count].path = content;
+		ret[cur_count].path = malloc(strlen(content) + 1);
+		strcpy(ret[cur_count].path, content);
+        ret[cur_count].code_count = *ccnt;
+        ret[cur_count].name = stripExt(content);
+        ret[cur_count].code_sorted = 0;
+		ret[cur_count].version = NULL;
+		ret[cur_count].title_id = NULL;
+		parseVTID(&ret[cur_count]);
+
+        cur_count++;
+
+        if (ptr < end && *ptr == '\r')
+        {
+            ptr++;
+        }
+        if (ptr < end && *ptr == '\n')
+        {
+            ptr++;
+        }
+    }
+
+	if (data) free(data);
+
     return ret;
 }
 
@@ -1281,14 +1347,13 @@ char *replace_str_id(char *str, char *orig, char *rep)
     if (!str || !orig || !rep)
         return str;
         
-    printf("replace_str_id()\n");
+    LOG("replace_str_id()");
     
     char *p;
     int index = 0, len = strlen(str), pass = 0, count = replace_str_count(str, orig);
     if (count <= 0)
         return str;
-    char * buffer = malloc((len + 1) + ((strlen(rep) - strlen(orig)) * count));
-    memset(buffer, 0, sizeof(buffer));
+    char * buffer = calloc(1, (len + 1) + ((strlen(rep) - strlen(orig)) * count));
     strcpy(buffer, str);
     free (str);
     
@@ -1532,8 +1597,7 @@ void AppendCode(char * buffer, struct code_entry code)
  */
 char * ParseActivatedGameList(struct game_entry * list, int count)
 {
-    char * ret = (char *)malloc(5000); //Max
-    memset(ret, 0, sizeof(ret));
+    char * ret = (char *)calloc(1, 5000); //Max
     
     if (list)
     {

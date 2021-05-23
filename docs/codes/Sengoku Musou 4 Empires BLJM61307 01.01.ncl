@@ -1,0 +1,29 @@
+Hit From Anywhere
+0
+xtatu
+0 000E2B90 4E800020
+#
+Invincible
+0
+xtatu
+0 00124570 60000000
+#
+Infinite Health
+0
+xtatu
+0 0006EB70 80830030
+0 0006EB74 90830034
+0 0006EB7c 7C8307B4
+#
+Infinite Musou
+0
+xtatu
+0 00061254 C3E30038
+0 0006125c D3E3003C
+#
+Damage Modifier
+0
+xtatu
+0 00074204 Z
+[Z]3F800000=Probably default;41200000=10;42C80000=100;447A0000=1,000[/Z]
+#

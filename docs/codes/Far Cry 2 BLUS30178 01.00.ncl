@@ -1,0 +1,112 @@
+Health Never Decreases (Except From Drowning)
+0
+bungholio
+0 00BBA5C0 EC01682A
+0 00C14610 60000000
+0 00C148CC EFFEF82A
+#
+9999 Diamonds Upon Gain Or Buying
+0
+bungholio
+0 00B89C58 3800270F
+0 00B89E14 3800270F
+#
+Weapons Never Break
+0
+bungholio
+0 00798EF8 60000000
+#
+Weapons Never Jam
+0
+bungholio
+0 007B7E44 60000000
+#
+Instantly Fully Repair Vehicles
+0
+bungholio
+0 0079B63C 60000000
+#
+Damaging Vehicles Gives Them Black Smoke
+0
+bungholio
+0 0079B5F4 4800000C
+#
+Loaded Ammo Does Not Decrease
+0
+bungholio
+0 0079C8E4 60000000
+#
+Grenades + Molotovs Do Not Decrease
+0
+bungholio
+0 00580A9C 60000000
+#
+Syringes + Reserve Ammo Do Not Decrease
+0
+bungholio
+0 006165DC 60000000
+#
+Vehicles Can Not Be Damaged
+0
+bungholio
+0 0079B4B8 60000000
+0 0079B5F0 60000000
+#
+AoB weapons Never Break
+0
+Stinger101
+B 00010000 04000000
+B FF8D6000D1AB000C FF8D600060000000
+#
+AoB Weapons never jam
+0
+stinger101
+B 00010000 04000000
+B 7C601B78901F001C 7C601B7860000000
+#
+AoB instantly repair vehicles
+0
+stinger101
+B 00010000 04000000
+B D0030074419C0030 D003007460000000
+#
+AoB loaded ammo doesnt decrease + inf grenades/molotovs
+0
+stinger101
+B 00010000 04000000
+B 7C8307B491690020 7C8307B460000000
+B 00010000 04000000
+B 4C9E0020912B007C 4C9E002060000000
+#
+AoB Syringes and reserve ammo dont decrease
+0
+stinger101
+B 00010000 04000000
+B 38210090915F0014 3821009060000000
+#
+AoB Instant health regen
+0
+stinger101
+B 00010000 04000000
+B D3F6006C 60000000
+#
+AoB fire+explosives increase health
+0
+stinger101
+B 00010000 04000000
+B EFFEF828807E0040 EFFEF82A807E0040
+B 00010000 04000000
+B C1A300B4EC016828 C1A300B4EC01682A
+#
+AoB buy anything from vendors pc get 9999 diamonds
+0
+stinger101
+B 00010000 04000000
+B 7FC9F3787C090050 7FC9F3783800270F
+#
+AoB Earn or Find diamonds get 9999
+0
+stinger101
+B 00010000 04000000
+B 382100B07C00DA14 382100B03800270F
+#

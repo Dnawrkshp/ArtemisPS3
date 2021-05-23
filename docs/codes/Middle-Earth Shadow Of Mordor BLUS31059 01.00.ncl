@@ -1,0 +1,165 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+Firebird_C.Self
+*/
+#
+Max And Infinite Health
+0
+FBML
+0 00461030 C03E00D4
+0 00461034 D03E00D8
+0 00461038 80610074
+0 0046103C FC20081E
+0 00461040 E8410028
+0 00461044 83830000
+0 00461048 D8210018
+0 0046104C 80A1001C
+0 00461050 839C001C
+0 00461054 7CA50734
+0 00461058 48000008
+#
+Max And Infinite Health For Caragor
+0
+FBML
+0 0041B8FC C02400D4
+0 0041B900 D02400D8
+#
+Max And Infinite Focus
+0
+FBML
+0 0042C9FC 60000000
+#
+Max And Infinite Elf-Shot
+0
+FBML
+0 0042CFA8 48000008
+#
+Max And Infinite Mirian Coins After Gain Or Spend
+0
+FBML
+0 00761CA8 3BE0270F
+0 0076266C 3BE0270F
+#
+Hit Streak Always Charged
+0
+FBML
+0 0042F694 38600008
+0 0042F698 B07F0082
+0 0042F69C A09F0082
+/*
+Obtain the power to
+activate the code.
+
+It does infinite
+execution, wraith flash,
+combat drain, wraith
+burn, and fire arrow.
+*/
+#
+Weapon Powers Are Always Charged
+0
+FBML
+0 00760314 60000000
+/*
+Only use the code after
+obtaining the powers or it
+will cause you problem.
+
+It gives max and infinite
+Storm Of Urfael, Flame Of
+Azkard, and Shadow Of
+Acharn.
+*/
+#
+Max Ability Points On Gain
+0
+FBML
+0 004060E8 7C641B78
+#
+Max Power Points On Gain And Unlock All Tiers
+0
+FBML
+0 004034A0 7C671B78
+0 004034AC 7CC53378
+0 004034B0 90BE02F4
+0 004034B8 7CE63B78
+#
+AoB Max And Infinite Health
+0
+FBML
+B 00010000 04000000
+B C03E00D880610074FC20081EE841002883830000D821001880A1001C839C001C7CA507342C05000040800008 C03E00D4D03E00D880610074FC20081EE841002883830000D821001880A1001C839C001C7CA5073448000008
+#
+AoB Max And Infinite Health For Caragor
+0
+FBML
+B 00010000 04000000
+B 41820014C02400D8 C02400D4D02400D8
+#
+AoB Max And Infinite Focus
+0
+FBML & dron_3
+B 00010000 04000000
+B 4186001863630000FC201090 6000000063630000FC201090
+#
+AoB Max And Infinite Elf-Shot
+0
+FBML
+B 00010000 04000000
+B 4181000860E8000060A40000 4800000860E8000060A40000
+#
+AoB Max And Infinite Mirian Coins After Gain Or Spend
+0
+FBML
+B 00010000 04000000
+B 7FFEF810A1070006 3BE0270FA1070006
+B 00010000 04000000
+B 7FE3B8147BFF002048000030 3BE0270F7BFF002048000030
+#
+AoB Hit Streak Always Charged
+0
+FBML
+B 00010000 04000000
+B A07F00827C6307347C041800 38600008B07F0082A09F0082
+/*
+Obtain the power to
+activate the code.
+
+It does infinite
+execution, wraith flash,
+combat drain, wraith
+burn, and fire arrow.
+*/
+#
+AoB Weapon Powers Are Always Charged
+0
+FBML
+B 00010000 04000000
+B 4182001080A40000 6000000080A40000
+/*
+Only use the code after
+obtaining the powers or it
+will cause you problem.
+
+It gives max and infinite
+Storm Of Urfael, Flame Of
+Azkard, and Shadow Of
+Acharn.
+*/
+#
+AoB Max Ability Points On Gain
+0
+FBML
+B 00010000 04000000
+B 7C8320102C04000041800034 7C641B782C04000041800034
+#
+AoB Max Power Points On Gain And Unlock All Tiers
+0
+FBML
+B 00010000 04000000
+B 80FE02F87C6718102C030000408100089061009C60C300007CC7E014 7C671B787C6718102C0300007CC5337890BE02F460C300007CE63B78
+#

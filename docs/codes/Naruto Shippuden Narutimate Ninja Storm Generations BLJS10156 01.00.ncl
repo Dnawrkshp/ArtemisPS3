@@ -1,0 +1,18 @@
+Alternative Names
+0
+PARAM.SFO
+/*
+Naruto Shippuden Ultimate Storm Generation
+*/
+#
+Infinite Money
+0
+Medo
+0 00452B2C 40990034
+#
+AoB Infinite Money
+0
+Medo
+B 00010000 04000000
+B 7F00580090091C68419C005441990034 7F00580090091C68419C005440990034
+#

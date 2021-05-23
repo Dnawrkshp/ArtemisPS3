@@ -1,0 +1,20 @@
+File Info
+0
+Eboot.Elf
+/*
+Decrypt this file instead.
+
+RC2.ppu.self
+*/
+#
+1P Infinite Health
+0
+xtatu
+0 00026EAC 408100F8
+#
+AoB 1P Infinite Health
+0
+xtatu
+B 00010000 04000000
+B 418100F8C0AB0000FC802890FC602090FC011800 408100F8C0AB0000FC802890FC602090FC011800
+#

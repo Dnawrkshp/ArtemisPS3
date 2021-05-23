@@ -1,0 +1,100 @@
+File Info
+0
+bungholio
+/*
+Both BLES eboots are
+nearly identical, just
+some stuff outside of
+actual code is slightly
+different.
+*/
+#
+ASM Lot Of Money On Gain
+0
+jgduff1
+0 0018C5D0 7C001214
+0 0018C5D8 92F904D0
+#
+ASM Reserve Ammo + Ammo In Clip Never Decrease
+0
+jgduff1
+0 0066BFD4 380B0000
+0 0066BFDC 60000000
+0 0066BFE4 39290000
+0 0066BFF4 60000000
+#
+ASM Stars Never Increase
+0
+jgduff1
+0 0022B824 Z /*Ballad Of Gay Tony + The Lost & Damned*/
+0 0022B864 Z /*Ballad Of Gay Tony + The Lost & Damned*/
+0 0022B8F4 Z /*Ballad Of Gay Tony + The Lost & Damned*/
+0 0022B954 Z /*Ballad Of Gay Tony + The Lost & Damned*/
+0 0022B980 Z /*GTA IV Original*/
+0 0022BA14 Z /*Ballad Of Gay Tony + The Lost & Damned*/
+[Z]60000000=On;917F0068=Off[/Z]
+/*
+Deactivate if the mission
+needs police pursuit.
+*/
+#
+Max Money
+0
+Hiei-YYH
+0 00404794 60000000
+0 004047A8 60000000
+#
+Infinite HP + Armour + No Wanted Level
+0
+Hiei-YYH
+0 00D213A8 8BBC0211
+0 00D213AC 2C1D0000
+0 00D213B0 41820020
+0 00D213B4 3FA043FA
+0 00D213B8 93BC01E4
+0 00D213BC 93BC09D8
+0 00D213C0 C01C01E4
+0 00D213C4 3BA00000
+0 00D213C8 817C0220
+0 00D213CC 93AB00D8
+0 00D213D0 4818D2DE
+0 0018D2D8 48D213AA
+#
+Invincibility
+0
+xtatu
+0 0066A950 419EFF40
+#
+No Police
+0
+xtatu
+0 00EFE338 00000000
+#
+Car Speed Modifier
+0
+xtatu
+0 00136374 3C00Z
+[Z]3F80=Normal;3FA0=1.25x;3FC0=1.5x;3FE0=1.75x;4000=2x;4040=3x;4080=4x;40A0=5x;40C0=6x;40E0=7x;4100=8x;4110=9x;4120=10x[/Z]
+#
+Run Speed Modifier
+0
+xtatu
+0 002EA270 3C00Z
+[Z]3F80=Normal;3FA0=1.25x;3FC0=1.5x;3FE0=1.75x;4000=2x;4040=3x;4080=4x;40A0=5x;40C0=6x;40E0=7x;4100=8x;4110=9x;4120=10x[/Z]
+#
+1,000 Hit Kill Ammo
+0
+xtatu
+0 0066B728 3C00447A
+#
+Rapid Fire
+0
+xtatu
+0 0066C4B4 3D2042C8
+#
+AoB Invincibility
+0
+xtatu
+B 00010000 04000000
+B 409EFF404089034C812100A439E000003B600000827E8078 419EFF404089034C812100A439E000003B600000827E8078
+#
