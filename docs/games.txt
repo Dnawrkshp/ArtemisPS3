@@ -1167,6 +1167,7 @@ Max Payne 3 BLUS30557 01.00.ncl
 Max Payne 3 BLUS30557 01.09.ncl
 Medal Of Honor Airborn BLES 01.00.ncl
 Medal Of Honor BLAS50238 01.01.ncl
+Medal Of Honor BLES00860 01.00.ncl
 Medal Of Honor Frontline NPEB00308 01.00.ncl
 Medal Of Honor Frontline NPEB00308 v01.01 av01.00.ncl
 Medal Of Honor Frontline NPUB30288 v01.01 av01.00.ncl
