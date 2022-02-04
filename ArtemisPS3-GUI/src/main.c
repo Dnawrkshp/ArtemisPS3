@@ -54,9 +54,9 @@
 #include "comfortaa_regular_ttf.h"
 
 //Sound
+#include <soundlib/spu_soundlib.h>
+#include <soundlib/audioplayer.h>
 #include "spu_soundmodule_bin.h"
-#include "spu_soundlib.h"
-#include "audioplayer.h"
 #include "background_music_mp3.h"
 
 // SPU
