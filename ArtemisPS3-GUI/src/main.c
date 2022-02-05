@@ -102,7 +102,7 @@ void plugin_callback(int index, int sel);
 void vercheck_callback(int index, int sel);
 void clearcache_callback(int index, int sel);
 
-const char* plugin_opts[] = {"< Artemis r5 >", "< mod/Haxxxen >", NULL};
+const char* plugin_opts[] = {"< Artemis r5 >", "< mod/Haxxxen >", "< Joker Select >", NULL};
 
 const option menu_options_options[] = {
 	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
@@ -126,7 +126,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r6.2";              //Artemis PS3 version (about menu)
+const char * VERSION = "r6.3";              //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -984,8 +984,8 @@ void plugin_callback(int index, int sel)
 {
 	if (sel < 0)
 		sel = 0;
-	if (sel > 1)
-		sel = 1;
+	if (sel > 2)
+		sel = 2;
 		
 	char tmp[128];
     snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 5+sel);
