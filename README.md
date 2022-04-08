@@ -2,6 +2,7 @@
 An Open Source Playstation 3 Hacking System created under the [Project Artemis initiative](http://www.gamehacking.org/artemis)
 
 [![Downloads][img_downloads]][artemis_downloads] [![Release][img_latest]][artemis_latest] [![License][img_license]][app_license]
+[![Build package](https://github.com/bucanero/ArtemisPS3/actions/workflows/build.yml/badge.svg)](https://github.com/bucanero/ArtemisPS3/actions/workflows/build.yml)
 
 Notes
 -----------
