@@ -2224,6 +2224,10 @@ Tom Clancy's Rainbow Six Vegas 2 BLUS30125 01.30.ncl
 Tom Clancy's Rainbow Six Vegas BLES00054 01.00.ncl
 Tom Clancy's Splinter Cell BLES01146 BLUS30761 01.01.ncl
 Tom Clancy's Splinter Cell BLES01146 BLUS30761 v01.00 av01.01.ncl
+Tom Clancy's Splinter Cell Blacklist BLES01766 01.00.ncl
+Tom Clancy's Splinter Cell Blacklist BLES01879 01.00.ncl
+Tom Clancy's Splinter Cell Blacklist BLUS31025 01.00.ncl
+Tom Clancy's Splinter Cell Blacklist BLUS31025 BLES01879 BLES01766 01.03.ncl
 Tom Clancy's Splinter Cell Chaos Theory BLES01146 BLUS30761 01.01.ncl
 Tom Clancy's Splinter Cell Chaos Theory BLES01146 BLUS30761 v01.00 av01.01.ncl
 Tom Clancy's Splinter Cell Double Agent BLES00024 01.00.ncl
