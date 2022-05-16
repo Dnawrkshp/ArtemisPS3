@@ -102,7 +102,7 @@ void plugin_callback(int index, int sel);
 void vercheck_callback(int index, int sel);
 void clearcache_callback(int index, int sel);
 
-const char* plugin_opts[] = {"< Artemis r5 >", "< mod/Haxxxen >", "< Joker Select >", NULL};
+const char* plugin_opts[] = {"< webMAN MOD >", "< Artemis r5 >", "< mod/Haxxxen >", "< Joker Select >", NULL};
 
 const option menu_options_options[] = {
 	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
@@ -443,6 +443,10 @@ void SaveOptions()
 
 int isArtemisLoaded()
 {
+    //if user selects wMM skip the plugin check
+    if (!menu_options_selections[8])
+        return ARTEMIS_PLUGIN_LOADED;
+
     //Check if COBRA+PS3MAPI is installed
     if (has_cobra_mamba() && has_ps3mapi())
     {
@@ -982,17 +986,20 @@ void ani_callback(int index, int sel)
 
 void plugin_callback(int index, int sel)
 {
-	if (sel < 0)
-		sel = 0;
-	if (sel > 2)
-		sel = 2;
-		
-	char tmp[128];
-    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 5+sel);
+    if (sel < 0)
+        sel = 0;
+    if (sel > 3)
+        sel = 3;
+
+    menu_options_selections[index] = sel;
+    if (!sel)
+        return;
+
+    char tmp[128];
+    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 4+sel);
 
     sysLv2FsUnlink(ARTEMIS_PATH "artemis_ps3.sprx");
     sysLv2FsLink(tmp, ARTEMIS_PATH "artemis_ps3.sprx");
-	menu_options_selections[index] = sel;
 }
 
 void horm_callback(int index, int sel)
