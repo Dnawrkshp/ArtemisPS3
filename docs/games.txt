@@ -500,6 +500,7 @@ Diablo 3 BLES01921 01.01.ncl
 Diablo 3 BLES01921 01.02.ncl
 Diablo 3 BLUS31221 01.02.ncl
 Diablo 3 Reaper Of Souls BLUS31437 01.02.ncl
+Diablo 3 Reaper Of Souls BLUS31437 01.03.ncl
 Die Hüter Des Lichts BLES01760 v01.00 av01.00.ncl
 Dino Crisis 2 NPUJ01279.ncl
 Dino Crisis NPUJ00922.ncl
