@@ -527,6 +527,7 @@ Dishonored BLES01924 01.01.ncl
 Dishonored BLJM60520 01.02.ncl
 Dishonored BLUS30501 v01.00 av01.04.ncl
 Dishonored NPUB30888 v01.00 av01.00.ncl
+Dishonored NPUB30888 v01.04.ncl
 Disney Castle Of Illusion Starring Mickey Mouse NPEB01427 NPUB31099 v01.00 av01.00.ncl
 Disney Castle Of Illusion Starring Mickey Mouse NPUB31099 01.00.ncl
 Disney Ducktales Remastered NPEB01287 01.00.ncl
@@ -598,6 +599,7 @@ Dragon's Lair NPUB30217 v01.02 av01.02.ncl
 Drakengard 3 BLUS31197 01.01.ncl
 Drakengard 3 BLUS31197 NPUB31251 01.00.ncl
 Drakengard 3 BLUS31197 v01.01 av01.01.ncl
+Drakengard 3 BLUS31197 v1.01.ncl
 Dream C Club Complete Edipyon!.ncl
 Driver San Fransisco BLES00891 01.01.ncl
 Duke Nukem Forever BLES01147 01.01.ncl
@@ -888,6 +890,7 @@ Hitman Absolution BLES01403 01.00.ncl
 Hitman Absolution BLES01403 01.01.ncl
 Hitman Absolution BLES01641 01.00.ncl
 Hitman Absolution BLJM61003 01.00.ncl
+Hitman Absolution Complete Edition BLES01778 01.00.ncl
 Hitman Absolution NPEB00914 v01.01 av01.00.ncl
 Hitman Absolution NPUB30744 01.00.ncl
 Hitman Blood Money BLES01517 01.00.ncl
