@@ -62,7 +62,7 @@ int extract_zip(const char* zip_file, const char* dest_path)
 			zip_fclose(zfd);
             zip_close(archive);
 			end_progress_bar();
-            LOG("Error opening temporary file.");
+            LOG("Error opening temporary file. (%s)", path);
             return 0;
 		}
 

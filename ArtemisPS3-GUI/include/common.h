@@ -31,6 +31,6 @@ int Open_Log(char *file);
 
 int file_exists(const char *path);
 int dir_exists(const char *path);
-int unlink_secure(void *path);
+int unlink_secure(const char *path);
 
 #endif
