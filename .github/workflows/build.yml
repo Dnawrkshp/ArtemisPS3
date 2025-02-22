@@ -8,7 +8,7 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 1
 
@@ -49,10 +49,8 @@ jobs:
         make pkg
 
     - name: Push package artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: artemis-ps3-build_${{ steps.slug.outputs.sha8 }}
         path: ${{ env.pkg_file }}
         if-no-files-found: error
-        # don't keep artifacts for too long
-        retention-days: 7
