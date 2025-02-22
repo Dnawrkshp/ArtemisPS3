@@ -310,13 +310,13 @@ selected.
 
 They go in this order:
 
-0046 = Android #16
-0047 = Android #16
-004B = Android #17
-004C = Android #17
-0050 = Android #18
-0051 = Android #18
-0052 = Android #18
+0046 = Android N.16
+0047 = Android N.16
+004B = Android N.17
+004C = Android N.17
+0050 = Android N.18
+0051 = Android N.18
+0052 = Android N.18
 0056 = Omega Shenron
 0057 = Omega Shenron
 005B = Dr. Gero

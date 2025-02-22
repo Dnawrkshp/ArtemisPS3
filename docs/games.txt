@@ -1658,8 +1658,8 @@ Resident Evil Operation Raccoon City BLES01288 01.03.ncl
 Resident Evil Operation Raccoon City BLES01288 BLUS30750 v01.01 av01.03 tv01.02.ncl
 Resident Evil Operation Raccoon City BLES01288 v01.01 av01.00 BLUS30750 v01.00 av01.00.ncl
 Resident Evil Operation Raccoon City BLUS30750 01.00.ncl
+Resident Evil Remaster BLJM61211 01.00.ncl
 Resident Evil Remaster NPEB02076 NPJB00653 NPUB31552 v01.00 av01.00.ncl
-Resident Evil Remaster NPUB31552 01.00.ncl
 Resident Evil Revelations 01.00.ncl
 Resident Evil Revelations 2 BLUS31444 01.03.ncl
 Resident Evil Revelations 2 BLUS31444 NPUB31518 01.03.ncl

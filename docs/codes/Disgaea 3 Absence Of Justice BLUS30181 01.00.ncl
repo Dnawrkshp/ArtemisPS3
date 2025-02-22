@@ -958,7 +958,7 @@ Evilities
 0083 = Dark Blood = Stats increased by 5% per monster unit on map.
 0084 = Furious Rage = ATK increased every time a normal attack is received.
 0085 = Hello Throws = Stats increased by number of times thrown x 10%. (within turn)
-0086 = Overdrivenus = ATK increased by # of criticals occurred x 10%.
+0086 = Overdrivenus = ATK increased by N. of criticals occurred x 10%.
 0087 = Heavy Stance = Cannot be lifted, but stats increase by 20%.
 
 008D = Wide Vienus = ATK increased by 20% only if distance is kept from enemy.
@@ -1089,7 +1089,7 @@ Evilities
 014C = Fury = Number of counter hits x 25% damage increase. (within turn)
 014D = Hurt Me, Kill Yo = Counter attacks will always hit.
 014E = Counter Chance = Crit rate increased by 50% for counter attacks.
-014F = Assault Attack = Damage increased by # of moved panels x 10%. (within turn)
+014F = Assault Attack = Damage increased by N. of moved panels x 10%. (within turn)
 0150 = Assault Charge = Crit rate increased by panels moved x 10%. (within turn)
 0151 = Accel Shot = Attack power increased by range (panels) x 5%.
 0152 = Positional Energy = Attack power increased by 30% to targets at a lower height.
@@ -1217,7 +1217,7 @@ Evilities
 01DC = Unit Price, 1 Ce = Healing cost at Nurse's Office becomes 1 HL.
 01DD = Block, Drop, Heal = Amount of damage from the Geo Block fall recovers HP.
 
-01E1 = Restrained ATK U = Limits # of learnable skills, but skill attack power + 100%.
+01E1 = Restrained ATK U = Limits N. of learnable skills, but skill attack power + 100%.
 
 01EB = HP Growth Spurt = HP growth at Level Up increased by 10.
 01EC = SP Growth Sp = SP growth at Level Up increased by 10.
@@ -2631,7 +2631,7 @@ Evilities
 0083 = Dark Blood = Stats increased by 5% per monster unit on map.
 0084 = Furious Rage = ATK increased every time a normal attack is received.
 0085 = Hello Throws = Stats increased by number of times thrown x 10%. (within turn)
-0086 = Overdrivenus = ATK increased by # of criticals occurred x 10%.
+0086 = Overdrivenus = ATK increased by N. of criticals occurred x 10%.
 0087 = Heavy Stance = Cannot be lifted, but stats increase by 20%.
 
 008D = Wide Vienus = ATK increased by 20% only if distance is kept from enemy.
@@ -2762,7 +2762,7 @@ Evilities
 014C = Fury = Number of counter hits x 25% damage increase. (within turn)
 014D = Hurt Me, Kill Yo = Counter attacks will always hit.
 014E = Counter Chance = Crit rate increased by 50% for counter attacks.
-014F = Assault Attack = Damage increased by # of moved panels x 10%. (within turn)
+014F = Assault Attack = Damage increased by N. of moved panels x 10%. (within turn)
 0150 = Assault Charge = Crit rate increased by panels moved x 10%. (within turn)
 0151 = Accel Shot = Attack power increased by range (panels) x 5%.
 0152 = Positional Energy = Attack power increased by 30% to targets at a lower height.
@@ -2890,7 +2890,7 @@ Evilities
 01DC = Unit Price, 1 Ce = Healing cost at Nurse's Office becomes 1 HL.
 01DD = Block, Drop, Heal = Amount of damage from the Geo Block fall recovers HP.
 
-01E1 = Restrained ATK U = Limits # of learnable skills, but skill attack power + 100%.
+01E1 = Restrained ATK U = Limits N. of learnable skills, but skill attack power + 100%.
 
 01EB = HP Growth Spurt = HP growth at Level Up increased by 10.
 01EC = SP Growth Sp = SP growth at Level Up increased by 10.
