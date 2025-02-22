@@ -12,7 +12,7 @@
 
 #define MENU_OPTION_OFF         700
 
-void Draw_OptionsMenu_Ani()
+void Draw_OptionsMenu_Ani(void)
 {
     int c = 0, w = 0, h = 0;
 	char ARTEMIS_OPTION_INC_TEMP[24];
@@ -41,7 +41,7 @@ void Draw_OptionsMenu_Ani()
         if (game_a > 0)
         {
             SetFontSize(14, 16);
-            int ind = 0, y_off = 120;
+            int ind = 0, y_off = 100;
 			SetCurrentFont(font_comfortaa_regular);
             while (menu_options_options[ind].name)
             {
@@ -63,7 +63,7 @@ void Draw_OptionsMenu_Ani()
 						break;
 					case ARTEMIS_OPTION_LIST:
 						SetFontAlign(3);
-						DrawString(MENU_OPTION_OFF - 18, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
+						DrawFormatString(MENU_OPTION_OFF, y_off, "<  %s  >", menu_options_options[ind].options[menu_options_selections[ind]]);
 						SetFontAlign(0);
 						break;
 					case ARTEMIS_OPTION_INC:
@@ -80,7 +80,7 @@ void Draw_OptionsMenu_Ani()
 						DrawTexture(menu_textures[mark_line_png_index], i, y_off, 0, menu_textures[mark_line_png_index].texture.width, menu_textures[mark_line_png_index].texture.height, 0xFFFFFF00 | game_a);
                 }
                 
-                y_off += 20;
+                y_off += 30;
                 ind++;
             }
         }
@@ -92,7 +92,7 @@ void Draw_OptionsMenu_Ani()
     }
 }
 
-void Draw_OptionsMenu()
+void Draw_OptionsMenu(void)
 {
 	int c = 0, w = 0, h = 0;
 	char ARTEMIS_OPTION_INC_TEMP[24];
@@ -101,7 +101,7 @@ void Draw_OptionsMenu()
     
     
     SetFontSize(14, 16);
-    int ind = 0, y_off = 120;
+    int ind = 0, y_off = 100;
 	SetCurrentFont(font_comfortaa_regular);
     while (menu_options_options[ind].name)
     {
@@ -122,7 +122,7 @@ void Draw_OptionsMenu()
 				break;
 			case ARTEMIS_OPTION_LIST:
 				SetFontAlign(3);
-				DrawString(MENU_OPTION_OFF - 18, y_off, menu_options_options[ind].options[menu_options_selections[ind]]);
+				DrawFormatString(MENU_OPTION_OFF, y_off, "<  %s  >", menu_options_options[ind].options[menu_options_selections[ind]]);
 				SetFontAlign(0);
 				break;
 			case ARTEMIS_OPTION_INC:
@@ -139,9 +139,7 @@ void Draw_OptionsMenu()
 				DrawTexture(menu_textures[mark_line_png_index], i, y_off, 0, menu_textures[mark_line_png_index].texture.width, menu_textures[mark_line_png_index].texture.height, 0xFFFFFFFF);
         }
         
-        //printf ("aa %d\n", menu_options_selections[ind]);
-        
-        y_off += 20;
+        y_off += 30;
         ind++;
     }
 }

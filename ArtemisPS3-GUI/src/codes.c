@@ -1,6 +1,3 @@
-#include "codes.h"
-#include "common.h"
-
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
@@ -11,9 +8,10 @@
 #include <sysutil/video.h>
 #include <time.h>
 #include <dirent.h> 
-
 #include <sys/stat.h>
 
+#include "codes.h"
+#include "common.h"
 
 /*
  * Function:		parseVTID_ParseTitleID()
@@ -402,7 +400,7 @@ char * readFile(const char * path)
     fread(string, fsize, 1, f);
     fclose(f);
 
-    //string[fsize] = 0;
+    string[fsize] = 0;
     return string;
 }
 
@@ -909,6 +907,9 @@ void UnloadGameList(struct game_entry * list, int count)
  */
 int QSortCodeList_Compare(const void* a, const void* b)
 {
+    if (((struct code_entry*) a)->name == NULL || ((struct code_entry*) b)->name == NULL)
+        return 0;
+
     return strcasecmp(((struct code_entry*) a)->name, ((struct code_entry*) b)->name);
 }
 
@@ -944,6 +945,9 @@ struct game_entry QSortCodeList(struct game_entry game)
  */
 int QSortGameList_Compare(const void* a, const void* b)
 {
+    if (((struct game_entry*) a)->name == NULL || ((struct game_entry*) b)->name == NULL)
+        return 0;
+
     return strcasecmp(((struct game_entry*) a)->name, ((struct game_entry*) b)->name);
 }
 

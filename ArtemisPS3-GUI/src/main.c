@@ -102,7 +102,8 @@ void plugin_callback(int index, int sel);
 void vercheck_callback(int index, int sel);
 void clearcache_callback(int index, int sel);
 
-const char* plugin_opts[] = {"< webMAN MOD >", "< Artemis r5 >", "< mod/Haxxxen >", "< Joker Select >", NULL};
+const char* plugin_opts[] = {"webMAN MOD", "Artemis r5", "Joker Select", NULL};
+const char* plugin_name[] = {"", "r5", "joker"};
 
 const option menu_options_options[] = {
 	{ .name = "Background Music", .options = NULL, .type = ARTEMIS_OPTION_BOOL, .callback = music_callback },
@@ -126,7 +127,7 @@ int menu_options_maxopt = 0;
 int * menu_options_maxsel;
 int * menu_options_selections;
 
-const char * VERSION = "r6.3";              //Artemis PS3 version (about menu)
+const char * VERSION = "r6.4";              //Artemis PS3 version (about menu)
 const int MENU_TITLE_OFF = 30;              //Offset of menu title text from menu mini icon
 const int MENU_ICON_OFF = 70;               //X Offset to start printing menu mini icon
 const int MENU_ANI_MAX = 0x80;              //Max animation number
@@ -223,7 +224,7 @@ int option_index = 0;
 int screen_width;
 int screen_height;
 
-void release_all() {
+void release_all(void) {
     
     if(inited & INITED_CALLBACK)
         sysUtilUnregisterCallback(SYSUTIL_EVENT_SLOT0);
@@ -296,7 +297,7 @@ char ** LoadGames_ReadDirectory(char * path, const char * param, int * ret_count
 	return files;
 }
 
-void LoadGames()
+void LoadGames(void)
 {
 	int id_count[4];
 	char ** id_path[4];
@@ -389,7 +390,7 @@ char * ParseOptionName(char * buffer, char * ret)
     return ret;
 }
 
-void LoadOptions()
+void LoadOptions(void)
 {
     int fsize = getFileSize(options_path);
     if (fsize > 0)
@@ -425,7 +426,7 @@ void LoadOptions()
     }
 }
 
-void SaveOptions()
+void SaveOptions(void)
 {
     FILE * fp = fopen(options_path, "w");
     if(fp == NULL)
@@ -441,7 +442,7 @@ void SaveOptions()
     fclose(fp);
 }
 
-int isArtemisLoaded()
+int isArtemisLoaded(void)
 {
     //if user selects wMM skip the plugin check
     if (!menu_options_selections[8])
@@ -636,7 +637,7 @@ int readPad(int port)
     return 1;
 }
 
-void Draw_MainMenu_Ani()
+void Draw_MainMenu_Ani(void)
 {
     int w = 0, h = 0;
     
@@ -749,7 +750,7 @@ void Draw_MainMenu_Ani()
     highlight_alpha = 32;
 }
 
-void Draw_MainMenu()
+void Draw_MainMenu(void)
 {
     int c = bgimg_png_index, w = 0, h = 0;
     
@@ -817,7 +818,7 @@ void Draw_MainMenu()
 }
 
 // Used only in initialization. Allocates 64 mb for textures and loads the font
-void LoadTexture()
+void LoadTexture(void)
 {
     texture_mem = tiny3d_AllocTexture(64*1024*1024); // alloc 64MB of space for textures (this pointer can be global)
     
@@ -880,7 +881,7 @@ void LoadTexture()
     load_menu_texture(titlescr_logo, png);
 }
 
-void LoadTextures_Menu()
+void LoadTextures_Menu(void)
 {
 	u32 * texture_pointer; // use to assign texture space without changes texture_mem
 
@@ -913,7 +914,8 @@ short *background_music = NULL;
 int background_music_size = 48000*72*4; // initial size of buffer to decode (for 48000 samples x 72 seconds and 16 bit stereo as reference)
 int effect_freq;
 int effect_is_stereo;
-void LoadSounds()
+
+void LoadSounds(void)
 {
     //Initialize SPU
     u32 entry = 0;
@@ -939,9 +941,6 @@ void LoadSounds()
         inited |= INITED_SOUNDLIB;
     
     background_music   = (short *) malloc(background_music_size);
-
-
-    //printf("Decoding Effect\n");
 
     // decode the mp3 effect file included to memory. It stops by EOF or when samples exceed size_effects_samples
     DecodeAudio( (void *) background_music_mp3, background_music_mp3_size, background_music, &background_music_size, &effect_freq, &effect_is_stereo);
@@ -988,15 +987,15 @@ void plugin_callback(int index, int sel)
 {
     if (sel < 0)
         sel = 0;
-    if (sel > 3)
-        sel = 3;
+    if (sel > 2)
+        sel = 2;
 
     menu_options_selections[index] = sel;
     if (!sel)
         return;
 
     char tmp[128];
-    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_r%d.sprx", 4+sel);
+    snprintf(tmp, sizeof(tmp), ARTEMIS_PATH "artemis_%s.sprx", plugin_name[sel]);
 
     sysLv2FsUnlink(ARTEMIS_PATH "artemis_ps3.sprx");
     sysLv2FsLink(tmp, ARTEMIS_PATH "artemis_ps3.sprx");
@@ -1022,7 +1021,7 @@ void verm_callback(int index, int sel)
 	menu_options_selections[index] = sel;
 }
 
-void _unzip_cheat_db()
+void _unzip_cheat_db(void)
 {
 	if (extract_zip(ONLINE_LOCAL_CACHE "cheatdb.zip", USERLIST_PATH_HDD))
 		show_dialog(0, "Successfully installed local cheat database");
@@ -1144,7 +1143,7 @@ void clearcache_callback(int index, int sel)
 	show_dialog(0, "Successfully cleaned local cache folder");
 }
 
-void ReloadUserCheats()
+void ReloadUserCheats(void)
 {
     init_loading_screen("Loading cheats...");
 
@@ -1164,7 +1163,7 @@ void ReloadUserCheats()
     stop_loading_screen();
 }
 
-void ReloadOnlineCheats()
+void ReloadOnlineCheats(void)
 {
     init_loading_screen("Loading online cheats...");
 
@@ -1184,7 +1183,7 @@ void ReloadOnlineCheats()
     stop_loading_screen();
 }
 
-void FilterUserGames()
+void FilterUserGames(void)
 {
     if (filter_user_count)
     {
@@ -1205,7 +1204,7 @@ void FilterUserGames()
         QSortGameList(user_game_list, user_game_count);
 }
 
-void FilterOnlineGames()
+void FilterOnlineGames(void)
 {
     if (filter_online_count)
     {
@@ -1364,7 +1363,7 @@ void move_selection_fwd(int game_count, int steps)
 }
 
 // Resets new frame
-void drawScene()
+void drawScene(void)
 {   
     tiny3d_Project2D(); // change to 2D context (remember you it works with 848 x 512 as virtual coordinates)
     
@@ -1808,7 +1807,7 @@ void drawScene()
     }
 }
 
-void exiting()
+void exiting(void)
 {
 	http_end();
     sysModuleUnload(SYSMODULE_PNGDEC);
@@ -1871,9 +1870,9 @@ s32 main(s32 argc, const char* argv[])
     while (menu_options_options[menu_options_maxopt].name)
         menu_options_maxopt++;
     
-    int selSize = menu_options_maxopt * sizeof(int);
-    menu_options_maxsel = (int *)calloc(1, selSize);
-    menu_options_selections = (int *)calloc(1, selSize);
+    menu_options_maxsel = (int *)calloc(menu_options_maxopt, sizeof(int));
+    menu_options_selections = (int *)calloc(menu_options_maxopt, sizeof(int));    
+    menu_options_selections[8] = 1; // Set default plugin to Artemis r5
     
     int i = 0;
     for (i = 0; i < menu_options_maxopt; i++)
@@ -1897,6 +1896,10 @@ s32 main(s32 argc, const char* argv[])
     LOG("Resolution: %d by %d", res.width, res.height);
     screen_width = res.width;
     screen_height = res.height;
+
+    // Create directories
+    sysLv2FsMkdir(ONLINE_LOCAL_CACHE, 0777);
+    sysLv2FsMkdir(USERLIST_PATH_HDD, 0777);
     
     // Unpack cheat database on first run
     if (file_exists(ONLINE_LOCAL_CACHE "cheatdb.zip") == SUCCESS)
