@@ -1,6 +1,8 @@
+# This repo is no longer maintained
+Please refer to [bucanero's Artemis PS3](https://github.com/bucanero/ArtemisPS3) for an up-to-date version of Artemis PS3.
+
 # ArtemisPS3
 An Open Source Playstation 3 Hacking System created under the Project Artemis initiative (http://www.gamehacking.org/artemis)
-
 
 Note
 -----------
